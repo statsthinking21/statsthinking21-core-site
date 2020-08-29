@@ -706,11 +706,11 @@ Figure 15.5: F distributions under the null hypothesis, for different values of 
 <div id="the-paired-t-test-as-a-linear-model" class="section level3">
 <h3><span class="header-section-number">15.8.1</span> The paired t-test as a linear model</h3>
 <p>We can also define the paired t-test in terms of a general linear model. To do this, we include all of the measurements for each subject as data points (within a tidy data frame). We then include in the model a variable that codes for the identity of each individual (in this case, the ID variable that contains a subject ID for each person). This is known as a <em>mixed model</em>, since it includes effects of independent variables as well as effects of individuals. The standard model fitting procedure <code>lm()</code> can’t do this, but we can do it using the <code>lmer()</code> function from a popular R package called <em>lme4</em>, which is specialized for estimating mixed models. The <code>(1|ID)</code> in the formula tells <code>lmer()</code> to estimate a separate intercept (which is what the <code>1</code> refers to) for each value of the <code>ID</code> variable (i.e. for each individual in the dataset), and then estimate a common slope relating timepoint to BP.</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1"><span class="co"># compute mixed model for paired test</span></a>
-<a class="sourceLine" id="cb51-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb51-3" data-line-number="3">lmrResult &lt;-<span class="st"> </span><span class="kw">lmer</span>(BPsys <span class="op">~</span><span class="st"> </span>timepoint <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">|</span><span class="st"> </span>ID), </a>
-<a class="sourceLine" id="cb51-4" data-line-number="4">                  <span class="dt">data =</span> NHANES_sample_tidy)</a>
-<a class="sourceLine" id="cb51-5" data-line-number="5"><span class="kw">summary</span>(lmrResult)</a></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1"><span class="co"># compute mixed model for paired test</span></a>
+<a class="sourceLine" id="cb49-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb49-3" data-line-number="3">lmrResult &lt;-<span class="st"> </span><span class="kw">lmer</span>(BPsys <span class="op">~</span><span class="st"> </span>timepoint <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">|</span><span class="st"> </span>ID), </a>
+<a class="sourceLine" id="cb49-4" data-line-number="4">                  <span class="dt">data =</span> NHANES_sample_tidy)</a>
+<a class="sourceLine" id="cb49-5" data-line-number="5"><span class="kw">summary</span>(lmrResult)</a></code></pre></div>
 <pre><code>## Linear mixed model fit by REML. t-tests use Satterthwaite&#39;s method [
 ## lmerModLmerTest]
 ## Formula: BPsys ~ timepoint + (1 | ID)

@@ -495,16 +495,16 @@ Figure 8.1: Examples of random numbers generated from a uniform (left) or normal
 <p>You can also generate random numbers for any distribution if you have a <em>quantile</em> function for the distribution. This is the inverse of the cumulative distribution function; instead of identifying the cumulative probabilities for a set of values, the quantile function identifies the values for a set of cumulative probabilities. Using the quantile function, we can generate random numbers from a uniform distribution, and then map those into the distribution of interest via its quantile function.</p>
 <p>By default, R will generate a different set of random numbers every time you run one of the random number generator functions described above. However, it is also possible to generate exactly the same set of random numbers, by setting what is called the <em>random seed</em> to a specific value. We will do this in many of the examples in this book, in order to make sure that the examples are reproducible.</p>
 <p>If we run the <code>rnorm()</code> function twice, it will give us different sets of pseudorandom numbers each time:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">print</span>(<span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">5</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">print</span>(<span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">5</span>))</a></code></pre></div>
 <pre><code>## [1]  1.48  0.18  0.21 -0.15 -1.72</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">print</span>(<span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">5</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">print</span>(<span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">5</span>))</a></code></pre></div>
 <pre><code>## [1] -0.691 -2.231  0.391  0.029 -0.647</code></pre>
 <p>However, if we set the random seed to the same value each time using the <code>set.seed()</code> function, then it will give us the same series of pseudorandom numbers each time:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">12345</span>)</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw">print</span>(<span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">5</span>))</a></code></pre></div>
+<pre><code>## [1]  0.59  0.71 -0.11 -0.45  0.61</code></pre>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">12345</span>)</a>
 <a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw">print</span>(<span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">5</span>))</a></code></pre></div>
-<pre><code>## [1]  0.59  0.71 -0.11 -0.45  0.61</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">12345</span>)</a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw">print</span>(<span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">5</span>))</a></code></pre></div>
 <pre><code>## [1]  0.59  0.71 -0.11 -0.45  0.61</code></pre>
 </div>
 <div id="using-monte-carlo-simulation" class="section level2">

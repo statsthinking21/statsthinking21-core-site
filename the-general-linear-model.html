@@ -761,20 +761,20 @@ Figure 14.4: A: The relationship between caffeine and public speaking. B: The re
 <p>When we say that the model is “properly specified”, we mean that we have included the appropriate set of independent variables in the model. We have already seen examples of misspecified models, in Figure <a href="fitting-models.html#fig:childHeightLine">5.3</a>. Remember that we saw several cases where the model failed to properly account for the data, such as failing to include an intercept. When building a model, we need to ensure that it includes all of the appropriate variables.</p>
 <p>We also need to worry about whether our model satisifies the assumptions of our statisical methods. One of the most important assumptions that we make when using the general linear model is that the residuals (that is, the difference between the model’s predictions and the actual data) are normally distributed. This can fail for many reasons, either because the model was not properly specified or because the data that we are modeling are inappropriate.</p>
 <p>We can use something called a <em>Q-Q</em> (quantile-quantile) plot to see whether our residuals are normally distributed. You have already encountered <em>quantiles</em> — they are the value that cuts off a particular proportion of a cumulative distribution.The Q-Q plot presents the quantiles of two distributions against one another; in this case, we will present the quantiles of the actual data from the quantiles of a normal distribution. Figure <a href="the-general-linear-model.html#fig:qqplots">14.5</a> shows examples of two such Q-Q plots. The left panel shows a Q-Q plot for data from a normal distribution, while the right panel shows a Q-Q plot from non-normal data. The data points in the right panel diverge substantially from the line, reflecting the fact that they are not normally distributed.</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1">qq_df &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">norm=</span><span class="kw">rnorm</span>(<span class="dv">100</span>),</a>
-<a class="sourceLine" id="cb37-2" data-line-number="2">                <span class="dt">unif=</span><span class="kw">runif</span>(<span class="dv">100</span>))</a>
-<a class="sourceLine" id="cb37-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb37-4" data-line-number="4">p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(qq_df,<span class="kw">aes</span>(<span class="dt">sample=</span>norm)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb37-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_qq</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb37-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_qq_line</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb37-7" data-line-number="7"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&#39;Normal data&#39;</span>)</a>
-<a class="sourceLine" id="cb37-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb37-9" data-line-number="9">p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(qq_df,<span class="kw">aes</span>(<span class="dt">sample=</span>unif)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb37-10" data-line-number="10"><span class="st">  </span><span class="kw">geom_qq</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb37-11" data-line-number="11"><span class="st">  </span><span class="kw">geom_qq_line</span>()<span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb37-12" data-line-number="12"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&#39;Non-normal data&#39;</span>)</a>
-<a class="sourceLine" id="cb37-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb37-14" data-line-number="14"><span class="kw">plot_grid</span>(p1,p2)</a></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1">qq_df &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">norm=</span><span class="kw">rnorm</span>(<span class="dv">100</span>),</a>
+<a class="sourceLine" id="cb35-2" data-line-number="2">                <span class="dt">unif=</span><span class="kw">runif</span>(<span class="dv">100</span>))</a>
+<a class="sourceLine" id="cb35-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb35-4" data-line-number="4">p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(qq_df,<span class="kw">aes</span>(<span class="dt">sample=</span>norm)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb35-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_qq</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb35-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_qq_line</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb35-7" data-line-number="7"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&#39;Normal data&#39;</span>)</a>
+<a class="sourceLine" id="cb35-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb35-9" data-line-number="9">p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(qq_df,<span class="kw">aes</span>(<span class="dt">sample=</span>unif)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb35-10" data-line-number="10"><span class="st">  </span><span class="kw">geom_qq</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb35-11" data-line-number="11"><span class="st">  </span><span class="kw">geom_qq_line</span>()<span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb35-12" data-line-number="12"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&#39;Non-normal data&#39;</span>)</a>
+<a class="sourceLine" id="cb35-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb35-14" data-line-number="14"><span class="kw">plot_grid</span>(p1,p2)</a></code></pre></div>
 <div class="figure"><span id="fig:qqplots"></span>
 <img src="StatsThinking21_files/figure-html/qqplots-1.png" alt="Q-Q plotsof normal (left) and non-normal (right) data.  The line shows the point at which the x and y axes are equal." width="80%" />
 <p class="caption">
@@ -911,22 +911,22 @@ Cross-validation
 <h3><span class="header-section-number">14.9.1</span> Estimating linear regression parameters</h3>
 <p>We generally estimate the parameters of a linear model from data using <em>linear algebra</em>, which is the form of algebra that is applied to vectors and matrices. If you aren’t familiar with linear algebra, don’t worry – you won’t actually need to use it here, as R will do all the work for us. However, a brief excursion in linear algebra can provide some insight into how the model parameters are estimated in practice.</p>
 <p>First, let’s introduce the idea of vectors and matrices; you’ve already encountered them in the context of R, but we will review them here. A matrix is a set of numbers that are arranged in a square or rectangle, such that there are one or more <em>dimensions</em> across which the matrix varies. It is customary to place different observation units (such as people) in the rows, and different variables in the columns. Let’s take our study time data from above. We could arrange these numbers in a matrix, which would have eight rows (one for each student) and two columns (one for study time, and one for grade). If you are thinking “that sounds like a data frame in R” you are exactly right! In fact, a data frame is a specialized version of a matrix, and we can convert a data frame to a matrix using the <code>as.matrix()</code> function.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1">df &lt;-</a>
-<a class="sourceLine" id="cb38-2" data-line-number="2"><span class="st">  </span><span class="kw">tibble</span>(</a>
-<a class="sourceLine" id="cb38-3" data-line-number="3">    <span class="dt">studyTime =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">12</span>) <span class="op">/</span><span class="st"> </span><span class="dv">3</span>,</a>
-<a class="sourceLine" id="cb38-4" data-line-number="4">    <span class="dt">priorClass =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb38-5" data-line-number="5">  ) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb38-6" data-line-number="6"><span class="st">  </span><span class="kw">mutate</span>(</a>
-<a class="sourceLine" id="cb38-7" data-line-number="7">    <span class="dt">grade =</span> </a>
-<a class="sourceLine" id="cb38-8" data-line-number="8">      studyTime <span class="op">*</span><span class="st"> </span>betas[<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb38-9" data-line-number="9"><span class="st">      </span>priorClass <span class="op">*</span><span class="st"> </span>betas[<span class="dv">2</span>] <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb38-10" data-line-number="10"><span class="st">      </span><span class="kw">round</span>(<span class="kw">rnorm</span>(<span class="dv">8</span>, <span class="dt">mean =</span> <span class="dv">70</span>, <span class="dt">sd =</span> <span class="dv">5</span>))</a>
-<a class="sourceLine" id="cb38-11" data-line-number="11">  )</a>
-<a class="sourceLine" id="cb38-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb38-13" data-line-number="13">df_matrix &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb38-14" data-line-number="14"><span class="st">  </span>df <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb38-15" data-line-number="15"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(studyTime, grade) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb38-16" data-line-number="16"><span class="st">  </span><span class="kw">as.matrix</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1">df &lt;-</a>
+<a class="sourceLine" id="cb36-2" data-line-number="2"><span class="st">  </span><span class="kw">tibble</span>(</a>
+<a class="sourceLine" id="cb36-3" data-line-number="3">    <span class="dt">studyTime =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">12</span>) <span class="op">/</span><span class="st"> </span><span class="dv">3</span>,</a>
+<a class="sourceLine" id="cb36-4" data-line-number="4">    <span class="dt">priorClass =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb36-5" data-line-number="5">  ) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb36-6" data-line-number="6"><span class="st">  </span><span class="kw">mutate</span>(</a>
+<a class="sourceLine" id="cb36-7" data-line-number="7">    <span class="dt">grade =</span> </a>
+<a class="sourceLine" id="cb36-8" data-line-number="8">      studyTime <span class="op">*</span><span class="st"> </span>betas[<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb36-9" data-line-number="9"><span class="st">      </span>priorClass <span class="op">*</span><span class="st"> </span>betas[<span class="dv">2</span>] <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb36-10" data-line-number="10"><span class="st">      </span><span class="kw">round</span>(<span class="kw">rnorm</span>(<span class="dv">8</span>, <span class="dt">mean =</span> <span class="dv">70</span>, <span class="dt">sd =</span> <span class="dv">5</span>))</a>
+<a class="sourceLine" id="cb36-11" data-line-number="11">  )</a>
+<a class="sourceLine" id="cb36-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb36-13" data-line-number="13">df_matrix &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb36-14" data-line-number="14"><span class="st">  </span>df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb36-15" data-line-number="15"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(studyTime, grade) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb36-16" data-line-number="16"><span class="st">  </span><span class="kw">as.matrix</span>()</a></code></pre></div>
 <p>We can write the general linear model in linear algebra as follows:</p>
 <p><span class="math display">\[
 Y = X*\beta + E
@@ -949,22 +949,22 @@ Figure 14.7: A depiction of the linear model for the study time data in terms of
 \hat{\beta} = \frac{Y}{X}
 \]</span></p>
 <p>The challenge here is that <span class="math inline">\(X\)</span> and <span class="math inline">\(\beta\)</span> are now matrices, not single numbers – but the rules of linear algebra tell us how to divide by a matrix, which is the same as multiplying by the <em>inverse</em> of the matrix (referred to as <span class="math inline">\(X^{-1}\)</span>). We can do this in R:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="co"># compute beta estimates using linear algebra</span></a>
-<a class="sourceLine" id="cb39-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb39-3" data-line-number="3"><span class="co">#create Y variable 8 x 1 matrix</span></a>
-<a class="sourceLine" id="cb39-4" data-line-number="4">Y &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(df<span class="op">$</span>grade) </a>
-<a class="sourceLine" id="cb39-5" data-line-number="5"> <span class="co">#create X variable 8 x 2 matrix</span></a>
-<a class="sourceLine" id="cb39-6" data-line-number="6">X &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>, <span class="dt">nrow =</span> <span class="dv">8</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb39-7" data-line-number="7"><span class="co">#assign studyTime values to first column in X matrix</span></a>
-<a class="sourceLine" id="cb39-8" data-line-number="8">X[, <span class="dv">1</span>] &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(df<span class="op">$</span>studyTime) </a>
-<a class="sourceLine" id="cb39-9" data-line-number="9"><span class="co">#assign constant of 1 to second column in X matrix</span></a>
-<a class="sourceLine" id="cb39-10" data-line-number="10">X[, <span class="dv">2</span>] &lt;-<span class="st"> </span><span class="dv">1</span> </a>
-<a class="sourceLine" id="cb39-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb39-12" data-line-number="12"><span class="co"># compute inverse of X using ginv()</span></a>
-<a class="sourceLine" id="cb39-13" data-line-number="13"><span class="co"># %*% is the R matrix multiplication operator</span></a>
-<a class="sourceLine" id="cb39-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb39-15" data-line-number="15">beta_hat &lt;-<span class="st"> </span><span class="kw">ginv</span>(X) <span class="op">%*%</span><span class="st"> </span>Y <span class="co">#multiple the inverse of X by Y</span></a>
-<a class="sourceLine" id="cb39-16" data-line-number="16"><span class="kw">print</span>(beta_hat)</a></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="co"># compute beta estimates using linear algebra</span></a>
+<a class="sourceLine" id="cb37-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb37-3" data-line-number="3"><span class="co">#create Y variable 8 x 1 matrix</span></a>
+<a class="sourceLine" id="cb37-4" data-line-number="4">Y &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(df<span class="op">$</span>grade) </a>
+<a class="sourceLine" id="cb37-5" data-line-number="5"> <span class="co">#create X variable 8 x 2 matrix</span></a>
+<a class="sourceLine" id="cb37-6" data-line-number="6">X &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>, <span class="dt">nrow =</span> <span class="dv">8</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb37-7" data-line-number="7"><span class="co">#assign studyTime values to first column in X matrix</span></a>
+<a class="sourceLine" id="cb37-8" data-line-number="8">X[, <span class="dv">1</span>] &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(df<span class="op">$</span>studyTime) </a>
+<a class="sourceLine" id="cb37-9" data-line-number="9"><span class="co">#assign constant of 1 to second column in X matrix</span></a>
+<a class="sourceLine" id="cb37-10" data-line-number="10">X[, <span class="dv">2</span>] &lt;-<span class="st"> </span><span class="dv">1</span> </a>
+<a class="sourceLine" id="cb37-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb37-12" data-line-number="12"><span class="co"># compute inverse of X using ginv()</span></a>
+<a class="sourceLine" id="cb37-13" data-line-number="13"><span class="co"># %*% is the R matrix multiplication operator</span></a>
+<a class="sourceLine" id="cb37-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb37-15" data-line-number="15">beta_hat &lt;-<span class="st"> </span><span class="kw">ginv</span>(X) <span class="op">%*%</span><span class="st"> </span>Y <span class="co">#multiple the inverse of X by Y</span></a>
+<a class="sourceLine" id="cb37-16" data-line-number="16"><span class="kw">print</span>(beta_hat)</a></code></pre></div>
 <pre><code>##      [,1]
 ## [1,]  3.3
 ## [2,] 83.5</code></pre>

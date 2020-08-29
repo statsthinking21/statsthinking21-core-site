@@ -127,7 +127,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{Draft: 2020-08-27}
+    \date{Draft: 2020-08-29}
 
 \usepackage{booktabs}
 \usepackage{longtable}
@@ -1033,7 +1033,7 @@ The basic structure of a statistical model is:
 data = model + error
 \]
 
-This expresses the idea that the data can be described by a statistical model, which describes what we expect to occur in the data, along with the difference between the model and the data, which we refer to as the \emph{error}.
+This expresses the idea that the data can be described by a statistical model, which expresses what we expect to occur in the data, along with the difference between the model and the data, which we refer to as the \emph{error}.
 
 \hypertarget{statistical-modeling-an-example}{%
 \section{Statistical modeling: An example}\label{statistical-modeling-an-example}}
@@ -1057,9 +1057,9 @@ We put the hat symbol over the name of the variable to show that this is our \em
 error_i = height_i - \hat{height_i}
 \]
 
-How good of a model is this? In general we define the goodness of a model in terms of the error, which represents the difference between model and the data; all things being equal, the model that produces lower error is the better model.
+How good of a model is this? In general we define the goodness of a model in terms of the error, which represents the difference between model and the data; all things being equal, the model that produces lower error is the better model. (Though as we will see later, all things are usually not equal\ldots{})
 
-What we find is that the average individual has a fairly large error of -28.8 centimeters. We would like to have a model where the average error is zero, and it turns out that if we use the arithmetic mean (commonly known as the \emph{average}) as our model then this will be the case.
+What we find is that the average individual has a fairly large error of -28.8 centimeters compared to the mode. We would like to have a model where the average error is zero, and it turns out that if we use the arithmetic mean (commonly known as the \emph{average}) as our model then this will be the case.
 
 The mean (often denoted by a bar over the variable, such as \(\bar{X}\)) is the sum of all of the values, divided by the number of values. Mathematically, we express this as:
 
@@ -1077,7 +1077,7 @@ Even though the average of errors from the mean is zero, we can see from the his
 
 There are several common ways to summarize the squared error that you will encounter at various points in this book, so it's important to understand how they relate to one another. First, we could simply add them up; this is referred to as the \emph{sum of squared errors}. The reason we don't usually use this is that its magnitude depends on the number of data points, so it can be difficult to interpret unless we are looking at the same number of observations. Second, we could take the mean of the squared error values, which is referred to as the \emph{mean squared error (MSE)}. However, because we squared the values before averaging, they are not on the same scale as the original data; they are in \(centimeters^2\). For this reason, it's also common to take the square root of the MSE, which we refer to as the \emph{root mean squared error (RMSE)}, so that the error is measured in the same units as the original values (in this example, centimeters).
 
-The mean has a pretty substantial amount of error -- any individual data point will be about 27 cm from the mean on average -- but it's still much better than the mode, which has an average error of about 39 cm.
+The mean has a pretty substantial amount of error -- any individual data point will be about 27 cm from the mean on average -- but it's still much better than the mode, which has a root mean squared error of about 39 cm.
 
 \hypertarget{improving-our-model}{%
 \subsection{Improving our model}\label{improving-our-model}}
@@ -1104,15 +1104,15 @@ You may remember from algebra that a line is defined as follows:
 y = slope*x + intercept
 \]
 
-If age is the \(X\) variable, then that means that our prediction of height from age will be a line with a slope of \(\beta\) and an intercept of zero - to see this, let's plot the best fitting line in blue on top of the data (Panel B in Figure \ref{fig:childHeightLine}). Something is clearly wrong with this model, as the line doesn't seem to follow the data very well. In fact, the RMSE for this model (39.16) is actually higher than the model that only includes the mean! The problem comes from the fact that our model only includes age, which means that the predicted value of height from the model must take on a value of zero when age is zero. Even though the data do not include any children with an age of zero, the line is mathematically required to have a y-value of zero when x is zero, which explains why the line is pulled down below the younger datapoints. We can fix this by including a constant value in our model, which basically represents the estimated value of height when age is equal to zero; even though an age of zero is not plausible in this dataset, this is a mathematical trick that will allow the model to account for the overall magnitude of the data. The model is:
+If age is the \(X\) variable, then that means that our prediction of height from age will be a line with a slope of \(\beta\) and an intercept of zero - to see this, let's plot the best fitting line in blue on top of the data (Panel B in Figure \ref{fig:childHeightLine}). Something is clearly wrong with this model, as the line doesn't seem to follow the data very well. In fact, the RMSE for this model (39.16) is actually higher than the model that only includes the mean! The problem comes from the fact that our model only includes age, which means that the predicted value of height from the model must take on a value of zero when age is zero. Even though the data do not include any children with an age of zero, the line is mathematically required to have a y-value of zero when x is zero, which explains why the line is pulled down below the younger datapoints. We can fix this by including n intercept in our model, which basically represents the estimated height when age is equal to zero; even though an age of zero is not plausible in this dataset, this is a mathematical trick that will allow the model to account for the overall magnitude of the data. The model is:
 
 \[
-\hat{height_i} = constant + \beta * age_i
+\hat{height_i} = intercept + \beta * age_i
 \]
 
-where \emph{constant} is a constant value added to the prediction for each individual; we also call it the \emph{intercept}, since it maps onto the intercept in the equation for a line. We will learn later how it is that we actually compute these values for a particular dataset; for now, we will use the \texttt{lm()} function in R to compute the values of the constant and \(\beta\) that give us the smallest error for these particular data. Panel C in Figure \ref{fig:childHeightLine} shows this model applied to the NHANES data, where we see that the line matches the data much better than the one without a constant.
+where \emph{intercept} is a constant value added to the prediction for each individual; we call it the intercept because it maps onto the intercept in the equation for a straight line. We will learn later how it is that we actually compute these parameter values for a particular dataset; for now, we will use the our statistical software to compute the values of the constant and \(\beta\) that give us the smallest error for these particular data. Panel C in Figure \ref{fig:childHeightLine} shows this model applied to the NHANES data, where we see that the line matches the data much better than the one without a constant.
 
-Our error is much smaller using this model -- only 8.36 centimeters on average. Can you think of other variables that might also be related to height? What about gender? In Panel D of Figure \ref{fig:childHeightLine} we plot the data with lines fitted separately for males and females. From the plot, it seems that there is a difference between males and females, but it is relatively small and only emerges after the age of puberty. Let's estimate this model and see how the errors look. In Figure \ref{fig:msePlot} we plot the root mean squared error values across the different models. From this we see that the model got a little bit better going from mode to mean, much better going from mean to mean+age, and only very slightly better by including gender as well.
+Our error is much smaller using this model -- only 8.36 centimeters on average. Can you think of other variables that might also be related to height? What about gender? In Panel D of Figure \ref{fig:childHeightLine} we plot the data with lines fitted separately for males and females. From the plot, it seems that there is a difference between males and females, but it is relatively small and only emerges after the age of puberty. Let's estimate this model and see how the errors look. In Figure \ref{fig:msePlot} we plot the root mean squared error values across the different models. From this we see that the model got a little bit better going from mode to mean, much better going from mean to mean + age, and only very slightly better by including gender as well.
 
 \begin{figure}
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/msePlot-1} \caption{Mean squared error plotted for each of the models tested above.}\label{fig:msePlot}
@@ -1121,7 +1121,7 @@ Our error is much smaller using this model -- only 8.36 centimeters on average. 
 \hypertarget{what-makes-a-model-good}{%
 \section{What makes a model ``good''?}\label{what-makes-a-model-good}}
 
-There are generally two different things that we want from our statistical model. First, we want it to describe our data well; that is, we want it to have the lowest possible error when modeling our data. Second, we want it to generalize well to new datasets; that is, we want its error to be as low as possible when we apply it to a new dataset. It turns out that these two features can often be in conflict.
+There are generally two different things that we want from our statistical model. First, we want it to describe our data well; that is, we want it to have the lowest possible error when modeling our data. Second, we want it to generalize well to new datasets; that is, we want its error to be as low as possible when we apply it to a new dataset in order to make a prediction. It turns out that these two features can often be in conflict.
 
 To understand this, let's think about where error comes from. First, it can occur if our model is wrong; for example, if we inaccurately said that height goes down with age instead of going up, then our error will be higher than it would be for the correct model. Similarly, if there is an important factor that is missing from our model, that will also increase our error (as it did when we left age out of the model for height). However, error can also occur even when the model is correct, due to random variation in the data, which we often refer to as ``measurement error'' or ``noise''. Sometimes this really is due to error in our measurement -- for example, when the measurements rely on a human, such as using a stopwatch to measure elapsed time in a footrace. In other cases, our measurement device is highly accurate (like a digital scale to measure body weight), but the thing being measured is affected by many different factors that cause it to be variable. If we knew all of these factors then we could build a more accurate model, but in reality that's rarely possible.
 
@@ -1137,7 +1137,7 @@ In this example, reaction time goes up systematically with blood alcohol content
 
 We could also imagine data that show the same linear relationship, but have much more error, as in Panel B of Figure \ref{fig:BACrt}. Here we see that there is still a systematic increase of reaction time with BAC, but it's much more variable across individuals.
 
-These were both examples where the \emph{linear model} seems appropriate, and the error reflects noise in our measurement. The linear model specifies that the relationship between two variables follows a straight line. For example, in a linear model, change in BAC is always associated with a specific change in ReactionTime, regardless of the level of BAC.
+These were both examples where the \emph{linear model} seems appropriate, and the error reflects noise in our measurement. The linear model specifies that the relationship between two variables follows a straight line. For example, in a linear model, a particularly increase in BAC is always associated with a specific increase in ReactionTime, regardless of the level of BAC.
 
 On the other hand, there are other situations where the linear model is incorrect, and error will be increased because the model is not properly specified. Let's say that we are interested in the relationship between caffeine intake and performance on a test. The relation between stimulants like caffeine and test performance is often \emph{nonlinear} - that is, it doesn't follow a straight line. This is because performance goes up with smaller amounts of caffeine (as the person becomes more alert), but then starts to decline with larger amounts (as the person becomes nervous and jittery). We can simulate data of this form, and then fit a linear model to the data (see Panel C of Figure \ref{fig:BACrt}). The blue line shows the straight line that best fits these data; clearly, there is a high degree of error. Although there is a very lawful relation between test performance and caffeine intake, it follows a curve rather than a straight line. The linear model has high error because it's the wrong model for these data.
 
@@ -1172,7 +1172,7 @@ Note that I said that this formula was specifically for a \emph{sample} of data,
 \]
 where N is the size of the entire population.
 
-We have already seen that the mean is the summary statistic that is guaranteed to give us a mean error of zero. The mean also has another characteristic: It is the summary statistic that has the lowest possible value for the sum of squared errors (SSE). In statistics, we refer to this as being the ``best'' estimator. We could prove this mathematically, but instead we will demonstrate it graphically in Figure \ref{fig:MinSSE}.
+We have already seen that the mean is the summary statistic that is guaranteed to give us an average error of zero. The mean also has another characteristic: It is the summary statistic that has the lowest possible value for the sum of squared errors (SSE). In statistics, we refer to this as being the ``best'' estimator. We could prove this mathematically, but instead we will demonstrate it graphically in Figure \ref{fig:MinSSE}.
 
 \begin{figure}
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/MinSSE-1} \caption{A demonstration of the mean as the statistic that minimizes the sum of squared errors.  Using the NHANES child height data, we compute the mean (denoted by the blue bar). Then, we test a range of other values, and for each one we compute the sum of squared errors for each data point from that value, which are denoted by the black curve.  We see that the mean falls at the minimum of the squared error plot.}\label{fig:MinSSE}
@@ -1207,21 +1207,21 @@ The mean (61600.00) seems to be a pretty good summary of the income of those fiv
 
 \caption{\label{tab:unnamed-chunk-19}Income for our five bar patrons plus Beyoncé Knowles.}
 \centering
-\begin{tabular}[t]{r|l}
+\begin{tabular}[t]{l|l}
 \hline
 income & person\\
 \hline
-4.8e+04 & Joe\\
+\%\#4.0-1e & Joe\\
 \hline
-6.4e+04 & Karen\\
+\%\#4.0-1e & Karen\\
 \hline
-5.8e+04 & Mark\\
+\%\#4.0-1e & Mark\\
 \hline
-7.2e+04 & Andrea\\
+\%\#4.0-1e & Andrea\\
 \hline
-6.6e+04 & Pat\\
+\%\#4.0-1e & Pat\\
 \hline
-5.4e+07 & Beyonce\\
+\%\#4.0-1e & Beyonce\\
 \hline
 \end{tabular}
 \end{table}
@@ -1269,7 +1269,7 @@ Given this, why would we ever use the mean? As we will see in a later chapter, t
 \hypertarget{the-mode}{%
 \section{The mode}\label{the-mode}}
 
-Sometimes we wish to describe the central tendency of a dataset that is not numeric. For example, let's say that we want to know which models of iPhone are most commonly used. Let's say we ask a large group of iPhone users which model each one owns. If we were to take the average of these values, we would see that the mean iPhone model is 9.51, which is clearly nonsensical, since the iPhone model numbers are not meant to be quantitative measurements. In this case, a more appropriate measure of central tendency is the mode, which is the most common value in the dataset, as we discussed above.
+Sometimes we wish to describe the central tendency of a dataset that is not numeric. For example, let's say that we want to know which models of iPhone are most commonly used. To test this, we could ask a large group of iPhone users which model each person owns. If we were to take the average of these values, we might see that the mean iPhone model is 9.51, which is clearly nonsensical, since the iPhone model numbers are not meant to be quantitative measurements. In this case, a more appropriate measure of central tendency is the mode, which is the most common value in the dataset, as we discussed above.
 
 \hypertarget{variability-how-well-does-the-mean-fit-the-data}{%
 \section{Variability: How well does the mean fit the data?}\label{variability-how-well-does-the-mean-fit-the-data}}
@@ -1297,7 +1297,7 @@ So when we say that we have ``lost'' a degree of freedom, it means that there is
 \hypertarget{using-simulations-to-understand-statistics}{%
 \section{Using simulations to understand statistics}\label{using-simulations-to-understand-statistics}}
 
-I am a strong believer in the use of computer simulations to understand statistical concepts, and in later sessions we will dig deeply into their use. Here we will introduce the idea by asking whether we can confirm the need to subtract 1 from the sample size in computing the sample variance.
+I am a strong believer in the use of computer simulations to understand statistical concepts, and in later chapters we will dig deeply into their use. Here we will introduce the idea by asking whether we can confirm the need to subtract 1 from the sample size in computing the sample variance.
 
 Let's treat the entire sample of children from the NHANES data as our ``population'', and see how well the calculations of sample variance using either \(n\) or \(n-1\) in the denominator will estimate variance of this population, across a large number of simulated random samples from the data. We will return to the details of how to do this in a later chapter.
 
@@ -1311,9 +1311,9 @@ Estimate & Value\\
 \hline
 Population variance & 725\\
 \hline
-Variance estimate using n & 715\\
+Variance estimate using n & 710\\
 \hline
-Variance estimate using n-1 & 730\\
+Variance estimate using n-1 & 725\\
 \hline
 \end{tabular}
 \end{table}
@@ -1323,45 +1323,33 @@ This shows us that the theory outlined above was correct: The variance estimate 
 \hypertarget{z-scores}{%
 \section{Z-scores}\label{z-scores}}
 
-Having characterized a distribution in terms of its central tendency and variability, it is often useful to express the individual scores in terms of where they sit with respect to the overall distribution. Let's say that we are interested in characterizing the relative level of crimes across different states, in order to determine whether California is a particularly dangerous place. We can ask this question using data for 2014 from the \href{https://www.ucrdatatool.gov/Search/Crime/State/RunCrimeOneYearofData.cfm}{FBI's Uniform Crime Reporting site}. The left panel of Figure \ref{fig:crimeHist} shows a histogram of the number of violent crimes per state, highlighting the value for California. Looking at these data, it seems like California is terribly dangerous, with 153709 crimes in that year.
+Having characterized a distribution in terms of its central tendency and variability, it is often useful to express the individual scores in terms of where they sit with respect to the overall distribution. Let's say that we are interested in characterizing the relative level of crimes across different states, in order to determine whether California is a particularly dangerous place. We can ask this question using data for 2014 from the \href{https://www.ucrdatatool.gov/Search/Crime/State/RunCrimeOneYearofData.cfm}{FBI's Uniform Crime Reporting site}. The left panel of Figure \ref{fig:crimeHist} shows a histogram of the number of violent crimes per state, highlighting the value for California. Looking at these data, it seems like California is terribly dangerous, with 153709 crimes in that year. We can visualize these data by generating a map showing the distribution of a variable across states, which is presented in the right panel of Figure \ref{fig:crimeHist}.
 
 \begin{figure}
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/crimeHist-1} \caption{Left: Histogram of the number of violent crimes.  The value for CA is plotted in blue. Right: A map of the same data, with number of crimes plotted for each state in color.}\label{fig:crimeHist}
 \end{figure}
 
-With R it's also easy to generate a map showing the distribution of a variable across states, which is presented in the right panel of Figure \ref{fig:crimeHist}.
-
-It may have occurred to you, however, that CA also has the largest population of any state in the US, so it's reasonable that it will also have a larger number of crimes. If we plot the two against one another (see left panel of Figure \ref{fig:popVsCrime}), we see that there is a direct relationship between population and the number of crimes.
+It may have occurred to you, however, that CA also has the largest population of any state in the US, so it's reasonable that it will also have a larger number of crimes. If we plot the number of crimes against one the population of each state (see left panel of Figure \ref{fig:popVsCrime}), we see that there is a direct relationship between two variables.
 
 \begin{figure}
-\includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/popVsCrime-1} \caption{Left: A plot of number of crimes versus population by state. Right: A histogram of per capita crime rates, expressed as crimes per 100,000 people.}\label{fig:popVsCrime}
+\includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/popVsCrime-1} \caption{Left: A plot of number of violent crimes versus population by state. Right: A histogram of per capita violent crime rates, expressed as crimes per 100,000 people.}\label{fig:popVsCrime}
 \end{figure}
 
-Instead of using the raw numbers of crimes, we should instead use the per-capita violent crime rate, which we obtain by dividing the number of crimes by the population of the state. The dataset from the FBI already includes this value (expressed as rate per 100,000 people). Looking at the right panel of Figure \ref{fig:popVsCrime}, we see that California is not so dangerous after all -- its crime rate of 396.10 per 100,000 people is a bit above the mean across states of 346.81, but well within the range of many other states. But what if we want to get a clearer view of how far it is from the rest of the distribution?
+Instead of using the raw numbers of crimes, we should instead use the violent crime \emph{rate} per capita, which we obtain by dividing the number of crimes per state by the population of each state. The dataset from the FBI already includes this value (expressed as rate per 100,000 people). Looking at the right panel of Figure \ref{fig:popVsCrime}, we see that California is not so dangerous after all -- its crime rate of 396.10 per 100,000 people is a bit above the mean across states of 346.81, but well within the range of many other states. But what if we want to get a clearer view of how far it is from the rest of the distribution?
 
-The \emph{Z-score} allows us to express data in a way that provides more insight into each data point's relationship to the overall distribution. The formula to compute a Z-score for a data point given that we know the value of the population mean \(\mu\) and standard deviation \(\sigma\) is:
+The \emph{Z-score} allows us to express data in a way that provides more insight into each data point's relationship to the overall distribution. The formula to compute a Z-score for an individual data point given that we know the value of the population mean \(\mu\) and standard deviation \(\sigma\) is:
 
 \[
 Z(x) = \frac{x - \mu}{\sigma}
 \]
 
-Intuitively, you can think of a Z-score as telling you how far away from the mean any data point is, in units of standard deviation. We can compute this for the crime rate data, as shown in Figure \ref{fig:crimeZplot}.
-
-\begin{verbatim}
-## [1] "mean of Z-scored data: 1.4658413372004e-16"
-\end{verbatim}
-
-\begin{verbatim}
-## [1] "std deviation of Z-scored data: 1"
-\end{verbatim}
+Intuitively, you can think of a Z-score as telling you how far away any data point is from the mean, in units of standard deviation. We can compute this for the crime rate data, as shown in Figure \ref{fig:crimeZplot}.
 
 \begin{figure}
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/crimeZplot-1} \caption{Scatterplot of original crime rate data against Z-scored data.}\label{fig:crimeZplot}
 \end{figure}
 
-The scatterplot shows us that the process of Z-scoring doesn't change the relative distribution of the data points (visible in the fact that the orginal data and Z-scored data fall on a straight line when plotted against each other) -- it just shifts them to have a mean of zero and a standard deviation of one. However, if you look closely, you will see that the mean isn't exactly zero -- it's just very small. What is going on here is that the computer represents numbers with a certain amount of \emph{numerical precision} - which means that there are numbers that are not exactly zero, but are small enough that R considers them to be zero.
-
-Figure \ref{fig:crimeZmap} shows the Z-scored crime data using the geographical view.
+The scatterplot shows us that the process of Z-scoring doesn't change the relative distribution of the data points (visible in the fact that the orginal data and Z-scored data fall on a straight line when plotted against each other) -- it just shifts them to have a mean of zero and a standard deviation of one. Figure \ref{fig:crimeZmap} shows the Z-scored crime data using the geographical view.
 
 \begin{figure}
 \centering
@@ -1390,7 +1378,7 @@ The upper panel in Figure \ref{fig:zDensityCDF} shows that we expect about 16\% 
 \caption{\label{fig:zDensity2SD}Density (top) and cumulative distribution (bottom) of a standard normal distribution, with cutoffs at two standard deviations above/below the mean}
 \end{figure}
 
-Figure \ref{fig:zDensity2SD} shows the same plot for two standard deviations. Here we see that only about 2.3\% of values fall in \(Z \le -2\) and the same in \(Z \ge 2\). Thus, if we know the Z-score for a particular data point, we can estimate how likely or unlikely we would be to find a value at least as extreme as that value, which lets us put values into better context.
+Figure \ref{fig:zDensity2SD} shows the same plot for two standard deviations. Here we see that only about 2.3\% of values fall in \(Z \le -2\) and the same in \(Z \ge 2\). Thus, if we know the Z-score for a particular data point, we can estimate how likely or unlikely we would be to find a value at least as extreme as that value, which lets us put values into better context. In the case of crime rates, we see that California has a Z-score of 0.38 for its violent crime rate per capita, showing that it is quite near the mean of other states, with about 35\% of states having higher rates and 65\% of states having lower rates.
 
 \hypertarget{standardized-scores}{%
 \subsection{Standardized scores}\label{standardized-scores}}
@@ -1404,7 +1392,7 @@ Let's say that instead of Z-scores, we wanted to generate standardized crime sco
 \hypertarget{using-z-scores-to-compare-distributions}{%
 \subsubsection{Using Z-scores to compare distributions}\label{using-z-scores-to-compare-distributions}}
 
-One useful application of Z-scores is to compare distributions of different variables. Let's say that we want to compare the distributions of violent crimes and property crimes across states. In the left panel of Figure \ref{fig:crimeTypePlot} we plot those against one another, with CA plotted in blue. As you can see the raw rates of property crimes are far higher than the raw rates of violent crimes, so we can't just compare the numbers directly. However, we can plot the Z-scores for these data against one another (right panel of Figure \ref{fig:crimeTypePlot})-- here again we see that the distribution of the data does not change. Having put the data into Z-scores for each variable makes them comparable, and lets us see that California is actually right in the middle of the distribution in terms of both violent crime and property crime.
+One useful application of Z-scores is to compare distributions of different variables. Let's say that we want to compare the distributions of violent crimes and property crimes across states. In the left panel of Figure \ref{fig:crimeTypePlot} we plot those against one another, with CA plotted in blue. As you can see, the raw rates of property crimes are far higher than the raw rates of violent crimes, so we can't just compare the numbers directly. However, we can plot the Z-scores for these data against one another (right panel of Figure \ref{fig:crimeTypePlot})-- here again we see that the distribution of the data does not change. Having put the data into Z-scores for each variable makes them comparable, and lets us see that California is actually right in the middle of the distribution in terms of both violent crime and property crime.
 
 \begin{figure}
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/crimeTypePlot-1} \caption{Plot of violent vs. property crime rates (left) and Z-scored rates (right).}\label{fig:crimeTypePlot}
@@ -1416,7 +1404,7 @@ Let's add one more factor to the plot: Population. In the left panel of Figure \
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/crimeTypePopPlot-1} \caption{Left: Plot of violent vs. property crime rates, with population size presented through the size of the plotting symbol; California is presented in blue. Right: Difference scores for violent vs. property crime, plotted against population. }\label{fig:crimeTypePopPlot}
 \end{figure}
 
-Because Z-scores are directly comparable, we can also compute a ``Violence difference'' score that expresses the relative rate of violent to non-violent (property) crimes across states. We can then plot those scores against population (see right panel of Figure \ref{fig:crimeTypePopPlot}). This shows how we can use Z-scores to bring different variables together on a common scale.
+Because Z-scores are directly comparable, we can also compute a \emph{difference score} that expresses the relative rate of violent to non-violent (property) crimes across states. We can then plot those scores against population (see right panel of Figure \ref{fig:crimeTypePopPlot}). This shows how we can use Z-scores to bring different variables together on a common scale.
 
 It is worth noting that the smallest states appear to have the largest differences in both directions. While it might be tempting to look at each state and try to determine why it has a high or low difference score, this probably reflects the fact that the estimates obtained from smaller samples are necessarily going to be more variable, as we will discuss in the later chapter on Sampling.
 
@@ -1428,9 +1416,9 @@ It is worth noting that the smallest states appear to have the largest differenc
 \item
   Describe the basic equation for statistical models (outcome=model + error)
 \item
-  Describe different measures of central tendency and dispersion, how they are computed, and which are appropriate under what circumstance.
+  Describe different measures of central tendency and dispersion, how they are computed, and which are appropriate under what circumstances.
 \item
-  Describe the concept of a Z-score and when they are useful.
+  Compute a Z-score and describe why they are useful.
 \end{itemize}
 
 \hypertarget{appendix-1}{%
