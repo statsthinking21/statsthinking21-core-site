@@ -127,7 +127,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{Draft: 2020-08-29}
+    \date{Draft: 2020-09-07}
 
 \usepackage{booktabs}
 \usepackage{longtable}
@@ -1480,10 +1480,10 @@ Now that we have those definitions, we can outline the formal features of a prob
   \[
   \sum_{i=1}^N{P(X_i)} = P(X_1) + P(X_2) + ... + P(X_N) = 1
   \]
+  This is interpreted as saying ``Take all of the N elementary events, which we have labeled from 1 to N, and add up their probabilities. These must sum to one.''\\
+\item
+  The probability of any individual event cannot be greater than one: \(P(X_i)\le 1\). This is implied by the previous point; since they must sum to one, and they can't be negative, then any particular probability must be less than or equal to one.
 \end{itemize}
-
-This is interpreted as saying ``Take all of the N elementary events, which we have labeled from 1 to N, and add up their probabilities. These must sum to one.''\\
-- The probability of any individual event cannot be greater than one: \(P(X_i)\le 1\). This is implied by the previous point; since they must sum to one, and they can't be negative, then any particular probability must be less than or equal to one.
 
 \hypertarget{how-do-we-determine-probabilities}{%
 \section{How do we determine probabilities?}\label{how-do-we-determine-probabilities}}
@@ -1498,7 +1498,7 @@ Let's say that I asked you what the probability was that the Beatles would have 
 \hypertarget{empirical-frequency}{%
 \subsection{Empirical frequency}\label{empirical-frequency}}
 
-Another way to determine the probability of an event is to do the experiment many times and count how often each event happens. From the relative frequency of the different outcomes, we can compute the probability of each. For example, let's say that we are interested in knowing the probability of rain in San Francisco. We first have to define the experiment --- let's say that we will look at the National Weather Service data for each day in 2017 and determine whether there was any rain at the downtown San Francisco weather station.
+Another way to determine the probability of an event is to do the experiment many times and count how often each event happens. From the relative frequency of the different outcomes, we can compute the probability of each outcome. For example, let's say that we are interested in knowing the probability of rain in San Francisco. We first have to define the experiment --- let's say that we will look at the National Weather Service data for each day in 2017 and determine whether there was any rain at the downtown San Francisco weather station.
 
 \begin{tabular}{r|r|r}
 \hline
@@ -1554,7 +1554,7 @@ de Méré's \ error:
 P(Roll1_{throw1} \cup Roll1_{throw2}) = P(Roll1_{throw1}) + P(Roll1_{throw2}) = 1/6 + 1/6 = 1/3
 \]
 
-de Méré reasoned based on this that the probability of at least one six in four rolls was the sum of the probabilities on each of the individual throws: \(4*\frac{1}{6}=\frac{2}{3}\). Similarly, he reasoned that since the probability of a double-six in throws of dice is 1/36, then the probability of at least one double-six on 24 rolls of two dice would be \(24*\frac{1}{36}=\frac{2}{3}\). Yet, while he consistently won money on the first bet, he lost money on the second bet. What gives?
+de Méré reasoned based on this incorrect assumption that the probability of at least one six in four rolls was the sum of the probabilities on each of the individual throws: \(4*\frac{1}{6}=\frac{2}{3}\). Similarly, he reasoned that since the probability of a double-six when throwing two dice is 1/36, then the probability of at least one double-six on 24 rolls of two dice would be \(24*\frac{1}{36}=\frac{2}{3}\). Yet, while he consistently won money on the first bet, he lost money on the second bet. What gives?
 
 To understand de Méré's error, we need to introduce some of the rules of probability theory. The first is the \emph{rule of subtraction}, which says that the probability of some event A \emph{not} happening is one minus the probability of the event happening:
 
@@ -1591,7 +1591,7 @@ P(Roll1_{throw1} \cup Roll1_{throw2}) = P(Roll1_{throw1}) + P(Roll1_{throw2}) - 
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/ThrowMatrix-1} \caption{Each cell in this matrix represents one outcome of two throws of a die, with the columns representing the first throw and the rows representing the second throw. Cells shown in red represent the cells with a one in either the first or second throw; the rest are shown in blue.}\label{fig:ThrowMatrix}
 \end{figure}
 
-Let's use a graphical depiction to get a different view of this rule. Figure \ref{fig:ThrowMatrix} shows a matrix representing all possible combinations of results across two throws, and highlights the cells that involve a one on either the first or second throw. If you count up the cells in light blue you will see that there are 11 such cells. This shows why the addition rule gives a different answer from de Méré's; if we were to simply add together the probabilities for the two throws as he did, then we would count (1,1) towards both, when it should really only be counted once.
+Let's use a graphical depiction to get a different view of this rule. Figure \ref{fig:ThrowMatrix} shows a matrix representing all possible combinations of results across two throws, and highlights the cells that involve a one on either the first or second throw. If you count up the cells in red you will see that there are 11 such cells. This shows why the addition rule gives a different answer from de Méré's; if we were to simply add together the probabilities for the two throws as he did, then we would count (1,1) towards both, when it should really only be counted once.
 
 \hypertarget{solving-de-muxe9ruxe9s-problem}{%
 \subsection{Solving de Méré's problem}\label{solving-de-muxe9ruxe9s-problem}}
@@ -1660,7 +1660,7 @@ In the free throw example, we might want to know: What is the probability that S
 P(k\le2)= P(k=2) + P(k=1) + P(k=0) = 6e^{-5} + .002 + .040 = .043  
 \]
 
-In many cases the number of possible outcomes would be too large for us to compute the cumulative probability by enumerating all possible values; fortunately, it can be computed directly. For the binomial, we can do this in R using the \texttt{pbinom()} function:
+In many cases the number of possible outcomes would be too large for us to compute the cumulative probability by enumerating all possible values; fortunately, it can be computed directly for any theoretical probability distribution. The table below shows the cumulative probability of each possible number of successful free throws in the example from above:
 
 \begin{table}
 
@@ -1690,7 +1690,7 @@ From the table we can see that the probability of Curry landing 2 or fewer free 
 
 So far we have limited ourselves to simple probabilities - that is, the probability of a single event or combination of events. However, we often wish to determine the probability of some event given that some other event has occurred, which are known as \emph{conditional probabilities}.
 
-Let's take the 2016 US Presidential election as an example. There are two simple probabilities that we could use to describe the electorate. First, we know the probability that a voter in the US affiliated with the Republican party: \(p(Republican) = 0.44\). We also know the probability that a voter cast their vote in favor of Donald Trump: \(p(Trump voter)=0.46\). However, let's say that we want to know the following: What is the probability that a person cast their vote for Donald Trump, \emph{given that they are a Republican}?
+Let's take the 2016 US Presidential election as an example. There are two simple probabilities that we could use to describe the electorate. First, we know the probability that a voter in the US is affiliated with the Republican party: \(p(Republican) = 0.44\). We also know the probability that a voter cast their vote in favor of Donald Trump: \(p(Trump voter)=0.46\). However, let's say that we want to know the following: What is the probability that a person cast their vote for Donald Trump, \emph{given that they are a Republican}?
 
 To compute the conditional probability of A given B (which we write as \(P(A|B)\), ``probability of A, given B''), we need to know the \emph{joint probability} (that is, the probability of both A and B occurring) as well as the overall probability of B:
 
@@ -1709,9 +1709,7 @@ It can be useful to think of this graphically. Figure \ref{fig:conditionalProbab
 \hypertarget{computing-conditional-probabilities-from-data}{%
 \section{Computing conditional probabilities from data}\label{computing-conditional-probabilities-from-data}}
 
-For many examples in this course we will use data obtained from the National Health and Nutrition Examination Survey (NHANES). NHANES is a large ongoing study organized by the US Centers for Disease Control that is designed to provide an overall picture of the health and nutritional status of both adults and children in the US. Every year, the survey examines a sample of about 5000 people across the US using both interviews and physical and medical tests. The NHANES dataset is included as a package in R, making it easy to access and work with. It also provides us with a large, realistic dataset that will serve as an example for many different statistical tools.
-
-Let's say that we are interested in the following question: What is the probability that someone has diabetes, given that they are not physically active? -- that is, \(P(diabetes|inactive)\). NHANES records two variables that address the two parts of this question. The first (\texttt{Diabetes}) asks whether the person has ever been told that they have diabetes, and the second (\texttt{PhysActive}) records whether the person engages in sports, fitness, or recreational activities that are at least of moderate intensity. Let's first compute the simple probabilities.
+We can also compute conditional probabilities directly from data. Let's say that we are interested in the following question: What is the probability that someone has diabetes, given that they are not physically active? -- that is, \(P(diabetes|inactive)\). The NHANES dataset includes two variables that address the two parts of this question. The first (\texttt{Diabetes}) asks whether the person has ever been told that they have diabetes, and the second (\texttt{PhysActive}) records whether the person engages in sports, fitness, or recreational activities that are at least of moderate intensity. Let's first compute the simple probabilities.
 
 \begin{table}
 
@@ -1751,7 +1749,7 @@ Yes & Yes & 201 & 0.04\\
 
 To compute \(P(diabetes|inactive)\) we would also need to know the joint probability of being diabetic \emph{and} inactive, in addition to the simple probabilities of each.
 
-Based on these joint probabilities, we can compute \(P(diabetes|inactive)\). To do this, we can first determine the truth value of whether the PhysActive variable was equal to ``No'' for each indivdual, and then take the mean of those truth values. Since TRUE/FALSE values are treated as 1/0 respectively by most programming languages (including R), this allows us to easily identify the probability of a simple event by simply taking the mean of a logical variable representing its truth value. We then use that value to compute the conditional probability, where we find that the probability of someone having diabetes given that they are physically inactive is 0.141.
+Based on these joint probabilities, we can compute \(P(diabetes|inactive)\). One way oo do this in a computer program is to first determine the whether the PhysActive variable was equal to ``No'' for each indivdual, and then take the mean of those truth values. Since TRUE/FALSE values are treated as 1/0 respectively by most programming languages (including R and Python), this allows us to easily identify the probability of a simple event by simply taking the mean of a logical variable representing its truth value. We then use that value to compute the conditional probability, where we find that the probability of someone having diabetes given that they are physically inactive is 0.141.
 
 \hypertarget{independence}{%
 \section{Independence}\label{independence}}
@@ -1762,7 +1760,7 @@ The term ``independent'' has a very specific meaning in statistics, which is som
 P(A|B) = P(A)
 \]
 
-That is, the probability of A given some value of B is just the same as the overall probability of A. Looking at it this way, we see that many cases of what we would call ``independence'' in the world are not actually statistically independent. For example, there is currently a move by a small group of California citizens to declare a new independent state called Jefferson, which would comprise a number of counties in northern California and Oregon. If this were to happen, then the probability that a current California resident would now live in the state of Jefferson would be \(P(\text{Jefferson})=0.014\), whereas the probability that they would remain a California resident would be \(P(\text{California})=0.986\). The new states might be politically independent, but they would \emph{not} be statistically independent, because \(P(\text{California|Jefferson}) = 0\)! That is, while independence in common language often refers to sets that are exclusive, statistical independence refers to the case where one cannot predict anything about one variable from the value of another variable. For example, knowing a person's hair color is unlikely to tell you whether they prefer chocolate or strawberry ice cream.
+That is, the probability of A given some value of B is just the same as the overall probability of A. Looking at it this way, we see that many cases of what we would call ``independence'' in the real world are not actually statistically independent. For example, there is currently a move by a small group of California citizens to declare a new independent state called Jefferson, which would comprise a number of counties in northern California and Oregon. If this were to happen, then the probability that a current California resident would now live in the state of Jefferson would be \(P(\text{Jeffersonian})=0.014\), whereas the probability that they would remain a California resident would be \(P(\text{Californian})=0.986\). The new states might be politically independent, but they would \emph{not} be statistically independent, because \(P(\text{Californian|Jeffersonian}) = 0\)! That is, while independence in common language often refers to sets that are exclusive, statistical independence refers to the case where one cannot predict anything about one variable from the value of another variable. For example, knowing a person's hair color is unlikely to tell you whether they prefer chocolate or strawberry ice cream.
 
 Let's look at another example, using the NHANES data: Are physical health and mental health independent of one another? NHANES includes two relevant questions: \emph{PhysActive}, which asks whether the individual is physically active, and \emph{DaysMentHlthBad}, which asks how many days out of the last 30 that the individual experienced bad mental health. Let's consider anyone who had more than 7 days of bad mental health in the last month to be in bad mental health. Based on this, we can define a new variable called \emph{badMentalHealth} as a logical variable telling whether each person had more than 7 days of bad mental health or not. Using this new variable, we can then determine whether mental health and physical activity are independent by asking whether the simple probability of bad mental health is different from the conditional probability of bad mental health given that one is physically active.
 
@@ -1776,7 +1774,7 @@ Yes & 0.13\\
 \hline
 \end{tabular}
 
-The overall probability of bad mental health \(P(\text{bad mental health})\) is 0.16 while the conditional probability \(P(\text{bad mental health|physically active})\) is 0.13. Thus, it seems that the conditional probability is somewhat smaller than the overall probability, suggesting that they are not independent, though we can't know for sure just by looking at the numbers, since these numbers might be different due to sampling variability. Later in the course we will encounter tools that will let us more directly test whether two variables are independent.
+The overall probability of bad mental health \(P(\text{bad mental health})\) is 0.16 while the conditional probability \(P(\text{bad mental health|physically active})\) is 0.13. Thus, it seems that the conditional probability is somewhat smaller than the overall probability, suggesting that they are not independent, though we can't know for sure just by looking at the numbers, since these numbers might be different due to random variability in our sample. Later in the course we will encounter tools that will let us more directly test whether two variables are independent.
 
 \hypertarget{bayestheorem}{%
 \section{Reversing a conditional probability: Bayes' rule}\label{bayestheorem}}
@@ -1803,7 +1801,7 @@ Using this, we can redefine Bayes's rule:
 P(B|A) = \frac{P(A|B)*P(B)}{P(A|B)*P(B) + P(A|\neg B)*P(\neg B)}
 \]
 
-We can plug the relevant numbers into this equation to determine the likelihood that an individual with a positive PSA result actually has cancer -- but note that in order to do this, we also need to know the overall probability of cancer in the person, which we often refer to as the \emph{base rate}. Let's take a 60 year old man, for whom the probability of prostate cancer in the next 10 years is \(P(cancer)=0.058\). Using the sensitivity and specificity values that we outlined above, we can compute the individual's likelihood of having cancer given a positive test:
+We can plug the relevant numbers into this equation to determine the likelihood that an individual with a positive PSA result actually has cancer -- but note that in order to do this, we also need to know the overall probability of cancer for that person, which we often refer to as the \emph{base rate}. Let's take a 60 year old man, for whom the probability of prostate cancer in the next 10 years is \(P(cancer)=0.058\). Using the sensitivity and specificity values that we outlined above, we can compute the individual's likelihood of having cancer given a positive test:
 
 \[
 P(\text{cancer|test}) = \frac{P(\text{test|cancer})*P(\text{cancer})}{P(\text{test|cancer})*P(\text{cancer}) + P(\text{test|}\neg\text{cancer})*P(\neg\text{cancer})} 
@@ -1822,7 +1820,7 @@ Another way to think of Bayes' rule is as a way to update our beliefs on the bas
 P(B|A) =  \frac{P(A|B)*P(B)}{P(A)}
 \]
 
-The different parts of Bayes' rule have specific names, that relate to their role in using Bayes rule to update our beliefs. We start out with an initial guess about the probability of B (\(P(B)\)), which we refer to as the \emph{prior} probability. In the PSA example we used the base rate for the prior, since it was our best guess as to the individual's chance of cancer before we knew the test result. We then collect some data, which in our example was the test result. The degree to which the data A are consistent with outcome B is given by \(P(A|B)\), which we refer to as the \emph{likelihood}. You can think of this as how likely the data are, given the particular hypothesis being tested. In our example, the hypothesis being tested was whether the individual had cancer, and the likelihood was based on our knowledge about the sensitivity of the test (that is, the probability of cancer given a positive test outcome). The denominator (\(P(A)\)) is referred to as the \emph{marginal likelihood}, because it expresses the overall likelihood of the data, averaged across all of the possible values of A (which in our example were the positive and negative test results).
+The different parts of Bayes' rule have specific names, that relate to their role in using Bayes' rule to update our beliefs. We start out with an initial guess about the probability of B (\(P(B)\)), which we refer to as the \emph{prior} probability. In the PSA example we used the base rate as our prior, since it was our best guess as to the individual's chance of cancer before we knew the test result. We then collect some data, which in our example was the test result. The degree to which the data A are consistent with outcome B is given by \(P(A|B)\), which we refer to as the \emph{likelihood}. You can think of this as how likely the data are, given that the particular hypothesis being tested is true. In our example, the hypothesis being tested was whether the individual had cancer, and the likelihood was based on our knowledge about the sensitivity of the test (that is, the probability of cancer given a positive test outcome). The denominator (\(P(A)\)) is referred to as the \emph{marginal likelihood}, because it expresses the overall likelihood of the data, averaged across all of the possible values of B (which in our example were disease present and disease absent).
 The outcome to the left (\(P(B|A)\)) is referred to as the \emph{posterior} - because it's what comes out the back end of the computation.
 
 There is another way of writing Bayes rule that makes this a bit clearer:
@@ -1853,7 +1851,7 @@ This tells us that the that the odds are fairly low of having cancer, even thoug
 \text{odds of 6} = \frac{1}{5} = 0.2
 \]
 
-As an aside, this is a reason why many medical researchers have become increasingly wary of the use of widespread screening tests for relatively uncommon conditions; most positive results will turn out to be false positives.
+As an aside, this is a reason why many medical researchers have become increasingly wary of the use of widespread screening tests for relatively uncommon conditions; most positive results will turn out to be false positives, resulting in unneccessary followup tests with possible complications, not to mention added stress for the patient.
 
 We can also use odds to compare different probabilities, by computing what is called an \emph{odds ratio} - which is exactly what it sounds like. For example, let's say that we want to know how much the positive test increases the individual's odds of having cancer. We can first compute the \emph{prior odds} -- that is, the odds before we knew that the person had tested positively. These are computed using the base rate:
 
@@ -1939,25 +1937,25 @@ P(B|A) = \frac{P(A \cap B)}{P(A)} =   \frac{P(A|B)*P(B)}{P(A)}
 
 One of the foundational ideas in statistics is that we can make inferences about an entire population based on a relatively small sample of individuals from that population. In this chapter we will introduce the concept of statistical sampling and discuss why it works.
 
-Anyone living in the United States will be familiar with the concept of sampling from the political polls that have become a central part of our electoral process. In some cases, these polls can be incredibly accurate at predicting the outcomes of elections. The best known example comes from the 2008 and 2012 US Presidential elections, when the pollster Nate Silver correctly predicted electoral outcomes for 49/50 states in 2008 and for all 50 states in 2012. Silver did this by combining data from 21 different polls, which vary in the degree to which they tend to lean towards either the Republican or Democratic side. Each of these polls included data from about 1000 likely voters -- meaning that Silver was able to almost perfectly predict the pattern of votes of more than 125 million voters using data from only 21,000 people, along with other knowledge (such as how those states have voted in the past).
+Anyone living in the United States will be familiar with the concept of sampling from the political polls that have become a central part of our electoral process. In some cases, these polls can be incredibly accurate at predicting the outcomes of elections. The best known example comes from the 2008 and 2012 US Presidential elections, when the pollster Nate Silver correctly predicted electoral outcomes for 49/50 states in 2008 and for all 50 states in 2012. Silver did this by combining data from 21 different polls, which vary in the degree to which they tend to lean towards either the Republican or Democratic side. Each of these polls included data from about 1000 likely voters -- meaning that Silver was able to almost perfectly predict the pattern of votes of more than 125 million voters using data from only about 21,000 people, along with other knowledge (such as how those states have voted in the past).
 
 \hypertarget{how-do-we-sample}{%
 \section{How do we sample?}\label{how-do-we-sample}}
 
-Our goal in sampling is to determine the value of a statistic for an entire population of interest, using just a small subset of the population. We do this primarily to save time and effort -- why go to the trouble of measuring every individual in the population when just a small sample is sufficient to accurately estimate the variable of interest?
+Our goal in sampling is to determine the value of a statistic for an entire population of interest, using just a small subset of the population. We do this primarily to save time and effort -- why go to the trouble of measuring every individual in the population when just a small sample is sufficient to accurately estimate the statistic of interest?
 
-In the election example, the population is all registered voters, and the sample is the set of 1000 individuals selected by the polling organization. The way in which we select the sample is critical to ensuring that the sample is \emph{representative} of the entire population, which is a main goal of statistical sampling. It's easy to imagine a non-representative sample; if a pollster only called individuals whose names they had received from the local Democratic party, then it would be unlikely that the results of the poll would be representative of the population as a whole. In general, we would define a representative poll as being one in which every member of the population has an equal chance of being selected. When this fails, then we have to worry about whether the statistic that we compute on the sample is \emph{biased} - that is, whether its value is systematically different from the population value (which we refer to as a \emph{parameter}). Keep in mind that we generally don't know this population parameter, because if we did then we wouldn't need to sample! But we will use examples where we have access to the entire population, in order to explain some of the key ideas.
+In the election example, the population is all registered voters in the region being polled, and the sample is the set of 1000 individuals selected by the polling organization. The way in which we select the sample is critical to ensuring that the sample is \emph{representative} of the entire population, which is a main goal of statistical sampling. It's easy to imagine a non-representative sample; if a pollster only called individuals whose names they had received from the local Democratic party, then it would be unlikely that the results of the poll would be representative of the population as a whole. In general, we would define a representative poll as being one in which every member of the population has an equal chance of being selected. When this fails, then we have to worry about whether the statistic that we compute on the sample is \emph{biased} - that is, whether its value is systematically different from the population value (which we refer to as a \emph{parameter}). Keep in mind that we generally don't know this population parameter, because if we did then we wouldn't need to sample! But we will use examples where we have access to the entire population, in order to explain some of the key ideas.
 
 It's important to also distinguish between two different ways of sampling: with replacement versus without replacement. In sampling \emph{with replacement}, after a member of the population has been sampled, they are put back into the pool so that they can potentially be sampled again. In \emph{sampling without replacement}, once a member has been sampled they are not eligible to be sampled again. It's most common to use sampling without replacement, but there will be some contexts in which we will use sampling with replacement, as when we discuss a technique called \emph{bootstrapping} in Chapter \ref{resampling-and-simulation}.
 
 \hypertarget{samplingerror}{%
 \section{Sampling error}\label{samplingerror}}
 
-Regardless of how representative our sample is, it's likely that the statistic that we compute from the sample is going to differ at least slightly from the population parameter. We refer to this as \emph{sampling error}. The value of our statistical estimate will also vary from sample to sample; we refer to this distribution of our statistic across samples as the \emph{sampling distribution}.
+Regardless of how representative our sample is, it's likely that the statistic that we compute from the sample is going to differ at least slightly from the population parameter. We refer to this as \emph{sampling error}. If we take multiple samples, the value of our statistical estimate will also vary from sample to sample; we refer to this distribution of our statistic across samples as the \emph{sampling distribution}.
 
-Sampling error is directly related to the quality of our measurement of the population. Clearly we want the estimates obtained from our sample to be as close as possible to the true value of the population parameter. However, even if our statistic is unbiased (that is, in the long run we expect it to have the same value as the population parameter), the value for any particular estimate will differ from the population estimate, and those differences will be greater when the sampling error is greater. Thus, reducing sampling error is an important step towards better measurement.
+Sampling error is directly related to the quality of our measurement of the population. Clearly we want the estimates obtained from our sample to be as close as possible to the true value of the population parameter. However, even if our statistic is unbiased (that is, in the long run we expect it to have the same value as the population parameter), the value for any particular estimate will differ from the population value, and those differences will be greater when the sampling error is greater. Thus, reducing sampling error is an important step towards better measurement.
 
-We will use the NHANES dataset as an example; we are going to assume that the NHANES dataset is the entire population, and then we will draw random samples from this population. We will have more to say in the next chapter about exactly how the generation of ``random'' samples works in a computer.
+We will use the NHANES dataset as an example; we are going to assume that the NHANES dataset is the entire population of interest, and then we will draw random samples from this population. We will have more to say in the next chapter about exactly how the generation of ``random'' samples works in a computer.
 
 In this example, we know the adult population mean (168.35) and standard deviation (10.16) for height because we are assuming that the NHANES dataset \emph{is} the population. Now let's take a few samples of 50 individuals from the NHANES population, and look at the resulting statistics.
 
@@ -2001,27 +1999,29 @@ Note that we have to be careful about computing SEM using the estimated standard
 
 Because we have many samples from the NHANES population and we actually know the population SEM (which we compute by dividing the population standard deviation by the size of the population), we can confirm that the SEM computed using the population parameter (1.44) is very close to the observed standard deviation of the means for the samples that we took from the NHANES dataset (1.43).
 
-The formula for the standard error of the mean says that the quality of our measurement involves two quantities: the population variability, and the size of our sample. Because the sample size is the denominator in the formula for SEM, a larger sample size will yield a smaller SEM when holding the population variability constant. We have no control over the population variability, but we \emph{do} have control over the sample size. Thus, if we wish to improve our sample statistics (by reducing their sampling variability) then we should use larger samples. However, the formula also tells us something very fundamental about statistical sampling -- namely, that the utility of larger samples diminishes with the square root of the sample size. This means that doubling the sample size will \emph{not} double the quality of the statistics; rather, it will improve it by a factor of \(\sqrt{2}\). In Section \ref{statistical-power} we will discuss statistical power, which is intimately tied to this idea.
+The formula for the standard error of the mean implies that the quality of our measurement involves two quantities: the population variability, and the size of our sample. Because the sample size is the denominator in the formula for SEM, a larger sample size will yield a smaller SEM when holding the population variability constant. We have no control over the population variability, but we \emph{do} have control over the sample size. Thus, if we wish to improve our sample statistics (by reducing their sampling variability) then we should use larger samples. However, the formula also tells us something very fundamental about statistical sampling -- namely, that the utility of larger samples diminishes with the square root of the sample size. This means that doubling the sample size will \emph{not} double the quality of the statistics; rather, it will improve it by a factor of \(\sqrt{2}\). In Section \ref{statistical-power} we will discuss statistical power, which is intimately tied to this idea.
 
 \hypertarget{the-central-limit-theorem}{%
 \section{The Central Limit Theorem}\label{the-central-limit-theorem}}
 
 The Central Limit Theorem tells us that as sample sizes get larger, the sampling distribution of the mean will become normally distributed, \emph{even if the data within each sample are not normally distributed}.
 
-We can see this in real data. Let's work with the variable AlcoholYear in the NHANES distribution, which is highly skewed, as shown in the left panel of Figure \ref{fig:alcDist50}. This distribution is, for lack of a better word, funky -- and definitely not normally distributed. Now let's look at the sampling distribution of the mean for this variable. Figure \ref{fig:alcDist50} shows the sampling distribution for this variable, which is obtained by repeatedly drawing samples of size 50 from the NHANES dataset and taking the mean. Despite the clear non-normality of the original data, the sampling distribution is remarkably close to the normal.
+First, let's say a little bit about the normal distribution. It's also known as the \emph{Gaussian} distribution, after Carl Friedrich Gauss, a mathematician who didn't invent it but played a role in its development. The normal distribution is described in terms of two parameters: the mean (which you can think of as the location of the peak), and the standard distribution (which specifies the width of the distribution). The bell-like shape of the distribution never changes, only its location and width. The normal distribution is commonly observed in data collected in the real world, as we have already seen in Chapter 3 --- and the central limit theorem gives us some insight into why that occurs.
+
+To see the central limit theorem in action, let's work with the variable AlcoholYear from the NHANES dataset, which is highly skewed, as shown in the left panel of Figure \ref{fig:alcDist50}. This distribution is, for lack of a better word, funky -- and definitely not normally distributed. Now let's look at the sampling distribution of the mean for this variable. Figure \ref{fig:alcDist50} shows the sampling distribution for this variable, which is obtained by repeatedly drawing samples of size 50 from the NHANES dataset and taking the mean. Despite the clear non-normality of the original data, the sampling distribution is remarkably close to the normal.
 
 \begin{figure}
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/alcDist50-1} \caption{Left: Distribution of the variable AlcoholYear in the NHANES dataset, which reflects the number of days that the individual drank in a year. Right: The sampling distribution of the mean for AlcoholYear in the NHANES dataset, obtained by drawing repeated samples of size 50, in blue.  The normal distribution with the same mean and standard deviation is shown in red.}\label{fig:alcDist50}
 \end{figure}
 
-The Central Limit Theorem is important for statistics because it allows us to safely assume that the sampling distribution of the mean will be normal in most cases. This means that we can take advantage of statistical techniques that assume a normal distribution, as we will see in the next section.
+The Central Limit Theorem is important for statistics because it allows us to safely assume that the sampling distribution of the mean will be normal in most cases. This means that we can take advantage of statistical techniques that assume a normal distribution, as we will see in the next section. It's also important because it tells us why normal distributions are so common in the real world; any time we combine many different factors into a single number, the result is likely to be a normal distribution. For example, the height of any adult depends on a complex mixture of their genetics and experience; even if those individual contributions may not be normally distributed, when we combine them the result is a normal distribution.
 
 \hypertarget{confidence-intervals}{%
 \section{Confidence intervals}\label{confidence-intervals}}
 
-Most people are familiar with the idea of a ``margin of error'' for political polls. These polls usually try to provide an answer that is accurate within +/- 3 percent. For example, when a candidate is estimated to win an election by 9 percentage points with a margin of error of 3, the percentage by which they will win is estimated to fall within 6-12 percentage points. In statistics we refer to this range of values as the \emph{confidence interval}, which provides a measure of our degree of uncertainty about how close our estimate is to the population parameter. The larger the confidence interval, the greater our uncertainty.
+Most people are familiar with the idea of a ``margin of error'' for political polls. These polls usually try to provide an answer that is accurate within +/- 3 percent. For example, when a candidate is estimated to win an election by 9 percentage points with a margin of error of 3, the percentage by which they will win is estimated to fall within 6-12 percentage points. In statistics we refer to this range of values as the \emph{confidence interval}, which provides a measure of our degree of uncertainty about how close our particular estimate based on a single sample is to the population parameter. The larger the confidence interval, the greater our uncertainty.
 
-We saw in the previous section that with sufficient sample size, the sampling distribution of the mean is normally distributed, and that the standard error describes the standard deviation of this sampling distribution. Using this knowledge, we can ask: What is the range of values within which we would expect to capture 95\% of all estimates of the mean? To answer this, we can use the normal distribution, for which we know the values between which we expect 95\% of all sample means to fall. Specifically, we use the \emph{quantile} function for the normal distribution (\texttt{qnorm()} in R) to determine the values of the normal distribution that below which 2.5\% and 97.5\% of the distribution falls. We choose these points because we want to find the 95\% of values in the center of the distribution, so we need to cut off 2.5\% on each end in order to end up with 95\% in the middle. Figure \ref{fig:normalCutoffs} shows that this occurs for \(Z \pm 1.96\).
+We saw in the previous section that with sufficient sample size, the sampling distribution of the mean is normally distributed, and that the standard error describes the standard deviation of this sampling distribution. Using this knowledge, we can ask: What is the range of values within which we would expect to capture 95\% of all estimates of the mean? To answer this, we can use the normal distribution, for which we know the values between which we expect 95\% of all sample means to fall; in statistical software, we generally refer to these as \emph{quantiles}. Specifically, we need to determine the 2.5\% and 97.5\% quantiles of the of the distribution. We choose these points because we want to find the 95\% of values in the center of the distribution, so we need to cut off 2.5\% on each end in order to end up with 95\% in the middle. Figure \ref{fig:normalCutoffs} shows that this occurs for \(Z \pm 1.96\).
 
 \begin{figure}
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/normalCutoffs-1} \caption{Normal distribution, with the orange section in the center denoting the range in which we expect 95 percent of all values to fall.  The green sections show the portions of the distribution that are more extreme, which we would expect to occur less than 5 percent of the time.}\label{fig:normalCutoffs}
@@ -2043,7 +2043,7 @@ Sample mean & SEM & Lower bound of CI & Upper bound of CI\\
 \hline
 \end{tabular}
 
-Confidence intervals are notoriously confusing, primarily because they don't mean what we would hope they mean. It seems natural to think that the 95\% confidence interval tells us that there is a 95\% chance that the population mean falls within the interval. However, as we will see throughout the course, concepts in statistics often don't mean what we think they should mean. In the case of confidence intervals, we can't interpret them in this way because the population parameter has a fixed value -- it either is or isn't in the interval. The proper interpretation of the 95\% confidence interval is that it is an interval that will contain the true population mean 95\% of the time. We can confirm this by obtaining a large number of samples from the NHANES data and counting how often the interval contains the true population mean. The proportion of confidence intervals contaning the true mean is (0.94)This confirms that the confidence interval does indeed capture the population mean about 95\% of the time.
+Confidence intervals are notoriously confusing, primarily because they don't mean what we would hope they mean. It seems natural to think that the 95\% confidence interval tells us that there is a 95\% chance that the population mean falls within the interval. However, as we will see throughout the course, concepts in statistics often don't mean what we think they should mean. In the case of confidence intervals, we can't interpret them in this way because the population parameter has a fixed value -- it either is or isn't in the interval, so it doesn't make sense to talk about the probability of that occurring. The proper interpretation of the 95\% confidence interval is that it is an interval that will contain the true population mean 95\% of the time, and in fact we can confirm that using simulation. We will learn more about confidence intervals later in the course after we discuss hypothesis testing.
 
 \hypertarget{learning-objectives-6}{%
 \section{Learning objectives}\label{learning-objectives-6}}
@@ -2053,7 +2053,7 @@ Having read this chapter, you should be able to:
 \begin{itemize}
 \tightlist
 \item
-  Distinguish between a population and a sample, and between population parameters and statistics
+  Distinguish between a population and a sample, and between population parameters and sample statistics
 \item
   Describe the concepts of sampling error and sampling distribution
 \item
@@ -2061,7 +2061,7 @@ Having read this chapter, you should be able to:
 \item
   Describe how the Central Limit Theorem determines the nature of the sampling distribution of the mean
 \item
-  Compute a confidence interval for the mean based on the normal distribution, and describe its proper interpretation
+  Compute a confidence interval for the mean based on the normal distribution, and describe its appropriate interpretation
 \end{itemize}
 
 \hypertarget{suggested-readings-4}{%
@@ -2088,7 +2088,7 @@ In this chapter we will introduce the concept of a Monte Carlo simulation and di
 \section{Monte Carlo simulation}\label{monte-carlo-simulation}}
 
 The concept of Monte Carlo simulation was devised by the mathematicians Stan Ulam and Nicholas Metropolis, who were working to develop an atomic weapon for the US as part of the Manhattan Project. They needed to compute the average distance that a neutron would travel in a substance before it collided with an atomic nucleus, but they could not compute this using standard mathematics.
-Ulam realized that these computations could be simulated using random numbers, just like a casino game. In a casino game such as a roulette wheel, numbers are generated at random; to estimate the probability of a specific outcome, you could play the game hundreds of times. Ulam's uncle had gambled at the Monte Carlo casino in Monaco, which is apparently where the name came from for this new technique.
+Ulam realized that these computations could be simulated using random numbers, just like a casino game. In a casino game such as a roulette wheel, numbers are generated at random; to estimate the probability of a specific outcome, one could play the game hundreds of times. Ulam's uncle had gambled at the Monte Carlo casino in Monaco, which is apparently where the name came from for this new technique.
 
 There are four steps to performing a Monte Carlo simulation:
 
@@ -2121,73 +2121,15 @@ Running a Monte Carlo simulation requires that we generate random numbers. Gener
 
 In general, instead of truly random numbers we use \emph{pseudo-random} numbers generated using a computer algorithm; these numbers will seem random in the sense that they are difficult to predict, but the series of numbers will actually repeat at some point. For example, the random number generator used in R will repeat after \(2^{19937} - 1\) numbers. That's far more than the number of seconds in the history of the universe, and we generally think that this is fine for most purposes in statistical analysis.
 
-In R, there is a function to generate random numbers for each of the major probability distributions, such as:
-
-\begin{itemize}
-\tightlist
-\item
-  \texttt{runif()} - uniform distribution (all values between 0 and 1 equally)
-\item
-  \texttt{rnorm()} - normal distribution
-\item
-  \texttt{rbinom()} - binomial distribution (e.g.~rolling the dice, coin flips)
-\end{itemize}
-
-Figure \ref{fig:rngExamples} shows examples of numbers generated using the \texttt{runif()} and \texttt{rnorm()} functions, generated using the following code:
+Most statistical software includes functions to generate random numbers for each of the major probability distributions, such as the uniform distribution (all values between 0 and 1 equally), normal distribution, and binomial distribution (e.g.~rolling the dice, coin flips). Figure \ref{fig:rngExamples} shows examples of numbers generated from uniform and a normal distribution functions.
 
 \begin{figure}
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/rngExamples-1} \caption{Examples of random numbers generated from a uniform (left) or normal (right) distribution.}\label{fig:rngExamples}
 \end{figure}
 
-You can also generate random numbers for any distribution if you have a \emph{quantile} function for the distribution. This is the inverse of the cumulative distribution function; instead of identifying the cumulative probabilities for a set of values, the quantile function identifies the values for a set of cumulative probabilities. Using the quantile function, we can generate random numbers from a uniform distribution, and then map those into the distribution of interest via its quantile function.
+One can also generate random numbers for any distribution using a \emph{quantile} function for the distribution. This is the inverse of the cumulative distribution function; instead of identifying the cumulative probabilities for a set of values, the quantile function identifies the values for a set of cumulative probabilities. Using the quantile function, we can generate random numbers from a uniform distribution, and then map those into the distribution of interest via its quantile function.
 
-By default, R will generate a different set of random numbers every time you run one of the random number generator functions described above. However, it is also possible to generate exactly the same set of random numbers, by setting what is called the \emph{random seed} to a specific value. We will do this in many of the examples in this book, in order to make sure that the examples are reproducible.
-
-If we run the \texttt{rnorm()} function twice, it will give us different sets of pseudorandom numbers each time:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{print}\NormalTok{(}\KeywordTok{rnorm}\NormalTok{(}\DataTypeTok{n =} \DecValTok{5}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1]  1.48  0.18  0.21 -0.15 -1.72
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{print}\NormalTok{(}\KeywordTok{rnorm}\NormalTok{(}\DataTypeTok{n =} \DecValTok{5}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] -0.691 -2.231  0.391  0.029 -0.647
-\end{verbatim}
-
-However, if we set the random seed to the same value each time using the \texttt{set.seed()} function, then it will give us the same series of pseudorandom numbers each time:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{set.seed}\NormalTok{(}\DecValTok{12345}\NormalTok{)}
-\KeywordTok{print}\NormalTok{(}\KeywordTok{rnorm}\NormalTok{(}\DataTypeTok{n =} \DecValTok{5}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1]  0.59  0.71 -0.11 -0.45  0.61
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{set.seed}\NormalTok{(}\DecValTok{12345}\NormalTok{)}
-\KeywordTok{print}\NormalTok{(}\KeywordTok{rnorm}\NormalTok{(}\DataTypeTok{n =} \DecValTok{5}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1]  0.59  0.71 -0.11 -0.45  0.61
-\end{verbatim}
+By default, the random number generators in statistical software will generate a different set of random numbers every time they are run. However, it is also possible to generate exactly the same set of random numbers, by setting what is called the \emph{random seed} to a specific value. We will do this in many of the examples in this book, in order to make sure that the examples are reproducible.
 
 \hypertarget{using-monte-carlo-simulation}{%
 \section{Using Monte Carlo simulation}\label{using-monte-carlo-simulation}}
@@ -2204,7 +2146,7 @@ However, what we really want to know is not what the distribution of finishing t
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/finishTimeSim-1} \caption{Distribution of maximum finishing times across simulations.}\label{fig:finishTimeSim}
 \end{figure}
 
-This shows that the 99th percentile of the finishing time distribution falls at 8.81, meaning that if we were to give that much time for the quiz, then everyone should finish 99\% of the time. It's always important to remember that our assumptions matter -- if they are wrong, then the results of the simulation are useless. In this case, we assumed that the finishing time distribution was normally distributed with a particular mean and standard deviation; if these assumptions are incorrect (and they almost certainly are), then the true answer could be very different.
+This shows that the 99th percentile of the finishing time distribution falls at 8.74, meaning that if we were to give that much time for the quiz, then everyone should finish 99\% of the time. It's always important to remember that our assumptions matter -- if they are wrong, then the results of the simulation are useless. In this case, we assumed that the finishing time distribution was normally distributed with a particular mean and standard deviation; if these assumptions are incorrect (and they almost certainly are), then the true answer could be very different.
 
 \hypertarget{using-simulation-for-statistics-the-bootstrap}{%
 \section{Using simulation for statistics: The bootstrap}\label{using-simulation-for-statistics-the-bootstrap}}
@@ -2214,9 +2156,9 @@ So far we have used simulation to demonstrate statistical principles, but we can
 \hypertarget{computing-the-bootstrap}{%
 \subsection{Computing the bootstrap}\label{computing-the-bootstrap}}
 
-In the section above, we used our knowledge of the sampling distribution of the mean to compute the standard error of the mean and confidence intervals. But what if we can't assume that the estimates are normally distributed, or we don't know their distribution? The idea of the bootstrap is to use the data themselves to estimate an answer. The name comes from the idea of pulling one's self up by one's own bootstraps, expressing the idea that we don't have any external source of leverage so we have to rely upon the data themselves. The bootstrap method was conceived by Bradley Efron of the Stanford Department of Statistics, who is one of the world's most influential statisticians.
+In the previous chapter, we used our knowledge of the sampling distribution of the mean to compute the standard error of the mean and confidence intervals. But what if we can't assume that the estimates are normally distributed, or we don't know their distribution? The idea of the bootstrap is to use the data themselves to estimate an answer. The name comes from the idea of pulling one's self up by one's own bootstraps, expressing the idea that we don't have any external source of leverage so we have to rely upon the data themselves. The bootstrap method was conceived by Bradley Efron of the Stanford Department of Statistics, who is one of the world's most influential statisticians.
 
-The idea behind the bootstrap is that we repeatedly sample from the actual dataset; importantly, we sample \emph{with replacement}, such that the same data point will often end up being represented multiple times within one of the samples. We then compute our statistic of interest on each of the bootstrap samples, and use the distribution of those estimates.
+The idea behind the bootstrap is that we repeatedly sample from the actual dataset; importantly, we sample \emph{with replacement}, such that the same data point will often end up being represented multiple times within one of the samples. We then compute our statistic of interest on each of the bootstrap samples, and use the distribution of those estimates as our sampling distribution.
 
 Let's start by using the bootstrap to estimate the sampling distribution of the mean, so that we can compare the result to the standard error of the mean (SEM) that we discussed earlier.
 
@@ -2228,15 +2170,15 @@ Figure \ref{fig:bootstrapSEM} shows that the distribution of means across bootst
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-42}Confidence limits for normal distribution and bootstrap methods}
+\caption{\label{tab:unnamed-chunk-40}Confidence limits for normal distribution and bootstrap methods}
 \centering
 \begin{tabular}[t]{l|r|r}
 \hline
 type & 2.5\% & 97.5\%\\
 \hline
-Normal & 165 & 172\\
+Normal & 166 & 173\\
 \hline
-Bootstrap & 165 & 172\\
+Bootstrap & 166 & 172\\
 \hline
 \end{tabular}
 \end{table}
@@ -2255,7 +2197,7 @@ After reading this chapter, you should be able to:
 \item
   Describe the meaning of randomness in statistics
 \item
-  Obtain random numbers from the uniform and normal distributions
+  Describe how pseudo-random numbers are generated
 \item
   Describe the concept of the bootstrap
 \end{itemize}
@@ -2301,7 +2243,7 @@ It is also important for you to know, however, that NHST is deeply flawed, and t
   Hypothesis testing is ``a wrongheaded view about what constitutes scientific progress'' (Luce, 1988)
 \end{itemize}
 
-NHST is also widely misunderstood, largely because it violates our intuitions about how statistical hypothesis testing should work. Let's look at an example to see.
+NHST is also widely misunderstood, largely because it violates our intuitions about how statistical hypothesis testing should work. Let's look at an example to see this.
 
 \hypertarget{null-hypothesis-statistical-testing-an-example}{%
 \section{Null hypothesis statistical testing: An example}\label{null-hypothesis-statistical-testing-an-example}}
@@ -2310,7 +2252,7 @@ There is great interest in the use of body-worn cameras by police officers, whic
 
 Before we get to the results, let's ask how you would think the statistical analysis might work. Let's say we want to specifically test the hypothesis of whether the use of force is decreased by the wearing of cameras. The randomized controlled trial provides us with the data to test the hypothesis -- namely, the rates of use of force by officers assigned to either the camera or control groups. The next obvious step is to look at the data and determine whether they provide convincing evidence for or against this hypothesis. That is: What is the likelihood that body-worn cameras reduce the use of force, given the data and everything else we know?
 
-It turns out that this is \emph{not} how null hypothesis testing works. Instead, we first take our hypothesis of interest (i.e.~whether body-worn cameras reduce use of force), and flip it on its head, creating a \emph{null hypothesis} -- in this case, the null hypothesis would be that cameras do not reduce use of force. Importantly, we then assume that the null hypothesis is true. We then look at the data, and determine whether the data are sufficiently unlikely under the null hypothesis that we can reject the null in favor of the \emph{alternative hypothesis} which is our hypothesis of interest. If there is not sufficient evidence to reject the null, then we say that we ``failed to reject'' the null.
+It turns out that this is \emph{not} how null hypothesis testing works. Instead, we first take our hypothesis of interest (i.e.~that body-worn cameras reduce use of force), and flip it on its head, creating a \emph{null hypothesis} -- in this case, the null hypothesis would be that cameras do not reduce use of force. Importantly, we then assume that the null hypothesis is true. We then look at the data, and determine how likely the data would be if the null hypothesis were true. If the the data are sufficiently unlikely under the null hypothesis that we can reject the null in favor of the \emph{alternative hypothesis} which is our hypothesis of interest. If there is not sufficient evidence to reject the null, then we say that we ``failed to reject'' the null, and we stick with our initial assumption that the null is true.
 
 Understanding some of the concepts of NHST, particularly the notorious ``p-value'', is invariably challenging the first time one encounters them, because they are so counter-intuitive. As we will see later, there are other approaches that provide a much more intuitive way to address hypothesis testing (but have their own complexities). However, before we get to those, it's important for you to have a deep understanding of how hypothesis testing works, because it's clearly not going to go away any time soon.
 
@@ -2325,9 +2267,9 @@ We can break the process of null hypothesis testing down into a number of steps:
 \item
   Formulate a hypothesis that embodies our prediction (\emph{before seeing the data})
 \item
-  Collect some data relevant to the hypothesis
-\item
   Specify null and alternative hypotheses
+\item
+  Collect some data relevant to the hypothesis
 \item
   Fit a model to the data that represents the alternative hypothesis and compute a test statistic
 \item
@@ -2345,16 +2287,39 @@ BMI = \frac{weight(kg)}{height(m)^2}
 \hypertarget{step-1-formulate-a-hypothesis-of-interest}{%
 \subsection{Step 1: Formulate a hypothesis of interest}\label{step-1-formulate-a-hypothesis-of-interest}}
 
-For step 1, we hypothesize that BMI is greater for people who do not engage in physical activity, compared to those who do.
+We hypothesize that BMI is greater for people who do not engage in physical activity, compared to those who do.
 
-\hypertarget{step-2-collect-some-data}{%
-\subsection{Step 2: Collect some data}\label{step-2-collect-some-data}}
+\hypertarget{step-2-specify-the-null-and-alternative-hypotheses}{%
+\subsection{Step 2: Specify the null and alternative hypotheses}\label{step-2-specify-the-null-and-alternative-hypotheses}}
 
-For step 2, we collect some data. In this case, we will sample 250 individuals from the NHANES dataset. Figure \ref{fig:bmiSample} shows an example of such a sample, with BMI shown separately for active and inactive individuals.
+For step 2, we need to specify our null hypothesis (which we call \(H_0\)) and our alternative hypothesis (which we call \(H_A\)). \(H_0\) is the baseline against which we test our hypothesis of interest: that is, what would we expect the data to look like if there was no effect? The null hypothesis always involves some kind of equality (=, \(\le\), or \(\ge\)). \(H_A\) describes what we expect if there actually is an effect. The alternative hypothesis always involves some kind of inequality (\(\ne\), \textgreater{}, or \textless{}). Importantly, null hypothesis testing operates under the assumption that the null hypothesis is true unless the evidence shows otherwise.
+
+We also have to decide whether we want to test a \emph{directional} or \emph{non-directional} hypotheses. A non-directional hypothesis simply predicts that there will be a difference, without predicting which direction it will go. For the BMI/activity example, a non-directional null hypothesis would be:
+
+\(H0: BMI_{active} = BMI_{inactive}\)
+
+and the corresponding non-directional alternative hypothesis would be:
+
+\(HA: BMI_{active} \neq BMI_{inactive}\)
+
+A directional hypothesis, on the other hand, predicts which direction the difference would go. For example, we have strong prior knowledge to predict that people who engage in physical activity should weigh less than those who do not, so we would propose the following directional null hypothesis:
+
+\(H0: BMI_{active} \ge BMI_{inactive}\)
+
+and directional alternative:
+
+\(HA: BMI_{active} < BMI_{inactive}\)
+
+As we will see later, testing a non-directional hypothesis is more conservative, so this is generally to be preferred unless there is a strong \emph{a priori} reason to hypothesize an effect in a particular direction. Hypotheses, including whether they are directional or not, should always be specified prior to looking at the data!
+
+\hypertarget{step-3-collect-some-data}{%
+\subsection{Step 3: Collect some data}\label{step-3-collect-some-data}}
+
+In this case, we will sample 250 individuals from the NHANES dataset. Figure \ref{fig:bmiSample} shows an example of such a sample, with BMI shown separately for active and inactive individuals.
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-44}Summary of BMI data for active versus inactive individuals}
+\caption{\label{tab:unnamed-chunk-42}Summary of BMI data for active versus inactive individuals}
 \centering
 \begin{tabular}[t]{l|r|r|r}
 \hline
@@ -2371,33 +2336,10 @@ Yes & 119 & 27 & 5.2\\
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/bmiSample-1} \caption{Box plot of BMI data from a sample of adults from the NHANES dataset, split by whether they reported engaging in regular physical activity.}\label{fig:bmiSample}
 \end{figure}
 
-\hypertarget{step-3-specify-the-null-and-alternative-hypotheses}{%
-\subsection{Step 3: Specify the null and alternative hypotheses}\label{step-3-specify-the-null-and-alternative-hypotheses}}
-
-For step 3, we need to specify our null hypothesis (which we call \(H_0\)) and our alternative hypothesis (which we call \(H_A\)). \(H_0\) is the baseline against which we test our hypothesis of interest: that is, what would we expect the data to look like if there was no effect? The null hypothesis always involves some kind of equality (=, \(\le\), or \(\ge\)). \(H_A\) describes what we expect if there actually is an effect. The alternative hypothesis always involves some kind of inequality (\(\ne\), \textgreater{}, or \textless{}). Importantly, null hypothesis testing operates under the assumption that the null hypothesis is true unless the evidence shows otherwise.
-
-We also have to decide whether to use \emph{directional} or \emph{non-directional} hypotheses. A non-directional hypothesis simply predicts that there will be a difference, without predicting which direction it will go. For the BMI/activity example, a non-directional null hypothesis would be:
-
-\(H0: BMI_{active} = BMI_{inactive}\)
-
-and the corresponding non-directional alternative hypothesis would be:
-
-\(HA: BMI_{active} \neq BMI_{inactive}\)
-
-A directional hypothesis, on the other hand, predicts which direction the difference would go. For example, we have strong prior knowledge to predict that people who engage in physical activity should weigh less than those who do not, so we would propose the following directional null hypothesis:
-
-\(H0: BMI_{active} \ge BMI_{inactive}\)
-
-and directional alternative:
-
-\(HA: BMI_{active} < BMI_{inactive}\)
-
-As we will see later, testing a non-directional hypothesis is more conservative, so this is generally to be preferred unless there is a strong \emph{a priori} reason to hypothesize an effect in a particular direction. Any direction hypotheses should be specified prior to looking at the data!
-
 \hypertarget{step-4-fit-a-model-to-the-data-and-compute-a-test-statistic}{%
 \subsection{Step 4: Fit a model to the data and compute a test statistic}\label{step-4-fit-a-model-to-the-data-and-compute-a-test-statistic}}
 
-For step 4, we want to use the data to compute a statistic that will ultimately let us decide whether the null hypothesis is rejected or not. To do this, the model needs to quantify the amount of evidence in favor of the alternative hypothesis, relative to the variability in the data. Thus we can think of the test statistic as providing a measure of the size of the effect compared to the variability in the data. In general, this test statistic will have a probability distribution associated with it, because that allows us to determine how likely our observed value of the statistic is under the null hypothesis.
+We next want to use the data to compute a statistic that will ultimately let us decide whether the null hypothesis is rejected or not. To do this, the model needs to quantify the amount of evidence in favor of the alternative hypothesis, relative to the variability in the data. Thus we can think of the test statistic as providing a measure of the size of the effect compared to the variability in the data. In general, this test statistic will have a probability distribution associated with it, because that allows us to determine how likely our observed value of the statistic is under the null hypothesis.
 
 For the BMI example, we need a test statistic that allows us to test for a difference between two means, since the hypotheses are stated in terms of mean BMI for each group. One statistic that is often used to compare two means is the \emph{t-statistic}, first developed by the statistician William Sealy Gossett, who worked for the Guiness Brewery in Dublin and wrote under the pen name ``Student'' - hence, it is often called ``Student's t-statistic''. The t-statistic is appropriate for comparing the means of two groups when the sample sizes are relatively small and the population standard deviation is unknown. The t-statistic for comparison of two independent groups is computed as:
 
@@ -2407,7 +2349,7 @@ t = \frac{\bar{X_1} - \bar{X_2}}{\sqrt{\frac{S_1^2}{n_1} + \frac{S_2^2}{n_2}}}
 
 where \(\bar{X}_1\) and \(\bar{X}_2\) are the means of the two groups, \(S^2_1\) and \(S^2_2\) are the estimated variances of the groups, and \(n_1\) and \(n_2\) are the sizes of the two groups. Note that the denominator is basically an average of the standard error of the mean for the two samples. Thus, one can view the the t-statistic as a way of quantifying how large the difference between groups is in relation to the sampling variability of the means that are being compared.
 
-The t-statistic is distributed according to a probability distribution known as a \emph{t} distribution. The \emph{t} distribution looks quite similar to a normal distribution, but it differs depending on the number of degrees of freedom, which for this example is the number of observations minus 2, since we have computed two means and thus given up two degrees of freedom. When the degrees of freedom are large (say 1000), then the \emph{t} distribution looks essentialy like the normal distribution, but when they are small then the \emph{t} distribution has longer tails than the normal (see Figure \ref{fig:tVersusNormal}).
+The t-statistic is distributed according to a probability distribution known as a \emph{t} distribution. The \emph{t} distribution looks quite similar to a normal distribution, but it differs depending on the number of degrees of freedom, which for this example is the number of observations minus 2, since we have computed two means and thus given up two degrees of freedom. When the degrees of freedom are large (say 1000), then the \emph{t} distribution looks essentially like the normal distribution, but when they are small then the \emph{t} distribution has longer tails than the normal (see Figure \ref{fig:tVersusNormal}).
 
 \begin{figure}
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/tVersusNormal-1} \caption{Each panel shows the t distribution (in blue dashed line) overlaid on the normal distribution (in solid red line).  The left panel shows a t distribution with 4 degrees of freedom, in which case the distribution is similar but has slightly wider tails.  The right panel shows a t distribution with 1000 degrees of freedom, in which case it is virtually identical to the normal.}\label{fig:tVersusNormal}
@@ -2416,17 +2358,17 @@ The t-statistic is distributed according to a probability distribution known as 
 \hypertarget{step-5-determine-the-probability-of-the-data-under-the-null-hypothesis}{%
 \subsection{Step 5: Determine the probability of the data under the null hypothesis}\label{step-5-determine-the-probability-of-the-data-under-the-null-hypothesis}}
 
-This is the step where NHST starts to violate our intuition -- rather than determining the likelihood that the null hypothesis is true given the data, we instead determine the likelihood of the data under the null hypothesis - because we started out by assuming that the null hypothesis is true! To do this, we need to know the probability distribution for the statistic under the null hypothesis, so that we can ask how likely the data are under that distribution. Before we move to our BMI data, let's start with some simpler examples.
+This is the step where NHST starts to violate our intuition -- rather than determining the likelihood that the null hypothesis is true given the data, we instead determine the likelihood of the data under the null hypothesis - because we started out by assuming that the null hypothesis is true! To do this, we need to know the probability distribution for the statistic under the null hypothesis, so that we can ask how likely the data are under that distribution. We can obtain this ``null distribution'' either using a theoretical distribution (like the \emph{t} distribution), or using randomization. Before we move to our BMI example, let's start with some simpler examples.
 
 \hypertarget{randomization-very-simple}{%
 \subsubsection{Randomization: A very simple example}\label{randomization-very-simple}}
 
-Let's say that we wish to determine whether a coin is fair. To collect data, we flip the coin 100 times, and we count 70 heads. In this example, \(H_0: P(heads)=0.5\) and \(H_A: P(heads) \neq 0.5\), and our test statistic is simply the number of heads that we counted. The question that we then want to ask is: How likely is it that we would observe 70 heads if the true probability of heads is 0.5. We can imagine that this might happen very occasionally just by chance, but doesn't seem very likely. To quantify this probability, we can use the \emph{binomial distribution}:
+Let's say that we wish to determine whether a coin is fair. To collect data, we flip the coin 100 times, and let's say we count 70 heads. In this example, \(H_0: P(heads)=0.5\) and \(H_A: P(heads) \neq 0.5\), and our test statistic is simply the number of heads that we counted. The question that we then want to ask is: How likely is it that we would observe 70 heads in 100 coin flips if the true probability of heads is 0.5. We can imagine that this might happen very occasionally just by chance, but doesn't seem very likely. To quantify this probability, we can use the \emph{binomial distribution}:
 
 \[
 P(X \le k) = \sum_{i=0}^k \binom{N}{k} p^i (1-p)^{(n-i)}
 \]
-This equation will tell us the likelihood of a certain number of heads or fewer, given a particular probability of heads. However, what we really want to know is the probability of a certain number or more, which we can obtain by subtracting from one, based on the rules of probability:
+This equation will tell us the probability of a certain number of heads or fewer, given a particular probability of heads and number of events However, what we really want to know is the probability of a certain number or more, which we can obtain by subtracting from one, based on the rules of probability:
 
 \[
 P(X \ge k) = 1 - P(X < k)
@@ -2436,16 +2378,16 @@ P(X \ge k) = 1 - P(X < k)
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/coinFlips-1} \caption{Distribution of numbers of heads (out of 100 flips) across 100,000 simulated runs with the observed value of 70 flips represented by the vertical line.}\label{fig:coinFlips}
 \end{figure}
 
-We can compute the probability for our example using the \texttt{pbinom()} function. The probability of 69 or fewer heads given P(heads)=0.5 is 0.999961, so the probability of 70 or more heads is simply one minus that value (0.000039).
+Using the binomial distribution, the probability of 69 or fewer heads given P(heads)=0.5 is 0.999961, so the probability of 70 or more heads is simply one minus that value (0.000039).
 This computation shows us that the likelihood of getting 70 heads if the coin is indeed fair is very small.
 
-Now, what if we didn't have the \texttt{pbinom()} function to tell us the probability of that number of heads? We could instead determine it by simulation -- we repeatedly flip a coin 100 times using a true probability of 0.5, and then compute the distribution of the number of heads across those simulation runs. Figure \ref{fig:coinFlips} shows the result from this simulation. Here we can see that the probability computed via simulation (0.000030) is very close to the theoretical probability (.00004).
+Now, what if we didn't have a standard function to tell us the probability of that number of heads? We could instead determine it by simulation -- we repeatedly flip a coin 100 times using a true probability of 0.5, and then compute the distribution of the number of heads across those simulation runs. Figure \ref{fig:coinFlips} shows the result from this simulation. Here we can see that the probability computed via simulation (0.000030) is very close to the theoretical probability (.00004).
 
-Let's do the analogous computation for our BMI example. First we compute the t statistic using the values from our sample that we calculated above, where we find that (t = 3.86). The question that we then want to ask is: What is the likelihood that we would find a t statistic of this size, if the true difference between groups is zero or less (i.e.~the directional null hypothesis)?
+Let's do the analogous computation for our BMI example. First we compute the t statistic using the values from our sample that we calculated above, where we find that t = 3.86. The question that we then want to ask is: What is the likelihood that we would find a t statistic of this size, if the true difference between groups is zero or less (i.e.~the directional null hypothesis)?
 
-We can use the t distribution to determine this probability. Our sample size is 250, so the appropriate t distribution has 248 degrees of freedom because we lose one for each of the two means that we computed. We can use the \texttt{pt()} function in R to determine the probability of finding a value of the t-statistic greater than or equal to our observed value. Note that we want to know the probability of a value greater than our observed value, but by default \texttt{pt()} gives us the probability of a value less than the one that we provide it, so we have to tell it explicitly to provide us with the ``upper tail'' probability (by setting \texttt{lower.tail\ =\ FALSE}). We find that (p(t \textgreater{} 3.86, df = 248) = 0.000), which tells us that our observed t-statistic value of 3.86 is relatively unlikely if the null hypothesis really is true.
+We can use the t distribution to determine this probability. Our sample size is 250, so the appropriate t distribution has 248 degrees of freedom because we lose one for each of the two means that we computed. We can use a function from our statistical software to determine the probability of finding a value of the t-statistic greater than or equal to our observed value. We find that p(t \textgreater{} 3.86, df = 248) = 0.000072, which tells us that our observed t-statistic value of 3.86 is relatively unlikely if the null hypothesis really is true.
 
-In this case, we used a directional hypothesis, so we only had to look at one end of the null distribution. If we wanted to test a non-directional hypothesis, then we would need to be able to identify how unexpected the size of the effect is, regardless of its direction. In the context of the t-test, this means that we need to know how likely it is that the statistic would be as extreme in either the positive or negative direction. To do this, we multiply the observed \emph{t} value by -1, since the \emph{t} distribution is centered around zero, and then add together the two tail probabilities to get a \emph{two-tailed} p-value: (p(t \textgreater{} 3.86 or t\textless{} -3.86, df = 248) = 0.000). Here we see that the p value for the two-tailed test is twice as large as that for the one-tailed test, which reflects the fact that an extreme value is less surprising since it could have occurred in either direction.
+In this case, we used a directional hypothesis, so we only had to look at one end of the null distribution. If we wanted to test a non-directional hypothesis, then we would need to be able to identify how unexpected the size of the effect is, regardless of its direction. In the context of the t-test, this means that we need to know how likely it is that the statistic would be as extreme in either the positive or negative direction. To do this, we multiply the observed \emph{t} value by -1, since the \emph{t} distribution is centered around zero, and then add together the two tail probabilities to get a \emph{two-tailed} p-value: p(t \textgreater{} 3.86 or t\textless{} -3.86, df = 248) = 0.000144. Here we see that the p value for the two-tailed test is twice as large as that for the one-tailed test, which reflects the fact that an extreme value is less surprising since it could have occurred in either direction.
 
 How do you choose whether to use a one-tailed versus a two-tailed test? The two-tailed test is always going to be more conservative, so it's always a good bet to use that one, unless you had a very strong prior reason for using a one-tailed test. In that case, you should have written down the hypothesis before you ever looked at the data. In Chapter \ref{doing-reproducible-research} we will discuss the idea of pre-registration of hypotheses, which formalizes the idea of writing down your hypotheses before you ever see the actual data. You should \emph{never} make a decision about how to perform a hypothesis test once you have looked at the data, as this can introduce serious bias into the results.
 
@@ -2467,25 +2409,25 @@ Let's start with a simple example. Let's say that we want to compare the mean sq
 \hline
 group & squat\\
 \hline
-FB & 335\\
+FB & 265\\
 \hline
-FB & 350\\
+FB & 310\\
+\hline
+FB & 335\\
 \hline
 FB & 230\\
 \hline
-FB & 290\\
+FB & 315\\
 \hline
-FB & 325\\
+XC & 155\\
+\hline
+XC & 125\\
+\hline
+XC & 125\\
+\hline
+XC & 125\\
 \hline
 XC & 115\\
-\hline
-XC & 115\\
-\hline
-XC & 170\\
-\hline
-XC & 175\\
-\hline
-XC & 215\\
 \hline
 \end{tabular}
 \end{table}
@@ -2498,25 +2440,25 @@ XC & 215\\
 \hline
 squat & scrambledGroup\\
 \hline
-335 & FB\\
+265 & XC\\
 \hline
-350 & FB\\
+310 & FB\\
 \hline
-230 & XC\\
+335 & XC\\
 \hline
-290 & FB\\
+230 & FB\\
 \hline
-325 & FB\\
+315 & XC\\
 \hline
-115 & XC\\
+155 & FB\\
 \hline
-115 & XC\\
+125 & XC\\
 \hline
-170 & FB\\
+125 & XC\\
 \hline
-175 & XC\\
+125 & FB\\
 \hline
-215 & XC\\
+115 & FB\\
 \hline
 \end{tabular}
 \end{table}
@@ -2525,36 +2467,36 @@ squat & scrambledGroup\\
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/squatPlot-1} \caption{Left: Box plots of simulated squatting ability for football players and cross-country runners.Right: Box plots for subjects assigned to each group after scrambling group labels.}\label{fig:squatPlot}
 \end{figure}
 
-From the plot in Figure \ref{fig:squatPlot} it's clear that there is a large difference between the two groups. We can do a standard t-test to test our hypothesis, using the \texttt{t.test()} command in R, which gives the following result:
+From the plot in Figure \ref{fig:squatPlot} it's clear that there is a large difference between the two groups. We can do a standard t-test to test our hypothesis; for this example we will use the \texttt{t.test()} command in R, which gives the following result:
 
 \begin{verbatim}
 ## 
 ##  Two Sample t-test
 ## 
 ## data:  squat by group
-## t = 5, df = 8, p-value = 4e-04
+## t = 8, df = 8, p-value = 2e-05
 ## alternative hypothesis: true difference in means is greater than 0
 ## 95 percent confidence interval:
-##   95 Inf
+##  124 Inf
 ## sample estimates:
 ## mean in group FB mean in group XC 
-##              306              158
+##              291              129
 \end{verbatim}
 
 If we look at the p-value reported here, we see that the likelihood of such a difference under the null hypothesis is very small, using the \emph{t} distribution to define the null.
 
-Now let's see how we could answer the same question using randomization. The basic idea is that if the null hypothesis of no difference between groups is true, then it shouldn't matter which group one comes from (football players versus cross-country runners) -- thus, to create data that are like our actual data but also conform to the null hypothesis, we can randomly reorder the group labels for the individuals in the dataset, and then recompute the difference between the groups. The results of such a shuffle are shown in Figure \ref{fig:scramPlot}.
+Now let's see how we could answer the same question using randomization. The basic idea is that if the null hypothesis of no difference between groups is true, then it shouldn't matter which group one comes from (football players versus cross-country runners) -- thus, to create data that are like our actual data but also conform to the null hypothesis, we can randomly reorder the group labels for the individuals in the dataset, and then recompute the difference between the groups. The results of such a shuffle are shown in Table 9.2, and the boxplots of the resulting data are Figure \ref{fig:squatPlot}.
 
 \begin{figure}
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/shuffleHist-1} \caption{Histogram of t-values for the difference in means between the football and cross-country groups after randomly shuffling group membership.  The vertical line denotes the actual difference observed between the two groups, and the dotted line shows the theoretical t distribution for this analysis.}\label{fig:shuffleHist}
 \end{figure}
 
-After scrambling the labels, we see that the two groups are now much more similar, and in fact the cross-country group now has a slightly higher mean. Now let's do that 10000 times and store the t statistic for each iteration; this may take a moment to complete. Figure \ref{fig:shuffleHist} shows the histogram of the t-values across all of the random shuffles. As expected under the null hypothesis, this distribution is centered at zero (the mean of the distribution is -0.016. From the figure we can also see that the distribution of t values after shuffling roughly follows the theoretical t distribution under the null hypothesis (with mean=0), showing that randomization worked to generate null data. We can compute the p-value from the randomized data by measuring how many of the shuffled values are at least as extreme as the observed value: p(t \textgreater{} 5.14, df = 8) using randomization = 0.00380. This p-value is very similar to the p-value that we obtained using the t distribution, and both are quite extreme, suggesting that the observed data are very unlikely to have arisen if the null hypothesis is true - and in this case we \emph{know} that it's not true, because we generated the data.
+After scrambling the labels, we see that the two groups are now much more similar, and in fact the cross-country group now has a slightly higher mean. Now let's do that 10000 times and store the t statistic for each iteration; if you are doing this on your own computer, it will take a moment to complete. Figure \ref{fig:shuffleHist} shows the histogram of the t-values across all of the random shuffles. As expected under the null hypothesis, this distribution is centered at zero (the mean of the distribution is 0.012). From the figure we can also see that the distribution of t values after shuffling roughly follows the theoretical t distribution under the null hypothesis (with mean=0), showing that randomization worked to generate null data. We can compute the p-value from the randomized data by measuring how many of the shuffled values are at least as extreme as the observed value: p(t \textgreater{} 8.01, df = 8) using randomization = 0.00410. This p-value is very similar to the p-value that we obtained using the t distribution, and both are quite extreme, suggesting that the observed data are very unlikely to have arisen if the null hypothesis is true - and in this case we \emph{know} that it's not true, because we generated the data.
 
 \hypertarget{randomization-bmiactivity-example}{%
 \paragraph{Randomization: BMI/activity example}\label{randomization-bmiactivity-example}}
 
-Now let's use randomization to compute the p-value for the BMI/activity example. In this case, we will randomly shuffle the \texttt{PhysActive} variable and compute the difference between groups after each shuffle, and then compare our observed t statistic to the distribution of t statistics from the shuffled datasets. Figure \ref{fig:simDiff} shows the distribution of t values from the shuffled samples, and we can also compute the probability of finding a value as large or larger than the observed value. The p-value obtained from randomization (0.0000) is very similar to the one obtained using the t distribution (0.0001). The advantage of the randomization test is that it doesn't require that we assume that the data from each of the groups are normally distributed, though the t-test is generally quite robust to violations of that assumption. In addition, the randomization test can allow us to compute p-values for statistics when we don't have a theoretical distribution like we do for the t-test.
+Now let's use randomization to compute the p-value for the BMI/activity example. In this case, we will randomly shuffle the \texttt{PhysActive} variable and compute the difference between groups after each shuffle, and then compare our observed t statistic to the distribution of t statistics from the shuffled datasets. Figure \ref{fig:simDiff} shows the distribution of t values from the shuffled samples, and we can also compute the probability of finding a value as large or larger than the observed value. The p-value obtained from randomization (0.000000) is very similar to the one obtained using the t distribution (0.000102). The advantage of the randomization test is that it doesn't require that we assume that the data from each of the groups are normally distributed, though the t-test is generally quite robust to violations of that assumption. In addition, the randomization test can allow us to compute p-values for statistics when we don't have a theoretical distribution like we do for the t-test.
 
 \begin{figure}
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/simDiff-1} \caption{Histogram of t statistics after shuffling of group labels, with the observed value of the t statistic shown in the vertical line, and values at least as extreme as the observed value shown in lighter gray}\label{fig:simDiff}
@@ -2579,9 +2521,9 @@ However, Fisher never intended \(p < 0.05\) to be a fixed rule:
 ``no scientific worker has a fixed level of significance at which from year to year, and in all circumstances, he rejects hypotheses; he rather gives his mind to each particular case in the light of his evidence and his ideas'' (Fisher \protect\hyperlink{ref-fish:1956}{1956})
 \end{quote}
 
-Instead, it is likely that it became a ritual due to the reliance upon tables of p-values that were used before computing made it easy to compute p values for arbitrary values of a statistic. All of the tables had an entry for 0.05, making it easy to determine whether one's statistic exceeded the value needed to reach that level of significance.
+Instead, it is likely that p \textless{} .05 became a ritual due to the reliance upon tables of p-values that were used before computing made it easy to compute p values for arbitrary values of a statistic. All of the tables had an entry for 0.05, making it easy to determine whether one's statistic exceeded the value needed to reach that level of significance.
 
-The choice of statistical thresholds remains deeply controversial, and recently (Benjamin et al., 2018) it has been proposed that the standard threshold be changed from .05 to .005, making it substantially more stringent and thus more difficult to reject the null hypothesis. In large part this move is due to growing concerns that the evidence obtained from a significant result at \(p < .05\) is relatively weak; we will discuss this in more detail in our later discussion of reproducibility in Chapter \ref{doing-reproducible-research}.
+The choice of statistical thresholds remains deeply controversial, and recently (Benjamin et al., 2018) it has been proposed that the standard threshold be changed from .05 to .005, making it substantially more stringent and thus more difficult to reject the null hypothesis. In large part this move is due to growing concerns that the evidence obtained from a significant result at \(p < .05\) is relatively weak; we will return to this in our later discussion of reproducibility in Chapter \ref{doing-reproducible-research}.
 
 \hypertarget{hypothesis-testing-as-decision-making-the-neyman-pearson-approach}{%
 \subsubsection{Hypothesis testing as decision-making: The Neyman-Pearson approach}\label{hypothesis-testing-as-decision-making-the-neyman-pearson-approach}}
@@ -2592,16 +2534,16 @@ Whereas Fisher thought that the p-value could provide evidence regarding a speci
 ``no test based upon a theory of probability can by itself provide any valuable evidence of the truth or falsehood of a hypothesis. But we may look at the purpose of tests from another viewpoint. Without hoping to know whether each separate hypothesis is true or false, we may search for rules to govern our behaviour with regard to them, in following which we insure that, in the long run of experience, we shall not often be wrong'' (Neyman and Pearson \protect\hyperlink{ref-Neyman289}{1933})
 \end{quote}
 
-That is: We can't know which specific decisions are right or wrong, but if we follow the rules, we can at least know how often our decisions will be wrong on average.
+That is: We can't know which specific decisions are right or wrong, but if we follow the rules, we can at least know how often our decisions will be wrong in the long run.
 
 To understand the decision making framework that Neyman and Pearson developed, we first need to discuss statistical decision making in terms of the kinds of outcomes that can occur. There are two possible states of reality (\(H_0\) is true, or \(H_0\) is false), and two possible decisions (reject \(H_0\), or fail to reject \(H_0\)). There are two ways in which we can make a correct decision:
 
 \begin{itemize}
 \tightlist
 \item
-  We can decide to reject \(H_0\) when it is false (in the language of decision theory, we call this a \emph{hit})
+  We can decide to reject \(H_0\) when it is false (in the language of signal detection theory, we call this a \emph{hit})
 \item
-  We can fail to reject \(H_0\) when it is true (we call this a \emph{correct rejection})
+  We can fail to reject \(H_0\) when it is true (somewhat confusingly in this context, this is called a \emph{correct rejection})
 \end{itemize}
 
 There are also two kinds of errors we can make:
@@ -2624,17 +2566,17 @@ Neyman and Pearson coined two terms to describe the probability of these two typ
   P(Type II error) = \(\beta\)
 \end{itemize}
 
-That is, if we set \(\alpha\) to .05, then in the long run we should make a Type I error 5\% of the time. Whereas it's common to set \(\alpha\) as .05, the standard value for \(\beta\) is .2 - that is, we are willing to accept that 20\% of the time we will fail to detect a true effect. We will return to this below when we discuss statistical power in Section \ref{statistical-power}, which is the complement of Type II error.
+That is, if we set \(\alpha\) to .05, then in the long run we should make a Type I error 5\% of the time. Whereas it's common to set \(\alpha\) as .05, the standard value for an acceptable level of \(\beta\) is .2 - that is, we are willing to accept that 20\% of the time we will fail to detect a true effect if it exists. We will return to this later when we discuss statistical power in Section \ref{statistical-power}, which is the complement of Type II error.
 
 \hypertarget{what-does-a-significant-result-mean}{%
 \subsection{What does a significant result mean?}\label{what-does-a-significant-result-mean}}
 
-There is a great deal of confusion about what p-values actually mean (Gigerenzer, 2004). Let's say that we do an experiment comparing the means between conditions, and we find a difference with a p-value of .01. There are a number of possible interpretations.
+There is a great deal of confusion about what p-values actually mean (Gigerenzer, 2004). Let's say that we do an experiment comparing the means between conditions, and we find a difference with a p-value of .01. There are a number of possible interpretations that one might entertain.
 
 \hypertarget{does-it-mean-that-the-probability-of-the-null-hypothesis-being-true-is-.01}{%
 \subsubsection{Does it mean that the probability of the null hypothesis being true is .01?}\label{does-it-mean-that-the-probability-of-the-null-hypothesis-being-true-is-.01}}
 
-No.~Remember that in null hypothesis testing, the p-value is the probability of the data given the null hypothesis (\(P(data|H_0)\)). It does not warrant conclusions about the probability of the null hypothesis given the data (\(P(H_0|data)\)). We will return to this question when we discuss Bayesian inference in a later chapter, as Bayes theorem lets us invert the conditional probability in a way that allows us to determine the latter probability.
+No.~Remember that in null hypothesis testing, the p-value is the probability of the data given the null hypothesis (\(P(data|H_0)\)). It does not warrant conclusions about the probability of the null hypothesis given the data (\(P(H_0|data)\)). We will return to this question when we discuss Bayesian inference in a later chapter, as Bayes theorem lets us invert the conditional probability in a way that allows us to determine the probability of the hypothesis given the data.
 
 \hypertarget{does-it-mean-that-the-probability-that-you-are-making-the-wrong-decision-is-.01}{%
 \subsubsection{Does it mean that the probability that you are making the wrong decision is .01?}\label{does-it-mean-that-the-probability-that-you-are-making-the-wrong-decision-is-.01}}
@@ -2646,12 +2588,12 @@ No.~This would be \(P(H_0|data)\), but remember as above that p-values are proba
 
 No.~The p-value is a statement about the likelihood of a particular dataset under the null; it does not allow us to make inferences about the likelihood of future events such as replication.
 
-\hypertarget{does-it-mean-that-you-have-found-a-meaningful-effect}{%
-\subsubsection{Does it mean that you have found a meaningful effect?}\label{does-it-mean-that-you-have-found-a-meaningful-effect}}
+\hypertarget{does-it-mean-that-you-have-found-a-practially-important-effect}{%
+\subsubsection{Does it mean that you have found a practially important effect?}\label{does-it-mean-that-you-have-found-a-practially-important-effect}}
 
-No.~There is an important distinction between \emph{statistical significance} and \emph{practical significance}. As an example, let's say that we performed a randomized controlled trial to examine the effect of a particular diet on body weight, and we find a statistically significant effect at p\textless{}.05. What this doesn't tell us is how much weight was actually lost, which we refer to as the \emph{effect size} (to be discussed in more detail in Chapter \ref{ci-effect-size-power}). If we think about a study of weight loss, then we probably don't think that the loss of ten ounces (i.e.~the weight of a bag of potato chips) is practically significant. Let's look at our ability to detect a significant difference of 1 ounce as the sample size increases.
+No.~There is an essential distinction between \emph{statistical significance} and \emph{practical significance}. As an example, let's say that we performed a randomized controlled trial to examine the effect of a particular diet on body weight, and we find a statistically significant effect at p\textless{}.05. What this doesn't tell us is how much weight was actually lost, which we refer to as the \emph{effect size} (to be discussed in more detail in Chapter \ref{ci-effect-size-power}). If we think about a study of weight loss, then we probably don't think that the loss of one ounces (i.e.~the weight of a few potato chips) is practically significant. Let's look at our ability to detect a significant difference of 1 ounce as the sample size increases.
 
-Figure \ref{fig:sigResults} shows how the proportion of significant results increases as the sample size increases, such that with a very large sample size (about 262,000 total subjects), we will find a significant result in more than 90\% of studies when there is a 1 ounce weight loss. While these are statistically significant, most physicians would not consider a weight loss of one ounce to be practically or clinically significant. We will explore this relationship in more detail when we return to the concept of \emph{statistical power} in Section \ref{statistical-power}, but it should already be clear from this example that statistical significance is not necessarily indicative of practical significance.
+Figure \ref{fig:sigResults} shows how the proportion of significant results increases as the sample size increases, such that with a very large sample size (about 262,000 total subjects), we will find a significant result in more than 90\% of studies when there is a 1 ounce difference in weight loss between the diets. While these are statistically significant, most physicians would not consider a weight loss of one ounce to be practically or clinically significant. We will explore this relationship in more detail when we return to the concept of \emph{statistical power} in Section \ref{statistical-power}, but it should already be clear from this example that statistical significance is not necessarily indicative of practical significance.
 
 \begin{figure}
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/sigResults-1} \caption{The proportion of signifcant results for a very small change (1 ounce, which is about .001 standard deviations) as a function of sample size.}\label{fig:sigResults}
@@ -2660,23 +2602,19 @@ Figure \ref{fig:sigResults} shows how the proportion of significant results incr
 \hypertarget{nhst-in-a-modern-context-multiple-testing}{%
 \section{NHST in a modern context: Multiple testing}\label{nhst-in-a-modern-context-multiple-testing}}
 
-So far we have discussed examples where we are interested in testing a single statistical hypothesis, and this is consistent with traditional science which often measured only a few variables at a time. However, in modern science we can often measure millions of variables per individual. For example, in genetic studies that quantify the entire genome, there may be many millions of measures per individual, and in brain imaging we often collect data from more than 100,000 locations in the brain at once. When standard hypothesis testing is applied in these contexts, bad things can happen unless we take appropriate care.
+So far we have discussed examples where we are interested in testing a single statistical hypothesis, and this is consistent with traditional science which often measured only a few variables at a time. However, in modern science we can often measure millions of variables per individual. For example, in genetic studies that quantify the entire genome, there may be many millions of measures per individual, and in the brain imaging research that my group does, we often collect data from more than 100,000 locations in the brain at once. When standard hypothesis testing is applied in these contexts, bad things can happen unless we take appropriate care.
 
-Let's look at an example to see how this might work. There is great interest in understanding the genetic factors that can predispose individuals to major mental illnesses such as schizophrenia, because we know that about 80\% of the variation between individuals in the presence of schizophrenia is due to genetic differences. The Human Genome Project and the ensuing revolution in genome science has provided tools to examine the many ways in which humans differ from one another in their genomes. One approach that has been used in recent years is known as a \emph{genome-wide association study} (GWAS), in which the genome of each individual is characterized at one million or more places in their genome to determine which letters of the genetic code (which we call ``variants'') they have at that location. After these have been determined, the researchers perform a statistical test at each location in the genome to determine whether people diagnosed with schizoprenia are more or less likely to have one specific variant at that location.
+Let's look at an example to see how this might work. There is great interest in understanding the genetic factors that can predispose individuals to major mental illnesses such as schizophrenia, because we know that about 80\% of the variation between individuals in the presence of schizophrenia is due to genetic differences. The Human Genome Project and the ensuing revolution in genome science has provided tools to examine the many ways in which humans differ from one another in their genomes. One approach that has been used in recent years is known as a \emph{genome-wide association study} (GWAS), in which the genome of each individual is characterized at one million or more places to determine which letters of the genetic code they have at each location. After these have been determined, the researchers perform a statistical test at each location in the genome to determine whether people diagnosed with schizoprenia are more or less likely to have one specific version of the genetic sequence at that location.
 
 Let's imagine what would happen if the researchers simply asked whether the test was significant at p\textless{}.05 at each location, when in fact there is no true effect at any of the locations. To do this, we generate a large number of simulated t values from a null distribution, and ask how many of them are significant at p\textless{}.05. Let's do this many times, and each time count up how many of the tests come out as significant (see Figure \ref{fig:nullSim}).
-
-\begin{verbatim}
-## [1] "corrected familywise error rate: 0.036"
-\end{verbatim}
 
 \begin{figure}
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/nullSim-1} \caption{Left: A histogram of the number of significant results in each set of 1 million statistical tests, when there is in fact no true effect. Right: A histogram of the number of significant results across all simulation runs after applying the Bonferroni correction for multiple tests.}\label{fig:nullSim}
 \end{figure}
 
-This shows that about 5\% of all of the tests were significant in each run, meaning that if we were to use p \textless{} .05 as our threshold for statistical significance, then even if there were no truly significant relationships present, we would still ``find'' about 500 genes that were seemingly significant (the expected number of significant results is simply \(n * \alpha\)). That is because while we controlled for the error per test, we didn't control the \emph{familywise error}, or the error across all of the tests, which is what we really want to control if we are going to be looking at the results from a large number of tests. Using p\textless{}.05, our familywise error rate in the above example is one -- that is, we are pretty much guaranteed to make at least one error in any particular study.
+This shows that about 5\% of all of the tests were significant in each run, meaning that if we were to use p \textless{} .05 as our threshold for statistical significance, then even if there were no truly significant relationships present, we would still ``find'' about 500 genes that were seemingly significant in each study (the expected number of significant results is simply \(n * \alpha\)). That is because while we controlled for the error per test, we didn't control the \emph{familywise error}, or the error across all of the tests, which is what we really want to control if we are going to be looking at the results from a large number of tests. Using p\textless{}.05, our familywise error rate in the above example is one -- that is, we are pretty much guaranteed to make at least one error in any particular study.
 
-A simple way to control for the familywise error is to divide the alpha level by the number of tests; this is known as the \emph{Bonferroni} correction, named after the Italian statistician Carlo Bonferroni. Using the data from our example above, we see in Figure \ref{fig:bonferroniSim} that only about 5 percent of studies show any significant results using the corrected alpha level of 0.000005 instead of the nominal level of .05. We have effectively controlled the familywise error, such that the probability of making \emph{any} errors in our study is controlled at right around .05.
+A simple way to control for the familywise error is to divide the alpha level by the number of tests; this is known as the \emph{Bonferroni} correction, named after the Italian statistician Carlo Bonferroni. Using the data from our example above, we see in Figure \ref{fig:nullSim} that only about 5 percent of studies show any significant results using the corrected alpha level of 0.000005 instead of the nominal level of .05. We have effectively controlled the familywise error, such that the probability of making \emph{any} errors in our study is controlled at right around .05.
 
 \hypertarget{learning-objectives-8}{%
 \section{Learning objectives}\label{learning-objectives-8}}
@@ -2692,7 +2630,7 @@ A simple way to control for the familywise error is to divide the alpha level by
 \item
   Describe how resampling can be used to compute a p-value.
 \item
-  Define the concept of statistical power, and compute statistical power for a given statistical test.
+  Describe the problem of multiple testing, and how it can be addressed
 \item
   Describe the main criticisms of null hypothesis statistical testing
 \end{itemize}
@@ -2716,7 +2654,7 @@ In this chapter we will discuss methods to address these two questions: confiden
 \hypertarget{confidence-intervals-1}{%
 \section{Confidence intervals}\label{confidence-intervals-1}}
 
-So far in the book we have focused on estimating the specific value of a statistic. For example, let's say we want to estimate the mean weight of adults in the NHANES dataset. Let's take a sample from the dataset and estimate the mean. In this sample, the mean weight was 79.92 kilograms. We refer to this as a \emph{point estimate} since it provides us with a single number to describe our estimate of the population parameter. However, we know from our earlier discussion of sampling error that there is some uncertainty about this estimate, which is described by the standard error. You should also remember that the standard error is determined by two components: the population standard deviation (which is the numerator), and the square root of the sample size (which is in the denominator). The population standard deviation is an unknown but fixed parameter that is not under our control, whereas the sample size \emph{is} under our control. Thus, we can decrease our uncertainty about the estimate by increasing our sample size -- up to the limit of the entire population size, at which point there is no uncertainty at all because we can just calculate the population parameter directly from the data of the entire population.
+So far in the book we have focused on estimating the specific value of a statistic. For example, let's say we want to estimate the mean weight of adults in the NHANES dataset. Let's take a sample from the dataset and estimate the mean. In this sample, the mean weight was 79.92 kilograms. We refer to this as a \emph{point estimate} since it provides us with a single number to describe our estimate of the population parameter. However, we know from our earlier discussion of sampling error that there is some uncertainty about this estimate, which is described by the standard error. You should also remember that the standard error is determined by two components: the population standard deviation (which is the numerator), and the square root of the sample size (which is in the denominator). The population standard deviation is a generally unknown but fixed parameter that is not under our control, whereas the sample size \emph{is} under our control. Thus, we can decrease our uncertainty about the estimate by increasing our sample size -- up to the limit of the entire population size, at which point there is no uncertainty at all because we can just calculate the population parameter directly from the data of the entire population.
 
 You may also remember that earlier we introduced the concept of a \emph{confidence interval}, which is a way of describing our uncertainty about a statistical estimate. Remember that a confidence interval describes an interval that will on average contain the true population parameter with a given probability; for example, the 95\% confidence interval is an interval that will capture the true population parameter 95\% of the time. Note again that this is not a statement about the population parameter; any particular confidence interval either does or does not contain the true parameter. As Jerzy Neyman, the inventor of the confidence interval, said:
 
@@ -2737,7 +2675,7 @@ where the critical value is determined by the sampling distribution of the estim
 
 If we know the population standard deviation, then we can use the normal distribution to compute a confidence interval. We usually don't, but for our example of the NHANES dataset we do (it's 21.3 for weight).
 
-Let's say that we want to compute a 95\% confidence interval for the mean. The critical value would then be the values of the standard normal distribution that capture 95\% of the distribution; these are simply the 2.5th percentile and the 97.5th percentile of the distribution, which we can compute using the \texttt{qnorm()} function in R, and come out to \(\pm 1.96\). Thus, the confidence interval for the mean (\(\bar{X}\)) is:
+Let's say that we want to compute a 95\% confidence interval for the mean. The critical value would then be the values of the standard normal distribution that capture 95\% of the distribution; these are simply the 2.5th percentile and the 97.5th percentile of the distribution, which we can compute using our statistical software, and come out to \(\pm 1.96\). Thus, the confidence interval for the mean (\(\bar{X}\)) is:
 
 \[
 CI = \bar{X} \pm 1.96*SE
@@ -2750,7 +2688,7 @@ Using the estimated mean from our sample (79.92) and the known population standa
 
 As stated above, if we knew the population standard deviation, then we could use the normal distribution to compute our confidence intervals. However, in general we don't -- in which case the \emph{t} distribution is more appropriate as a sampling distribution. Remember that the t distribution is slightly broader than the normal distribution, especially for smaller samples, which means that the confidence intervals will be slightly wider than they would if we were using the normal distribution. This incorporates the extra uncertainty that arises when we make conclusions based on small samples.
 
-We can compute the 95\% confidence interval in a way similar to the normal distribution example above, but the critical value is determined by the 2.5th percentile and the 97.5th percentile of the \emph{t} distribution, which we can compute using the \texttt{qt()} function in R. Thus, the confidence interval for the mean (\(\bar{X}\)) is:
+We can compute the 95\% confidence interval in a way similar to the normal distribution example above, but the critical value is determined by the 2.5th percentile and the 97.5th percentile of the \emph{t} distribution with the appropriate degrees of freedom. Thus, the confidence interval for the mean (\(\bar{X}\)) is:
 
 \[
 CI = \bar{X} \pm t_{crit}*SE
@@ -2764,7 +2702,7 @@ Remember that this doesn't tell us anything about the probability of the true po
 \hypertarget{confidence-intervals-and-sample-size}{%
 \subsection{Confidence intervals and sample size}\label{confidence-intervals-and-sample-size}}
 
-Because the standard error decreases with sample size, the means confidence interval should get narrower as the sample size increases, providing progressively tighter bounds on our estimate. Figure \ref{fig:CISampSize} shows an example of how the confidence interval would change as a function of sample size for the weight example. From the figure it's evident that the confidence interval becomes increasingly tighter as the sample size increases, but increasing samples provide diminishing returns, consistent with the fact that the denominator of the confidence interval term is proportional to the square root of the sample size.
+Because the standard error decreases with sample size, the confidence interval should get narrower as the sample size increases, providing progressively tighter bounds on our estimate. Figure \ref{fig:CISampSize} shows an example of how the confidence interval would change as a function of sample size for the weight example. From the figure it's evident that the confidence interval becomes increasingly tighter as the sample size increases, but increasing samples provide diminishing returns, consistent with the fact that the denominator of the confidence interval term is proportional to the square root of the sample size.
 
 \begin{figure}
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/CISampSize-1} \caption{An example of the effect of sample size on the width of the confidence interval for the mean.}\label{fig:CISampSize}
@@ -2773,8 +2711,7 @@ Because the standard error decreases with sample size, the means confidence inte
 \hypertarget{computing-confidence-intervals-using-the-bootstrap}{%
 \subsection{Computing confidence intervals using the bootstrap}\label{computing-confidence-intervals-using-the-bootstrap}}
 
-In some cases we can't assume normality, or we don't know the sampling distribution of the statistic. In these cases, we can use the bootstrap (which we introduced in Chapter \ref{resampling-and-simulation}). As a reminder, the bootstrap involves repeatedly resampling the data \emph{with replacement}, and then using the distribution of the statistic computed on those samples as a surrogate for the sampling distribution of the statistic.
-R includes a package called \texttt{boot} that we can use to run the bootstrap and compute confidence intervals. It's always good to use a built-in function to compute a statistic if it is available, rather than coding it up from scratch --- both because it saves you extra work, and because the built-in version will be better tested. These are the results when we use the \texttt{boot()} to compute the confidence interval for weight in our NHANES sample:
+In some cases we can't assume normality, or we don't know the sampling distribution of the statistic. In these cases, we can use the bootstrap (which we introduced in Chapter \ref{resampling-and-simulation}). As a reminder, the bootstrap involves repeatedly resampling the data \emph{with replacement}, and then using the distribution of the statistic computed on those samples as a surrogate for the sampling distribution of the statistic.These are the results when we use the built-in bootstrapping function in R to compute the confidence interval for weight in our NHANES sample:
 
 \begin{verbatim}
 ## BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
@@ -2796,7 +2733,7 @@ These values are fairly close to the values obtained using the t distribution ab
 
 There is a close relationship between confidence intervals and hypothesis tests. In particular, if the confidence interval does not include the null hypothesis, then the associated statistical test would be statistically significant. For example, if you are testing whether the mean of a sample is greater than zero with \(\alpha = 0.05\), you could simply check to see whether zero is contained within the 95\% confidence interval for the mean.
 
-Things get trickier if we want to compare the means of two conditions (Schenker and Gentleman \protect\hyperlink{ref-sche:gent:2001}{2001}). There are a couple of situations that are clear. First, if each mean is contained within the confidence interval for the other mean, then there is certainly no significant difference at the chosen confidence level. Second, if there is no overlap between the confidence intervals, then there is certainly a significant difference at the chosen level; in fact, this test is substantially \emph{conservative}, such that the actual error rate will be lower than the chosen level. But what about the case where the confidence intervals overlap one another but don't contain the means for the other group? In this case the answer depends on the relative variability of the two variables, and there is no general answer. In general we should avoid using the ``visual test'' for overlapping confidence intervals.
+Things get trickier if we want to compare the means of two conditions (Schenker and Gentleman \protect\hyperlink{ref-sche:gent:2001}{2001}). There are a couple of situations that are clear. First, if each mean is contained within the confidence interval for the other mean, then there is definitely no significant difference at the chosen confidence level. Second, if there is no overlap between the confidence intervals, then there is certainly a significant difference at the chosen level; in fact, this test is substantially \emph{conservative}, such that the actual error rate will be lower than the chosen level. But what about the case where the confidence intervals overlap one another but don't contain the means for the other group? In this case the answer depends on the relative variability of the two variables, and there is no general answer. However, one should in general avoid using the ``eyeball test'' for overlapping confidence intervals.
 
 \hypertarget{effect-sizes}{%
 \section{Effect sizes}\label{effect-sizes}}
@@ -2805,7 +2742,7 @@ Things get trickier if we want to compare the means of two conditions (Schenker 
 ``Statistical significance is the least interesting thing about the results. You should describe the results in terms of measures of magnitude -- not just, does a treatment affect people, but how much does it affect them.'' Gene Glass (REF)
 \end{quote}
 
-In the last chapter, we discussed the idea that statistical significance may not necessarily reflect practical significance. In order to discuss practical significance, we need a standard way to describe the size of an effect in terms of the actual data, which we refer to as an \emph{effect size}. In this section we will introduce the concept and discuss various ways that effect sizes can be calculated.
+In the previous chapter, we discussed the idea that statistical significance may not necessarily reflect practical significance. In order to discuss practical significance, we need a standard way to describe the size of an effect in terms of the actual data, which we refer to as an \emph{effect size}. In this section we will introduce the concept and discuss various ways that effect sizes can be calculated.
 
 An effect size is a standardized measurement that compares the size of some statistical effect to a reference quantity, such as the variability of the statistic. In some fields of science and engineering, this idea is referred to as a ``signal to noise ratio''. There are many different ways that the effect size can be quantified, which depend on the nature of the data.
 
@@ -2829,7 +2766,7 @@ There is a commonly used scale for interpreting the size of an effect in terms o
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-55}Interpetation of Cohen's D}
+\caption{\label{tab:unnamed-chunk-53}Interpetation of Cohen's D}
 \centering
 \begin{tabular}[t]{l|l}
 \hline
@@ -2846,13 +2783,13 @@ D & Interpretation\\
 \end{tabular}
 \end{table}
 
-It can be useful to look at some commonly understood effects to help understand these interpretations. For example, the effect size for gender differences in height (d = 1.6) is very large by reference to our table above. We can also see this by looking at the distributions of male and female heights in our sample. Figure \ref{fig:genderHist} shows that the two distributions are quite well separated, though still overlapping, highlighting the fact that even when there is a very large effect size for the difference between two groups, there will be individuals from each group that are more like the other group.
+It can be useful to look at some commonly understood effects to help understand these interpretations. For example, the effect size for gender differences in height (d = 1.6) is very large by reference to our table above. We can also see this by looking at the distributions of male and female heights in a sample from the NHANES dataset. Figure \ref{fig:genderHist} shows that the two distributions are quite well separated, though still overlapping, highlighting the fact that even when there is a very large effect size for the difference between two groups, there will be individuals from each group that are more like the other group.
 
 \begin{figure}
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/genderHist-1} \caption{Smoothed histogram plots for male and female heights in the NHANES dataset, showing clearly distinct but also clearly overlapping distributions.}\label{fig:genderHist}
 \end{figure}
 
-It is also worth noting that we rarely encounter effects of this magnitude in science, in part because they are such obvious effects that we don't need scientific research to find them. As we will see in Chapter \ref{doing-reproducible-research} on reproducibility, very large reported effects in scientific research often reflect the use of questionable research practices rather than truly huge effects in nature. It is also worth noting that even for such a huge effect, the two distributions still overlap - there will be some females who are taller than the average male, and vice versa. For most interesting scientific effects, the degree of overlap will be much greater, so we shouldn't immediately jump to strong conclusions about different populations based on even a large effect size.
+It is also worth noting that we rarely encounter effects of this magnitude in science, in part because they are such obvious effects that we don't need scientific research to find them. As we will see in Chapter \ref{doing-reproducible-research} on reproducibility, very large reported effects in scientific research often reflect the use of questionable research practices rather than truly huge effects in nature. It is also worth noting that even for such a huge effect, the two distributions still overlap - there will be some females who are taller than the average male, and vice versa. For most interesting scientific effects, the degree of overlap will be much greater, so we shouldn't immediately jump to strong conclusions about individual from different populations based on even a large effect size.
 
 \hypertarget{pearsons-r}{%
 \subsection{Pearson's r}\label{pearsons-r}}
@@ -2880,7 +2817,7 @@ For example, let's take the case of smoking and lung cancer. A study published i
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-57}Cancer occurrence separately for current smokers and those who have never smoked}
+\caption{\label{tab:unnamed-chunk-55}Lung cancer occurrence separately for current smokers and those who have never smoked}
 \centering
 \begin{tabular}[t]{l|r|r}
 \hline
@@ -2893,7 +2830,7 @@ Cancer & 220 & 6784\\
 \end{tabular}
 \end{table}
 
-We can convert these numbers to odds ratios for each of the groups. The odds of someone having lung cancer who has never smoked is 0.08 whereas the odds of a current smoker having lung cancer is 1.77. The ratio of these odds tells us about the relative likelihood of cancer between the two groups: The odds ratio of 23.22 tells us that the odds of cancer in smokers are roughly 23 times higher than never-smokers.
+We can convert these numbers to odds ratios for each of the groups. The odds of a non-smoker having lung cancer are 0.08 whereas the odds of a current smoker having lung cancer are 1.77. The ratio of these odds tells us about the relative likelihood of cancer between the two groups: The odds ratio of 23.22 tells us that the odds of lung cancer in smokers are roughly 23 times higher than never-smokers.
 
 \hypertarget{statistical-power}{%
 \section{Statistical power}\label{statistical-power}}
@@ -2906,9 +2843,9 @@ The concept of \emph{statistical power} is the complement of Type II error -- th
 power = 1 - \beta
 \]
 
-Another important aspect of the Neyman-Pearson model that we didn't discuss above is the fact that in addition to specifying the acceptable levels of Type I and Type II errors, we also have to describe a specific alternative hypothesis -- that is, what is the size of the effect that we wish to detect? Otherwise, we can't interpret \(\beta\) -- the likelihood of finding a large effect is always going to be higher than finding a small effect, so \(\beta\) will be different depending on the size of effect we are trying to detect.
+Another important aspect of the Neyman-Pearson model that we didn't discuss earlier is the fact that in addition to specifying the acceptable levels of Type I and Type II errors, we also have to describe a specific alternative hypothesis -- that is, what is the size of the effect that we wish to detect? Otherwise, we can't interpret \(\beta\) -- the likelihood of finding a large effect is always going to be higher than finding a small effect, so \(\beta\) will be different depending on the size of effect we are trying to detect.
 
-There are three factors that can affect power:
+There are three factors that can affect statistical power:
 
 \begin{itemize}
 \tightlist
@@ -2928,14 +2865,14 @@ We can see this through simulation. First let's simulate a single experiment, in
 
 This simulation shows us that even with a sample size of 96, we will have relatively little power to find a small effect (\(d = 0.2\)) with \(\alpha = 0.005\). This means that a study designed to do this would be \emph{futile} -- that is, it is almost guaranteed to find nothing even if a true effect of that size exists.
 
-There are at least two important reasons to care about statistical power, one of which we discuss here and the other of which we will return to in Chapter \ref{doing-reproducible-research}. If you are a researcher, you probably don't want to spend your time doing futile experiments. Running an underpowered study is essentially futile, because it means that there is a very low likelihood that one will find an effect, even if it exists.
+There are at least two important reasons to care about statistical power. First, if you are a researcher, you probably don't want to spend your time doing futile experiments. Running an underpowered study is essentially futile, because it means that there is a very low likelihood that one will find an effect, even if it exists. Second, it turns out that any positive findings that come from an underpowered study are more likely to be false compared to a well-powered study, a point we discuss in more detail in Chapter \ref{doing-reproducible-research}.
 
 \hypertarget{power-analysis}{%
 \subsection{Power analysis}\label{power-analysis}}
 
 Fortunately, there are tools available that allow us to determine the statistical power of an experiment. The most common use of these tools is in planning an experiment, when we would like to determine how large our sample needs to be in order to have sufficient power to find our effect of interest.
 
-Let's say that we are interested in running a study of how a particular personality trait differs between users of iOS versus Android devices. Our plan is collect two groups of individuals and measure them on the personality trait, and then compare the two groups using a t-test. In order to determine the necessary sample size, we can use the \texttt{power.t.test()} function:
+Let's say that we are interested in running a study of how a particular personality trait differs between users of iOS versus Android devices. Our plan is collect two groups of individuals and measure them on the personality trait, and then compare the two groups using a t-test. In order to determine the necessary sample size, we can use power function from our statistical sofware:
 
 \begin{verbatim}
 ## 
@@ -2981,6 +2918,8 @@ Having read this chapter, you should be able to:
   Describe the proper interpretation of a confidence interval, and compute a confidence interval for the mean of a given dataset.
 \item
   Define the concept of effect size, and compute the effect size for a given test.
+\item
+  Describe the concept of statistical power and why it is important for research.
 \end{itemize}
 
 \hypertarget{suggested-readings-7}{%
@@ -3352,7 +3291,7 @@ We will generate samples from our posterior distribution using a simple algorith
 \hypertarget{modeling-categorical-relationships}{%
 \chapter{Modeling categorical relationships}\label{modeling-categorical-relationships}}
 
-So far we have discussed the general concept of statistical modeling and hypothesis testing, and applied them to some simple analyses. In this chapter we will focus on the modeling of \emph{categorical} relationships, by which we mean relationships between variables that are measured qualitatively. These data are usually expressed in terms of counts; that is, for each value of the variable (or combination of values of multiple variables), how many observations take that value? For example, when we count how many people from each major are in our class, we are fitting a categorical model to the data.
+So far we have discussed the general concepts of statistical modeling and hypothesis testing, and applied them to some simple analyses; now we will will turn to the question of how to model particular kinds of relationships in our data. In this chapter we will focus on the modeling of \emph{categorical} relationships, by which we mean relationships between variables that are measured qualitatively. These data are usually expressed in terms of counts; that is, for each value of the variable (or combination of values of multiple variables), how many observations take that value? For example, when we count how many people from each major are in our class, we are fitting a categorical model to the data.
 
 \hypertarget{example-candy-colors}{%
 \section{Example: Candy colors}\label{example-candy-colors}}
@@ -3362,7 +3301,7 @@ Let's say that I have purchased a bag of 100 candies, which are labeled as havin
 \hypertarget{chi-squared-test}{%
 \section{Pearson's chi-squared test}\label{chi-squared-test}}
 
-The Pearson chi-squared test provides us with a way to test whether observed count data differs from some specific expected values that define the null hypothesis:
+The Pearson chi-squared test provides us with a way to test whether a set of observed counts differs from some specific expected values that define the null hypothesis:
 
 \[
 \chi^2 = \sum_i\frac{(observed_i - expected_i)^2}{expected_i}
@@ -3393,20 +3332,20 @@ The chi-squared statistic for this analysis comes out to 0.74, which on its own 
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/chisqDist-1} \caption{Left: Examples of the chi-squared distribution for various degrees of freedom.  Right: Simulation of sum of squared random normal variables.   The histogram is based on the sum of squares of 50,000 sets of 8 random normal variables; the dotted line shows the values of the theoretical chi-squared distribution with 8 degrees of freedom.}\label{fig:chisqDist}
 \end{figure}
 
-Let's verify that the chi-squared distribution accurately describes the sum of squares of a set of standard normal random variables, using simulation. To do this, we repeatedly draw sets of 8 random numbers (using the \texttt{rnorm()} function), and add up each set. The right panel of Figure \ref{fig:chisqDist} shows that the theoretical distribution matches closely with the results of a simulation that repeatedly added together the squares of a set of random normal variables.
+Let's verify that the chi-squared distribution accurately describes the sum of squares of a set of standard normal random variables, using simulation. To do this, we repeatedly draw sets of 8 random numbers, and add up each set after squaring each value. The right panel of Figure \ref{fig:chisqDist} shows that the theoretical distribution matches closely with the results of a simulation that repeatedly added together the squares of a set of random normal variables.
 
 For the candy example, we can compute the likelihood of our observed chi-squared value of 0.74 under the null hypothesis of equal frequency across all candies. We use a chi-squared distribution with degrees of freedom equal to k - 1 (where k = the number of categories) since we lost one degree of freedom when we computed the mean in order to generate the expected values. The resulting p-value (P(Chi-squared) \textgreater{} 0.74 = 0.691) shows that the observed counts of candies are not particularly surprising based on the proportions printed on the bag of candy, and we would not reject the null hypothesis of equal proportions.
 
 \hypertarget{two-way-test}{%
 \section{Contingency tables and the two-way test}\label{two-way-test}}
 
-Another way that we often use the chi-squared test is to ask whether two categorical variables are related to one another. As a more realistic example, let's take the question of whether a black driver is more likely to be searched when they are pulled over by a police officer, compared to a white driver. The Stanford Open Policing Project (\url{https://openpolicing.stanford.edu/}) has studied this, and provides data that we can use to analyze the question. We will use the data from the State of Connecticut since they are fairly small. These data were first cleaned up to remove all unnecessary data.
+Another way that we often use the chi-squared test is to ask whether two categorical variables are related to one another. As a more realistic example, let's take the question of whether a Black driver is more likely to be searched when they are pulled over by a police officer, compared to a white driver. The Stanford Open Policing Project (\url{https://openpolicing.stanford.edu/}) has studied this, and provides data that we can use to analyze the question. We will use the data from the State of Connecticut since they are fairly small and thus easier to analyze.
 
 The standard way to represent data from a categorical analysis is through a \emph{contingency table}, which presents the number or proportion of observations falling into each possible combination of values for each of the variables. The table below shows the contingency table for the police search data. It can also be useful to look at the contingency table using proportions rather than raw numbers, since they are easier to compare visually, so we include both absolute and relative numbers here.
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-84}Contingency table for police search data}
+\caption{\label{tab:unnamed-chunk-82}Contingency table for police search data}
 \centering
 \begin{tabular}[t]{l|r|r|r|r}
 \hline
@@ -3439,7 +3378,7 @@ Searched & P(S)*P(B) & P(S)*P(W) & P(S)\tabularnewline
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-85}Summary of the 2-way contingency table for police search data}
+\caption{\label{tab:unnamed-chunk-83}Summary of the 2-way contingency table for police search data}
 \centering
 \begin{tabular}[t]{l|l|r|r|r}
 \hline
@@ -3457,9 +3396,9 @@ TRUE & White & 3108 & 3748 & 109.2\\
 \end{table}
 
 We then compute the chi-squared statistic, which comes out to 828.3.
-To compute a p-value, we need to compare it to the null chi-squared distribution in order to determine how extreme our chi-squared value is compared to our expectation under the null hypothesis. The degrees of freedom for this distribution are \(df = (nRows - 1) * (nColumns - 1)\) - thus, for a 2X2 table like the one here, \(df = (2-1)*(2-1)=1\). The intuition here is that computing the expected frequencies requires us to use three values: the total number of observations and the marginal probability for each of the two variables. Thus, once those values are computed, there is only one number that is free to vary, and thus there is one degree of freedom. Given this, we can compute the p-value for the chi-squared statistic, which is about as close to zero as one can get: \(3.79e^{-182}\). This shows that the observed data would be highly unlikely if there was truly no relationship between race and police searches, and thus we should reject the null hypothesis of independence.
+To compute a p-value, we need to compare it to the null chi-squared distribution in order to determine how extreme our chi-squared value is compared to our expectation under the null hypothesis. The degrees of freedom for this distribution are \(df = (nRows - 1) * (nColumns - 1)\) - thus, for a 2X2 table like the one here, \(df = (2-1)*(2-1)=1\). The intuition here is that computing the expected frequencies requires us to use three values: the total number of observations and the marginal probability for each of the two variables. Thus, once those values are computed, there is only one number that is free to vary, and thus there is one degree of freedom. Given this, we can compute the p-value for the chi-squared statistic, which is about as close to zero as one can get: \(3.79 \times 10^{-182}\). This shows that the observed data would be highly unlikely if there was truly no relationship between race and police searches, and thus we should reject the null hypothesis of independence.
 
-We can also perform this test easily using the \texttt{chisq.test()} function in R:
+We can also perform this test easily using our statistical software:
 
 \begin{verbatim}
 ## 
@@ -3472,18 +3411,18 @@ We can also perform this test easily using the \texttt{chisq.test()} function in
 \hypertarget{standardized-residuals}{%
 \section{Standardized residuals}\label{standardized-residuals}}
 
-When we find a significant effect with the chi-squared test, this tells us that the data are unlikely under the null hypothesis, but it doesn't tell us \emph{how} the data differ. To get a deeper insight into how the data differ from what we would expect under the null hypothesis, we can examine the residuals from a model, which reflects the deviation of the data (i.e., the observed frequencies) from the model in each cell (i.e., the expected frequencies). Rather than looking at the raw residuals (which will vary simply depending on the number of observations in the data), it's more common to look at ther \emph{standardized residuals}, which are computed as:
+When we find a significant effect with the chi-squared test, this tells us that the data are unlikely under the null hypothesis, but it doesn't tell us \emph{how} the data differ. To get a deeper insight into how the data differ from what we would expect under the null hypothesis, we can examine the residuals from the model, which reflects the deviation of the data (i.e., the observed frequencies) from the model (i.e., the expected frequencies) in each cell. Rather than looking at the raw residuals (which will vary simply depending on the number of observations in the data), it's more common to look at the \emph{standardized residuals}, which are computed as:
 
 \[
 standardized\ residual_{ij} = \frac{observed_{ij} - expected_{ij}}{\sqrt{expected_{ij}}}
 \]
 where \(i\) and \(j\) are the indices for the rows and columns respectively.
 
-The table shows these for the police stop data. These standardized residuals can be interpreted as Z scores -- in this case, we see that the number of searches for black individuals are substantially higher than expected based on independence, and the number of searches for white individuals are substantially lower than expected. This provides us with the context that we need to interpret the signficant chi-squared result.
+The table shows these for the police stop data. These standardized residuals can be interpreted as Z scores -- in this case, we see that the number of searches for Black individuals are substantially higher than expected based on independence, and the number of searches for white individuals are substantially lower than expected. This provides us with the context that we need to interpret the signficant chi-squared result.
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-87}Summary of standardized residuals for police stop data}
+\caption{\label{tab:unnamed-chunk-85}Summary of standardized residuals for police stop data}
 \centering
 \begin{tabular}[t]{l|l|r}
 \hline
@@ -3503,7 +3442,7 @@ TRUE & White & -10.4\\
 \hypertarget{odds-ratios}{%
 \section{Odds ratios}\label{odds-ratios}}
 
-We can also represent the relative likelihood of different outcomes in the contingency table using the odds ratio that we introduced earlier, in order to better understand the size of the effect. First, we represent the odds of being stopped for each race:
+We can also represent the relative likelihood of different outcomes in the contingency table using the odds ratio that we introduced earlier, in order to better understand the magnitude of the effect. First, we represent the odds of being stopped for each race, then we compute their ratio:
 
 \[
 odds_{searched|black} = \frac{N_{searched\cap black}}{N_{not\ searched\cap black}} = \frac{1219}{36244} = 0.034
@@ -3516,7 +3455,7 @@ odds_{searched|white} = \frac{N_{searched\cap white}}{N_{not\ searched\cap white
 odds\ ratio = \frac{odds_{searched|black}}{odds_{searched|white}} = 2.59
 \]
 
-The odds ratio shows that the odds of being searched are 2.59 times higher for black versus white drivers, based on this dataset.
+The odds ratio shows that the odds of being searched are 2.59 times higher for Black versus white drivers, based on this dataset.
 
 \hypertarget{bayes-factor}{%
 \section{Bayes factor}\label{bayes-factor}}
@@ -3525,7 +3464,7 @@ We discussed Bayes factors in the earlier chapter on Bayesian statistics -- you 
 \[ 
 K = \frac{P(data|H_A)}{P(data|H_0)} = \frac{P(H_A|data)*P(H_A)}{P(H_0|data)*P(H_0)}
 \]
-We can compute the Bayes factor for the police search data using the \texttt{contingencyTableBF()} function from the BayesFactor package:
+We can compute the Bayes factor for the police search data using a special package for the R statistical software:
 
 \begin{verbatim}
 ## Bayes factor analysis
@@ -3545,11 +3484,11 @@ This shows that the evidence in favor of a relationship between driver race and 
 
 Categorical analysis can also be applied to contingency tables where there are more than two categories for each variable.
 
-For example, let's look at the NHANES data and compare the variable \emph{Depressed} which denotes the ``self-reported number of days where participant felt down, depressed or hopeless''. This variable is coded as \texttt{None}, \texttt{Several}, or \texttt{Most}. Let's test whether this variable is related to the \emph{SleepTrouble} variable which reports whether the individual has reported sleeping problems to a doctor.
+For example, let's look at the NHANES data and compare the variable \emph{Depressed} which denotes the ``self-reported number of days where the participant felt down, depressed or hopeless''. This variable is coded as \texttt{None}, \texttt{Several}, or \texttt{Most}. Let's test whether this variable is related to the \emph{SleepTrouble} variable which denotes whether the individual has reported sleeping problems to a doctor.
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-89}Relationship between depression and sleep problems in the NHANES dataset}
+\caption{\label{tab:unnamed-chunk-87}Relationship between depression and sleep problems in the NHANES dataset}
 \centering
 \begin{tabular}[t]{l|r|r}
 \hline
@@ -3564,7 +3503,7 @@ Most & 138 & 145\\
 \end{tabular}
 \end{table}
 
-Simply by looking at these data, we can tell that it is likely that there is a relationship between the two variables; notably, while the total number of people with sleep trouble is much less than those without, for people who report being depresssed most days the number with sleep problems is greater than those without. We can quantify this directly using the chi-squared test; if our data frame contains only two variables, then we can simply provide the data frame as the argument to the \texttt{chisq.test()} function:
+Simply by looking at these data, we can tell that it is likely that there is a relationship between the two variables; notably, while the total number of people with sleep trouble is much less than those without, for people who report being depresssed most days the number with sleep problems is greater than those without. We can quantify this directly using the chi-squared test:
 
 \begin{verbatim}
 ## 
@@ -3673,7 +3612,7 @@ This value will be far from zero when x and y are both highly deviant from the m
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-93}Data for toy example of covariance}
+\caption{\label{tab:unnamed-chunk-91}Data for toy example of covariance}
 \centering
 \begin{tabular}[t]{r|r|r|r|r}
 \hline
@@ -3957,7 +3896,7 @@ The concept of \emph{regression to the mean} was one of Galton's essential contr
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-103}Reading scores for Test 1 (which is lower, because it was the basis for selecting the students) and Test 2 (which is higher because it was not related to Test 1).}
+\caption{\label{tab:unnamed-chunk-101}Reading scores for Test 1 (which is lower, because it was the basis for selecting the students) and Test 2 (which is higher because it was not related to Test 1).}
 \centering
 \begin{tabular}[t]{l|r}
 \hline
@@ -4273,7 +4212,7 @@ As an example, let's take a sample of 48 children from NHANES and fit a regressi
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-110}Root mean squared error for model applied to original data and new data, and after shuffling the order of the y variable (in essence making the null hypothesis true)}
+\caption{\label{tab:unnamed-chunk-108}Root mean squared error for model applied to original data and new data, and after shuffling the order of the y variable (in essence making the null hypothesis true)}
 \centering
 \begin{tabular}[t]{l|r|r}
 \hline
@@ -4303,7 +4242,7 @@ Let's see how that would work for our weight prediction example. In this case we
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-111}R-squared from cross-validation and new data, showing that cross-validation provides a reasonable estimate of the model's performance on new data.}
+\caption{\label{tab:unnamed-chunk-109}R-squared from cross-validation and new data, showing that cross-validation provides a reasonable estimate of the model's performance on new data.}
 \centering
 \begin{tabular}[t]{l|r}
 \hline
@@ -4987,7 +4926,7 @@ If we look more closely at the Garder paper, we will see that they also report s
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-136}Presence of metabolic syndrome in each group in the AtoZ study.}
+\caption{\label{tab:unnamed-chunk-134}Presence of metabolic syndrome in each group in the AtoZ study.}
 \centering
 \begin{tabular}[t]{l|r|r}
 \hline

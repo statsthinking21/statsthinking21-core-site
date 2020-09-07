@@ -269,8 +269,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#null-hypothesis-statistical-testing-an-example"><i class="fa fa-check"></i><b>9.2</b> Null hypothesis statistical testing: An example</a></li>
 <li class="chapter" data-level="9.3" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#the-process-of-null-hypothesis-testing"><i class="fa fa-check"></i><b>9.3</b> The process of null hypothesis testing</a><ul>
 <li class="chapter" data-level="9.3.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-1-formulate-a-hypothesis-of-interest"><i class="fa fa-check"></i><b>9.3.1</b> Step 1: Formulate a hypothesis of interest</a></li>
-<li class="chapter" data-level="9.3.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-2-collect-some-data"><i class="fa fa-check"></i><b>9.3.2</b> Step 2: Collect some data</a></li>
-<li class="chapter" data-level="9.3.3" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-3-specify-the-null-and-alternative-hypotheses"><i class="fa fa-check"></i><b>9.3.3</b> Step 3: Specify the null and alternative hypotheses</a></li>
+<li class="chapter" data-level="9.3.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-2-specify-the-null-and-alternative-hypotheses"><i class="fa fa-check"></i><b>9.3.2</b> Step 2: Specify the null and alternative hypotheses</a></li>
+<li class="chapter" data-level="9.3.3" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-3-collect-some-data"><i class="fa fa-check"></i><b>9.3.3</b> Step 3: Collect some data</a></li>
 <li class="chapter" data-level="9.3.4" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-4-fit-a-model-to-the-data-and-compute-a-test-statistic"><i class="fa fa-check"></i><b>9.3.4</b> Step 4: Fit a model to the data and compute a test statistic</a></li>
 <li class="chapter" data-level="9.3.5" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-5-determine-the-probability-of-the-data-under-the-null-hypothesis"><i class="fa fa-check"></i><b>9.3.5</b> Step 5: Determine the probability of the data under the null hypothesis</a></li>
 <li class="chapter" data-level="9.3.6" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-6-assess-the-statistical-significance-of-the-result"><i class="fa fa-check"></i><b>9.3.6</b> Step 6: Assess the “statistical significance” of the result</a></li>
@@ -704,24 +704,24 @@ Figure 11.5: Box plots showing data for drug and placebo groups.
 <div id="rejection-sampling" class="section level3">
 <h3><span class="header-section-number">11.9.1</span> Rejection sampling</h3>
 <p>We will generate samples from our posterior distribution using a simple algorithm known as <a href="https://am207.github.io/2017/wiki/rejectionsampling.html"><em>rejection sampling</em></a>. The idea is that we choose a random value of x (in this case <span class="math inline">\(p_{respond}\)</span>) and a random value of y (in this case, the posterior probability of <span class="math inline">\(p_{respond}\)</span>) each from a uniform distribution. We then only accept the sample if <span class="math inline">\(y &lt; f(x)\)</span> - in this case, if the randomly selected value of y is less than the actual posterior probability of y. Figure <a href="bayesian-statistics.html#fig:rejectionSampling">11.6</a> shows an example of a histogram of samples using rejection sampling, along with the 95% credible intervals obtained using this method.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="co"># Compute credible intervals for example</span></a>
-<a class="sourceLine" id="cb19-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb19-3" data-line-number="3">nsamples &lt;-<span class="st"> </span><span class="dv">100000</span></a>
-<a class="sourceLine" id="cb19-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb19-5" data-line-number="5"><span class="co"># create random uniform variates for x and y</span></a>
-<a class="sourceLine" id="cb19-6" data-line-number="6">x &lt;-<span class="st"> </span><span class="kw">runif</span>(nsamples)</a>
-<a class="sourceLine" id="cb19-7" data-line-number="7">y &lt;-<span class="st"> </span><span class="kw">runif</span>(nsamples)</a>
-<a class="sourceLine" id="cb19-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb19-9" data-line-number="9"><span class="co"># create f(x)</span></a>
-<a class="sourceLine" id="cb19-10" data-line-number="10">fx &lt;-<span class="st"> </span><span class="kw">dbinom</span>(<span class="dt">x =</span> nResponders, <span class="dt">size =</span> <span class="dv">100</span>, <span class="dt">prob =</span> x)</a>
-<a class="sourceLine" id="cb19-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb19-12" data-line-number="12"><span class="co"># accept samples where y &lt; f(x)</span></a>
-<a class="sourceLine" id="cb19-13" data-line-number="13">accept &lt;-<span class="st"> </span><span class="kw">which</span>(y <span class="op">&lt;</span><span class="st"> </span>fx)</a>
-<a class="sourceLine" id="cb19-14" data-line-number="14">accepted_samples &lt;-<span class="st"> </span>x[accept]</a>
-<a class="sourceLine" id="cb19-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb19-16" data-line-number="16">credible_interval &lt;-<span class="st"> </span><span class="kw">quantile</span>(<span class="dt">x =</span> accepted_samples, </a>
-<a class="sourceLine" id="cb19-17" data-line-number="17">                              <span class="dt">probs =</span> <span class="kw">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>))</a>
-<a class="sourceLine" id="cb19-18" data-line-number="18"><span class="kw">kable</span>(credible_interval)</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co"># Compute credible intervals for example</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">nsamples &lt;-<span class="st"> </span><span class="dv">100000</span></a>
+<a class="sourceLine" id="cb10-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="co"># create random uniform variates for x and y</span></a>
+<a class="sourceLine" id="cb10-6" data-line-number="6">x &lt;-<span class="st"> </span><span class="kw">runif</span>(nsamples)</a>
+<a class="sourceLine" id="cb10-7" data-line-number="7">y &lt;-<span class="st"> </span><span class="kw">runif</span>(nsamples)</a>
+<a class="sourceLine" id="cb10-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb10-9" data-line-number="9"><span class="co"># create f(x)</span></a>
+<a class="sourceLine" id="cb10-10" data-line-number="10">fx &lt;-<span class="st"> </span><span class="kw">dbinom</span>(<span class="dt">x =</span> nResponders, <span class="dt">size =</span> <span class="dv">100</span>, <span class="dt">prob =</span> x)</a>
+<a class="sourceLine" id="cb10-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb10-12" data-line-number="12"><span class="co"># accept samples where y &lt; f(x)</span></a>
+<a class="sourceLine" id="cb10-13" data-line-number="13">accept &lt;-<span class="st"> </span><span class="kw">which</span>(y <span class="op">&lt;</span><span class="st"> </span>fx)</a>
+<a class="sourceLine" id="cb10-14" data-line-number="14">accepted_samples &lt;-<span class="st"> </span>x[accept]</a>
+<a class="sourceLine" id="cb10-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb10-16" data-line-number="16">credible_interval &lt;-<span class="st"> </span><span class="kw">quantile</span>(<span class="dt">x =</span> accepted_samples, </a>
+<a class="sourceLine" id="cb10-17" data-line-number="17">                              <span class="dt">probs =</span> <span class="kw">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>))</a>
+<a class="sourceLine" id="cb10-18" data-line-number="18"><span class="kw">kable</span>(credible_interval)</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">

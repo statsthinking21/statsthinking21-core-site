@@ -269,8 +269,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#null-hypothesis-statistical-testing-an-example"><i class="fa fa-check"></i><b>9.2</b> Null hypothesis statistical testing: An example</a></li>
 <li class="chapter" data-level="9.3" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#the-process-of-null-hypothesis-testing"><i class="fa fa-check"></i><b>9.3</b> The process of null hypothesis testing</a><ul>
 <li class="chapter" data-level="9.3.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-1-formulate-a-hypothesis-of-interest"><i class="fa fa-check"></i><b>9.3.1</b> Step 1: Formulate a hypothesis of interest</a></li>
-<li class="chapter" data-level="9.3.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-2-collect-some-data"><i class="fa fa-check"></i><b>9.3.2</b> Step 2: Collect some data</a></li>
-<li class="chapter" data-level="9.3.3" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-3-specify-the-null-and-alternative-hypotheses"><i class="fa fa-check"></i><b>9.3.3</b> Step 3: Specify the null and alternative hypotheses</a></li>
+<li class="chapter" data-level="9.3.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-2-specify-the-null-and-alternative-hypotheses"><i class="fa fa-check"></i><b>9.3.2</b> Step 2: Specify the null and alternative hypotheses</a></li>
+<li class="chapter" data-level="9.3.3" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-3-collect-some-data"><i class="fa fa-check"></i><b>9.3.3</b> Step 3: Collect some data</a></li>
 <li class="chapter" data-level="9.3.4" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-4-fit-a-model-to-the-data-and-compute-a-test-statistic"><i class="fa fa-check"></i><b>9.3.4</b> Step 4: Fit a model to the data and compute a test statistic</a></li>
 <li class="chapter" data-level="9.3.5" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-5-determine-the-probability-of-the-data-under-the-null-hypothesis"><i class="fa fa-check"></i><b>9.3.5</b> Step 5: Determine the probability of the data under the null hypothesis</a></li>
 <li class="chapter" data-level="9.3.6" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-6-assess-the-statistical-significance-of-the-result"><i class="fa fa-check"></i><b>9.3.6</b> Step 6: Assess the “statistical significance” of the result</a></li>
@@ -460,7 +460,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="monte-carlo-simulation" class="section level2">
 <h2><span class="header-section-number">8.1</span> Monte Carlo simulation</h2>
 <p>The concept of Monte Carlo simulation was devised by the mathematicians Stan Ulam and Nicholas Metropolis, who were working to develop an atomic weapon for the US as part of the Manhattan Project. They needed to compute the average distance that a neutron would travel in a substance before it collided with an atomic nucleus, but they could not compute this using standard mathematics.
-Ulam realized that these computations could be simulated using random numbers, just like a casino game. In a casino game such as a roulette wheel, numbers are generated at random; to estimate the probability of a specific outcome, you could play the game hundreds of times. Ulam’s uncle had gambled at the Monte Carlo casino in Monaco, which is apparently where the name came from for this new technique.</p>
+Ulam realized that these computations could be simulated using random numbers, just like a casino game. In a casino game such as a roulette wheel, numbers are generated at random; to estimate the probability of a specific outcome, one could play the game hundreds of times. Ulam’s uncle had gambled at the Monte Carlo casino in Monaco, which is apparently where the name came from for this new technique.</p>
 <p>There are four steps to performing a Monte Carlo simulation:</p>
 <ol style="list-style-type: decimal">
 <li>Define a domain of possible values</li>
@@ -479,33 +479,15 @@ Ulam realized that these computations could be simulated using random numbers, j
 <h2><span class="header-section-number">8.3</span> Generating random numbers</h2>
 <p>Running a Monte Carlo simulation requires that we generate random numbers. Generating truly random numbers (i.e. numbers that are completely unpredictable) is only possible through physical processes, such as the decay of atoms or the rolling of dice, which are difficult to obtain and/or too slow to be useful for computer simulation (though they can be obtained from the <a href="https://www.nist.gov/programs-projects/nist-randomness-beacon%5D">NIST Randomness Beacon</a>).</p>
 <p>In general, instead of truly random numbers we use <em>pseudo-random</em> numbers generated using a computer algorithm; these numbers will seem random in the sense that they are difficult to predict, but the series of numbers will actually repeat at some point. For example, the random number generator used in R will repeat after <span class="math inline">\(2^{19937} - 1\)</span> numbers. That’s far more than the number of seconds in the history of the universe, and we generally think that this is fine for most purposes in statistical analysis.</p>
-<p>In R, there is a function to generate random numbers for each of the major probability distributions, such as:</p>
-<ul>
-<li><code>runif()</code> - uniform distribution (all values between 0 and 1 equally)</li>
-<li><code>rnorm()</code> - normal distribution</li>
-<li><code>rbinom()</code> - binomial distribution (e.g. rolling the dice, coin flips)</li>
-</ul>
-<p>Figure <a href="resampling-and-simulation.html#fig:rngExamples">8.1</a> shows examples of numbers generated using the <code>runif()</code> and <code>rnorm()</code> functions, generated using the following code:</p>
+<p>Most statistical software includes functions to generate random numbers for each of the major probability distributions, such as the uniform distribution (all values between 0 and 1 equally), normal distribution, and binomial distribution (e.g. rolling the dice, coin flips). Figure <a href="resampling-and-simulation.html#fig:rngExamples">8.1</a> shows examples of numbers generated from uniform and a normal distribution functions.</p>
 <div class="figure"><span id="fig:rngExamples"></span>
 <img src="StatsThinking21_files/figure-html/rngExamples-1.png" alt="Examples of random numbers generated from a uniform (left) or normal (right) distribution." width="768" height="50%" />
 <p class="caption">
 Figure 8.1: Examples of random numbers generated from a uniform (left) or normal (right) distribution.
 </p>
 </div>
-<p>You can also generate random numbers for any distribution if you have a <em>quantile</em> function for the distribution. This is the inverse of the cumulative distribution function; instead of identifying the cumulative probabilities for a set of values, the quantile function identifies the values for a set of cumulative probabilities. Using the quantile function, we can generate random numbers from a uniform distribution, and then map those into the distribution of interest via its quantile function.</p>
-<p>By default, R will generate a different set of random numbers every time you run one of the random number generator functions described above. However, it is also possible to generate exactly the same set of random numbers, by setting what is called the <em>random seed</em> to a specific value. We will do this in many of the examples in this book, in order to make sure that the examples are reproducible.</p>
-<p>If we run the <code>rnorm()</code> function twice, it will give us different sets of pseudorandom numbers each time:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">print</span>(<span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">5</span>))</a></code></pre></div>
-<pre><code>## [1]  1.48  0.18  0.21 -0.15 -1.72</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">print</span>(<span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">5</span>))</a></code></pre></div>
-<pre><code>## [1] -0.691 -2.231  0.391  0.029 -0.647</code></pre>
-<p>However, if we set the random seed to the same value each time using the <code>set.seed()</code> function, then it will give us the same series of pseudorandom numbers each time:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">12345</span>)</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw">print</span>(<span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">5</span>))</a></code></pre></div>
-<pre><code>## [1]  0.59  0.71 -0.11 -0.45  0.61</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">12345</span>)</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw">print</span>(<span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">5</span>))</a></code></pre></div>
-<pre><code>## [1]  0.59  0.71 -0.11 -0.45  0.61</code></pre>
+<p>One can also generate random numbers for any distribution using a <em>quantile</em> function for the distribution. This is the inverse of the cumulative distribution function; instead of identifying the cumulative probabilities for a set of values, the quantile function identifies the values for a set of cumulative probabilities. Using the quantile function, we can generate random numbers from a uniform distribution, and then map those into the distribution of interest via its quantile function.</p>
+<p>By default, the random number generators in statistical software will generate a different set of random numbers every time they are run. However, it is also possible to generate exactly the same set of random numbers, by setting what is called the <em>random seed</em> to a specific value. We will do this in many of the examples in this book, in order to make sure that the examples are reproducible.</p>
 </div>
 <div id="using-monte-carlo-simulation" class="section level2">
 <h2><span class="header-section-number">8.4</span> Using Monte Carlo simulation</h2>
@@ -523,15 +505,15 @@ Figure 8.2: Simulated finishing time distributions.
 Figure 8.3: Distribution of maximum finishing times across simulations.
 </p>
 </div>
-<p>This shows that the 99th percentile of the finishing time distribution falls at 8.81, meaning that if we were to give that much time for the quiz, then everyone should finish 99% of the time. It’s always important to remember that our assumptions matter – if they are wrong, then the results of the simulation are useless. In this case, we assumed that the finishing time distribution was normally distributed with a particular mean and standard deviation; if these assumptions are incorrect (and they almost certainly are), then the true answer could be very different.</p>
+<p>This shows that the 99th percentile of the finishing time distribution falls at 8.74, meaning that if we were to give that much time for the quiz, then everyone should finish 99% of the time. It’s always important to remember that our assumptions matter – if they are wrong, then the results of the simulation are useless. In this case, we assumed that the finishing time distribution was normally distributed with a particular mean and standard deviation; if these assumptions are incorrect (and they almost certainly are), then the true answer could be very different.</p>
 </div>
 <div id="using-simulation-for-statistics-the-bootstrap" class="section level2">
 <h2><span class="header-section-number">8.5</span> Using simulation for statistics: The bootstrap</h2>
 <p>So far we have used simulation to demonstrate statistical principles, but we can also use simulation to answer real statistical questions. In this section we will introduce a concept known as the <em>bootstrap</em> that lets us use simulation to quantify our uncertainty about statistical estimates. Later in the course, we will see other examples of how simulation can often be used to answer statistical questions, especially when theoretical statistical methods are not available or when their assumptions are too difficult to meet.</p>
 <div id="computing-the-bootstrap" class="section level3">
 <h3><span class="header-section-number">8.5.1</span> Computing the bootstrap</h3>
-<p>In the section above, we used our knowledge of the sampling distribution of the mean to compute the standard error of the mean and confidence intervals. But what if we can’t assume that the estimates are normally distributed, or we don’t know their distribution? The idea of the bootstrap is to use the data themselves to estimate an answer. The name comes from the idea of pulling one’s self up by one’s own bootstraps, expressing the idea that we don’t have any external source of leverage so we have to rely upon the data themselves. The bootstrap method was conceived by Bradley Efron of the Stanford Department of Statistics, who is one of the world’s most influential statisticians.</p>
-<p>The idea behind the bootstrap is that we repeatedly sample from the actual dataset; importantly, we sample <em>with replacement</em>, such that the same data point will often end up being represented multiple times within one of the samples. We then compute our statistic of interest on each of the bootstrap samples, and use the distribution of those estimates.</p>
+<p>In the previous chapter, we used our knowledge of the sampling distribution of the mean to compute the standard error of the mean and confidence intervals. But what if we can’t assume that the estimates are normally distributed, or we don’t know their distribution? The idea of the bootstrap is to use the data themselves to estimate an answer. The name comes from the idea of pulling one’s self up by one’s own bootstraps, expressing the idea that we don’t have any external source of leverage so we have to rely upon the data themselves. The bootstrap method was conceived by Bradley Efron of the Stanford Department of Statistics, who is one of the world’s most influential statisticians.</p>
+<p>The idea behind the bootstrap is that we repeatedly sample from the actual dataset; importantly, we sample <em>with replacement</em>, such that the same data point will often end up being represented multiple times within one of the samples. We then compute our statistic of interest on each of the bootstrap samples, and use the distribution of those estimates as our sampling distribution.</p>
 <p>Let’s start by using the bootstrap to estimate the sampling distribution of the mean, so that we can compare the result to the standard error of the mean (SEM) that we discussed earlier.</p>
 <div class="figure"><span id="fig:bootstrapSEM"></span>
 <img src="StatsThinking21_files/figure-html/bootstrapSEM-1.png" alt="An example of bootstrapping to compute the standard error of the mean. The histogram shows the distribution of means across bootstrap samples, while the red line shows the normal distribution based on the sample mean and standard deviation." width="384" height="50%" />
@@ -541,7 +523,7 @@ Figure 8.4: An example of bootstrapping to compute the standard error of the mea
 </div>
 <p>Figure <a href="resampling-and-simulation.html#fig:bootstrapSEM">8.4</a> shows that the distribution of means across bootstrap samples is fairly close to the theoretical estimate based on the assumption of normality. We can also use the bootstrap samples to compute a confidence interval for the mean, simply by computing the quantiles of interest from the distribution of bootstrap samples.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-42">Table 8.1: </span>Confidence limits for normal distribution and bootstrap methods</caption>
+<caption><span id="tab:unnamed-chunk-40">Table 8.1: </span>Confidence limits for normal distribution and bootstrap methods</caption>
 <thead>
 <tr class="header">
 <th align="left">type</th>
@@ -552,12 +534,12 @@ Figure 8.4: An example of bootstrapping to compute the standard error of the mea
 <tbody>
 <tr class="odd">
 <td align="left">Normal</td>
-<td align="right">165</td>
-<td align="right">172</td>
+<td align="right">166</td>
+<td align="right">173</td>
 </tr>
 <tr class="even">
 <td align="left">Bootstrap</td>
-<td align="right">165</td>
+<td align="right">166</td>
 <td align="right">172</td>
 </tr>
 </tbody>
@@ -571,7 +553,7 @@ Figure 8.4: An example of bootstrapping to compute the standard error of the mea
 <ul>
 <li>Describe the concept of a Monte Carlo simulation.</li>
 <li>Describe the meaning of randomness in statistics</li>
-<li>Obtain random numbers from the uniform and normal distributions</li>
+<li>Describe how pseudo-random numbers are generated</li>
 <li>Describe the concept of the bootstrap</li>
 </ul>
 </div>
