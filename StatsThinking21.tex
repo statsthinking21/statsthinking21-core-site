@@ -127,7 +127,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{Draft: 2020-09-07}
+    \date{Draft: 2020-09-08}
 
 \usepackage{booktabs}
 \usepackage{longtable}
@@ -3581,7 +3581,7 @@ In 2017, the web site Fivethirtyeight.com published a story titled \href{https:/
 ``we found that income inequality was the most significant determinant of population-adjusted hate crimes and hate incidents across the United States''.
 \end{quote}
 
-The data for this analysis are included in the \texttt{fivethirtyeight} R package, which makes it easy for us to access them. The analysis reported in the story focused on the relationship between income inequality (defined by a quantity called the \emph{Gini index} --- see Appendix for more details) and the prevalence of hate crimes in each state.
+The data for this analysis are available as part the \texttt{fivethirtyeight} package for the R statistical software, which makes it easy for us to access them. The analysis reported in the story focused on the relationship between income inequality (defined by a quantity called the \emph{Gini index} --- see Appendix for more details) and the prevalence of hate crimes in each state.
 
 \hypertarget{is-income-inequality-related-to-hate-crimes}{%
 \section{Is income inequality related to hate crimes?}\label{is-income-inequality-related-to-hate-crimes}}
@@ -3608,7 +3608,7 @@ This tells us how far each observation is from the mean, on average, in squared 
 covariance = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{N - 1}
 \]
 
-This value will be far from zero when x and y are both highly deviant from the mean; if they are deviant in the same direction then the covariance is positive, whereas if they are deviant in opposite directions the covariance is negative. Let's look at a toy example first. The data are shown in the table, along with their individual deviations from the mean and their crossproducts.
+This value will be far from zero when individual data points deviate by similar amounts from their respective means; if they are deviant in the same direction then the covariance is positive, whereas if they are deviant in opposite directions the covariance is negative. Let's look at a toy example first. The data are shown in the table, along with their individual deviations from the mean and their crossproducts.
 
 \begin{table}
 
@@ -3636,20 +3636,18 @@ The covariance is simply the mean of the crossproducts, which in this case is 17
 \[
 r = \frac{covariance}{s_xs_y} = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{(N - 1)s_x s_y}
 \]
-In this case, the value is 0.89. We can also compute the correlation value easily using the \texttt{cor()} function in R, rather than computing it by hand.
-
-The correlation coefficient is useful because it varies between -1 and 1 regardless of the nature of the data - in fact, we already discussed the correlation coefficient earlier in the discussion of effect sizes. As we saw in the previous chapter on effect sizes, a correlation of 1 indicates a perfect linear relationship, a correlation of -1 indicates a perfect negative relationship, and a correlation of zero indicates no linear relationship.
+In this case, the value is 0.89. The correlation coefficient is useful because it varies between -1 and 1 regardless of the nature of the data - in fact, we already discussed the correlation coefficient earlier in our discussion of effect sizes. As we saw in that previous chapter, a correlation of 1 indicates a perfect linear relationship, a correlation of -1 indicates a perfect negative relationship, and a correlation of zero indicates no linear relationship.
 
 \hypertarget{hypothesis-testing-for-correlations}{%
 \subsection{Hypothesis testing for correlations}\label{hypothesis-testing-for-correlations}}
 
-The correlation value of 0.42 seems to indicate a reasonably strong relationship between the hate crimes and income inequality, but we can also imagine that this could occur by chance even if there is no relationship. We can test the null hypothesis that the correlation is zero, using a simple equation that lets us convert a correlation value into a \emph{t} statistic:
+The correlation value of 0.42 between hate crimes and income inequality seems to indicate a reasonably strong relationship between the two, but we can also imagine that this could occur by chance even if there is no relationship. We can test the null hypothesis that the correlation is zero, using a simple equation that lets us convert a correlation value into a \emph{t} statistic:
 
 \[
 \textit{t}_r =  \frac{r\sqrt{N-2}}{\sqrt{1-r^2}}
 \]
 
-Under the null hypothesis \(H_0:r=0\), this statistic is distributed as a t distribution with \(N - 2\) degrees of freedom. We can compute this using the \texttt{cor.test()} function in R:
+Under the null hypothesis \(H_0:r=0\), this statistic is distributed as a t distribution with \(N - 2\) degrees of freedom. We can compute this using our statistical software:
 
 \begin{verbatim}
 ## 
@@ -3684,9 +3682,9 @@ You may have noticed something a bit odd in Figure \ref{fig:hateCrimeGini} -- on
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/outlierCorr-1} \caption{An simulated example of the effects of outliers on correlation.  Without the outlier the remainder of the datapoints have a perfect negative correlation, but the single outlier changes the correlation value to highly positive.}\label{fig:outlierCorr}
 \end{figure}
 
-One way to address outliers is to compute the correlation on the ranks of the data after ordering them, rather than on the data themselves; this is known as the \emph{Spearman correlation}. Whereas the Pearson correlation for the example in Figure \ref{fig:outlierCorr} was 0.83, the Spearman correlation is -0.45, showing that the rank correlation reduces the effect of the outlier.
+One way to address outliers is to compute the correlation on the ranks of the data after ordering them, rather than on the data themselves; this is known as the \emph{Spearman correlation}. Whereas the Pearson correlation for the example in Figure \ref{fig:outlierCorr} was 0.83, the Spearman correlation is -0.45, showing that the rank correlation reduces the effect of the outlier and reflects the negative relationship between the majority of the data points.
 
-We can compute the rank correlation on the hate crime data using the \texttt{cor.test} function:
+We can compute the rank correlation on the hate crime data as well:
 
 \begin{verbatim}
 ## 
@@ -3709,7 +3707,7 @@ When we say that one thing \emph{causes} another, what do we mean? There is a lo
 
 In medicine, there is a set of ideas known as \href{https://en.wikipedia.org/wiki/Koch\%27s_postulates}{\emph{Koch's postulates}} which have historically been used to determine whether a particular organism causes a disease. The basic idea is that the organism should be present in people with the disease, and not present in those without it -- thus, a treatment that eliminates the organism should also eliminate the disease. Further, infecting someone with the organism should cause them to contract the disease. An example of this was seen in the work of Dr.~Barry Marshall, who had a hypothesis that stomach ulcers were caused by a bacterium (\emph{Helicobacter pylori}). To demonstrate this, he infected himself with the bacterium, and soon thereafter developed severe inflammation in his stomach. He then treated himself with an antibiotic, and his stomach soon recovered. He later won the Nobel Prize in Medicine for this work.
 
-Often we would like to test causal hypotheses but we can't actually do an experiment, either because it's impossible (``What is the relationship between human carbon emissions and the earth's climate?'') or unethical (``What are the effects of severe abuse on child brain development?''). However, we can still collect data that might be relevant to those questions. For example, in the latter example, we can potentially collect data from children who have been abused as well as those who have not, and we can then ask whether their brain development differs.
+Often we would like to test causal hypotheses but we can't actually do an experiment, either because it's impossible (``What is the relationship between human carbon emissions and the earth's climate?'') or unethical (``What are the effects of severe abuse on child brain development?''). However, we can still collect data that might be relevant to those questions. For example, we can potentially collect data from children who have been abused as well as those who have not, and we can then ask whether their brain development differs.
 
 Let's say that we did such an analysis, and we found that abused children had poorer brain development than non-abused children. Would this demonstrate that abuse \emph{causes} poorer brain development? No.~Whenever we observe a statistical association between two variables, it is certainly possible that one of those two variables causes the other. However, it is also possible that both of the variables are being influenced by a third variable; in this example, it could be that child abuse is associated with family stress, which could also cause poorer brain development through less intellectual engagement, food stress, or many other possible avenues. The point is that a correlation between two variables generally tells us that something is \emph{probably} causing somethign else, but it doesn't tell us what is causing what.
 
@@ -3746,7 +3744,9 @@ After reading this chapter, you should be able to:
 \item
   Compute the correlation between two continuous variables
 \item
-  Describe the potential causal influences that can give rise to a correlation.
+  Describe the effect of outlier data points and how to address them.
+\item
+  Describe the potential causal influences that can give rise to an observed correlation.
 \end{itemize}
 
 \hypertarget{suggested-readings-9}{%
@@ -3814,7 +3814,7 @@ Remember that early in the book we described the basic model of statistics:
 \[
 outcome = model + error
 \]
-where our general goal is to find the model that minimizes the error, subject to some other constraints (such as keeping the model relatively simple so that we can generalize beyond our specific dataset). In this chapter we will focus on a particular implementation of this approach, which is known as the \emph{general linear model} (or GLM). You have already seen the general linear model in the earlier chapter on Fitting Models to Data, where we modeled height in the NHANES dataset as a function of age; here we will provide a more general introduction to the concept of the GLM and its many uses.
+where our general goal is to find the model that minimizes the error, subject to some other constraints (such as keeping the model relatively simple so that we can generalize beyond our specific dataset). In this chapter we will focus on a particular implementation of this approach, which is known as the \emph{general linear model} (or GLM). You have already seen the general linear model in the earlier chapter on Fitting Models to Data, where we modeled height in the NHANES dataset as a function of age; here we will provide a more general introduction to the concept of the GLM and its many uses. Nearly every model used in statistics can be framed in terms of the general linear model or an extension of it.
 
 Before we discuss the general linear model, let's first define two terms that will be important for our discussion:
 
@@ -3846,7 +3846,7 @@ As an example, let's generate some simulated data for the relationship between s
   \emph{Predict}: Given a particular amount of study time, what grade do we expect?
 \end{itemize}
 
-In the last chapter we learned how to describe the relationship between two variables using the correlation coefficient, so we can use that to describe the relationship here, and to test whether the correlation is statistically significant using the \texttt{cor.test()} function in R:
+In the previous chapter we learned how to describe the relationship between two variables using the correlation coefficient. Let's use our statistical software to compute that relationship for these data and test whether the correlation is statistically significant:
 
 \begin{verbatim}
 ## 
@@ -3862,26 +3862,26 @@ In the last chapter we learned how to describe the relationship between two vari
 ## 0.63
 \end{verbatim}
 
-The correlation is quite high, but just barely reaches statistical significance because the sample size is so small.
+The correlation is quite high, but just barely reaches statistical significance because the sample size is so small and thus our statistical power is very low.
 
 \hypertarget{linear-regression}{%
 \section{Linear regression}\label{linear-regression}}
 
-We can also use the general linear model to describe the relation between two variables and to decide whether that relationship is statistically significant; in addition, the model allows us to predict the value of the dependent variable given some new value(s) of the independent variable(s). Most importantly, the general linear model will allow us to build models that incorporate multiple independent variables, whereas correlation can only tell us about the relationship between two individual variables.
+We can use the general linear model to describe the relation between two variables and to decide whether that relationship is statistically significant; in addition, the model allows us to predict the value of the dependent variable given some new value(s) of the independent variable(s). Most importantly, the general linear model will allow us to build models that incorporate multiple independent variables, whereas correlation can only tell us about the relationship between two individual variables.
 
-The specific version of the GLM that we use for this is referred to as as \emph{linear regression}. The term \emph{regression} was coined by Francis Galton, who had noted that when he compared parents and their children on some feature (such as height), the children of extreme parents (i.e.~the very tall or very short parents) generally fell closer to the mean than their parents. This is an extremely important point that we return to below.
+The specific version of the GLM that we use for this is referred to as as \emph{linear regression}. The term \emph{regression} was coined by Francis Galton, who had noted that when he compared parents and their children on some feature (such as height), the children of extreme parents (i.e.~the very tall or very short parents) generally fell closer to the mean than did their parents. This is an extremely important point that we return to below.
 
 The simplest version of the linear regression model (with a single independent variable) can be expressed as follows:
 
 \[
 y = x * \beta_x + \beta_0 + \epsilon
 \]
-The \(\beta_x\) value tells us how much we would expect y to change given a one-unit change in x. The intercept \(\beta_0\) is an overall offset, which tells us what value we would expect y to have when \(x=0\); you may remember from our early modeling discussion that this is important to model the overall magnitude of the data, even if \(x\) never actually attains a value of zero. The error term \(\epsilon\) refers to whatever is left over once the model has been fit. If we want to know how to predict y (which we call \(\hat{y}\)), then we can drop the error term:
+The \(\beta_x\) value tells us how much we would expect y to change given a one-unit change in x. The intercept \(\beta_0\) is an overall offset, which tells us what value we would expect y to have when \(x=0\); you may remember from our early modeling discussion that this is important to model the overall magnitude of the data, even if \(x\) never actually attains a value of zero. The error term \(\epsilon\) refers to whatever is left over once the model has been fit; we often refer to these as the \emph{residuals} from the model. If we want to know how to predict y (which we call \(\hat{y}\)), then we can drop the error term:
 
 \[
 \hat{y} = x * \beta_x + \beta_0 
 \]
-Note that this is simply the equation for a line, where \(\beta_x\) is the slope and \(\beta_0\) is the intercept. Figure \ref{fig:LinearRegression} shows an example of this model applied to the study time example.
+Note that this is simply the equation for a line, where \(\beta_x\) is the slope and \(\beta_0\) is the intercept. Figure \ref{fig:LinearRegression} shows an example of this model applied to the study time data.
 
 \begin{figure}
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/LinearRegression-1} \caption{The linear regression solution for the study time data is shown in the solid line The value of the intercept is equivalent to the predicted value of the y variable when the x variable is equal to zero; this is shown with a dotted line.  The value of beta is equal to the slope of the line -- that is, how much y changes for a unit change in x.  This is shown schematically in the dashed lines, which show the degree of increase in grade for a single unit increase in study time.}\label{fig:LinearRegression}
@@ -3892,7 +3892,7 @@ We will not go into the details of how the best fitting slope and intercept are 
 \hypertarget{regression-to-the-mean}{%
 \subsection{Regression to the mean}\label{regression-to-the-mean}}
 
-The concept of \emph{regression to the mean} was one of Galton's essential contributions to science, and it remains a critical point to understand when we interpret the results of experimental data analyses. Let's say that we want to study the effects of a reading intervention on the performance of poor readers. To test our hypothesis, we might go into a school and recruit those individuals in the bottom 25\% of the distribution on some reading test, administer the intervention, and then examine their performance. Let's say that the intervention actually has no effect, such that reading scores for each individual are simply independent samples from a normal distribution. We can simulate this:
+The concept of \emph{regression to the mean} was one of Galton's essential contributions to science, and it remains a critical point to understand when we interpret the results of experimental data analyses. Let's say that we want to study the effects of a reading intervention on the performance of poor readers. To test our hypothesis, we might go into a school and recruit those individuals in the bottom 25\% of the distribution on some reading test, administer the intervention, and then examine their performance on the test after the intervention. Let's say that the intervention actually has no effect, such that reading scores for each individual are simply independent samples from a normal distribution. We can simulate this:
 
 \begin{table}
 
@@ -3909,7 +3909,7 @@ Test 2 & 101\\
 \end{tabular}
 \end{table}
 
-If we look at the difference between the mean test performance at the first and second test, it appears that the intervention has helped these students substantially, as their scores have gone up by more than ten points on the test! However, we know that in fact the students didn't improve at all, since in both cases the scores were simply selected from a random normal distribution. What has happened is that some subjects scored badly on the first test simply due to random chance. If we select just those subjects on the basis of their first test scores, they are guaranteed to move back towards the mean of the entire group on the second test, even if there is no effect of training. This is the reason that we need an untreated \emph{control group} in order to interpret any changes in reading over time; otherwise we are likely to be tricked by regression to the mean.
+If we look at the difference between the mean test performance at the first and second test, it appears that the intervention has helped these students substantially, as their scores have gone up by more than ten points on the test! However, we know that in fact the students didn't improve at all, since in both cases the scores were simply selected from a random normal distribution. What has happened is that some students scored badly on the first test simply due to random chance. If we select just those subjects on the basis of their first test scores, they are guaranteed to move back towards the mean of the entire group on the second test, even if there is no effect of training. This is the reason that we always need an untreated \emph{control group} in order to interpret any changes in performance due to an intervention; otherwise we are likely to be tricked by regression to the mean.
 
 \hypertarget{the-relation-between-correlation-and-regression}{%
 \subsection{The relation between correlation and regression}\label{the-relation-between-correlation-and-regression}}
@@ -3979,7 +3979,7 @@ t_{N - p} = \frac{\hat{\beta} }{SE_{\hat{\beta}}}
 \end{array}
 \]
 
-In R, we don't need to compute these by hand, as they are automatically returned to us by the \texttt{lm()} function:
+In general we would use statistical software to compute these rather than computing them by hand. Here are the results from the linear model function in R:
 
 \begin{verbatim}
 ## 
@@ -4114,7 +4114,7 @@ As we see from panel B in Figure \ref{fig:CaffeineAnxietyInteraction}, it appear
 ## F-statistic: 2.18 on 2 and 17 DF,  p-value: 0.144
 \end{verbatim}
 
-Here we see there are no significant effects of either caffeine or anxiety, which might seem a bit confusing. The problem is that this model is trying to fit the same line relating speaking to caffeine for both groups. If we want to fit them using separate lines, we need to include an \emph{interaction} in the model, which is equivalent to fitting different lines for each of the two groups; in R this is denoted by the \(*\) symbol.
+Here we see there are no significant effects of either caffeine or anxiety, which might seem a bit confusing. The problem is that this model is trying to fit the same line relating speaking to caffeine for both groups. If we want to fit them using separate lines, we need to include an \emph{interaction} in the model, which is equivalent to fitting different lines for each of the two groups; this is often denoted by using the \(*\) symbol in the model.
 
 \begin{verbatim}
 ## 
@@ -4146,7 +4146,7 @@ From these results we see that there are significant effects of both caffeine an
 \includegraphics[width=0.8\linewidth]{StatsThinking21_files/figure-latex/CaffeineAnxietyInteraction-1} \caption{A: The relationship between caffeine and public speaking. B: The relationship between caffeine and public speaking, with anxiety represented by the shape of the data points. C: The relationship between public speaking and caffeine, including an interaction with anxiety.  This results in two lines that separately model the slope for each group (dashed for anxious, dotted for non-anxious).}\label{fig:CaffeineAnxietyInteraction}
 \end{figure}
 
-Sometimes we want to compare the relative fit of two different models, in order to determine which is a better model; we refer to this as \emph{model comparison}. For the models above, we can compare the goodness of fit of the model with and without the interaction, using the \texttt{anova()} command in R:
+Sometimes we want to compare the relative fit of two different models, in order to determine which is a better model; we refer to this as \emph{model comparison}. For the models above, we can compare the goodness of fit of the model with and without the interaction, using what is called an \emph{analysis of variance}:
 
 \begin{verbatim}
 ## Analysis of Variance Table
@@ -4165,7 +4165,7 @@ This tells us that there is good evidence to prefer the model with the interacti
 \hypertarget{beyond-linear-predictors-and-outcomes}{%
 \section{Beyond linear predictors and outcomes}\label{beyond-linear-predictors-and-outcomes}}
 
-It is important to note that despite the fact that it is called the general \emph{linear} model, we can actually use the same machinery to model effects that don't follow a straight line (such as curves). The ``linear'' in the general linear model doesn't refer to the shape of the response, but instead refers to the fact that model is linear in its parameters --- that is, the predictors in the model only get multiplied the parameters, rather than a nonlinear relationship like being raised to a power of the parameter. It's also common to analyze data where the outcomes are binary rather than continuous, as we saw in the chapter on categorical outcomes. There are ways to adapt the general linear model (known as \emph{generalized linear models}) that allow this kind of analysis. We will explore both of these points in more detail in the following chapter.
+It is important to note that despite the fact that it is called the general \emph{linear} model, we can actually use the same machinery to model effects that don't follow a straight line (such as curves). The ``linear'' in the general linear model doesn't refer to the shape of the response, but instead refers to the fact that model is linear in its parameters --- that is, the predictors in the model only get multiplied the parameters, rather than a nonlinear relationship like being raised to a power of the parameter. It's also common to analyze data where the outcomes are binary rather than continuous, as we saw in the chapter on categorical outcomes. There are ways to adapt the general linear model (known as \emph{generalized linear models}) that allow this kind of analysis. We will explore these models later in the book.
 
 \hypertarget{model-criticism}{%
 \section{Criticizing our model and checking assumptions}\label{model-criticism}}
@@ -4174,9 +4174,9 @@ The saying ``garbage in, garbage out'' is as true of statistics as anywhere else
 
 When we say that the model is ``properly specified'', we mean that we have included the appropriate set of independent variables in the model. We have already seen examples of misspecified models, in Figure \ref{fig:childHeightLine}. Remember that we saw several cases where the model failed to properly account for the data, such as failing to include an intercept. When building a model, we need to ensure that it includes all of the appropriate variables.
 
-We also need to worry about whether our model satisifies the assumptions of our statisical methods. One of the most important assumptions that we make when using the general linear model is that the residuals (that is, the difference between the model's predictions and the actual data) are normally distributed. This can fail for many reasons, either because the model was not properly specified or because the data that we are modeling are inappropriate.
+We also need to worry about whether our model satisfies the assumptions of our statistical methods. One of the most important assumptions that we make when using the general linear model is that the residuals (that is, the difference between the model's predictions and the actual data) are normally distributed. This can fail for many reasons, either because the model was not properly specified or because the data that we are modeling are inappropriate.
 
-We can use something called a \emph{Q-Q} (quantile-quantile) plot to see whether our residuals are normally distributed. You have already encountered \emph{quantiles} --- they are the value that cuts off a particular proportion of a cumulative distribution.The Q-Q plot presents the quantiles of two distributions against one another; in this case, we will present the quantiles of the actual data from the quantiles of a normal distribution. Figure \ref{fig:qqplots} shows examples of two such Q-Q plots. The left panel shows a Q-Q plot for data from a normal distribution, while the right panel shows a Q-Q plot from non-normal data. The data points in the right panel diverge substantially from the line, reflecting the fact that they are not normally distributed.
+We can use something called a \emph{Q-Q} (quantile-quantile) plot to see whether our residuals are normally distributed. You have already encountered \emph{quantiles} --- they are the value that cuts off a particular proportion of a cumulative distribution. The Q-Q plot presents the quantiles of two distributions against one another; in this case, we will present the quantiles of the actual data against the quantiles of a normal distribution fit to the same data. Figure \ref{fig:qqplots} shows examples of two such Q-Q plots. The left panel shows a Q-Q plot for data from a normal distribution, while the right panel shows a Q-Q plot from non-normal data. The data points in the right panel diverge substantially from the line, reflecting the fact that they are not normally distributed.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4201,7 +4201,7 @@ We can use something called a \emph{Q-Q} (quantile-quantile) plot to see whether
 \includegraphics[width=0.8\linewidth]{StatsThinking21_files/figure-latex/qqplots-1} \caption{Q-Q plotsof normal (left) and non-normal (right) data.  The line shows the point at which the x and y axes are equal.}\label{fig:qqplots}
 \end{figure}
 
-Model diagnostics will be explored in more detail in the following chapter.
+Model diagnostics will be explored in more detail in a later chapter.
 
 \hypertarget{what-does-predict-really-mean}{%
 \section{What does ``predict'' really mean?}\label{what-does-predict-really-mean}}
@@ -4218,16 +4218,16 @@ As an example, let's take a sample of 48 children from NHANES and fit a regressi
 \hline
 Data type & RMSE (original data) & RMSE (new data)\\
 \hline
-True data & 3.0 & 21\\
+True data & 3.0 & 25\\
 \hline
-Shuffled data & 7.6 & 59\\
+Shuffled data & 7.8 & 59\\
 \hline
 \end{tabular}
 \end{table}
 
 Here we see that whereas the model fit on the original data showed a very good fit (only off by a few kg per individual), the same model does a much worse job of predicting the weight values for new children sampled from the same population (off by more than 25 kg per individual). This happens because the model that we specified is quite complex, since it includes not just each of the individual variables, but also all possible combinations of them (i.e.~their \emph{interactions}), resulting in a model with 32 parameters. Since this is almost as many coefficients as there are data points (i.e., the heights of 48 children), the model \emph{overfits} the data, just like the complex polynomial curve in our initial example of overfitting in Section \ref{overfitting}.
 
-Another way to see the effects of overfitting is to look at what happens if we randomly shuffle the values of the weight variable (shown in the second row of the table). Randomly shuffling the value should make it impossible to predict weight from the other variables, because they should have no systematic relationship. This shows us that even when there is no true relationship to be modeled (because shuffling should have obliterated the relationship), the complex model still shows a very low error in its predictions, because it fits the noise in the specific dataset. However, when that model is applied to a new dataset, we see that the error is much larger, as it should be.
+Another way to see the effects of overfitting is to look at what happens if we randomly shuffle the values of the weight variable (shown in the second row of the table). Randomly shuffling the value should make it impossible to predict weight from the other variables, because they should have no systematic relationship. The results in the table show that even when there is no true relationship to be modeled (because shuffling should have obliterated the relationship), the complex model still shows a very low error in its predictions on the fitted data, because it fits the noise in the specific dataset. However, when that model is applied to a new dataset, we see that the error is much larger, as it should be.
 
 \hypertarget{cross-validation}{%
 \subsection{Cross-validation}\label{cross-validation}}
@@ -4238,7 +4238,7 @@ One method that has been developed to help address the problem of overfitting is
 \includegraphics[width=45.74in,height=0.3\textheight]{images/crossvalidation} \caption{A schematic of the  cross-validation procedure.}\label{fig:crossvalidation}
 \end{figure}
 
-Let's see how that would work for our weight prediction example. In this case we will perform 12-fold cross-validation, which means that we will break the data into 12 subsets, and then fit the model 12 times, in each case leaving out one of the subsets and then testing the model's ability to accurately predict the value of the dependent variable for those held-out data points. The \texttt{caret} package in R provides us with the ability to easily run cross-validation across our dataset. Using this function we can run cross-validation on 100 samples from the NHANES dataset, and compute the RMSE for cross-validation, along with the RMSE for the original data and a new dataset, as we computed above.
+Let's see how that would work for our weight prediction example. In this case we will perform 12-fold cross-validation, which means that we will break the data into 12 subsets, and then fit the model 12 times, in each case leaving out one of the subsets and then testing the model's ability to accurately predict the value of the dependent variable for those held-out data points. Most statistical software provides tools to apply cross-validation to one's data. Using this function we can run cross-validation on 100 samples from the NHANES dataset, and compute the RMSE for cross-validation, along with the RMSE for the original data and a new dataset, as we computed above.
 
 \begin{table}
 
@@ -4266,7 +4266,7 @@ Note that using cross-validation properly is tricky, and it is recommended that 
 \item
   ``Prediction'' doesn't always mean what you think it means
 \item
-  Complex models can overfit data very badly, such that one can see seemingly good prediction even when there is no true signal to predict
+  Complex models can overfit data very badly, such that one can observe seemingly good prediction even when there is no true signal to predict
 \item
   You should view claims about prediction accuracy very skeptically unless they have been done using the appropriate methods.
 \end{itemize}
@@ -4279,11 +4279,11 @@ Having read this chapter, you should be able to:
 \begin{itemize}
 \tightlist
 \item
-  Describe the concept of linear regression and apply it to a bivariate dataset
+  Describe the concept of linear regression and apply it to a dataset
 \item
   Describe the concept of the general linear model and provide examples of its application
 \item
-  Describe how cross-validation an allow us to estimate the predictive performance of a model on new data
+  Describe how cross-validation can allow us to estimate the predictive performance of a model on new data
 \end{itemize}
 
 \hypertarget{suggested-readings-10}{%
@@ -4380,8 +4380,8 @@ The challenge here is that \(X\) and \(\beta\) are now matrices, not single numb
 
 \begin{verbatim}
 ##      [,1]
-## [1,]  3.3
-## [2,] 83.5
+## [1,]  8.2
+## [2,] 68.0
 \end{verbatim}
 
 Anyone who is interested in serious use of statistical methods is highly encouraged to invest some time in learning linear algebra, as it provides the basis for nearly all of the tools that are used in standard statistics.
@@ -4389,30 +4389,30 @@ Anyone who is interested in serious use of statistical methods is highly encoura
 \hypertarget{comparing-means}{%
 \chapter{Comparing means}\label{comparing-means}}
 
-We have already encountered a number of cases where we wanted to ask questions about the mean of a sample. In this chapter, we will delve deeper into the various ways that we can compare means.
+We have already encountered a number of cases where we wanted to ask questions about the mean of a sample. In this chapter, we will delve deeper into the various ways that we can compare means across groups.
 
 \hypertarget{single-mean}{%
 \section{Testing the value of a single mean}\label{single-mean}}
 
-The simplest question we might want to ask of a mean is whether it has a specific value. Let's say that we want to test whether the mean BMI value in adults from the NHANES dataset is above 25, which is the lower cutoff for being overweight according to the US Centers for Disease Control. We take a sample of 200 adults in order to ask this question.
+The simplest question we might want to ask of a mean is whether it has a specific value. Let's say that we want to test whether the mean diastolic blood pressure value in adults from the NHANES dataset is above 80, which is cutoff for hypertension according to the American College of Cardiology. We take a sample of 200 adults in order to ask this question; each adult had their blood pressure measured three times, and we use the average of these for our test.
 
-One simple way to test for this difference is using a test called the \emph{sign test}, which asks whether the proportion of positive differences between the actual value and the hypothesized value is different than what we would expect by chance. To do this, we take the differences between each data point and the hypothesized mean value and compute their sign. In our sample, we see that 66.0 percent of individuals have a BMI greater than 25. We can then use a binomial test to ask whether this proportion of positive differences is greater than 0.5, using the \texttt{binom.test()} function in R:
+One simple way to test for this difference is using a test called the \emph{sign test}, which asks whether the proportion of positive differences between the actual value and the hypothesized value is different than what we would expect by chance. To do this, we take the differences between each data point and the hypothesized mean value and compute their sign. If the data are normally distributed and the actual mean is equal to the hypothesized mean, then the proportion of values above the hypothesized mean (or below it) should be 0.5, such that the proportion of positive differences should also be 0.5. In our sample, we see that 19.0 percent of individuals have a diastolic blood pressure above 80. We can then use a binomial test to ask whether this proportion of positive differences is greater than 0.5, using the binomial testing function in our statistical software:
 
 \begin{verbatim}
 ## 
 ##  Exact binomial test
 ## 
 ## data:  npos and nrow(NHANES_sample)
-## number of successes = 132, number of trials = 200, p-value = 4e-06
+## number of successes = 38, number of trials = 200, p-value = 1
 ## alternative hypothesis: true probability of success is greater than 0.5
 ## 95 percent confidence interval:
-##  0.6 1.0
+##  0.15 1.00
 ## sample estimates:
 ## probability of success 
-##                   0.66
+##                   0.19
 \end{verbatim}
 
-Here we see that the proportion of individuals with positive signs would be \emph{very} surprising under the null hypothesis of \(p=0.5\).
+Here we see that the proportion of individuals with positive signs is not very surprising under the null hypothesis of \(p=0.5\).
 
 We can also ask this question using Student's t-test, which you have already encountered earlier in the book. We will refer to the mean as \(\bar{X}\) and the hypothesized population mean as \(\mu\). Then, the t test for a single mean is:
 
@@ -4427,28 +4427,50 @@ SEM = \frac{\hat{\sigma}}{\sqrt{n}}
 
 In essence, the t statistic asks how large the deviation of the sample mean from the hypothesized quantity is with respect to the sampling variability of the mean.
 
-We can compute this for the NHANES dataset using the \texttt{t.test()} function in R:
+We can compute this for the NHANES dataset using our statistical software:
 
 \begin{verbatim}
 ## 
 ##  One Sample t-test
 ## 
-## data:  NHANES_adult$BMI
-## t = 38, df = 4785, p-value <2e-16
-## alternative hypothesis: true mean is not equal to 25
+## data:  NHANES_adult$BPDiaAve
+## t = -55, df = 4593, p-value = 1
+## alternative hypothesis: true mean is greater than 80
 ## 95 percent confidence interval:
-##  29 29
+##   69 Inf
 ## sample estimates:
 ## mean of x 
-##        29
+##        70
 \end{verbatim}
 
-This shows us that the mean BMI in the dataset (28.79) is significantly larger than the cutoff for overweight.
+This shows us that the mean diastolic blood pressure in the dataset (69.5) is actually much lower than 80, so our test for whether it is above 80 is very far from significance.
+
+Remember that a large p-value doesn't provide us with evidence in favor of the null hypothesis, since we had already assumed that the null hypothesis is true to start with. However, as we discussed in the chapter on Bayesian analysis, we can use the Bayes factor to quantify evidence for or against the null hypothesis:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ttestBF}\NormalTok{(NHANES_sample}\OperatorTok{$}\NormalTok{BPDiaAve, }\DataTypeTok{mu=}\DecValTok{80}\NormalTok{, }\DataTypeTok{nullInterval=}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\OtherTok{Inf}\NormalTok{, }\DecValTok{80}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Bayes factor analysis
+## --------------
+## [1] Alt., r=0.707 -Inf<d<80    : 2.7e+16  ±NA%
+## [2] Alt., r=0.707 !(-Inf<d<80) : NaNe-Inf ±NA%
+## 
+## Against denominator:
+##   Null, mu = 80 
+## ---
+## Bayes factor type: BFoneSample, JZS
+\end{verbatim}
+
+The first Bayes factor listed here (\(2.73 * 10^{16}\)) denotes the fact that there is exceedingly strong evidence in favor of the null hypothesis over the alternative.
 
 \hypertarget{comparing-two-means}{%
 \section{Comparing two means}\label{comparing-two-means}}
 
-A more common question that often arises in statistics is whether there is a difference between the means of two different groups. Let's say that we would like to know whether regular marijuana smokers watch more television. We can ask this question using the NHANES dataset; let's take a sample of 200 individuals from the dataset and test whether the number of hours of television watching per day is related to regular marijuana use. The left panel of Figure \ref{fig:PotTVViolin} shows these data using a violin plot.
+A more common question that often arises in statistics is whether there is a difference between the means of two different groups. Let's say that we would like to know whether regular marijuana smokers watch more television, which we can also ask using the NHANES dataset. We take a sample of 200 individuals from the dataset and test whether the number of hours of television watching per day is related to regular marijuana use. The left panel of Figure \ref{fig:PotTVViolin} shows these data using a violin plot.
 
 \begin{figure}
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/PotTVViolin-1} \caption{Left: Violin plot showing distributions of TV watching separated by regular marijuana use. Right: Violin plots showing data for each group, with a dotted line connecting the predicted values for each group, computed on the basis of the results of the linear model.. }\label{fig:PotTVViolin}
@@ -4460,20 +4482,20 @@ We can also use Student's t test to test for differences between two groups of i
 t = \frac{\bar{X_1} - \bar{X_2}}{\sqrt{\frac{S_1^2}{n_1} + \frac{S_2^2}{n_2}}}
 \]
 
-where \(\bar{X}_1\) and \(\bar{X}_2\) are the means of the two groups, \(S^2_1\) and \(S^2_2\) are the variances for each of the groups, and \(n_1\) and \(n_2\) are the sizes of the two groups. Under the null hypothesis of no difference between means, this statistic is distributed according to a t distribution with n-2 degrees of freedom (since we have computed two parameter estimates, namely the means of the two groups). We can compute the t-test in R using the \texttt{t.test()} function. In this case, we started with the specific hypothesis that smoking marijuana is associated with greater TV watching, so we will use a one-tailed test. Since the t.test function orders the conditions alphabetically, the ``No'' group comes first, and thus we need to test the alternative hypothesis of whether the first group is less than the second (``Yes'') group; for this reason, we specify `less' as our alternative.
+where \(\bar{X}_1\) and \(\bar{X}_2\) are the means of the two groups, \(S^2_1\) and \(S^2_2\) are the variances for each of the groups, and \(n_1\) and \(n_2\) are the sizes of the two groups. Under the null hypothesis of no difference between means, this statistic is distributed according to a t distribution with N - 2 degrees of freedom (since we have computed two parameter estimates, namely the means of the two groups). In this case, we started with the specific hypothesis that smoking marijuana is associated with greater TV watching, so we will use a one-tailed test. Here are the results from our statistical software:
 
 \begin{verbatim}
 ## 
 ##  Two Sample t-test
 ## 
 ## data:  TVHrsNum by RegularMarij
-## t = -3, df = 198, p-value = 0.004
+## t = -3, df = 198, p-value = 4e-04
 ## alternative hypothesis: true difference in means is less than 0
 ## 95 percent confidence interval:
-##   -Inf -0.25
+##  -Inf -0.4
 ## sample estimates:
 ##  mean in group No mean in group Yes 
-##               2.1               2.8
+##               2.0               2.8
 \end{verbatim}
 
 In this case we see that there is a statistically significant difference between groups, in the expected direction - regular pot smokers watch more TV.
@@ -4486,7 +4508,7 @@ The t-test is often presented as a specialized tool for comparing means, but it 
 \[
 \hat{TV} = \hat{\beta_1}*Marijuana + \hat{\beta_0}
 \]
-However, smoking is a binary variable, so we treat it as a \emph{dummy variable} like we discussed in the previous chapter, setting it to a value of 1 for smokers and zero for nonsmokers. In that case, \(\hat{\beta_1}\) is simply the difference in means between the two groups, and \(\hat{\beta_0}\) is the mean for the group that was coded as zero. We can fit this model using the \texttt{lm()} function, and see that it gives the same t statistic as the t-test above:
+Since smoking is a binary variable, we treat it as a \emph{dummy variable} like we discussed in the previous chapter, setting it to a value of 1 for smokers and zero for nonsmokers. In that case, \(\hat{\beta_1}\) is simply the difference in means between the two groups, and \(\hat{\beta_0}\) is the mean for the group that was coded as zero. We can fit this model using the general linear model function in our statistical software, and see that it gives the same t statistic as the t-test above, except that it's negative in this case because of the way that our software arranges the groups:
 
 \begin{verbatim}
 ## 
@@ -4494,47 +4516,47 @@ However, smoking is a binary variable, so we treat it as a \emph{dummy variable}
 ## lm(formula = TVHrsNum ~ RegularMarij, data = NHANES_sample)
 ## 
 ## Residuals:
-##    Min     1Q Median     3Q    Max 
-## -2.293 -1.133 -0.133  0.867  2.867 
+##     Min      1Q  Median      3Q     Max 
+## -2.2843 -1.0067 -0.0067  0.9933  2.9933 
 ## 
 ## Coefficients:
 ##                 Estimate Std. Error t value Pr(>|t|)    
-## (Intercept)        2.133      0.119   17.87   <2e-16 ***
-## RegularMarijYes    0.660      0.249    2.65   0.0086 ** 
+## (Intercept)        2.007      0.116   17.27  < 2e-16 ***
+## RegularMarijYes    0.778      0.230    3.38  0.00087 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 1.5 on 198 degrees of freedom
-## Multiple R-squared:  0.0343, Adjusted R-squared:  0.0295 
-## F-statistic: 7.04 on 1 and 198 DF,  p-value: 0.00861
+## Residual standard error: 1.4 on 198 degrees of freedom
+## Multiple R-squared:  0.0546, Adjusted R-squared:  0.0498 
+## F-statistic: 11.4 on 1 and 198 DF,  p-value: 0.000872
 \end{verbatim}
 
-We can also view the linear model results graphically (see the right panel of Figure \ref{fig:PotTVViolin}). In this case, the predicted value for nonsmokers is \(\hat{\beta_0}\) (2.13) and the predicted value for smokers is \(\hat{\beta_0} +\hat{\beta_1}\) (2.79).
+We can also view the linear model results graphically (see the right panel of Figure \ref{fig:PotTVViolin}). In this case, the predicted value for nonsmokers is \(\hat{\beta_0}\) (2.0) and the predicted value for smokers is \(\hat{\beta_0} +\hat{\beta_1}\) (2.8).
 
 To compute the standard errors for this analysis, we can use exactly the same equations that we used for linear regression -- since this really is just another example of linear regression. In fact, if you compare the p-value from the t-test above with the p-value in the linear regression analysis for the marijuana use variable, you will see that the one from the linear regression analysis is exactly twice the one from the t-test, because the linear regression analysis is performing a two-tailed test.
 
 \hypertarget{effect-sizes-for-comparing-two-means}{%
 \subsection{Effect sizes for comparing two means}\label{effect-sizes-for-comparing-two-means}}
 
-The most commonly used effect size for a comparison between two means is Cohen's d, which (as you may remember from Chapter \ref{ci-effect-size-power}) is an expression of the effect in terms of standard error units. For the t-test estimated using the general linear model outlined above (i.e.~with a single dummy-coded variable), this is expressed as:
+The most commonly used effect size for a comparison between two means is Cohen's d, which (as you may remember from Chapter \ref{ci-effect-size-power}) is an expression of the effect size in terms of standard deviation units. For the t-test estimated using the general linear model outlined above (i.e.~with a single dummy-coded variable), this is expressed as:
 
 \[
-d = \frac{\hat{beta_1}}{SE_{residual}}
+d = \frac{\hat{beta_1}}{\sigma_{residual}}
 \]
-We can obtain these values from the analysis output above, giving us a d = 0.45, which we would generally interpret as a medium sized effect.
+We can obtain these values from the analysis output above, giving us a d = 0.55, which we would generally interpret as a medium sized effect.
 
-We can also compute \(R^2\) for this analysis, which tells us how much variance in TV watching is accounted for. This value (which is reported in the summary of the lm() analysis) is 0.03, which tells us that while the effect may be statistically significant, it accounts for relatively little of the variance in TV watching.
+We can also compute \(R^2\) for this analysis, which tells us how much variance in TV watching is accounted for. This value (which is reported at the bottom of the summary of the linear model analysis above) is 0.05, which tells us that while the effect may be statistically significant, it accounts for relatively little of the variance in TV watching.
 
 \hypertarget{bayes-factor-for-mean-differences}{%
 \section{Bayes factor for mean differences}\label{bayes-factor-for-mean-differences}}
 
-As we discussed in the chapter on Bayesian analysis, Bayes factors provide a way to better quantify evidence in favor or against the null hypothesis of no difference. In this case, we want to specifically test against the null hypothesis that the difference is greater than zero - because the difference is computed by the function between the first group (`No') and the second group (`Yes'). Thus, we specify a ``null interval'' going from zero to infinity, which means that the alternative is less than zero.
+As we discussed in the chapter on Bayesian analysis, Bayes factors provide a way to better quantify evidence in favor of or against the null hypothesis of no difference. We can perform that analysis on the same data:
 
 \begin{verbatim}
 ## Bayes factor analysis
 ## --------------
-## [1] Alt., r=0.707 0<d<Inf    : 0.051 ±0%
-## [2] Alt., r=0.707 !(0<d<Inf) : 8.7   ±0%
+## [1] Alt., r=0.707 0<d<Inf    : 0.041 ±0.03%
+## [2] Alt., r=0.707 !(0<d<Inf) : 61    ±0%
 ## 
 ## Against denominator:
 ##   Null, mu1-mu2 = 0 
@@ -4542,16 +4564,18 @@ As we discussed in the chapter on Bayesian analysis, Bayes factors provide a way
 ## Bayes factor type: BFindepSample, JZS
 \end{verbatim}
 
-This shows us that the evidence against the null hypothesis is moderately strong.
+Because of the way that the data are organized, the second line shows us the relevant Bayes factor for this analysis, which is 61.4. This shows us that the evidence against the null hypothesis is quite strong.
 
 \hypertarget{paired-ttests}{%
 \section{Comparing paired observations}\label{paired-ttests}}
+
+In experimental research, we often use \emph{within-subjects} designs, in which we compare the same person on multiple measurements. The measurements that come from this kind of design are often referred to as \emph{repeated measures}. For example, in the NHANES dataset blood pressure was measured three times. Let's say that we are interested in testing whether there is a difference in mean systolic blood pressure between the first and second measurement across individuals in our sample (Figure \ref{fig:BPfig}).
 
 \begin{figure}
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/BPfig-1} \caption{Left: Violin plot of systolic blood pressure on first and second recording, from NHANES. Right: Same violin plot with lines connecting the two data points for each individual.}\label{fig:BPfig}
 \end{figure}
 
-In experimental research, we often use \emph{within-subjects} designs, in which we compare the same person on multiple measurements. The measurement that come from this kind of design are often referred to as \emph{repeated measures}. For example, in the NHANES dataset blood pressure was measured three times. Let's say that we are interested in testing whether there is a difference in mean blood pressure between the first and second measurement (Figure \ref{fig:BPfig}). We see that there does not seem to be much of a difference in mean blood pressure between time points (about one point). First let's test for a difference using an independent samples t-test, which ignores the fact that pairs of data points come from the the same individuals.
+We see that there does not seem to be much of a difference in mean blood pressure (about one point) between the first and second measurement. First let's test for a difference using an independent samples t-test, which ignores the fact that pairs of data points come from the the same individuals.
 
 \begin{verbatim}
 ## 
@@ -4599,7 +4623,7 @@ Here we see that the proportion of individuals with positive signs (0.48) is not
 \hypertarget{paired-t-test}{%
 \subsection{Paired t-test}\label{paired-t-test}}
 
-A more common strategy is to use a \emph{paired t-test}, which is equivalent to a one-sample t-test for whether the mean difference between the measurements is zero. We can compute this using the \texttt{t.test()} function in R and setting \texttt{paired=TRUE}.
+A more common strategy is to use a \emph{paired t-test}, which is equivalent to a one-sample t-test for whether the mean difference between the measurements within each person is zero. We can compute this using our statistical software, telling it that the data points are paired:
 
 \begin{verbatim}
 ## 
@@ -4628,7 +4652,7 @@ With this analyses we see that there is in fact a significant difference between
 ## Bayes factor type: BFoneSample, JZS
 \end{verbatim}
 
-This shows us that although the effect was significant in a paired t-test, it actually provides very little evidence in favor of the alternative hypothesis.
+The observed Bayes factor of 2.97 tells us that although the effect was significant in the paired t-test, it actually provides very weak evidence in favor of the alternative hypothesis.
 
 The paired t-test can also be defined in terms of a linear model; see the Appendix for more details on this.
 
@@ -4644,7 +4668,7 @@ Often we want to compare more than two means to determine whether any of them di
 \hypertarget{ANOVA}{%
 \subsection{Analysis of variance}\label{ANOVA}}
 
-We would first like to test the null hypothesis that the means of all of the groups are equal -- that is, neither of the treatments had any effect. We can do this using a method called \emph{analysis of variance} (ANOVA). This is one of the most commonly used methods in psychological statistics, and we will only scratch the surface here. The basic idea behind ANOVA is one that we already discussed in the chapter on the general linear model, and in fact ANOVA is just a name for a specific implementation of such a model.
+We would first like to test the null hypothesis that the means of all of the groups are equal -- that is, neither of the treatments had any effect compared to placebo. We can do this using a method called \emph{analysis of variance} (ANOVA). This is one of the most commonly used methods in psychological statistics, and we will only scratch the surface here. The basic idea behind ANOVA is one that we already discussed in the chapter on the general linear model, and in fact ANOVA is just a name for a specific version of such a model.
 
 Remember from the last chapter that we can partition the total variance in the data (\(SS_{total}\)) into the variance that is explained by the model (\(SS_{model}\)) and the variance that is not (\(SS_{error}\)). We can then compute a \emph{mean square} for each of these by dividing them by their degrees of freedom; for the error this is \(N - p\) (where \(p\) is the number of means that we have computed), and for the model this is \(p - 1\):
 
@@ -4656,15 +4680,13 @@ MS_{model} =\frac{SS_{model}}{df_{model}}= \frac{SS_{model}}{p-1}
 MS_{error} = \frac{SS_{error}}{df_{error}} = \frac{SS_{error}}{N - p}
 \]
 
-With ANOVA, we want to test whether the variance accounted for by the model is greater than what we would expect by chance, under the null hypothesis of no differences between means. Whereas for the t distribution the expected value is zero under the null hypothesis, that's not the case here, since sums of squares are always positive numbers. Fortunately, there is another standard distribution that describes how ratios of sums of squares are distributed under the null hypothesis: The \emph{F} distribution (see figure \ref{fig:FDist}). This distribution has two degrees of freedom, which correspond to the degrees of freedom for the numerator (which in this case is the model), and the denominator (which in this case is the error).
+With ANOVA, we want to test whether the variance accounted for by the model is greater than what we would expect by chance, under the null hypothesis of no differences between means. Whereas for the t distribution the expected value is zero under the null hypothesis, that's not the case here, since sums of squares are always positive numbers. Fortunately, there is another theoretical distribution that describes how ratios of sums of squares are distributed under the null hypothesis: The \emph{F} distribution (see figure \ref{fig:FDist}). This distribution has two degrees of freedom, which correspond to the degrees of freedom for the numerator (which in this case is the model), and the denominator (which in this case is the error).
 
 \begin{figure}
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/FDist-1} \caption{F distributions under the null hypothesis, for different values of degrees of freedom.}\label{fig:FDist}
 \end{figure}
 
-To create an ANOVA model, we extend the idea of \emph{dummy coding} that you encountered in the last chapter. Remember that for the t-test comparing two means, we created a single dummy variable that took the value of 1 for one of the conditions and zero for the others. Here we extend that idea by creating two dummy variables, one that codes for the Drug 1 condition and the other that codes for the Drug 2 condition. Just as in the t-test, we will have one condition (in this case, placebo) that doesn't have a dummy variable, and thus represents the baseline against which the others are compared; its mean defines the intercept of the model. Let's create the dummy coding for drugs 1 and 2.
-
-Now we can fit a model using the same approach that we used in the previous chapter:
+To create an ANOVA model, we extend the idea of \emph{dummy coding} that you encountered in the last chapter. Remember that for the t-test comparing two means, we created a single dummy variable that took the value of 1 for one of the conditions and zero for the others. Here we extend that idea by creating two dummy variables, one that codes for the Drug 1 condition and the other that codes for the Drug 2 condition. Just as in the t-test, we will have one condition (in this case, placebo) that doesn't have a dummy variable, and thus represents the baseline against which the others are compared; its mean defines the intercept of the model. Using dummy coding for drugs 1 and 2, we can fit a model using the same approach that we used in the previous chapter:
 
 \begin{verbatim}
 ## 
@@ -4705,6 +4727,8 @@ After reading this chapter, you should be able to:
   Describe how the t-test can be used to compare a single mean to a hypothesized value
 \item
   Compare the means for two paired or unpaired groups using a two-sample t-test
+\item
+  Describe how analysis of variance can be used to test differences between more than two means.
 \end{itemize}
 
 \hypertarget{appendix-6}{%

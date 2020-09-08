@@ -459,7 +459,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote>
 <p>“we found that income inequality was the most significant determinant of population-adjusted hate crimes and hate incidents across the United States”.</p>
 </blockquote>
-<p>The data for this analysis are included in the <code>fivethirtyeight</code> R package, which makes it easy for us to access them. The analysis reported in the story focused on the relationship between income inequality (defined by a quantity called the <em>Gini index</em> — see Appendix for more details) and the prevalence of hate crimes in each state.</p>
+<p>The data for this analysis are available as part the <code>fivethirtyeight</code> package for the R statistical software, which makes it easy for us to access them. The analysis reported in the story focused on the relationship between income inequality (defined by a quantity called the <em>Gini index</em> — see Appendix for more details) and the prevalence of hate crimes in each state.</p>
 </div>
 <div id="is-income-inequality-related-to-hate-crimes" class="section level2">
 <h2><span class="header-section-number">13.2</span> Is income inequality related to hate crimes?</h2>
@@ -482,7 +482,7 @@ s^2 = \frac{\sum_{i=1}^n (x_i - \bar{x})^2}{N - 1}
 <p><span class="math display">\[
 covariance = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{N - 1}
 \]</span></p>
-<p>This value will be far from zero when x and y are both highly deviant from the mean; if they are deviant in the same direction then the covariance is positive, whereas if they are deviant in opposite directions the covariance is negative. Let’s look at a toy example first. The data are shown in the table, along with their individual deviations from the mean and their crossproducts.</p>
+<p>This value will be far from zero when individual data points deviate by similar amounts from their respective means; if they are deviant in the same direction then the covariance is positive, whereas if they are deviant in opposite directions the covariance is negative. Let’s look at a toy example first. The data are shown in the table, along with their individual deviations from the mean and their crossproducts.</p>
 <table>
 <caption>
 <span id="tab:unnamed-chunk-91">Table 13.1: </span>Data for toy example of covariance
@@ -598,15 +598,14 @@ crossproduct
 <p><span class="math display">\[
 r = \frac{covariance}{s_xs_y} = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{(N - 1)s_x s_y}
 \]</span>
-In this case, the value is 0.89. We can also compute the correlation value easily using the <code>cor()</code> function in R, rather than computing it by hand.</p>
-<p>The correlation coefficient is useful because it varies between -1 and 1 regardless of the nature of the data - in fact, we already discussed the correlation coefficient earlier in the discussion of effect sizes. As we saw in the previous chapter on effect sizes, a correlation of 1 indicates a perfect linear relationship, a correlation of -1 indicates a perfect negative relationship, and a correlation of zero indicates no linear relationship.</p>
+In this case, the value is 0.89. The correlation coefficient is useful because it varies between -1 and 1 regardless of the nature of the data - in fact, we already discussed the correlation coefficient earlier in our discussion of effect sizes. As we saw in that previous chapter, a correlation of 1 indicates a perfect linear relationship, a correlation of -1 indicates a perfect negative relationship, and a correlation of zero indicates no linear relationship.</p>
 <div id="hypothesis-testing-for-correlations" class="section level3">
 <h3><span class="header-section-number">13.3.1</span> Hypothesis testing for correlations</h3>
-<p>The correlation value of 0.42 seems to indicate a reasonably strong relationship between the hate crimes and income inequality, but we can also imagine that this could occur by chance even if there is no relationship. We can test the null hypothesis that the correlation is zero, using a simple equation that lets us convert a correlation value into a <em>t</em> statistic:</p>
+<p>The correlation value of 0.42 between hate crimes and income inequality seems to indicate a reasonably strong relationship between the two, but we can also imagine that this could occur by chance even if there is no relationship. We can test the null hypothesis that the correlation is zero, using a simple equation that lets us convert a correlation value into a <em>t</em> statistic:</p>
 <p><span class="math display">\[
 \textit{t}_r =  \frac{r\sqrt{N-2}}{\sqrt{1-r^2}}
 \]</span></p>
-<p>Under the null hypothesis <span class="math inline">\(H_0:r=0\)</span>, this statistic is distributed as a t distribution with <span class="math inline">\(N - 2\)</span> degrees of freedom. We can compute this using the <code>cor.test()</code> function in R:</p>
+<p>Under the null hypothesis <span class="math inline">\(H_0:r=0\)</span>, this statistic is distributed as a t distribution with <span class="math inline">\(N - 2\)</span> degrees of freedom. We can compute this using our statistical software:</p>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
@@ -637,8 +636,8 @@ Figure 13.2: Histogram of correlation values under the null hypothesis, obtained
 Figure 13.3: An simulated example of the effects of outliers on correlation. Without the outlier the remainder of the datapoints have a perfect negative correlation, but the single outlier changes the correlation value to highly positive.
 </p>
 </div>
-<p>One way to address outliers is to compute the correlation on the ranks of the data after ordering them, rather than on the data themselves; this is known as the <em>Spearman correlation</em>. Whereas the Pearson correlation for the example in Figure <a href="modeling-continuous-relationships.html#fig:outlierCorr">13.3</a> was 0.83, the Spearman correlation is -0.45, showing that the rank correlation reduces the effect of the outlier.</p>
-<p>We can compute the rank correlation on the hate crime data using the <code>cor.test</code> function:</p>
+<p>One way to address outliers is to compute the correlation on the ranks of the data after ordering them, rather than on the data themselves; this is known as the <em>Spearman correlation</em>. Whereas the Pearson correlation for the example in Figure <a href="modeling-continuous-relationships.html#fig:outlierCorr">13.3</a> was 0.83, the Spearman correlation is -0.45, showing that the rank correlation reduces the effect of the outlier and reflects the negative relationship between the majority of the data points.</p>
+<p>We can compute the rank correlation on the hate crime data as well:</p>
 <pre><code>## 
 ##  Spearman&#39;s rank correlation rho
 ## 
@@ -655,7 +654,7 @@ Figure 13.3: An simulated example of the effects of outliers on correlation. Wit
 <h2><span class="header-section-number">13.4</span> Correlation and causation</h2>
 <p>When we say that one thing <em>causes</em> another, what do we mean? There is a long history in philosophy of discussion about the meaning of causality, but in statistics one way that we commonly think of causation is in terms of experimental control. That is, if we think that factor X causes factor Y, then manipulating the value of X should also change the value of Y.</p>
 <p>In medicine, there is a set of ideas known as <a href="https://en.wikipedia.org/wiki/Koch%27s_postulates"><em>Koch’s postulates</em></a> which have historically been used to determine whether a particular organism causes a disease. The basic idea is that the organism should be present in people with the disease, and not present in those without it – thus, a treatment that eliminates the organism should also eliminate the disease. Further, infecting someone with the organism should cause them to contract the disease. An example of this was seen in the work of Dr. Barry Marshall, who had a hypothesis that stomach ulcers were caused by a bacterium (<em>Helicobacter pylori</em>). To demonstrate this, he infected himself with the bacterium, and soon thereafter developed severe inflammation in his stomach. He then treated himself with an antibiotic, and his stomach soon recovered. He later won the Nobel Prize in Medicine for this work.</p>
-<p>Often we would like to test causal hypotheses but we can’t actually do an experiment, either because it’s impossible (“What is the relationship between human carbon emissions and the earth’s climate?”) or unethical (“What are the effects of severe abuse on child brain development?”). However, we can still collect data that might be relevant to those questions. For example, in the latter example, we can potentially collect data from children who have been abused as well as those who have not, and we can then ask whether their brain development differs.</p>
+<p>Often we would like to test causal hypotheses but we can’t actually do an experiment, either because it’s impossible (“What is the relationship between human carbon emissions and the earth’s climate?”) or unethical (“What are the effects of severe abuse on child brain development?”). However, we can still collect data that might be relevant to those questions. For example, we can potentially collect data from children who have been abused as well as those who have not, and we can then ask whether their brain development differs.</p>
 <p>Let’s say that we did such an analysis, and we found that abused children had poorer brain development than non-abused children. Would this demonstrate that abuse <em>causes</em> poorer brain development? No. Whenever we observe a statistical association between two variables, it is certainly possible that one of those two variables causes the other. However, it is also possible that both of the variables are being influenced by a third variable; in this example, it could be that child abuse is associated with family stress, which could also cause poorer brain development through less intellectual engagement, food stress, or many other possible avenues. The point is that a correlation between two variables generally tells us that something is <em>probably</em> causing somethign else, but it doesn’t tell us what is causing what.</p>
 <div id="causal-graphs" class="section level3">
 <h3><span class="header-section-number">13.4.1</span> Causal graphs</h3>
@@ -684,7 +683,8 @@ Figure 13.5: A graph showing the same causal relationships as above, but now als
 <ul>
 <li>Describe the concept of the correlation coefficient and its interpretation</li>
 <li>Compute the correlation between two continuous variables</li>
-<li>Describe the potential causal influences that can give rise to a correlation.</li>
+<li>Describe the effect of outlier data points and how to address them.</li>
+<li>Describe the potential causal influences that can give rise to an observed correlation.</li>
 </ul>
 </div>
 <div id="suggested-readings-9" class="section level2">

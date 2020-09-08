@@ -452,23 +452,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="comparing-means" class="section level1">
 <h1><span class="header-section-number">Chapter 15</span> Comparing means</h1>
-<p>We have already encountered a number of cases where we wanted to ask questions about the mean of a sample. In this chapter, we will delve deeper into the various ways that we can compare means.</p>
+<p>We have already encountered a number of cases where we wanted to ask questions about the mean of a sample. In this chapter, we will delve deeper into the various ways that we can compare means across groups.</p>
 <div id="single-mean" class="section level2">
 <h2><span class="header-section-number">15.1</span> Testing the value of a single mean</h2>
-<p>The simplest question we might want to ask of a mean is whether it has a specific value. Let’s say that we want to test whether the mean BMI value in adults from the NHANES dataset is above 25, which is the lower cutoff for being overweight according to the US Centers for Disease Control. We take a sample of 200 adults in order to ask this question.</p>
-<p>One simple way to test for this difference is using a test called the <em>sign test</em>, which asks whether the proportion of positive differences between the actual value and the hypothesized value is different than what we would expect by chance. To do this, we take the differences between each data point and the hypothesized mean value and compute their sign. In our sample, we see that 66.0 percent of individuals have a BMI greater than 25. We can then use a binomial test to ask whether this proportion of positive differences is greater than 0.5, using the <code>binom.test()</code> function in R:</p>
+<p>The simplest question we might want to ask of a mean is whether it has a specific value. Let’s say that we want to test whether the mean diastolic blood pressure value in adults from the NHANES dataset is above 80, which is cutoff for hypertension according to the American College of Cardiology. We take a sample of 200 adults in order to ask this question; each adult had their blood pressure measured three times, and we use the average of these for our test.</p>
+<p>One simple way to test for this difference is using a test called the <em>sign test</em>, which asks whether the proportion of positive differences between the actual value and the hypothesized value is different than what we would expect by chance. To do this, we take the differences between each data point and the hypothesized mean value and compute their sign. If the data are normally distributed and the actual mean is equal to the hypothesized mean, then the proportion of values above the hypothesized mean (or below it) should be 0.5, such that the proportion of positive differences should also be 0.5. In our sample, we see that 19.0 percent of individuals have a diastolic blood pressure above 80. We can then use a binomial test to ask whether this proportion of positive differences is greater than 0.5, using the binomial testing function in our statistical software:</p>
 <pre><code>## 
 ##  Exact binomial test
 ## 
 ## data:  npos and nrow(NHANES_sample)
-## number of successes = 132, number of trials = 200, p-value = 4e-06
+## number of successes = 38, number of trials = 200, p-value = 1
 ## alternative hypothesis: true probability of success is greater than 0.5
 ## 95 percent confidence interval:
-##  0.6 1.0
+##  0.15 1.00
 ## sample estimates:
 ## probability of success 
-##                   0.66</code></pre>
-<p>Here we see that the proportion of individuals with positive signs would be <em>very</em> surprising under the null hypothesis of <span class="math inline">\(p=0.5\)</span>.</p>
+##                   0.19</code></pre>
+<p>Here we see that the proportion of individuals with positive signs is not very surprising under the null hypothesis of <span class="math inline">\(p=0.5\)</span>.</p>
 <p>We can also ask this question using Student’s t-test, which you have already encountered earlier in the book. We will refer to the mean as <span class="math inline">\(\bar{X}\)</span> and the hypothesized population mean as <span class="math inline">\(\mu\)</span>. Then, the t test for a single mean is:</p>
 <p><span class="math display">\[
 t = \frac{\bar{X} - \mu}{SEM}
@@ -478,23 +478,35 @@ where SEM (as you may remember from the chapter on sampling) is defined as:</p>
 SEM = \frac{\hat{\sigma}}{\sqrt{n}}
 \]</span></p>
 <p>In essence, the t statistic asks how large the deviation of the sample mean from the hypothesized quantity is with respect to the sampling variability of the mean.</p>
-<p>We can compute this for the NHANES dataset using the <code>t.test()</code> function in R:</p>
+<p>We can compute this for the NHANES dataset using our statistical software:</p>
 <pre><code>## 
 ##  One Sample t-test
 ## 
-## data:  NHANES_adult$BMI
-## t = 38, df = 4785, p-value &lt;2e-16
-## alternative hypothesis: true mean is not equal to 25
+## data:  NHANES_adult$BPDiaAve
+## t = -55, df = 4593, p-value = 1
+## alternative hypothesis: true mean is greater than 80
 ## 95 percent confidence interval:
-##  29 29
+##   69 Inf
 ## sample estimates:
 ## mean of x 
-##        29</code></pre>
-<p>This shows us that the mean BMI in the dataset (28.79) is significantly larger than the cutoff for overweight.</p>
+##        70</code></pre>
+<p>This shows us that the mean diastolic blood pressure in the dataset (69.5) is actually much lower than 80, so our test for whether it is above 80 is very far from significance.</p>
+<p>Remember that a large p-value doesn’t provide us with evidence in favor of the null hypothesis, since we had already assumed that the null hypothesis is true to start with. However, as we discussed in the chapter on Bayesian analysis, we can use the Bayes factor to quantify evidence for or against the null hypothesis:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="kw">ttestBF</span>(NHANES_sample<span class="op">$</span>BPDiaAve, <span class="dt">mu=</span><span class="dv">80</span>, <span class="dt">nullInterval=</span><span class="kw">c</span>(<span class="op">-</span><span class="ot">Inf</span>, <span class="dv">80</span>))</a></code></pre></div>
+<pre><code>## Bayes factor analysis
+## --------------
+## [1] Alt., r=0.707 -Inf&lt;d&lt;80    : 2.7e+16  ±NA%
+## [2] Alt., r=0.707 !(-Inf&lt;d&lt;80) : NaNe-Inf ±NA%
+## 
+## Against denominator:
+##   Null, mu = 80 
+## ---
+## Bayes factor type: BFoneSample, JZS</code></pre>
+<p>The first Bayes factor listed here (<span class="math inline">\(2.73 * 10^{16}\)</span>) denotes the fact that there is exceedingly strong evidence in favor of the null hypothesis over the alternative.</p>
 </div>
 <div id="comparing-two-means" class="section level2">
 <h2><span class="header-section-number">15.2</span> Comparing two means</h2>
-<p>A more common question that often arises in statistics is whether there is a difference between the means of two different groups. Let’s say that we would like to know whether regular marijuana smokers watch more television. We can ask this question using the NHANES dataset; let’s take a sample of 200 individuals from the dataset and test whether the number of hours of television watching per day is related to regular marijuana use. The left panel of Figure <a href="comparing-means.html#fig:PotTVViolin">15.1</a> shows these data using a violin plot.</p>
+<p>A more common question that often arises in statistics is whether there is a difference between the means of two different groups. Let’s say that we would like to know whether regular marijuana smokers watch more television, which we can also ask using the NHANES dataset. We take a sample of 200 individuals from the dataset and test whether the number of hours of television watching per day is related to regular marijuana use. The left panel of Figure <a href="comparing-means.html#fig:PotTVViolin">15.1</a> shows these data using a violin plot.</p>
 <div class="figure"><span id="fig:PotTVViolin"></span>
 <img src="StatsThinking21_files/figure-html/PotTVViolin-1.png" alt="Left: Violin plot showing distributions of TV watching separated by regular marijuana use. Right: Violin plots showing data for each group, with a dotted line connecting the predicted values for each group, computed on the basis of the results of the linear model.. " width="768" height="50%" />
 <p class="caption">
@@ -505,18 +517,18 @@ Figure 15.1: Left: Violin plot showing distributions of TV watching separated by
 <p><span class="math display">\[
 t = \frac{\bar{X_1} - \bar{X_2}}{\sqrt{\frac{S_1^2}{n_1} + \frac{S_2^2}{n_2}}}
 \]</span></p>
-<p>where <span class="math inline">\(\bar{X}_1\)</span> and <span class="math inline">\(\bar{X}_2\)</span> are the means of the two groups, <span class="math inline">\(S^2_1\)</span> and <span class="math inline">\(S^2_2\)</span> are the variances for each of the groups, and <span class="math inline">\(n_1\)</span> and <span class="math inline">\(n_2\)</span> are the sizes of the two groups. Under the null hypothesis of no difference between means, this statistic is distributed according to a t distribution with n-2 degrees of freedom (since we have computed two parameter estimates, namely the means of the two groups). We can compute the t-test in R using the <code>t.test()</code> function. In this case, we started with the specific hypothesis that smoking marijuana is associated with greater TV watching, so we will use a one-tailed test. Since the t.test function orders the conditions alphabetically, the “No” group comes first, and thus we need to test the alternative hypothesis of whether the first group is less than the second (“Yes”) group; for this reason, we specify ‘less’ as our alternative.</p>
+<p>where <span class="math inline">\(\bar{X}_1\)</span> and <span class="math inline">\(\bar{X}_2\)</span> are the means of the two groups, <span class="math inline">\(S^2_1\)</span> and <span class="math inline">\(S^2_2\)</span> are the variances for each of the groups, and <span class="math inline">\(n_1\)</span> and <span class="math inline">\(n_2\)</span> are the sizes of the two groups. Under the null hypothesis of no difference between means, this statistic is distributed according to a t distribution with N - 2 degrees of freedom (since we have computed two parameter estimates, namely the means of the two groups). In this case, we started with the specific hypothesis that smoking marijuana is associated with greater TV watching, so we will use a one-tailed test. Here are the results from our statistical software:</p>
 <pre><code>## 
 ##  Two Sample t-test
 ## 
 ## data:  TVHrsNum by RegularMarij
-## t = -3, df = 198, p-value = 0.004
+## t = -3, df = 198, p-value = 4e-04
 ## alternative hypothesis: true difference in means is less than 0
 ## 95 percent confidence interval:
-##   -Inf -0.25
+##  -Inf -0.4
 ## sample estimates:
 ##  mean in group No mean in group Yes 
-##               2.1               2.8</code></pre>
+##               2.0               2.8</code></pre>
 <p>In this case we see that there is a statistically significant difference between groups, in the expected direction - regular pot smokers watch more TV.</p>
 </div>
 <div id="ttest-linear-model" class="section level2">
@@ -525,60 +537,61 @@ t = \frac{\bar{X_1} - \bar{X_2}}{\sqrt{\frac{S_1^2}{n_1} + \frac{S_2^2}{n_2}}}
 <p><span class="math display">\[
 \hat{TV} = \hat{\beta_1}*Marijuana + \hat{\beta_0}
 \]</span>
-However, smoking is a binary variable, so we treat it as a <em>dummy variable</em> like we discussed in the previous chapter, setting it to a value of 1 for smokers and zero for nonsmokers. In that case, <span class="math inline">\(\hat{\beta_1}\)</span> is simply the difference in means between the two groups, and <span class="math inline">\(\hat{\beta_0}\)</span> is the mean for the group that was coded as zero. We can fit this model using the <code>lm()</code> function, and see that it gives the same t statistic as the t-test above:</p>
+Since smoking is a binary variable, we treat it as a <em>dummy variable</em> like we discussed in the previous chapter, setting it to a value of 1 for smokers and zero for nonsmokers. In that case, <span class="math inline">\(\hat{\beta_1}\)</span> is simply the difference in means between the two groups, and <span class="math inline">\(\hat{\beta_0}\)</span> is the mean for the group that was coded as zero. We can fit this model using the general linear model function in our statistical software, and see that it gives the same t statistic as the t-test above, except that it’s negative in this case because of the way that our software arranges the groups:</p>
 <pre><code>## 
 ## Call:
 ## lm(formula = TVHrsNum ~ RegularMarij, data = NHANES_sample)
 ## 
 ## Residuals:
-##    Min     1Q Median     3Q    Max 
-## -2.293 -1.133 -0.133  0.867  2.867 
+##     Min      1Q  Median      3Q     Max 
+## -2.2843 -1.0067 -0.0067  0.9933  2.9933 
 ## 
 ## Coefficients:
 ##                 Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)        2.133      0.119   17.87   &lt;2e-16 ***
-## RegularMarijYes    0.660      0.249    2.65   0.0086 ** 
+## (Intercept)        2.007      0.116   17.27  &lt; 2e-16 ***
+## RegularMarijYes    0.778      0.230    3.38  0.00087 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 1.5 on 198 degrees of freedom
-## Multiple R-squared:  0.0343, Adjusted R-squared:  0.0295 
-## F-statistic: 7.04 on 1 and 198 DF,  p-value: 0.00861</code></pre>
-<p>We can also view the linear model results graphically (see the right panel of Figure <a href="comparing-means.html#fig:PotTVViolin">15.1</a>). In this case, the predicted value for nonsmokers is <span class="math inline">\(\hat{\beta_0}\)</span> (2.13) and the predicted value for smokers is <span class="math inline">\(\hat{\beta_0} +\hat{\beta_1}\)</span> (2.79).</p>
+## Residual standard error: 1.4 on 198 degrees of freedom
+## Multiple R-squared:  0.0546, Adjusted R-squared:  0.0498 
+## F-statistic: 11.4 on 1 and 198 DF,  p-value: 0.000872</code></pre>
+<p>We can also view the linear model results graphically (see the right panel of Figure <a href="comparing-means.html#fig:PotTVViolin">15.1</a>). In this case, the predicted value for nonsmokers is <span class="math inline">\(\hat{\beta_0}\)</span> (2.0) and the predicted value for smokers is <span class="math inline">\(\hat{\beta_0} +\hat{\beta_1}\)</span> (2.8).</p>
 <p>To compute the standard errors for this analysis, we can use exactly the same equations that we used for linear regression – since this really is just another example of linear regression. In fact, if you compare the p-value from the t-test above with the p-value in the linear regression analysis for the marijuana use variable, you will see that the one from the linear regression analysis is exactly twice the one from the t-test, because the linear regression analysis is performing a two-tailed test.</p>
 <div id="effect-sizes-for-comparing-two-means" class="section level3">
 <h3><span class="header-section-number">15.3.1</span> Effect sizes for comparing two means</h3>
-<p>The most commonly used effect size for a comparison between two means is Cohen’s d, which (as you may remember from Chapter <a href="ci-effect-size-power.html#ci-effect-size-power">10</a>) is an expression of the effect in terms of standard error units. For the t-test estimated using the general linear model outlined above (i.e. with a single dummy-coded variable), this is expressed as:</p>
+<p>The most commonly used effect size for a comparison between two means is Cohen’s d, which (as you may remember from Chapter <a href="ci-effect-size-power.html#ci-effect-size-power">10</a>) is an expression of the effect size in terms of standard deviation units. For the t-test estimated using the general linear model outlined above (i.e. with a single dummy-coded variable), this is expressed as:</p>
 <p><span class="math display">\[
-d = \frac{\hat{beta_1}}{SE_{residual}}
+d = \frac{\hat{beta_1}}{\sigma_{residual}}
 \]</span>
-We can obtain these values from the analysis output above, giving us a d = 0.45, which we would generally interpret as a medium sized effect.</p>
-<p>We can also compute <span class="math inline">\(R^2\)</span> for this analysis, which tells us how much variance in TV watching is accounted for. This value (which is reported in the summary of the lm() analysis) is 0.03, which tells us that while the effect may be statistically significant, it accounts for relatively little of the variance in TV watching.</p>
+We can obtain these values from the analysis output above, giving us a d = 0.55, which we would generally interpret as a medium sized effect.</p>
+<p>We can also compute <span class="math inline">\(R^2\)</span> for this analysis, which tells us how much variance in TV watching is accounted for. This value (which is reported at the bottom of the summary of the linear model analysis above) is 0.05, which tells us that while the effect may be statistically significant, it accounts for relatively little of the variance in TV watching.</p>
 </div>
 </div>
 <div id="bayes-factor-for-mean-differences" class="section level2">
 <h2><span class="header-section-number">15.4</span> Bayes factor for mean differences</h2>
-<p>As we discussed in the chapter on Bayesian analysis, Bayes factors provide a way to better quantify evidence in favor or against the null hypothesis of no difference. In this case, we want to specifically test against the null hypothesis that the difference is greater than zero - because the difference is computed by the function between the first group (‘No’) and the second group (‘Yes’). Thus, we specify a “null interval” going from zero to infinity, which means that the alternative is less than zero.</p>
+<p>As we discussed in the chapter on Bayesian analysis, Bayes factors provide a way to better quantify evidence in favor of or against the null hypothesis of no difference. We can perform that analysis on the same data:</p>
 <pre><code>## Bayes factor analysis
 ## --------------
-## [1] Alt., r=0.707 0&lt;d&lt;Inf    : 0.051 ±0%
-## [2] Alt., r=0.707 !(0&lt;d&lt;Inf) : 8.7   ±0%
+## [1] Alt., r=0.707 0&lt;d&lt;Inf    : 0.041 ±0.03%
+## [2] Alt., r=0.707 !(0&lt;d&lt;Inf) : 61    ±0%
 ## 
 ## Against denominator:
 ##   Null, mu1-mu2 = 0 
 ## ---
 ## Bayes factor type: BFindepSample, JZS</code></pre>
-<p>This shows us that the evidence against the null hypothesis is moderately strong.</p>
+<p>Because of the way that the data are organized, the second line shows us the relevant Bayes factor for this analysis, which is 61.4. This shows us that the evidence against the null hypothesis is quite strong.</p>
 </div>
 <div id="paired-ttests" class="section level2">
 <h2><span class="header-section-number">15.5</span> Comparing paired observations</h2>
+<p>In experimental research, we often use <em>within-subjects</em> designs, in which we compare the same person on multiple measurements. The measurements that come from this kind of design are often referred to as <em>repeated measures</em>. For example, in the NHANES dataset blood pressure was measured three times. Let’s say that we are interested in testing whether there is a difference in mean systolic blood pressure between the first and second measurement across individuals in our sample (Figure <a href="comparing-means.html#fig:BPfig">15.2</a>).</p>
 <div class="figure"><span id="fig:BPfig"></span>
 <img src="StatsThinking21_files/figure-html/BPfig-1.png" alt="Left: Violin plot of systolic blood pressure on first and second recording, from NHANES. Right: Same violin plot with lines connecting the two data points for each individual." width="768" height="50%" />
 <p class="caption">
 Figure 15.2: Left: Violin plot of systolic blood pressure on first and second recording, from NHANES. Right: Same violin plot with lines connecting the two data points for each individual.
 </p>
 </div>
-<p>In experimental research, we often use <em>within-subjects</em> designs, in which we compare the same person on multiple measurements. The measurement that come from this kind of design are often referred to as <em>repeated measures</em>. For example, in the NHANES dataset blood pressure was measured three times. Let’s say that we are interested in testing whether there is a difference in mean blood pressure between the first and second measurement (Figure <a href="comparing-means.html#fig:BPfig">15.2</a>). We see that there does not seem to be much of a difference in mean blood pressure between time points (about one point). First let’s test for a difference using an independent samples t-test, which ignores the fact that pairs of data points come from the the same individuals.</p>
+<p>We see that there does not seem to be much of a difference in mean blood pressure (about one point) between the first and second measurement. First let’s test for a difference using an independent samples t-test, which ignores the fact that pairs of data points come from the the same individuals.</p>
 <pre><code>## 
 ##  Two Sample t-test
 ## 
@@ -616,7 +629,7 @@ Figure 15.3: Histogram of difference scores between first and second BP measurem
 </div>
 <div id="paired-t-test" class="section level3">
 <h3><span class="header-section-number">15.5.2</span> Paired t-test</h3>
-<p>A more common strategy is to use a <em>paired t-test</em>, which is equivalent to a one-sample t-test for whether the mean difference between the measurements is zero. We can compute this using the <code>t.test()</code> function in R and setting <code>paired=TRUE</code>.</p>
+<p>A more common strategy is to use a <em>paired t-test</em>, which is equivalent to a one-sample t-test for whether the mean difference between the measurements within each person is zero. We can compute this using our statistical software, telling it that the data points are paired:</p>
 <pre><code>## 
 ##  Paired t-test
 ## 
@@ -637,7 +650,7 @@ Figure 15.3: Histogram of difference scores between first and second BP measurem
 ##   Null, mu = 0 
 ## ---
 ## Bayes factor type: BFoneSample, JZS</code></pre>
-<p>This shows us that although the effect was significant in a paired t-test, it actually provides very little evidence in favor of the alternative hypothesis.</p>
+<p>The observed Bayes factor of 2.97 tells us that although the effect was significant in the paired t-test, it actually provides very weak evidence in favor of the alternative hypothesis.</p>
 <p>The paired t-test can also be defined in terms of a linear model; see the Appendix for more details on this.</p>
 </div>
 </div>
@@ -652,7 +665,7 @@ Figure 15.4: Box plots showing blood pressure for three different groups in our 
 </div>
 <div id="ANOVA" class="section level3">
 <h3><span class="header-section-number">15.6.1</span> Analysis of variance</h3>
-<p>We would first like to test the null hypothesis that the means of all of the groups are equal – that is, neither of the treatments had any effect. We can do this using a method called <em>analysis of variance</em> (ANOVA). This is one of the most commonly used methods in psychological statistics, and we will only scratch the surface here. The basic idea behind ANOVA is one that we already discussed in the chapter on the general linear model, and in fact ANOVA is just a name for a specific implementation of such a model.</p>
+<p>We would first like to test the null hypothesis that the means of all of the groups are equal – that is, neither of the treatments had any effect compared to placebo. We can do this using a method called <em>analysis of variance</em> (ANOVA). This is one of the most commonly used methods in psychological statistics, and we will only scratch the surface here. The basic idea behind ANOVA is one that we already discussed in the chapter on the general linear model, and in fact ANOVA is just a name for a specific version of such a model.</p>
 <p>Remember from the last chapter that we can partition the total variance in the data (<span class="math inline">\(SS_{total}\)</span>) into the variance that is explained by the model (<span class="math inline">\(SS_{model}\)</span>) and the variance that is not (<span class="math inline">\(SS_{error}\)</span>). We can then compute a <em>mean square</em> for each of these by dividing them by their degrees of freedom; for the error this is <span class="math inline">\(N - p\)</span> (where <span class="math inline">\(p\)</span> is the number of means that we have computed), and for the model this is <span class="math inline">\(p - 1\)</span>:</p>
 <p><span class="math display">\[
 MS_{model} =\frac{SS_{model}}{df_{model}}= \frac{SS_{model}}{p-1}
@@ -660,15 +673,14 @@ MS_{model} =\frac{SS_{model}}{df_{model}}= \frac{SS_{model}}{p-1}
 <p><span class="math display">\[
 MS_{error} = \frac{SS_{error}}{df_{error}} = \frac{SS_{error}}{N - p}
 \]</span></p>
-<p>With ANOVA, we want to test whether the variance accounted for by the model is greater than what we would expect by chance, under the null hypothesis of no differences between means. Whereas for the t distribution the expected value is zero under the null hypothesis, that’s not the case here, since sums of squares are always positive numbers. Fortunately, there is another standard distribution that describes how ratios of sums of squares are distributed under the null hypothesis: The <em>F</em> distribution (see figure <a href="comparing-means.html#fig:FDist">15.5</a>). This distribution has two degrees of freedom, which correspond to the degrees of freedom for the numerator (which in this case is the model), and the denominator (which in this case is the error).</p>
+<p>With ANOVA, we want to test whether the variance accounted for by the model is greater than what we would expect by chance, under the null hypothesis of no differences between means. Whereas for the t distribution the expected value is zero under the null hypothesis, that’s not the case here, since sums of squares are always positive numbers. Fortunately, there is another theoretical distribution that describes how ratios of sums of squares are distributed under the null hypothesis: The <em>F</em> distribution (see figure <a href="comparing-means.html#fig:FDist">15.5</a>). This distribution has two degrees of freedom, which correspond to the degrees of freedom for the numerator (which in this case is the model), and the denominator (which in this case is the error).</p>
 <div class="figure"><span id="fig:FDist"></span>
 <img src="StatsThinking21_files/figure-html/FDist-1.png" alt="F distributions under the null hypothesis, for different values of degrees of freedom." width="384" height="50%" />
 <p class="caption">
 Figure 15.5: F distributions under the null hypothesis, for different values of degrees of freedom.
 </p>
 </div>
-<p>To create an ANOVA model, we extend the idea of <em>dummy coding</em> that you encountered in the last chapter. Remember that for the t-test comparing two means, we created a single dummy variable that took the value of 1 for one of the conditions and zero for the others. Here we extend that idea by creating two dummy variables, one that codes for the Drug 1 condition and the other that codes for the Drug 2 condition. Just as in the t-test, we will have one condition (in this case, placebo) that doesn’t have a dummy variable, and thus represents the baseline against which the others are compared; its mean defines the intercept of the model. Let’s create the dummy coding for drugs 1 and 2.</p>
-<p>Now we can fit a model using the same approach that we used in the previous chapter:</p>
+<p>To create an ANOVA model, we extend the idea of <em>dummy coding</em> that you encountered in the last chapter. Remember that for the t-test comparing two means, we created a single dummy variable that took the value of 1 for one of the conditions and zero for the others. Here we extend that idea by creating two dummy variables, one that codes for the Drug 1 condition and the other that codes for the Drug 2 condition. Just as in the t-test, we will have one condition (in this case, placebo) that doesn’t have a dummy variable, and thus represents the baseline against which the others are compared; its mean defines the intercept of the model. Using dummy coding for drugs 1 and 2, we can fit a model using the same approach that we used in the previous chapter:</p>
 <pre><code>## 
 ## Call:
 ## lm(formula = sysBP ~ d1 + d2, data = df)
@@ -699,6 +711,7 @@ Figure 15.5: F distributions under the null hypothesis, for different values of 
 <li>Describe the rationale behind the sign test</li>
 <li>Describe how the t-test can be used to compare a single mean to a hypothesized value</li>
 <li>Compare the means for two paired or unpaired groups using a two-sample t-test</li>
+<li>Describe how analysis of variance can be used to test differences between more than two means.</li>
 </ul>
 </div>
 <div id="appendix-6" class="section level2">
@@ -706,11 +719,11 @@ Figure 15.5: F distributions under the null hypothesis, for different values of 
 <div id="the-paired-t-test-as-a-linear-model" class="section level3">
 <h3><span class="header-section-number">15.8.1</span> The paired t-test as a linear model</h3>
 <p>We can also define the paired t-test in terms of a general linear model. To do this, we include all of the measurements for each subject as data points (within a tidy data frame). We then include in the model a variable that codes for the identity of each individual (in this case, the ID variable that contains a subject ID for each person). This is known as a <em>mixed model</em>, since it includes effects of independent variables as well as effects of individuals. The standard model fitting procedure <code>lm()</code> can’t do this, but we can do it using the <code>lmer()</code> function from a popular R package called <em>lme4</em>, which is specialized for estimating mixed models. The <code>(1|ID)</code> in the formula tells <code>lmer()</code> to estimate a separate intercept (which is what the <code>1</code> refers to) for each value of the <code>ID</code> variable (i.e. for each individual in the dataset), and then estimate a common slope relating timepoint to BP.</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1"><span class="co"># compute mixed model for paired test</span></a>
-<a class="sourceLine" id="cb40-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb40-3" data-line-number="3">lmrResult &lt;-<span class="st"> </span><span class="kw">lmer</span>(BPsys <span class="op">~</span><span class="st"> </span>timepoint <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">|</span><span class="st"> </span>ID), </a>
-<a class="sourceLine" id="cb40-4" data-line-number="4">                  <span class="dt">data =</span> NHANES_sample_tidy)</a>
-<a class="sourceLine" id="cb40-5" data-line-number="5"><span class="kw">summary</span>(lmrResult)</a></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1"><span class="co"># compute mixed model for paired test</span></a>
+<a class="sourceLine" id="cb42-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb42-3" data-line-number="3">lmrResult &lt;-<span class="st"> </span><span class="kw">lmer</span>(BPsys <span class="op">~</span><span class="st"> </span>timepoint <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">|</span><span class="st"> </span>ID), </a>
+<a class="sourceLine" id="cb42-4" data-line-number="4">                  <span class="dt">data =</span> NHANES_sample_tidy)</a>
+<a class="sourceLine" id="cb42-5" data-line-number="5"><span class="kw">summary</span>(lmrResult)</a></code></pre></div>
 <pre><code>## Linear mixed model fit by REML. t-tests use Satterthwaite&#39;s method [
 ## lmerModLmerTest]
 ## Formula: BPsys ~ timepoint + (1 | ID)
