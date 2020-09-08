@@ -411,6 +411,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="16.1.7" data-path="practical-example.html"><a href="practical-example.html#test-hypothesis-and-quantify-effect-size"><i class="fa fa-check"></i><b>16.1.7</b> 7. Test hypothesis and quantify effect size</a></li>
 <li class="chapter" data-level="16.1.8" data-path="practical-example.html"><a href="practical-example.html#what-about-possible-confounds"><i class="fa fa-check"></i><b>16.1.8</b> What about possible confounds?</a></li>
 </ul></li>
+<li class="chapter" data-level="16.2" data-path="practical-example.html"><a href="practical-example.html#getting-help"><i class="fa fa-check"></i><b>16.2</b> Getting help</a></li>
 </ul></li>
 <li class="chapter" data-level="17" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html"><i class="fa fa-check"></i><b>17</b> Doing reproducible research</a><ul>
 <li class="chapter" data-level="17.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#how-we-think-science-should-work"><i class="fa fa-check"></i><b>17.1</b> How we think science should work</a></li>
@@ -452,7 +453,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="practical-example" class="section level1">
 <h1><span class="header-section-number">Chapter 16</span> Practical statistical modeling</h1>
-<p>In this chapter we will bring together everything that we have learned to apply our knowledge to a practical example.</p>
+<p>In this chapter we will bring together everything that we have learned, by applying our knowledge to a practical example. In 2007, Christopher Gardner and colleagues from Stanford published a study in the <em>Journal of the American Medical Association</em> titled “Comparison of the Atkins, Zone, Ornish, and LEARN Diets for Change in Weight and Related Risk Factors Among Overweight Premenopausal Women – The A TO Z Weight Loss Study: A Randomized Trial” <span class="citation">(Gardner et al. <a href="#ref-gard:kiaz:alha:2007">2007</a>)</span>. We will use this study to show how one would go about analyzing an experimental dataset from start to finish.</p>
 <div id="the-process-of-statistical-modeling" class="section level2">
 <h2><span class="header-section-number">16.1</span> The process of statistical modeling</h2>
 <p>There is a set of steps that we generally go through when we want to use our statistical model to test a scientific hypothesis:</p>
@@ -465,8 +466,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Criticize the model to make sure it fits properly</li>
 <li>Test hypothesis and quantify effect size</li>
 </ol>
-<p>Let’s look at a real example. In 2007, Christopher Gardner and colleagues from Stanford published a study in the <em>Journal of the American Medical Association</em> titled “Comparison of the Atkins, Zone, Ornish, and LEARN Diets for Change in Weight and Related Risk Factors Among Overweight Premenopausal Women
-The A TO Z Weight Loss Study: A Randomized Trial” <span class="citation">(Gardner et al. <a href="#ref-gard:kiaz:alha:2007">2007</a>)</span>.</p>
 <div id="specify-your-question-of-interest" class="section level3">
 <h3><span class="header-section-number">16.1.1</span> 1: Specify your question of interest</h3>
 <p>According to the authors, the goal of their study was:</p>
@@ -476,19 +475,17 @@ The A TO Z Weight Loss Study: A Randomized Trial” <span class="citation">(Gard
 </div>
 <div id="identify-or-collect-the-appropriate-data" class="section level3">
 <h3><span class="header-section-number">16.1.2</span> 2: Identify or collect the appropriate data</h3>
-<p>To answer their question, the investigators randomly assigned each of 311 overweight/obese women to one of four different diets (Atkins, Zone, Ornish, or LEARN), and measured their weight and other measures of health over time.</p>
-<p>The authors recorded a large number of variables, but for the main question of interest let’s focus on a single variable: Body Mass Index (BMI). Further, since our goal is to measure lasting changes in BMI, we will only look at the measurement taken at 12 months after onset of the diet.</p>
+<p>To answer their question, the investigators randomly assigned each of 311 overweight/obese women to one of four different diets (Atkins, Zone, Ornish, or LEARN), and measured their weight along with many other measures of health over time. The authors recorded a large number of variables, but for the main question of interest let’s focus on a single variable: Body Mass Index (BMI). Further, since our goal is to measure lasting changes in BMI, we will only look at the measurement taken at 12 months after onset of the diet.</p>
 </div>
 <div id="prepare-the-data-for-analysis" class="section level3">
 <h3><span class="header-section-number">16.1.3</span> 3: Prepare the data for analysis</h3>
 <div class="figure"><span id="fig:AtoZBMIChangeDensity"></span>
-<img src="StatsThinking21_files/figure-html/AtoZBMIChangeDensity-1.png" alt="Violin plots for each condition, with the 50th percentile (i.e the median) shown as a black line for each group." width="50%" />
+<img src="StatsThinking21_files/figure-html/AtoZBMIChangeDensity-1.png" alt="Box plots for each condition, with the 50th percentile (i.e the median) shown as a black line for each group." width="50%" />
 <p class="caption">
-Figure 16.1: Violin plots for each condition, with the 50th percentile (i.e the median) shown as a black line for each group.
+Figure 16.1: Box plots for each condition, with the 50th percentile (i.e the median) shown as a black line for each group.
 </p>
 </div>
-<p>The actual data from the A to Z study are not publicly available, so we will use the summary data reported in their paper to generate some synthetic data that roughly match the data obtained in their study. Once we have the data, we can visualize them to make sure that there are no outliers. Violin plots are useful to see the shape of the distributions, as shown in Figure <a href="practical-example.html#fig:AtoZBMIChangeDensity">16.1</a>. Those data look fairly reasonable - in particular, there don’t seem to be any serious outliers. However, we can see that the distributions seem to differ a bit in their variance, with Atkins and Ornish showing greater variability than the others.</p>
-<p>This means that any analyses that assume the variances are equal across groups might be inappropriate. Fortunately, the ANOVA model that we plan to use is fairly robust to this.</p>
+<p>The actual data from the A to Z study are not publicly available, so we will use the summary data reported in their paper to generate some synthetic data that roughly match the data obtained in their study, with the same means and standard deviations for each group. Once we have the data, we can visualize them to make sure that there are no outliers. Box plots are useful to see the shape of the distributions, as shown in Figure <a href="practical-example.html#fig:AtoZBMIChangeDensity">16.1</a>. Those data look fairly reasonable - there are a couple of outliers within individual groups (denoted by the dots outside of the box plots), but they don’t seem to be extreme with regard to the other groups. We can also see that the distributions seem to differ a bit in their variance, with Atkins showing somewhat greater variability than the others. This means that any analyses that assume the variances are equal across groups might be inappropriate. Fortunately, the ANOVA model that we plan to use is fairly robust to this.</p>
 </div>
 <div id="determine-the-appropriate-model" class="section level3">
 <h3><span class="header-section-number">16.1.4</span> 4. Determine the appropriate model</h3>
@@ -496,7 +493,7 @@ Figure 16.1: Violin plots for each condition, with the 50th percentile (i.e the 
 <ul>
 <li>What kind of dependent variable?
 <ul>
-<li>BMI : continuous, roughly normally distributed</li>
+<li>BMI: continuous, roughly normally distributed</li>
 </ul></li>
 <li>What are we comparing?
 <ul>
@@ -505,13 +502,22 @@ Figure 16.1: Violin plots for each condition, with the 50th percentile (i.e the 
 </ul></li>
 <li>Are observations independent?
 <ul>
-<li>Random assignment and use of difference scores should ensure that the assumption of independence is appropriate</li>
+<li>Random assignment should ensure that the assumption of independence is appropriate</li>
+<li>The use of difference scores (in this case the difference between starting weight and weight after 12 months) is somewhat controversial, especially when the starting points differ between the groups. In this case the starting weights are very similar between the groups, so we will use the difference scores, but in general one would want to consult a statistician before applying such a model to real data.</li>
 </ul></li>
 </ul>
 </div>
 <div id="fit-the-model-to-the-data" class="section level3">
 <h3><span class="header-section-number">16.1.5</span> 5. Fit the model to the data</h3>
-<p>Let’s run an ANOVA on BMI change to compare it across the four diets. It turns out that we don’t actually need to generate the dummy-coded variables ourselves; if we pass <code>lm()</code> a categorical variable, it will automatically generate them for us.</p>
+<p>Let’s run an ANOVA on BMI change to compare it across the four diets. Most statistical software will automatically convert a nominal variable into a set of dummy variables. A common way of specifying a statistical model is using <em>formula notation</em>, in which the model is specified using a formula of the form:</p>
+<p><span class="math display">\[ 
+\text{dependent variable} \sim \text{independent variables}
+\]</span></p>
+<p>In this case, we want to look at the change in BMI (which is stored in a variable called <em>BMIChange12Months</em>) as a function of diet (which is stored in a variable called *diet), so we use the formula:</p>
+<p><span class="math display">\[
+BMIChange12Months \sim diet
+\]</span></p>
+<p>Most statistical software (including R) will automatically create a set of dummy variables when the model includes a nominal variable (such as the <em>diet</em> variable, which contains the name of the diet that each person received). Here are the results from this model fitted to our data:</p>
 <pre><code>## 
 ## Call:
 ## lm(formula = BMIChange12Months ~ diet, data = dietDf)
@@ -532,19 +538,19 @@ Figure 16.1: Violin plots for each condition, with the 50th percentile (i.e the 
 ## Residual standard error: 2.2 on 307 degrees of freedom
 ## Multiple R-squared:  0.0338, Adjusted R-squared:  0.0243 
 ## F-statistic: 3.58 on 3 and 307 DF,  p-value: 0.0143</code></pre>
-<p>Note that lm automatically generated dummy variables that correspond to three of the four diets, leaving the Atkins diet without a dummy variable. This means that the intercept models the Atkins diet, and the other three variables model the difference between each of those diets and the Atkins diet. By default, <code>lm()</code> treats the first value (in alphabetical order) as the baseline.</p>
+<p>Note that the software automatically generated dummy variables that correspond to three of the four diets, leaving the Atkins diet without a dummy variable. This means that the intercept models the Atkins diet, and the other three variables model the difference between each of those diets and the Atkins diet. Atkins was chosen as the unmodeled baseline variable simply because it is first in alphabetical order.</p>
 </div>
 <div id="criticize-the-model-to-make-sure-it-fits-properly" class="section level3">
 <h3><span class="header-section-number">16.1.6</span> 6. Criticize the model to make sure it fits properly</h3>
-<p><img src="StatsThinking21_files/figure-html/diagnosticsPlot-1.png" width="768" /></p>
-<p>The first thing we want to do is to critique the model to make sure that it is appropriate. One thing we can do is to look at the residuals from the model. In the left panel of Figure <a href="#fig:diagnosticsPlot"><strong>??</strong></a>, we plot the residuals for each individual grouped by diet, which are positioned by the mean for each diet.
-There are no obvious differences in the residuals across conditions, although there are a couple of datapoints (#34 and #304) that seem to be slight outliers.</p>
-<p>Another important assumption of the statistical tests that we apply to linear models is that the residuals from the model are normally distributed. The right panel of Figure <a href="#fig:diagnosticsPlot"><strong>??</strong></a> shows a Q-Q (quantile-quantile) plot, which plots the residuals against their expected values based on their quantiles in the normal distribution. If the residuals are normally distributed then the data points should fall along the dashed line — in this case it looks pretty good, except for those two outliers that are once again apparent here.</p>
+<p>The first thing we want to do is to critique the model to make sure that it is appropriate. One thing we can do is to look at the residuals from the model. In Figure <a href="#fig:residualPlot"><strong>??</strong></a>, we plot the residuals for each individual grouped by diet. There are no obvious differences in the distributions of residuals across conditions, we can go ahead with the analysis.</p>
+<p><img src="StatsThinking21_files/figure-html/residualPlot-1.png" width="384" /></p>
+<p>Another important assumption of the statistical tests that we apply to linear models is that the residuals from the model are normally distributed. The right panel of Figure <a href="#fig:diagnosticsPlot"><strong>??</strong></a> shows a Q-Q (quantile-quantile) plot, which plots the residuals against their expected values based on their quantiles in the normal distribution. If the residuals are normally distributed then the data points should fall along the dashed line — in this case it looks pretty good, except for a couple of outliers that are apparent here. Because this model is also relatively robust to violations of normality, and these are fairly small, we will go ahead and use the results.</p>
+<p><img src="StatsThinking21_files/figure-html/diagnosticQQPlot-1.png" width="384" /></p>
 </div>
 <div id="test-hypothesis-and-quantify-effect-size" class="section level3">
 <h3><span class="header-section-number">16.1.7</span> 7. Test hypothesis and quantify effect size</h3>
 <p>First let’s look back at the summary of results from the ANOVA, shown in Step 5 above. The significant F test shows us that there is a significant difference between diets, but we should also note that the model doesn’t actually account for much variance in the data; the R-squared value is only 0.03, showing that the model is only accounting for a few percent of the variance in weight loss. Thus, we would not want to overinterpret this result.</p>
-<p>The significant result also doesn’t tell us which diets differ from which others. We can find out more by comparing means across conditions using the <code>emmeans()</code> (“estimated marginal means”) function:</p>
+<p>The significant result in the omnibus F test also doesn’t tell us which diets differ from which others. We can find out more by comparing means across conditions. Because we are doing several comparisons, we need to correct for those comparisons, which is accomplished using a procedure known as the Tukey method, which is implemented by our statistical software:</p>
 <pre><code>##  diet   emmean    SE  df lower.CL upper.CL .group
 ##  Atkins  -1.62 0.251 307    -2.11    -1.13  a    
 ##  LEARN   -0.85 0.247 307    -1.34    -0.36  ab   
@@ -557,13 +563,13 @@ There are no obvious differences in the residuals across conditions, although th
 <p>The letters in the rightmost column show us which of the groups differ from one another, using a method that adjusts for the number of comparisons being performed. This shows that Atkins and LEARN diets don’t differ from one another (since they share the letter a), and the LEARN, Ornish, and Zone diets don’t differ from one another (since they share the letter b), but the Atkins diet differs from the Ornish and Zone diets (since they share no letters).</p>
 <div id="bayes-factor-1" class="section level4">
 <h4><span class="header-section-number">16.1.7.1</span> Bayes factor</h4>
-<p>Let’s say that we want to have a better way to describe the amount of evidence provided by the data. One way we can do this is to compute a Bayes factor, which we can do by fitting the full model (including diet) and the reduced model (without diet) and then comparing their fit. For the reduced model, we just include a 1, which tells the fitting program to only fit an intercept. Note that this will take a few minutes to run.</p>
+<p>Let’s say that we want to have a better way to describe the amount of evidence provided by the data. One way we can do this is to compute a Bayes factor, which we can do by fitting the full model (including diet) and the reduced model (without diet) and then comparing their fit. For the reduced model, we only include an intercept. Note that Bayesian analysis can take substantially more time to run, since it requires the use of sampling techniques related to the Monte Carlo simulations that we discussed in Chapter 11.</p>
 <p>This shows us that there is very strong evidence (Bayes factor of nearly 100) for differences between the diets.</p>
 </div>
 </div>
 <div id="what-about-possible-confounds" class="section level3">
 <h3><span class="header-section-number">16.1.8</span> What about possible confounds?</h3>
-<p>If we look more closely at the Garder paper, we will see that they also report statistics on how many individuals in each group had been diagnosed with <em>metabolic syndrome</em>, which is a syndrome characterized by high blood pressure, high blood glucose, excess body fat around the waist, and abnormal cholesterol levels and is associated with increased risk for cardiovascular problems. Let’s first add those data into the summary data frame:</p>
+<p>If we look more closely at the Garder paper, we will see that they also report statistics on how many individuals in each group had been diagnosed with <em>metabolic syndrome</em>, which is a syndrome characterized by high blood pressure, high blood glucose, excess body fat around the waist, and abnormal cholesterol levels and is associated with increased risk for cardiovascular problems. Here are the data from the Gardner paper:</p>
 <table>
 <caption>
 <span id="tab:unnamed-chunk-134">Table 16.1: </span>Presence of metabolic syndrome in each group in the AtoZ study.
@@ -642,13 +648,13 @@ Zone
 <li>chi-squared test for goodness of fit is appropriate against null hypothesis of no difference</li>
 </ul></li>
 </ul>
-<p>Let’s compute that statistic using the <code>chisq.test()</code> function. Here we will use the <code>simulate.p.value</code> option, which will help deal with the relatively small</p>
+<p>Let’s first compute that statistic, using the chi-squared test function in our statistical software:</p>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test
 ## 
 ## data:  contTable
 ## X-squared = 4, df = 3, p-value = 0.3</code></pre>
-<p>This test shows that there is not a significant difference between means. However, it doesn’t tell us how certain we are that there is no difference; remember that under NHST, we are always working under the assumption that the null is true unless the data show us enough evidence to cause us to reject this null hypothesis.</p>
+<p>This test shows that there is not a significant difference between means. However, it doesn’t tell us how certain we are that there is no difference; remember that under NHST, we are always working under the assumption that the null is true unless the data show us enough evidence to cause us to reject the null hypothesis.</p>
 <p>What if we want to quantify the evidence for or against the null? We can do this using the Bayes factor.</p>
 <pre><code>## Bayes factor analysis
 ## --------------
@@ -658,10 +664,14 @@ Zone
 ##   Null, independence, a = 1 
 ## ---
 ## Bayes factor type: BFcontingencyTable, independent multinomial</code></pre>
-<p>This shows us that the alternative hypothesis is 0.058 times more likely than the null hypothesis, which means that the null hypothesis is 1/0.058 ~ 17 times more likely than the alternative hypothesis given these data. This is fairly strong, if not completely overwhelming, evidence.</p>
+<p>This shows us that the alternative hypothesis is 0.058 times more likely than the null hypothesis, which means that the null hypothesis is 1/0.058 ~ 17 times more likely than the alternative hypothesis given these data. This is fairly strong, if not completely overwhelming, evidence in favor of the null hypothesis.</p>
+</div>
+</div>
+</div>
+<div id="getting-help" class="section level2">
+<h2><span class="header-section-number">16.2</span> Getting help</h2>
+<p>Whenever one is analyzing real data, it’s useful to check your analysis plan with a trained statistician, as there are many potential problems that could arise in real data. In fact, it’s best to speak to a statistician before you even start the project, as their advice regarding the design or implementation of the study could save you major headaches down the road. Most universities have statistical consulting offices that offer free assistance to members of the university community. Understanding the content of this book won’t prevent you from needing their help at some point, but it will help you have a more informed conversation with them and better understand the advice that they offer.</p>
 
-</div>
-</div>
 </div>
 </div>
 <h3>References</h3>

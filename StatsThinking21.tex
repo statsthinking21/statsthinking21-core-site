@@ -4784,7 +4784,7 @@ You can see that this shows us a p-value that is very close to the result from t
 \hypertarget{practical-example}{%
 \chapter{Practical statistical modeling}\label{practical-example}}
 
-In this chapter we will bring together everything that we have learned to apply our knowledge to a practical example.
+In this chapter we will bring together everything that we have learned, by applying our knowledge to a practical example. In 2007, Christopher Gardner and colleagues from Stanford published a study in the \emph{Journal of the American Medical Association} titled ``Comparison of the Atkins, Zone, Ornish, and LEARN Diets for Change in Weight and Related Risk Factors Among Overweight Premenopausal Women -- The A TO Z Weight Loss Study: A Randomized Trial'' (Gardner et al. \protect\hyperlink{ref-gard:kiaz:alha:2007}{2007}). We will use this study to show how one would go about analyzing an experimental dataset from start to finish.
 
 \hypertarget{the-process-of-statistical-modeling}{%
 \section{The process of statistical modeling}\label{the-process-of-statistical-modeling}}
@@ -4810,9 +4810,6 @@ There is a set of steps that we generally go through when we want to use our sta
   Test hypothesis and quantify effect size
 \end{enumerate}
 
-Let's look at a real example. In 2007, Christopher Gardner and colleagues from Stanford published a study in the \emph{Journal of the American Medical Association} titled ``Comparison of the Atkins, Zone, Ornish, and LEARN Diets for Change in Weight and Related Risk Factors Among Overweight Premenopausal Women
-The A TO Z Weight Loss Study: A Randomized Trial'' (Gardner et al. \protect\hyperlink{ref-gard:kiaz:alha:2007}{2007}).
-
 \hypertarget{specify-your-question-of-interest}{%
 \subsection{1: Specify your question of interest}\label{specify-your-question-of-interest}}
 
@@ -4825,20 +4822,16 @@ To compare 4 weight-loss diets representing a spectrum of low to high carbohydra
 \hypertarget{identify-or-collect-the-appropriate-data}{%
 \subsection{2: Identify or collect the appropriate data}\label{identify-or-collect-the-appropriate-data}}
 
-To answer their question, the investigators randomly assigned each of 311 overweight/obese women to one of four different diets (Atkins, Zone, Ornish, or LEARN), and measured their weight and other measures of health over time.
-
-The authors recorded a large number of variables, but for the main question of interest let's focus on a single variable: Body Mass Index (BMI). Further, since our goal is to measure lasting changes in BMI, we will only look at the measurement taken at 12 months after onset of the diet.
+To answer their question, the investigators randomly assigned each of 311 overweight/obese women to one of four different diets (Atkins, Zone, Ornish, or LEARN), and measured their weight along with many other measures of health over time. The authors recorded a large number of variables, but for the main question of interest let's focus on a single variable: Body Mass Index (BMI). Further, since our goal is to measure lasting changes in BMI, we will only look at the measurement taken at 12 months after onset of the diet.
 
 \hypertarget{prepare-the-data-for-analysis}{%
 \subsection{3: Prepare the data for analysis}\label{prepare-the-data-for-analysis}}
 
 \begin{figure}
-\includegraphics[width=0.5\linewidth]{StatsThinking21_files/figure-latex/AtoZBMIChangeDensity-1} \caption{Violin plots for each condition, with the 50th percentile (i.e the median) shown as a black line for each group.}\label{fig:AtoZBMIChangeDensity}
+\includegraphics[width=0.5\linewidth]{StatsThinking21_files/figure-latex/AtoZBMIChangeDensity-1} \caption{Box plots for each condition, with the 50th percentile (i.e the median) shown as a black line for each group.}\label{fig:AtoZBMIChangeDensity}
 \end{figure}
 
-The actual data from the A to Z study are not publicly available, so we will use the summary data reported in their paper to generate some synthetic data that roughly match the data obtained in their study. Once we have the data, we can visualize them to make sure that there are no outliers. Violin plots are useful to see the shape of the distributions, as shown in Figure \ref{fig:AtoZBMIChangeDensity}. Those data look fairly reasonable - in particular, there don't seem to be any serious outliers. However, we can see that the distributions seem to differ a bit in their variance, with Atkins and Ornish showing greater variability than the others.
-
-This means that any analyses that assume the variances are equal across groups might be inappropriate. Fortunately, the ANOVA model that we plan to use is fairly robust to this.
+The actual data from the A to Z study are not publicly available, so we will use the summary data reported in their paper to generate some synthetic data that roughly match the data obtained in their study, with the same means and standard deviations for each group. Once we have the data, we can visualize them to make sure that there are no outliers. Box plots are useful to see the shape of the distributions, as shown in Figure \ref{fig:AtoZBMIChangeDensity}. Those data look fairly reasonable - there are a couple of outliers within individual groups (denoted by the dots outside of the box plots), but they don't seem to be extreme with regard to the other groups. We can also see that the distributions seem to differ a bit in their variance, with Atkins showing somewhat greater variability than the others. This means that any analyses that assume the variances are equal across groups might be inappropriate. Fortunately, the ANOVA model that we plan to use is fairly robust to this.
 
 \hypertarget{determine-the-appropriate-model}{%
 \subsection{4. Determine the appropriate model}\label{determine-the-appropriate-model}}
@@ -4853,7 +4846,7 @@ There are several questions that we need to ask in order to determine the approp
   \begin{itemize}
   \tightlist
   \item
-    BMI : continuous, roughly normally distributed
+    BMI: continuous, roughly normally distributed
   \end{itemize}
 \item
   What are we comparing?
@@ -4871,14 +4864,28 @@ There are several questions that we need to ask in order to determine the approp
   \begin{itemize}
   \tightlist
   \item
-    Random assignment and use of difference scores should ensure that the assumption of independence is appropriate
+    Random assignment should ensure that the assumption of independence is appropriate
+  \item
+    The use of difference scores (in this case the difference between starting weight and weight after 12 months) is somewhat controversial, especially when the starting points differ between the groups. In this case the starting weights are very similar between the groups, so we will use the difference scores, but in general one would want to consult a statistician before applying such a model to real data.
   \end{itemize}
 \end{itemize}
 
 \hypertarget{fit-the-model-to-the-data}{%
 \subsection{5. Fit the model to the data}\label{fit-the-model-to-the-data}}
 
-Let's run an ANOVA on BMI change to compare it across the four diets. It turns out that we don't actually need to generate the dummy-coded variables ourselves; if we pass \texttt{lm()} a categorical variable, it will automatically generate them for us.
+Let's run an ANOVA on BMI change to compare it across the four diets. Most statistical software will automatically convert a nominal variable into a set of dummy variables. A common way of specifying a statistical model is using \emph{formula notation}, in which the model is specified using a formula of the form:
+
+\[ 
+\text{dependent variable} \sim \text{independent variables}
+\]
+
+In this case, we want to look at the change in BMI (which is stored in a variable called \emph{BMIChange12Months}) as a function of diet (which is stored in a variable called *diet), so we use the formula:
+
+\[
+BMIChange12Months \sim diet
+\]
+
+Most statistical software (including R) will automatically create a set of dummy variables when the model includes a nominal variable (such as the \emph{diet} variable, which contains the name of the diet that each person received). Here are the results from this model fitted to our data:
 
 \begin{verbatim}
 ## 
@@ -4903,24 +4910,25 @@ Let's run an ANOVA on BMI change to compare it across the four diets. It turns o
 ## F-statistic: 3.58 on 3 and 307 DF,  p-value: 0.0143
 \end{verbatim}
 
-Note that lm automatically generated dummy variables that correspond to three of the four diets, leaving the Atkins diet without a dummy variable. This means that the intercept models the Atkins diet, and the other three variables model the difference between each of those diets and the Atkins diet. By default, \texttt{lm()} treats the first value (in alphabetical order) as the baseline.
+Note that the software automatically generated dummy variables that correspond to three of the four diets, leaving the Atkins diet without a dummy variable. This means that the intercept models the Atkins diet, and the other three variables model the difference between each of those diets and the Atkins diet. Atkins was chosen as the unmodeled baseline variable simply because it is first in alphabetical order.
 
 \hypertarget{criticize-the-model-to-make-sure-it-fits-properly}{%
 \subsection{6. Criticize the model to make sure it fits properly}\label{criticize-the-model-to-make-sure-it-fits-properly}}
 
-\includegraphics{StatsThinking21_files/figure-latex/diagnosticsPlot-1.pdf}
+The first thing we want to do is to critique the model to make sure that it is appropriate. One thing we can do is to look at the residuals from the model. In Figure \ref{fig:residualPlot}, we plot the residuals for each individual grouped by diet. There are no obvious differences in the distributions of residuals across conditions, we can go ahead with the analysis.
 
-The first thing we want to do is to critique the model to make sure that it is appropriate. One thing we can do is to look at the residuals from the model. In the left panel of Figure \ref{fig:diagnosticsPlot}, we plot the residuals for each individual grouped by diet, which are positioned by the mean for each diet.
-There are no obvious differences in the residuals across conditions, although there are a couple of datapoints (\#34 and \#304) that seem to be slight outliers.
+\includegraphics{StatsThinking21_files/figure-latex/residualPlot-1.pdf}
 
-Another important assumption of the statistical tests that we apply to linear models is that the residuals from the model are normally distributed. The right panel of Figure \ref{fig:diagnosticsPlot} shows a Q-Q (quantile-quantile) plot, which plots the residuals against their expected values based on their quantiles in the normal distribution. If the residuals are normally distributed then the data points should fall along the dashed line --- in this case it looks pretty good, except for those two outliers that are once again apparent here.
+Another important assumption of the statistical tests that we apply to linear models is that the residuals from the model are normally distributed. The right panel of Figure \ref{fig:diagnosticsPlot} shows a Q-Q (quantile-quantile) plot, which plots the residuals against their expected values based on their quantiles in the normal distribution. If the residuals are normally distributed then the data points should fall along the dashed line --- in this case it looks pretty good, except for a couple of outliers that are apparent here. Because this model is also relatively robust to violations of normality, and these are fairly small, we will go ahead and use the results.
+
+\includegraphics{StatsThinking21_files/figure-latex/diagnosticQQPlot-1.pdf}
 
 \hypertarget{test-hypothesis-and-quantify-effect-size}{%
 \subsection{7. Test hypothesis and quantify effect size}\label{test-hypothesis-and-quantify-effect-size}}
 
 First let's look back at the summary of results from the ANOVA, shown in Step 5 above. The significant F test shows us that there is a significant difference between diets, but we should also note that the model doesn't actually account for much variance in the data; the R-squared value is only 0.03, showing that the model is only accounting for a few percent of the variance in weight loss. Thus, we would not want to overinterpret this result.
 
-The significant result also doesn't tell us which diets differ from which others. We can find out more by comparing means across conditions using the \texttt{emmeans()} (``estimated marginal means'') function:
+The significant result in the omnibus F test also doesn't tell us which diets differ from which others. We can find out more by comparing means across conditions. Because we are doing several comparisons, we need to correct for those comparisons, which is accomplished using a procedure known as the Tukey method, which is implemented by our statistical software:
 
 \begin{verbatim}
 ##  diet   emmean    SE  df lower.CL upper.CL .group
@@ -4939,14 +4947,14 @@ The letters in the rightmost column show us which of the groups differ from one 
 \hypertarget{bayes-factor-1}{%
 \subsubsection{Bayes factor}\label{bayes-factor-1}}
 
-Let's say that we want to have a better way to describe the amount of evidence provided by the data. One way we can do this is to compute a Bayes factor, which we can do by fitting the full model (including diet) and the reduced model (without diet) and then comparing their fit. For the reduced model, we just include a 1, which tells the fitting program to only fit an intercept. Note that this will take a few minutes to run.
+Let's say that we want to have a better way to describe the amount of evidence provided by the data. One way we can do this is to compute a Bayes factor, which we can do by fitting the full model (including diet) and the reduced model (without diet) and then comparing their fit. For the reduced model, we only include an intercept. Note that Bayesian analysis can take substantially more time to run, since it requires the use of sampling techniques related to the Monte Carlo simulations that we discussed in Chapter 11.
 
 This shows us that there is very strong evidence (Bayes factor of nearly 100) for differences between the diets.
 
 \hypertarget{what-about-possible-confounds}{%
 \subsection{What about possible confounds?}\label{what-about-possible-confounds}}
 
-If we look more closely at the Garder paper, we will see that they also report statistics on how many individuals in each group had been diagnosed with \emph{metabolic syndrome}, which is a syndrome characterized by high blood pressure, high blood glucose, excess body fat around the waist, and abnormal cholesterol levels and is associated with increased risk for cardiovascular problems. Let's first add those data into the summary data frame:
+If we look more closely at the Garder paper, we will see that they also report statistics on how many individuals in each group had been diagnosed with \emph{metabolic syndrome}, which is a syndrome characterized by high blood pressure, high blood glucose, excess body fat around the waist, and abnormal cholesterol levels and is associated with increased risk for cardiovascular problems. Here are the data from the Gardner paper:
 
 \begin{table}
 
@@ -4994,7 +5002,7 @@ Looking at the data it seems that the rates are slightly different across groups
   \end{itemize}
 \end{itemize}
 
-Let's compute that statistic using the \texttt{chisq.test()} function. Here we will use the \texttt{simulate.p.value} option, which will help deal with the relatively small
+Let's first compute that statistic, using the chi-squared test function in our statistical software:
 
 \begin{verbatim}
 ## 
@@ -5004,7 +5012,7 @@ Let's compute that statistic using the \texttt{chisq.test()} function. Here we w
 ## X-squared = 4, df = 3, p-value = 0.3
 \end{verbatim}
 
-This test shows that there is not a significant difference between means. However, it doesn't tell us how certain we are that there is no difference; remember that under NHST, we are always working under the assumption that the null is true unless the data show us enough evidence to cause us to reject this null hypothesis.
+This test shows that there is not a significant difference between means. However, it doesn't tell us how certain we are that there is no difference; remember that under NHST, we are always working under the assumption that the null is true unless the data show us enough evidence to cause us to reject the null hypothesis.
 
 What if we want to quantify the evidence for or against the null? We can do this using the Bayes factor.
 
@@ -5019,7 +5027,12 @@ What if we want to quantify the evidence for or against the null? We can do this
 ## Bayes factor type: BFcontingencyTable, independent multinomial
 \end{verbatim}
 
-This shows us that the alternative hypothesis is 0.058 times more likely than the null hypothesis, which means that the null hypothesis is 1/0.058 \textasciitilde{} 17 times more likely than the alternative hypothesis given these data. This is fairly strong, if not completely overwhelming, evidence.
+This shows us that the alternative hypothesis is 0.058 times more likely than the null hypothesis, which means that the null hypothesis is 1/0.058 \textasciitilde{} 17 times more likely than the alternative hypothesis given these data. This is fairly strong, if not completely overwhelming, evidence in favor of the null hypothesis.
+
+\hypertarget{getting-help}{%
+\section{Getting help}\label{getting-help}}
+
+Whenever one is analyzing real data, it's useful to check your analysis plan with a trained statistician, as there are many potential problems that could arise in real data. In fact, it's best to speak to a statistician before you even start the project, as their advice regarding the design or implementation of the study could save you major headaches down the road. Most universities have statistical consulting offices that offer free assistance to members of the university community. Understanding the content of this book won't prevent you from needing their help at some point, but it will help you have a more informed conversation with them and better understand the advice that they offer.
 
 \hypertarget{doing-reproducible-research}{%
 \chapter{Doing reproducible research}\label{doing-reproducible-research}}
@@ -5085,7 +5098,7 @@ This kind of behavior finally caught up with Wansink; \href{https://www.vox.com/
 \hypertarget{the-reproducibility-crisis-in-science}{%
 \section{The reproducibility crisis in science}\label{the-reproducibility-crisis-in-science}}
 
-While we think that the kind of frauduent behavior seen in Wansink's case is relatively rare, it has become increasingly clear that problems with reproducibility are much more widespread in science than previously thought. This became clear in 2015, when a large group of researchers published a study in the journal \emph{Science} titled ``Estimating the reproducibility of psychological science''(Open Science Collaboration \protect\hyperlink{ref-open:2015}{2015}). In this study, the researchers took 100 published studies in psychology and attempted to reproduce the results originally reported in the papers. Their findings were shocking: Whereas 97\% of the original papers had reported statistically significant findings, only 37\% of these effects were statistically significant in the replication study. Although these problems in psychology have received a great deal of attention, they seem to be present in nearly every area of science, from cancer biology (Errington et al. \protect\hyperlink{ref-erri:iorn:gunn:2014}{2014}) and chemistry (Baker \protect\hyperlink{ref-bake:2017}{2017}) to economics (Christensen and Miguel \protect\hyperlink{ref-NBERw22989}{2016}) and the social sciences (Camerer et al. \protect\hyperlink{ref-Camerer2018EvaluatingTR}{2018}).
+While we think that the kind of frauduent behavior seen in Wansink's case is relatively rare, it has become increasingly clear that problems with reproducibility are much more widespread in science than previously thought. This became particularly evident in 2015, when a large group of researchers published a study in the journal \emph{Science} titled ``Estimating the reproducibility of psychological science''(Open Science Collaboration \protect\hyperlink{ref-open:2015}{2015}). In this paper, the researchers took 100 published studies in psychology and attempted to reproduce the results originally reported in the papers. Their findings were shocking: Whereas 97\% of the original papers had reported statistically significant findings, only 37\% of these effects were statistically significant in the replication study. Although these problems in psychology have received a great deal of attention, they seem to be present in nearly every area of science, from cancer biology (Errington et al. \protect\hyperlink{ref-erri:iorn:gunn:2014}{2014}) and chemistry (Baker \protect\hyperlink{ref-bake:2017}{2017}) to economics (Christensen and Miguel \protect\hyperlink{ref-NBERw22989}{2016}) and the social sciences (Camerer et al. \protect\hyperlink{ref-Camerer2018EvaluatingTR}{2018}).
 
 The reproducibility crisis that emerged after 2010 was actually predicted by John Ioannidis, a physician from Stanford who wrote a paper in 2005 titled ``Why most published research findings are false''(Ioannidis \protect\hyperlink{ref-ioan:2005}{2005}). In this article, Ioannidis argued that the use of null hypothesis statistical testing in the context of modern science will necessarily lead to high levels of false results.
 
@@ -5119,7 +5132,7 @@ Let's first take an example where the probability of our hypothesis being true i
 \[
 PPV = \frac{0.8 * (1 - 0.2)}{0.8 * (1 - 0.2) + (1 - 0.8) * 0.05} = 0.98
 \]
-This means that if we find a positive result in a study where the hypothesis is likely to be true and power is high, then its likelihood of being true is high. Note, however, that a research field where the hypotheses have such a high likelihood of being true is probably not a very interesting field of research; research is most important when it tells us something new!
+This means that if we find a positive result in a study where the hypothesis is likely to be true and power is high, then its likelihood of being true is high. Note, however, that a research field where the hypotheses have such a high likelihood of being true is probably not a very interesting field of research; research is most important when it tells us something unexpected!
 
 Let's do the same analysis for a field where \(p(hIsTrue)=0.1\) -- that is, most of the hypotheses being tested are false. In this case, PPV is:
 
@@ -5144,7 +5157,7 @@ An amusing example of this was seen in a paper by Jonathan Schoenfeld and John I
 
 Another kind of error can also occur when statistical power is low: Our estimates of the effect size will be inflated. This phenomenon often goes by the term ``winner's curse'', which comes from economics, where it refers to the fact that for certain types of auctions (where the value is the same for everyone, like a jar of quarters, and the bids are private), the winner is guaranteed to pay more than the good is worth. In science, the winner's curse refers to the fact that the effect size estimated from a significant result (i.e.~a winner) is almost always an overestimate of the true effect size.
 
-We can simulate this in order to see how the estimated effect size for significant results is related to the actual underlying effect size. Let's generate data for which there is a true effect size of 0.2, and estimate the effect size for those results where there is a significant effect detected. The left panel of Figure \ref{fig:CurseSim} shows that when power is low, the estimated effect size for significant results can be highly inflated compared to the actual effect size.
+We can simulate this in order to see how the estimated effect size for significant results is related to the actual underlying effect size. Let's generate data for which there is a true effect size of d = 0.2, and estimate the effect size for those results where there is a significant effect detected. The left panel of Figure \ref{fig:CurseSim} shows that when power is low, the estimated effect size for significant results can be highly inflated compared to the actual effect size.
 
 \begin{figure}
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/CurseSim-1} \caption{Left: A simulation of the winner's curse as a function of statistical power (x axis). The solid line shows the estimated effect size, and the dotted line shows the actual effect size. Right: A histogram showing sample sizes for a number of samples from a dataset, with significant results shown in blue and non-significant results in red. }\label{fig:CurseSim}
@@ -5161,7 +5174,7 @@ A popular book entitled ``The Compleat Academic: A Career Guide'', published by 
 \textbf{Which article should you write?} There are two possible articles you can write: (1) the article you planned to write when you designed your study or (2) the article that makes the most sense now that you have seen the results. They are rarely the same, and the correct answer is (2).
 \end{quote}
 
-What Bem suggests here is known as \emph{HARKing} (Hypothesizing After the Results are Known)(Kerr \protect\hyperlink{ref-kerr:1998}{1998}). This might seem innocuous, but is problematic because it allows the research to re-frame a post-hoc conclusion (which we should take with a grain of salt) as an a priori prediction (in which we would have stronger faith). In essence, it allows the researcher to rewrite their theory based on the facts, rather that using the theory to make predictions and then test them -- akin to moving the goalpost so that it ends up wherever the ball goes. It thus becomes very difficult to disconfirm incorrect ideas, since the goalpost can always be moved to match the data. Bem continues:
+What Bem suggests here is known as \emph{HARKing} (Hypothesizing After the Results are Known)(Kerr \protect\hyperlink{ref-kerr:1998}{1998}). This might seem innocuous, but is problematic because it allows the researcher to re-frame a post-hoc conclusion (which we should take with a grain of salt) as an a priori prediction (in which we would have stronger faith). In essence, it allows the researcher to rewrite their theory based on the facts, rather that using the theory to make predictions and then test them -- akin to moving the goalpost so that it ends up wherever the ball goes. It thus becomes very difficult to disconfirm incorrect ideas, since the goalpost can always be moved to match the data. Bem continues:
 
 \begin{quote}
 \textbf{Analyzing data} Examine them from every angle. Analyze the sexes separately. Make up new composite indices. If a datum suggests a new hypothesis, try to find further evidence for it elsewhere in the data. If you see dim traces of interesting patterns, try to reorganize the data to bring them into bolder relief. If there are participants you don't like, or trials, observers, or interviewers who gave you anomalous results,drop them (temporarily). Go on a fishing expedition for something --- anything --- interesting. No, this is not immoral.
@@ -5188,7 +5201,7 @@ A well-known paper by Simmons, Nelson, and Simonsohn (\protect\hyperlink{ref-sim
 \hypertarget{esp-or-qrp}{%
 \subsection{ESP or QRP?}\label{esp-or-qrp}}
 
-In 2011, Daryl Bem published an article (Bem \protect\hyperlink{ref-bem:2011}{2011}) that claimed to have found scientific evidence for extrasensory perception. The article states:
+In 2011, that same Daryl Bem published an article (Bem \protect\hyperlink{ref-bem:2011}{2011}) that claimed to have found scientific evidence for extrasensory perception. The article states:
 
 \begin{quote}
 This article reports 9 experiments, involving more than 1,000 participants, that test for retroactive influence by ``time-reversing'' well-established psychological effects so that the individual's responses are obtained before the putatively causal stimulus events occur. \ldots{}The mean effect size (d) in psi performance across all 9 experiments was 0.22, and all but one of the experiments yielded statistically significant results.
@@ -5222,7 +5235,7 @@ In the years since the reproducibility crisis arose, there has been a robust mov
 
 One of the ideas that has gained the greatest traction is \emph{pre-registration}, in which one submits a detailed description of a study (including all data analyses) to a trusted repository (such as the \href{http://osf.io}{Open Science Framework} or \href{http://aspredicted.org}{AsPredicted.org}). By specifying one's plans in detail prior to analyzing the data, pre-registration provides greater faith that the analyses do not suffer from p-hacking or other questionable research practices.
 
-The effects of pre-registration have been seen in clinical trials in medicine. In 2000, the National Heart, Lung, and Blood Institute (NHLBI) began requiring all clinical trials to be pre-registered using the system at \href{http://clinicaltrials.gov}{ClinicalTrials.gov}. This provides a natural experiment to observe the effects of study pre-registration. When Kaplan and Irvin (\protect\hyperlink{ref-kapl:irvi:2015}{2015}) examined clinical trial outcomes over time, they found that the number of positive outcomes in clinical trials was reduced after 2000 compared to before. While there are many possible causes, it seems likely that prior to study registration researchers were able to change their methods in order to find a positive result, which became more difficult after registration was required.
+The effects of pre-registration in clinical trials in medicine have been striking. In 2000, the National Heart, Lung, and Blood Institute (NHLBI) began requiring all clinical trials to be pre-registered using the system at \href{http://clinicaltrials.gov}{ClinicalTrials.gov}. This provides a natural experiment to observe the effects of study pre-registration. When Kaplan and Irvin (\protect\hyperlink{ref-kapl:irvi:2015}{2015}) examined clinical trial outcomes over time, they found that the number of positive outcomes in clinical trials was greatly reduced after 2000 compared to before. While there are many possible causes, it seems likely that prior to study registration researchers were able to change their methods or hypotheses in order to find a positive result, which became more difficult after registration was required.
 
 \hypertarget{reproducible-practices}{%
 \subsection{Reproducible practices}\label{reproducible-practices}}
@@ -5278,7 +5291,7 @@ It is every scientist's responsibility to improve their research practices in or
 \item
   Describe the concept of P-hacking and its effects on scientific practice
 \item
-  Describe the concept of positive predictive value and its relation to statstical power
+  Describe the concept of positive predictive value and its relation to statistical power
 \item
   Describe the concept of pre-registration and how it can help protect against questionable research practices
 \end{itemize}
