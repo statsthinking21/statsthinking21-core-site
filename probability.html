@@ -503,11 +503,11 @@ This is interpreted as saying “Take all of the N elementary events, which we h
 </table>
 <p>According to these data, in 2017 there were 73 rainy days. To compute the probability of rain in San Francisco, we simply divide the number of rainy days by the number of days counted (365), giving P(rain in SF in 2017) = 0.2.</p>
 <p>How do we know that empirical probability gives us the right number? The answer to this question comes from the <em>law of large numbers</em>, which shows that the empirical probability will approach the true probability as the sample size increases. We can see this by simulating a large number of coin flips, and looking at our estimate of the probability of heads after each flip. We will spend more time discussing simulation in a later chapter; for now, just assume that we have a computational way to generate a random outcome for each coin flip.</p>
-<p>The left panel of Figure <a href="probability.html#fig:ElectionResults">6.1</a> shows that as the number of samples (i.e., coin flip trials) increases, the estimated probability of heads converges onto the true value of 0.5. However, note that the estimates can be very far off from the true value when the sample sizes are small. A real-world example of this was seen in the 2017 special election for the US Senate in Georgia, which pitted the Republican Roy Moore against Democrat Doug Jones. The right panel of Figure <a href="probability.html#fig:ElectionResults">6.1</a> shows the relative amount of the vote reported for each of the candidates over the course of the evening, as an increasing number of ballots were counted. Early in the evening the vote counts were especially volatile, swinging from a large initial lead for Jones to a long period where Moore had the lead, until finally Jones took the lead to win the race.</p>
+<p>The left panel of Figure <a href="probability.html#fig:ElectionResults">6.1</a> shows that as the number of samples (i.e., coin flip trials) increases, the estimated probability of heads converges onto the true value of 0.5. However, note that the estimates can be very far off from the true value when the sample sizes are small. A real-world example of this was seen in the 2017 special election for the US Senate in Alabama, which pitted the Republican Roy Moore against Democrat Doug Jones. The right panel of Figure <a href="probability.html#fig:ElectionResults">6.1</a> shows the relative amount of the vote reported for each of the candidates over the course of the evening, as an increasing number of ballots were counted. Early in the evening the vote counts were especially volatile, swinging from a large initial lead for Jones to a long period where Moore had the lead, until finally Jones took the lead to win the race.</p>
 <div class="figure"><span id="fig:ElectionResults"></span>
-<img src="StatsThinking21_files/figure-html/ElectionResults-1.png" alt="Left: A demonstration of the law of large numbers.  A coin was flipped 30,000 times, and after each flip the probability of heads was computed based on the number of heads and tail collected up to that point.  It takes about 15,000 flips for the probability to settle at the true probability of 0.5. Right: Relative proportion of the vote in the Dec 12, 2017 special election for the US Senate seat in Georgia, as a function of the percentage of precincts reporting. These data were transcribed from https://www.ajc.com/news/national/alabama-senate-race-live-updates-roy-moore-doug-jones/KPRfkdaweoiXICW3FHjXqI/" width="768" height="50%" />
+<img src="StatsThinking21_files/figure-html/ElectionResults-1.png" alt="Left: A demonstration of the law of large numbers.  A coin was flipped 30,000 times, and after each flip the probability of heads was computed based on the number of heads and tail collected up to that point.  It takes about 15,000 flips for the probability to settle at the true probability of 0.5. Right: Relative proportion of the vote in the Dec 12, 2017 special election for the US Senate seat in Alabama, as a function of the percentage of precincts reporting. These data were transcribed from https://www.ajc.com/news/national/alabama-senate-race-live-updates-roy-moore-doug-jones/KPRfkdaweoiXICW3FHjXqI/" width="768" height="50%" />
 <p class="caption">
-Figure 6.1: Left: A demonstration of the law of large numbers. A coin was flipped 30,000 times, and after each flip the probability of heads was computed based on the number of heads and tail collected up to that point. It takes about 15,000 flips for the probability to settle at the true probability of 0.5. Right: Relative proportion of the vote in the Dec 12, 2017 special election for the US Senate seat in Georgia, as a function of the percentage of precincts reporting. These data were transcribed from <a href="https://www.ajc.com/news/national/alabama-senate-race-live-updates-roy-moore-doug-jones/KPRfkdaweoiXICW3FHjXqI/" class="uri">https://www.ajc.com/news/national/alabama-senate-race-live-updates-roy-moore-doug-jones/KPRfkdaweoiXICW3FHjXqI/</a>
+Figure 6.1: Left: A demonstration of the law of large numbers. A coin was flipped 30,000 times, and after each flip the probability of heads was computed based on the number of heads and tail collected up to that point. It takes about 15,000 flips for the probability to settle at the true probability of 0.5. Right: Relative proportion of the vote in the Dec 12, 2017 special election for the US Senate seat in Alabama, as a function of the percentage of precincts reporting. These data were transcribed from <a href="https://www.ajc.com/news/national/alabama-senate-race-live-updates-roy-moore-doug-jones/KPRfkdaweoiXICW3FHjXqI/" class="uri">https://www.ajc.com/news/national/alabama-senate-race-live-updates-roy-moore-doug-jones/KPRfkdaweoiXICW3FHjXqI/</a>
 </p>
 </div>
 <p>These two examples show that while large samples will ultimately converge on the true probability, the results with small samples can be far off. Unfortunately, many people forget this and overinterpret results from small samples. This was referred to as the <em>law of small numbers</em> by the psychologists Danny Kahneman and Amos Tversky, who showed that people (even trained researchers) often behave as if the law of large numbers applies even to small samples, giving too much credence to results from small datasets. We will see examples throughout the course of just how unstable statistical results can be when they are generated on the basis of small samples.</p>
@@ -620,29 +620,29 @@ P(k\le2)= P(k=2) + P(k=1) + P(k=0) = 6e^{-5} + .002 + .040 = .043
 <thead>
 <tr class="header">
 <th align="right">numSuccesses</th>
-<th align="right">probability</th>
+<th align="right">CumulativeProbability</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="right">0</td>
-<td align="right">0.00</td>
+<td align="right">0.000</td>
 </tr>
 <tr class="even">
 <td align="right">1</td>
-<td align="right">0.00</td>
+<td align="right">0.003</td>
 </tr>
 <tr class="odd">
 <td align="right">2</td>
-<td align="right">0.04</td>
+<td align="right">0.043</td>
 </tr>
 <tr class="even">
 <td align="right">3</td>
-<td align="right">0.31</td>
+<td align="right">0.314</td>
 </tr>
 <tr class="odd">
 <td align="right">4</td>
-<td align="right">1.00</td>
+<td align="right">1.000</td>
 </tr>
 </tbody>
 </table>

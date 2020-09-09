@@ -1512,10 +1512,10 @@ According to these data, in 2017 there were 73 rainy days. To compute the probab
 
 How do we know that empirical probability gives us the right number? The answer to this question comes from the \emph{law of large numbers}, which shows that the empirical probability will approach the true probability as the sample size increases. We can see this by simulating a large number of coin flips, and looking at our estimate of the probability of heads after each flip. We will spend more time discussing simulation in a later chapter; for now, just assume that we have a computational way to generate a random outcome for each coin flip.
 
-The left panel of Figure \ref{fig:ElectionResults} shows that as the number of samples (i.e., coin flip trials) increases, the estimated probability of heads converges onto the true value of 0.5. However, note that the estimates can be very far off from the true value when the sample sizes are small. A real-world example of this was seen in the 2017 special election for the US Senate in Georgia, which pitted the Republican Roy Moore against Democrat Doug Jones. The right panel of Figure \ref{fig:ElectionResults} shows the relative amount of the vote reported for each of the candidates over the course of the evening, as an increasing number of ballots were counted. Early in the evening the vote counts were especially volatile, swinging from a large initial lead for Jones to a long period where Moore had the lead, until finally Jones took the lead to win the race.
+The left panel of Figure \ref{fig:ElectionResults} shows that as the number of samples (i.e., coin flip trials) increases, the estimated probability of heads converges onto the true value of 0.5. However, note that the estimates can be very far off from the true value when the sample sizes are small. A real-world example of this was seen in the 2017 special election for the US Senate in Alabama, which pitted the Republican Roy Moore against Democrat Doug Jones. The right panel of Figure \ref{fig:ElectionResults} shows the relative amount of the vote reported for each of the candidates over the course of the evening, as an increasing number of ballots were counted. Early in the evening the vote counts were especially volatile, swinging from a large initial lead for Jones to a long period where Moore had the lead, until finally Jones took the lead to win the race.
 
 \begin{figure}
-\includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/ElectionResults-1} \caption{Left: A demonstration of the law of large numbers.  A coin was flipped 30,000 times, and after each flip the probability of heads was computed based on the number of heads and tail collected up to that point.  It takes about 15,000 flips for the probability to settle at the true probability of 0.5. Right: Relative proportion of the vote in the Dec 12, 2017 special election for the US Senate seat in Georgia, as a function of the percentage of precincts reporting. These data were transcribed from https://www.ajc.com/news/national/alabama-senate-race-live-updates-roy-moore-doug-jones/KPRfkdaweoiXICW3FHjXqI/}\label{fig:ElectionResults}
+\includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/ElectionResults-1} \caption{Left: A demonstration of the law of large numbers.  A coin was flipped 30,000 times, and after each flip the probability of heads was computed based on the number of heads and tail collected up to that point.  It takes about 15,000 flips for the probability to settle at the true probability of 0.5. Right: Relative proportion of the vote in the Dec 12, 2017 special election for the US Senate seat in Alabama, as a function of the percentage of precincts reporting. These data were transcribed from https://www.ajc.com/news/national/alabama-senate-race-live-updates-roy-moore-doug-jones/KPRfkdaweoiXICW3FHjXqI/}\label{fig:ElectionResults}
 \end{figure}
 
 These two examples show that while large samples will ultimately converge on the true probability, the results with small samples can be far off. Unfortunately, many people forget this and overinterpret results from small samples. This was referred to as the \emph{law of small numbers} by the psychologists Danny Kahneman and Amos Tversky, who showed that people (even trained researchers) often behave as if the law of large numbers applies even to small samples, giving too much credence to results from small datasets. We will see examples throughout the course of just how unstable statistical results can be when they are generated on the basis of small samples.
@@ -1668,17 +1668,17 @@ In many cases the number of possible outcomes would be too large for us to compu
 \centering
 \begin{tabular}[t]{r|r}
 \hline
-numSuccesses & probability\\
+numSuccesses & CumulativeProbability\\
 \hline
-0 & 0.00\\
+0 & 0.000\\
 \hline
-1 & 0.00\\
+1 & 0.003\\
 \hline
-2 & 0.04\\
+2 & 0.043\\
 \hline
-3 & 0.31\\
+3 & 0.314\\
 \hline
-4 & 1.00\\
+4 & 1.000\\
 \hline
 \end{tabular}
 \end{table}
