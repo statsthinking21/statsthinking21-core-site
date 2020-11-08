@@ -563,7 +563,7 @@ Since smoking is a binary variable, we treat it as a <em>dummy variable</em> lik
 <h3><span class="header-section-number">15.3.1</span> Effect sizes for comparing two means</h3>
 <p>The most commonly used effect size for a comparison between two means is Cohen’s d, which (as you may remember from Chapter <a href="ci-effect-size-power.html#ci-effect-size-power">10</a>) is an expression of the effect size in terms of standard deviation units. For the t-test estimated using the general linear model outlined above (i.e. with a single dummy-coded variable), this is expressed as:</p>
 <p><span class="math display">\[
-d = \frac{\hat{beta_1}}{\sigma_{residual}}
+d = \frac{\hat{\beta_1}}{\sigma_{residual}}
 \]</span>
 We can obtain these values from the analysis output above, giving us a d = 0.55, which we would generally interpret as a medium sized effect.</p>
 <p>We can also compute <span class="math inline">\(R^2\)</span> for this analysis, which tells us how much variance in TV watching is accounted for. This value (which is reported at the bottom of the summary of the linear model analysis above) is 0.05, which tells us that while the effect may be statistically significant, it accounts for relatively little of the variance in TV watching.</p>
@@ -604,7 +604,7 @@ Figure 15.2: Left: Violin plot of systolic blood pressure on first and second re
 ## sample estimates:
 ## mean in group BPSys1 mean in group BPSys2 
 ##                  121                  120</code></pre>
-<p>This analysis shows no significant difference. However, this analysis is inappropriate since it assumes that the two samples are independent, when in fact they are not, since the data come from the same individuals. We can plot the data with a line for each individual to show this (see Figure <a href="#fig:BPLinePlot"><strong>??</strong></a>).</p>
+<p>This analysis shows no significant difference. However, this analysis is inappropriate since it assumes that the two samples are independent, when in fact they are not, since the data come from the same individuals. We can plot the data with a line for each individual to show this (see Figure <a href="comparing-means.html#fig:BPfig">15.2</a>).</p>
 <p>In this analysis, what we really care about is whether the blood pressure for each person changed in a systematic way between the two measurements, so another way to represent the data is to compute the difference between the two timepoints for each individual, and then analyze these difference scores rather than analyzing the individual measurements. In Figure <a href="comparing-means.html#fig:BPDiffHist">15.3</a>, we show a histogram of these difference scores, with a blue line denoting the mean difference.</p>
 <div class="figure"><span id="fig:BPDiffHist"></span>
 <img src="StatsThinking21_files/figure-html/BPDiffHist-1.png" alt="Histogram of difference scores between first and second BP measurement. The vertical line represents the mean difference in the sample." width="384" height="50%" />

@@ -542,10 +542,20 @@ BMIChange12Months \sim diet
 </div>
 <div id="criticize-the-model-to-make-sure-it-fits-properly" class="section level3">
 <h3><span class="header-section-number">16.1.6</span> 6. Criticize the model to make sure it fits properly</h3>
-<p>The first thing we want to do is to critique the model to make sure that it is appropriate. One thing we can do is to look at the residuals from the model. In Figure <a href="#fig:residualPlot"><strong>??</strong></a>, we plot the residuals for each individual grouped by diet. There are no obvious differences in the distributions of residuals across conditions, we can go ahead with the analysis.</p>
-<p><img src="StatsThinking21_files/figure-html/residualPlot-1.png" width="384" /></p>
-<p>Another important assumption of the statistical tests that we apply to linear models is that the residuals from the model are normally distributed. The right panel of Figure <a href="#fig:diagnosticsPlot"><strong>??</strong></a> shows a Q-Q (quantile-quantile) plot, which plots the residuals against their expected values based on their quantiles in the normal distribution. If the residuals are normally distributed then the data points should fall along the dashed line — in this case it looks pretty good, except for a couple of outliers that are apparent here. Because this model is also relatively robust to violations of normality, and these are fairly small, we will go ahead and use the results.</p>
-<p><img src="StatsThinking21_files/figure-html/diagnosticQQPlot-1.png" width="384" /></p>
+<p>The first thing we want to do is to critique the model to make sure that it is appropriate. One thing we can do is to look at the residuals from the model. In Figure <a href="practical-example.html#fig:residualPlot">16.2</a>, we plot the residuals for each individual grouped by diet. There are no obvious differences in the distributions of residuals across conditions, we can go ahead with the analysis.</p>
+<div class="figure"><span id="fig:residualPlot"></span>
+<img src="StatsThinking21_files/figure-html/residualPlot-1.png" alt="Distribution of residuals for for each condition" width="384" />
+<p class="caption">
+Figure 16.2: Distribution of residuals for for each condition
+</p>
+</div>
+<p>Another important assumption of the statistical tests that we apply to linear models is that the residuals from the model are normally distributed. The right panel of Figure <a href="practical-example.html#fig:diagnosticQQPlot">16.3</a> shows a Q-Q (quantile-quantile) plot, which plots the residuals against their expected values based on their quantiles in the normal distribution. If the residuals are normally distributed then the data points should fall along the dashed line — in this case it looks pretty good, except for a couple of outliers that are apparent here. Because this model is also relatively robust to violations of normality, and these are fairly small, we will go ahead and use the results.</p>
+<div class="figure"><span id="fig:diagnosticQQPlot"></span>
+<img src="StatsThinking21_files/figure-html/diagnosticQQPlot-1.png" alt="Q-Q plot of actual residual values against theoretical residual values" width="384" />
+<p class="caption">
+Figure 16.3: Q-Q plot of actual residual values against theoretical residual values
+</p>
+</div>
 </div>
 <div id="test-hypothesis-and-quantify-effect-size" class="section level3">
 <h3><span class="header-section-number">16.1.7</span> 7. Test hypothesis and quantify effect size</h3>

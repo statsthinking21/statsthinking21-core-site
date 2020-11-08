@@ -127,7 +127,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{Draft: 2020-10-25}
+    \date{Draft: 2020-11-08}
 
 \usepackage{booktabs}
 \usepackage{longtable}
@@ -695,21 +695,21 @@ In our earlier example with the sleep variable, the data were reported in whole 
 
 \caption{\label{tab:unnamed-chunk-10}A few values from the NHANES data frame.}
 \centering
-\begin{tabular}[t]{r}
+\begin{tabular}[t]{l}
 \hline
 Height\\
 \hline
-170\\
+169.6\\
 \hline
-170\\
+169.8\\
 \hline
-168\\
+167.5\\
 \hline
-155\\
+155.2\\
 \hline
-174\\
+173.8\\
 \hline
-174\\
+174.5\\
 \hline
 \end{tabular}
 \end{table}
@@ -1207,17 +1207,17 @@ The mean (61600.00) seems to be a pretty good summary of the income of those fiv
 \hline
 income & person\\
 \hline
-\%\#4.0-1e & Joe\\
+48000 & Joe\\
 \hline
-\%\#4.0-1e & Karen\\
+64000 & Karen\\
 \hline
-\%\#4.0-1e & Mark\\
+58000 & Mark\\
 \hline
-\%\#4.0-1e & Andrea\\
+72000 & Andrea\\
 \hline
-\%\#4.0-1e & Pat\\
+66000 & Pat\\
 \hline
-\%\#4.0-1e & Beyonce\\
+54000000 & Beyonce\\
 \hline
 \end{tabular}
 \end{table}
@@ -1531,10 +1531,10 @@ P(outcome_i) = \frac{1}{\text{number of possible outcomes}}
 
 For the six-sided die, the probability of each individual outcome is 1/6.
 
-This is nice, but de Méré was interested in more complex events, like what happens on multiple dice throws. How do we compute the probability of a complex event (which is a \emph{union} of single events), like rolling a one on the first \emph{or} the second throw?\\
-We represent the union of events mathematically using the \(\cup\) symbol: for example, if the probability of rolling a one on the first throw is referred to as \(P(Roll1_{throw1})\) and the probability of rolling a one on the second throw is \(P(Roll1_{throw2})\), then the union is referred to as \(P(Roll1_{throw1} \cup Roll1_{throw2})\).
+This is nice, but de Méré was interested in more complex events, like what happens on multiple dice throws. How do we compute the probability of a complex event (which is a \emph{union} of single events), like rolling a six on the first \emph{or} the second throw?\\
+We represent the union of events mathematically using the \(\cup\) symbol: for example, if the probability of rolling a six on the first throw is referred to as \(P(Roll1_{throw1})\) and the probability of rolling a six on the second throw is \(P(Roll1_{throw2})\), then the union is referred to as \(P(Roll1_{throw1} \cup Roll1_{throw2})\).
 
-de Méré thought (incorrectly, as we will see below) that he could simply add together the probabilities of the individual events to compute the probability of the combined event, meaning that the probability of rolling a one on the first or second roll would be computed as follows:
+de Méré thought (incorrectly, as we will see below) that he could simply add together the probabilities of the individual events to compute the probability of the combined event, meaning that the probability of rolling a six on the first or second roll would be computed as follows:
 
 \[
 P(Roll1_{throw1}) = 1/6
@@ -1745,7 +1745,7 @@ Yes & Yes & 201 & 0.04\\
 
 To compute \(P(diabetes|inactive)\) we would also need to know the joint probability of being diabetic \emph{and} inactive, in addition to the simple probabilities of each.
 
-Based on these joint probabilities, we can compute \(P(diabetes|inactive)\). One way oo do this in a computer program is to first determine the whether the PhysActive variable was equal to ``No'' for each indivdual, and then take the mean of those truth values. Since TRUE/FALSE values are treated as 1/0 respectively by most programming languages (including R and Python), this allows us to easily identify the probability of a simple event by simply taking the mean of a logical variable representing its truth value. We then use that value to compute the conditional probability, where we find that the probability of someone having diabetes given that they are physically inactive is 0.141.
+Based on these joint probabilities, we can compute \(P(diabetes|inactive)\). One way to do this in a computer program is to first determine the whether the PhysActive variable was equal to ``No'' for each indivdual, and then take the mean of those truth values. Since TRUE/FALSE values are treated as 1/0 respectively by most programming languages (including R and Python), this allows us to easily identify the probability of a simple event by simply taking the mean of a logical variable representing its truth value. We then use that value to compute the conditional probability, where we find that the probability of someone having diabetes given that they are physically inactive is 0.141.
 
 \hypertarget{independence}{%
 \section{Independence}\label{independence}}
@@ -3086,7 +3086,7 @@ In some cases the credible interval can be computed \emph{numerically} based on 
 \hypertarget{effects-of-different-priors}{%
 \subsection{Effects of different priors}\label{effects-of-different-priors}}
 
-In the previous example we used a \emph{flat prior}, meaning that we didn't have any reason to believe that any particular value of \(p_{respond}\) was more or less likely. However, let's say that we had instead started with some previous data: In a previous study, researchers had tested 20 people and found that 10 of them had responded positively. This would have lead us to start with a prior belief that the treatment has an effect in 50\% of people. We can do the same computation as above, but using the information from our previous study to inform our prior (see oanel A in Figure \ref{fig:posteriorDistPrior}).
+In the previous example we used a \emph{flat prior}, meaning that we didn't have any reason to believe that any particular value of \(p_{respond}\) was more or less likely. However, let's say that we had instead started with some previous data: In a previous study, researchers had tested 20 people and found that 10 of them had responded positively. This would have lead us to start with a prior belief that the treatment has an effect in 50\% of people. We can do the same computation as above, but using the information from our previous study to inform our prior (see panel A in Figure \ref{fig:posteriorDistPrior}).
 
 Note that the likelihood and marginal likelihood did not change - only the prior changed. The effect of the change in prior to was to pull the posterior closer to the mass of the new prior, which is centered at 0.5.
 
@@ -4537,7 +4537,7 @@ To compute the standard errors for this analysis, we can use exactly the same eq
 The most commonly used effect size for a comparison between two means is Cohen's d, which (as you may remember from Chapter \ref{ci-effect-size-power}) is an expression of the effect size in terms of standard deviation units. For the t-test estimated using the general linear model outlined above (i.e.~with a single dummy-coded variable), this is expressed as:
 
 \[
-d = \frac{\hat{beta_1}}{\sigma_{residual}}
+d = \frac{\hat{\beta_1}}{\sigma_{residual}}
 \]
 We can obtain these values from the analysis output above, giving us a d = 0.55, which we would generally interpret as a medium sized effect.
 
@@ -4587,7 +4587,7 @@ We see that there does not seem to be much of a difference in mean blood pressur
 ##                  121                  120
 \end{verbatim}
 
-This analysis shows no significant difference. However, this analysis is inappropriate since it assumes that the two samples are independent, when in fact they are not, since the data come from the same individuals. We can plot the data with a line for each individual to show this (see Figure \ref{fig:BPLinePlot}).
+This analysis shows no significant difference. However, this analysis is inappropriate since it assumes that the two samples are independent, when in fact they are not, since the data come from the same individuals. We can plot the data with a line for each individual to show this (see Figure \ref{fig:BPfig}).
 
 In this analysis, what we really care about is whether the blood pressure for each person changed in a systematic way between the two measurements, so another way to represent the data is to compute the difference between the two timepoints for each individual, and then analyze these difference scores rather than analyzing the individual measurements. In Figure \ref{fig:BPDiffHist}, we show a histogram of these difference scores, with a blue line denoting the mean difference.
 
@@ -4913,11 +4913,19 @@ Note that the software automatically generated dummy variables that correspond t
 
 The first thing we want to do is to critique the model to make sure that it is appropriate. One thing we can do is to look at the residuals from the model. In Figure \ref{fig:residualPlot}, we plot the residuals for each individual grouped by diet. There are no obvious differences in the distributions of residuals across conditions, we can go ahead with the analysis.
 
+\begin{figure}
+\centering
 \includegraphics{StatsThinking21_files/figure-latex/residualPlot-1.pdf}
+\caption{\label{fig:residualPlot}Distribution of residuals for for each condition}
+\end{figure}
 
-Another important assumption of the statistical tests that we apply to linear models is that the residuals from the model are normally distributed. The right panel of Figure \ref{fig:diagnosticsPlot} shows a Q-Q (quantile-quantile) plot, which plots the residuals against their expected values based on their quantiles in the normal distribution. If the residuals are normally distributed then the data points should fall along the dashed line --- in this case it looks pretty good, except for a couple of outliers that are apparent here. Because this model is also relatively robust to violations of normality, and these are fairly small, we will go ahead and use the results.
+Another important assumption of the statistical tests that we apply to linear models is that the residuals from the model are normally distributed. The right panel of Figure \ref{fig:diagnosticQQPlot} shows a Q-Q (quantile-quantile) plot, which plots the residuals against their expected values based on their quantiles in the normal distribution. If the residuals are normally distributed then the data points should fall along the dashed line --- in this case it looks pretty good, except for a couple of outliers that are apparent here. Because this model is also relatively robust to violations of normality, and these are fairly small, we will go ahead and use the results.
 
+\begin{figure}
+\centering
 \includegraphics{StatsThinking21_files/figure-latex/diagnosticQQPlot-1.pdf}
+\caption{\label{fig:diagnosticQQPlot}Q-Q plot of actual residual values against theoretical residual values}
+\end{figure}
 
 \hypertarget{test-hypothesis-and-quantify-effect-size}{%
 \subsection{7. Test hypothesis and quantify effect size}\label{test-hypothesis-and-quantify-effect-size}}

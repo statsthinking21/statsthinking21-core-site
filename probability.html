@@ -521,9 +521,9 @@ Figure 6.1: Left: A demonstration of the law of large numbers. A coin was flippe
 P(outcome_i) = \frac{1}{\text{number of possible outcomes}}
 \]</span></p>
 <p>For the six-sided die, the probability of each individual outcome is 1/6.</p>
-<p>This is nice, but de Méré was interested in more complex events, like what happens on multiple dice throws. How do we compute the probability of a complex event (which is a <em>union</em> of single events), like rolling a one on the first <em>or</em> the second throw?<br />
-We represent the union of events mathematically using the <span class="math inline">\(\cup\)</span> symbol: for example, if the probability of rolling a one on the first throw is referred to as <span class="math inline">\(P(Roll1_{throw1})\)</span> and the probability of rolling a one on the second throw is <span class="math inline">\(P(Roll1_{throw2})\)</span>, then the union is referred to as <span class="math inline">\(P(Roll1_{throw1} \cup Roll1_{throw2})\)</span>.</p>
-<p>de Méré thought (incorrectly, as we will see below) that he could simply add together the probabilities of the individual events to compute the probability of the combined event, meaning that the probability of rolling a one on the first or second roll would be computed as follows:</p>
+<p>This is nice, but de Méré was interested in more complex events, like what happens on multiple dice throws. How do we compute the probability of a complex event (which is a <em>union</em> of single events), like rolling a six on the first <em>or</em> the second throw?<br />
+We represent the union of events mathematically using the <span class="math inline">\(\cup\)</span> symbol: for example, if the probability of rolling a six on the first throw is referred to as <span class="math inline">\(P(Roll1_{throw1})\)</span> and the probability of rolling a six on the second throw is <span class="math inline">\(P(Roll1_{throw2})\)</span>, then the union is referred to as <span class="math inline">\(P(Roll1_{throw1} \cup Roll1_{throw2})\)</span>.</p>
+<p>de Méré thought (incorrectly, as we will see below) that he could simply add together the probabilities of the individual events to compute the probability of the combined event, meaning that the probability of rolling a six on the first or second roll would be computed as follows:</p>
 <p><span class="math display">\[
 P(Roll1_{throw1}) = 1/6
 \]</span>
@@ -736,7 +736,7 @@ Figure 6.3: A graphical depiction of conditional probability, showing how the co
 </tbody>
 </table>
 <p>To compute <span class="math inline">\(P(diabetes|inactive)\)</span> we would also need to know the joint probability of being diabetic <em>and</em> inactive, in addition to the simple probabilities of each.</p>
-<p>Based on these joint probabilities, we can compute <span class="math inline">\(P(diabetes|inactive)\)</span>. One way oo do this in a computer program is to first determine the whether the PhysActive variable was equal to “No” for each indivdual, and then take the mean of those truth values. Since TRUE/FALSE values are treated as 1/0 respectively by most programming languages (including R and Python), this allows us to easily identify the probability of a simple event by simply taking the mean of a logical variable representing its truth value. We then use that value to compute the conditional probability, where we find that the probability of someone having diabetes given that they are physically inactive is 0.141.</p>
+<p>Based on these joint probabilities, we can compute <span class="math inline">\(P(diabetes|inactive)\)</span>. One way to do this in a computer program is to first determine the whether the PhysActive variable was equal to “No” for each indivdual, and then take the mean of those truth values. Since TRUE/FALSE values are treated as 1/0 respectively by most programming languages (including R and Python), this allows us to easily identify the probability of a simple event by simply taking the mean of a logical variable representing its truth value. We then use that value to compute the conditional probability, where we find that the probability of someone having diabetes given that they are physically inactive is 0.141.</p>
 </div>
 <div id="independence" class="section level2">
 <h2><span class="header-section-number">6.6</span> Independence</h2>
