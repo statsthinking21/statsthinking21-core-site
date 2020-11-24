@@ -127,7 +127,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{Draft: 2020-11-23}
+    \date{Draft: 2020-11-24}
 
 \usepackage{booktabs}
 \usepackage{longtable}
@@ -194,7 +194,7 @@ I apologize up front that the datasets are heavily US-centric. This is primarily
 
 The only way to really learn statistics is to \emph{do} statistics. While historically many statistics courses were taught using point-and-click statistical software, it is increasingly common for statistical education to use open-source languages in which students can code their own analyses. I think that being able to code one's analyses is essential in order to gain a deep appreciation for statistical analysis, which is why the students in my course at Stanford are expected to learn to use the R statistical programming language to analyze data, alongside the theoretical knowledge that they learn from this book.
 
-There are two online companions to this textbook that can help the reader get started learning to program. One of them,
+There are two online companions to this textbook that can help the reader get started learning to program; \href{https://statsthinking21.github.io/statsthinking21-R-site/}{one focuses on the R programming language}, and \href{https://statsthinking21.github.io/statsthinking21-python/}{another focuses on the Python language}. Both are currently works in progress -- please feel free to contribute!
 
 \hypertarget{an-open-source-book}{%
 \section{An open source book}\label{an-open-source-book}}
@@ -206,14 +206,14 @@ The book is licensed according to the \href{https://creativecommons.org/licenses
 \hypertarget{acknowledgements}{%
 \section{Acknowledgements}\label{acknowledgements}}
 
-I'd first like to thank Susan Holmes, who first inspired me to consider writing my own statistics book. Anna Khazenzon provided early comments and inspiration. Lucy King provided detailed comments and edits on the entire book, and helped clean up the code so that it was consistent with the Tidyverse. Michael Henry Tessler provided very helpful comments on the Bayesian analysis chapter. Particular thanks also go to Yihui Xie, creator of the Bookdown package, for improving the book's use of Bookdown features (including the ability for users to directly generate edits via the Edit button).
+I'd first like to thank Susan Holmes, who first inspired me to consider writing my own statistics book. Anna Khazenzon provided early comments and inspiration. Lucy King provided detailed comments and edits on the entire book, and helped clean up the code so that it was consistent with the Tidyverse. Michael Henry Tessler provided very helpful comments on the Bayesian analysis chapter. Particular thanks also go to Yihui Xie, creator of the Bookdown package, for improving the book's use of Bookdown features (including the ability for users to directly generate edits via the Edit button). Finally, Jeanette Mumford provided very helpful suggestions on the book.
 
 I'd also like to thank others who provided helpful comments and suggestions: Athanassios Protopapas, Wesley Tansey, Jack Van Horn, Thor Aspelund.
 
 Thanks to the following Twitter users for helpful suggestions: @enoriverbend
 
 Thanks to the man individuals who have contributed edits or issues by Github or email:
-Isis Anderson, Larissa Bersh, Isil Bilgin, Forrest Dollins, Chuanji Gao, Nate Guimond, Alan He, Wu Jianxiao, James Kent, Dan Kessler, Philipp Kuhnke, Leila Madeleine, Kirsten Mettler, Shanaathanan Modchalingam, Martijn Stegeman, Mehdi Rahim, Jassary Rico-Herrera, Mingquian Tan, Wenjin Tao, Laura Tobar, Albane Valenzuela, Alexander Wang, Michael Waskom,
+Isis Anderson, Larissa Bersh, Isil Bilgin, Forrest Dollins, Chuanji Gao, Nate Guimond, Alan He, Wu Jianxiao, James Kent, Dan Kessler, Philipp Kuhnke, Leila Madeleine, Ryan McCormick, Kirsten Mettler, Shanaathanan Modchalingam, Martijn Stegeman, Mehdi Rahim, Jassary Rico-Herrera, Mingquian Tan, Wenjin Tao, Laura Tobar, Albane Valenzuela, Alexander Wang, Michael Waskom,
 barbyh, basicv8vc, brettelizabeth, codetrainee, dzonimn, epetsen, carlosivanr, hktang, jiamingkong, khtan, kiyofumi-kan, ttaweel.
 
 Special thanks to Isil Bilgin for assistance in fixing many of these issues.
@@ -407,14 +407,14 @@ It is usually impossible to measure a construct without some amount of error. In
 
 Sometimes there is a standard against which other measurements can be tested, which we might refer to as a ``gold standard'' -- for example, measurement of sleep can be done using many different devices (such as devices that measure movement in bed), but they are generally considered inferior to the gold standard of polysomnography (which uses measurement of brain waves to quantify the amount of time a person spends in each stage of sleep). Often the gold standard is more difficult or expensive to perform, and the cheaper method is used even though it might have greater error.
 
-When we think about what makes a good measurement, we usually distinguish two different aspects of a good measurement.
+When we think about what makes a good measurement, we usually distinguish two different aspects of a good measurement: it should be \emph{reliable}, and it should be \emph{valid}.
 
 \hypertarget{reliability}{%
 \subsection{Reliability}\label{reliability}}
 
 Reliability refers to the consistency of our measurements. One common form of reliability, known as ``test-retest reliability'', measures how well the measurements agree if the same measurement is performed twice. For example, I might give you a questionnaire about your attitude towards statistics today, repeat this same questionnaire tomorrow, and compare your answers on the two days; we would hope that they would be very similar to one another, unless something happened in between the two tests that should have changed your view of statistics (like reading this book!).
 
-Another way to assess reliability comes in cases where the data includes subjective judgments. For example, let's say that a researcher wants to determine whether a treatment changes how well an autistic child interacts with other children, which is measured by having experts watch the child and rate their interactions with the other children. In this case we would like to make sure that the answers don't depend on the individual rater --- that is, we would like for there to be high \emph{inter-rater reliability}. This can be assessed by having more than one rater perform the rating, and then comparing their ratings to make sure that they agree well with one another.
+Another way to assess reliability comes in cases where the data include subjective judgments. For example, let's say that a researcher wants to determine whether a treatment changes how well an autistic child interacts with other children, which is measured by having experts watch the child and rate their interactions with the other children. In this case we would like to make sure that the answers don't depend on the individual rater --- that is, we would like for there to be high \emph{inter-rater reliability}. This can be assessed by having more than one rater perform the rating, and then comparing their ratings to make sure that they agree well with one another.
 
 Reliability is important if we want to compare one measurement to another. The relationship between two different variables can't be any stronger than the relationship between either of the variables and itself (i.e., its reliability). This means that an unreliable measure can never have a strong statistical relationship with any other measure. For this reason, researchers developing a new measurement (such as a new survey) will often go to great lengths to establish and improve its reliability.
 
@@ -518,7 +518,7 @@ When we summarize data, we are necessarily throwing away information, and one mi
 
 We summarize data in general because it provides us with a way to \emph{generalize} - that is, to make general statements that extend beyond specific observations. The importance of generalization was highlighted by the writer Jorge Luis Borges in his short story ``Funes the Memorious'', which describes an individual who loses the ability to forget. Borges focuses in on the relation between generalization (i.e.~throwing away data) and thinking: ``To think is to forget a difference, to generalize, to abstract. In the overly replete world of Funes, there were nothing but details.''
 
-Psychologists have long studied all of the ways in which generalization is central to thinking. One example is categorization: We are able to easily recognize different examples of the category of ``birds'' even though the individual examples may be very different in their surface features (such as an ostrich, a robin, and a chicken). Importantly, generalization lets us make predictions about these individuals -- in the case of birds, we can predict that they can fly and eat worms, and that they probably can't drive a car or speak English. These predictions won't always be right, but they are often good enough to be useful in the world.
+Psychologists have long studied all of the ways in which generalization is central to thinking. One example is categorization: We are able to easily recognize different examples of the category of ``birds'' even though the individual examples may be very different in their surface features (such as an ostrich, a robin, and a chicken). Importantly, generalization lets us make predictions about these individuals -- in the case of birds, we can predict that they can fly and eat seeds, and that they probably can't drive a car or speak English. These predictions won't always be right, but they are often good enough to be useful in the world.
 
 \hypertarget{summarizing-data-using-tables}{%
 \section{Summarizing data using tables}\label{summarizing-data-using-tables}}
@@ -577,7 +577,7 @@ This lets us see that 45.4 percent of the individuals in the NHANES sample said 
 \hypertarget{cumulative-distributions}{%
 \subsection{Cumulative distributions}\label{cumulative-distributions}}
 
-The PhysActive variable that we examined above only had two possible values, but often we wish to summarize data that can have many more possible values. When those values are quantitative, then one useful way to summarize them is via what we call a \emph{cumulative} frequency representation: rather than asking how many observations take on a specific value, we ask how many have a value of \emph{at least} some specific value.
+The PhysActive variable that we examined above only had two possible values, but often we wish to summarize data that can have many more possible values. When those values are quantitative, then one useful way to summarize them is via what we call a \emph{cumulative} frequency representation: rather than asking how many observations take on a specific value, we ask how many have a value of \emph{at most} some specific value.
 
 Let's look at another variable in the NHANES dataset, called SleepHrsNight which records how many hours the participant reports sleeping on usual weekdays. Let's create a frequency table as we did above, after removing anyone with missing data for this question.
 
