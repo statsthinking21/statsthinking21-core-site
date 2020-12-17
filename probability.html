@@ -463,16 +463,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>The <strong>sample space</strong> is the set of possible outcomes for an experiment. We represent these by listing them within a set of squiggly brackets. For a coin flip, the sample space is {heads, tails}. For a six-sided die, the sample space is each of the possible numbers that can appear: {1,2,3,4,5,6}. For the amount of time it takes to get to work, the sample space is all possible real numbers greater than zero (since it can’t take a negative amount of time to get somewhere, at least not yet). We won’t bother trying to write out all of those numbers within the brackets.</li>
 <li>An <strong>event</strong> is a subset of the sample space. In principle it could be one or more of possible outcomes in the sample space, but here we will focus primarily on <em>elementary events</em> which consist of exactly one possible outcome. For example, this could be obtaining heads in a single coin flip, rolling a 4 on a throw of the die, or taking 21 minutes to get home by the new route.</li>
 </ul>
-<p>Now that we have those definitions, we can outline the formal features of a probability, which were first defined by the Russian mathematician Andrei Kolmogorov. These are the features that a value <em>has</em> to have if it is going to be a probability. If <span class="math inline">\(P(X_i)\)</span> is the probability of event <span class="math inline">\(X_i\)</span>:</p>
+<p>Now that we have those definitions, we can outline the formal features of a probability, which were first defined by the Russian mathematician Andrei Kolmogorov. These are the features that a value <em>has</em> to have if it is going to be a probability. Let’s say that we have a sample space defined by N independent events, <span class="math inline">\({E_1, E_2, ... , E_N}\)</span>, and <span class="math inline">\(X\)</span> is a random variable denoting which of the evets has happend. <span class="math inline">\(P(X=E_i)\)</span> is the probability of event <span class="math inline">\(i\)</span>:</p>
 <ul>
-<li>Probability cannot be negative: <span class="math inline">\(P(X_i) \ge 0\)</span></li>
-<li>The total probability of all outcomes in the sample space is 1; that is, if we take the probability of each element in the sample space and add them up, they <em>must</em> sum to 1. We can express this using the summation symbol <span class="math inline">\(\sum\)</span>:
+<li>Probability cannot be negative: <span class="math inline">\(P(X=E_i) \ge 0\)</span></li>
+<li>The total probability of all outcomes in the sample space is 1; that is, if the , if we take the probability of each Ei and add them up, they must sum to 1. We can express this using the summation symbol <span class="math inline">\(\sum\)</span>:
 <span class="math display">\[
-\sum_{i=1}^N{P(X_i)} = P(X_1) + P(X_2) + ... + P(X_N) = 1
+\sum_{i=1}^N{P(X=E_i)} = P(X=E_1) + P(X=E_2) + ... + P(X=E_N) = 1
 \]</span>
 This is interpreted as saying “Take all of the N elementary events, which we have labeled from 1 to N, and add up their probabilities. These must sum to one.”<br />
 </li>
-<li>The probability of any individual event cannot be greater than one: <span class="math inline">\(P(X_i)\le 1\)</span>. This is implied by the previous point; since they must sum to one, and they can’t be negative, then any particular probability must be less than or equal to one.</li>
+<li>The probability of any individual event cannot be greater than one: <span class="math inline">\(P(X=E_i)\le 1\)</span>. This is implied by the previous point; since they must sum to one, and they can’t be negative, then any particular probability must be less than or equal to one.</li>
 </ul>
 </div>
 <div id="how-do-we-determine-probabilities" class="section level2">
