@@ -209,8 +209,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="fitting-models.html"><a href="fitting-models.html#what-makes-a-model-good"><i class="fa fa-check"></i><b>5.3</b> What makes a model “good”?</a></li>
 <li class="chapter" data-level="5.4" data-path="fitting-models.html"><a href="fitting-models.html#overfitting"><i class="fa fa-check"></i><b>5.4</b> Can a model be too good?</a></li>
-<li class="chapter" data-level="5.5" data-path="fitting-models.html"><a href="fitting-models.html#the-simplest-model-the-mean"><i class="fa fa-check"></i><b>5.5</b> The simplest model: The mean</a><ul>
-<li class="chapter" data-level="5.5.1" data-path="fitting-models.html"><a href="fitting-models.html#the-median"><i class="fa fa-check"></i><b>5.5.1</b> The median</a></li>
+<li class="chapter" data-level="5.5" data-path="fitting-models.html"><a href="fitting-models.html#summarizing-data-using-the-mean"><i class="fa fa-check"></i><b>5.5</b> Summarizing data using the mean</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="fitting-models.html"><a href="fitting-models.html#summarizing-data-robustly-using-the-median"><i class="fa fa-check"></i><b>5.5.1</b> Summarizing data robustly using the median</a></li>
 </ul></li>
 <li class="chapter" data-level="5.6" data-path="fitting-models.html"><a href="fitting-models.html#the-mode"><i class="fa fa-check"></i><b>5.6</b> The mode</a></li>
 <li class="chapter" data-level="5.7" data-path="fitting-models.html"><a href="fitting-models.html#variability-how-well-does-the-mean-fit-the-data"><i class="fa fa-check"></i><b>5.7</b> Variability: How well does the mean fit the data?</a></li>
@@ -463,7 +463,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>The <strong>sample space</strong> is the set of possible outcomes for an experiment. We represent these by listing them within a set of squiggly brackets. For a coin flip, the sample space is {heads, tails}. For a six-sided die, the sample space is each of the possible numbers that can appear: {1,2,3,4,5,6}. For the amount of time it takes to get to work, the sample space is all possible real numbers greater than zero (since it can’t take a negative amount of time to get somewhere, at least not yet). We won’t bother trying to write out all of those numbers within the brackets.</li>
 <li>An <strong>event</strong> is a subset of the sample space. In principle it could be one or more of possible outcomes in the sample space, but here we will focus primarily on <em>elementary events</em> which consist of exactly one possible outcome. For example, this could be obtaining heads in a single coin flip, rolling a 4 on a throw of the die, or taking 21 minutes to get home by the new route.</li>
 </ul>
-<p>Now that we have those definitions, we can outline the formal features of a probability, which were first defined by the Russian mathematician Andrei Kolmogorov. These are the features that a value <em>has</em> to have if it is going to be a probability. Let’s say that we have a sample space defined by N independent events, <span class="math inline">\({E_1, E_2, ... , E_N}\)</span>, and <span class="math inline">\(X\)</span> is a random variable denoting which of the evets has happend. <span class="math inline">\(P(X=E_i)\)</span> is the probability of event <span class="math inline">\(i\)</span>:</p>
+<p>Now that we have those definitions, we can outline the formal features of a probability, which were first defined by the Russian mathematician Andrei Kolmogorov. These are the features that a value <em>has</em> to have if it is going to be a probability. Let’s say that we have a sample space defined by N independent events, <span class="math inline">\({E_1, E_2, ... , E_N}\)</span>, and <span class="math inline">\(X\)</span> is a random variable denoting which of the events has occurred. <span class="math inline">\(P(X=E_i)\)</span> is the probability of event <span class="math inline">\(i\)</span>:</p>
 <ul>
 <li>Probability cannot be negative: <span class="math inline">\(P(X=E_i) \ge 0\)</span></li>
 <li>The total probability of all outcomes in the sample space is 1; that is, if the , if we take the probability of each Ei and add them up, they must sum to 1. We can express this using the summation symbol <span class="math inline">\(\sum\)</span>:
@@ -472,7 +472,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 \]</span>
 This is interpreted as saying “Take all of the N elementary events, which we have labeled from 1 to N, and add up their probabilities. These must sum to one.”<br />
 </li>
-<li>The probability of any individual event cannot be greater than one: <span class="math inline">\(P(X=E_i)\le 1\)</span>. This is implied by the previous point; since they must sum to one, and they can’t be negative, then any particular probability must be less than or equal to one.</li>
+<li>The probability of any individual event cannot be greater than one: <span class="math inline">\(P(X=E_i)\le 1\)</span>. This is implied by the previous point; since they must sum to one, and they can’t be negative, then any particular probability cannot exceed one.</li>
 </ul>
 </div>
 <div id="how-do-we-determine-probabilities" class="section level2">
@@ -522,19 +522,19 @@ P(outcome_i) = \frac{1}{\text{number of possible outcomes}}
 \]</span></p>
 <p>For the six-sided die, the probability of each individual outcome is 1/6.</p>
 <p>This is nice, but de Méré was interested in more complex events, like what happens on multiple dice throws. How do we compute the probability of a complex event (which is a <em>union</em> of single events), like rolling a six on the first <em>or</em> the second throw?<br />
-We represent the union of events mathematically using the <span class="math inline">\(\cup\)</span> symbol: for example, if the probability of rolling a six on the first throw is referred to as <span class="math inline">\(P(Roll1_{throw1})\)</span> and the probability of rolling a six on the second throw is <span class="math inline">\(P(Roll1_{throw2})\)</span>, then the union is referred to as <span class="math inline">\(P(Roll1_{throw1} \cup Roll1_{throw2})\)</span>.</p>
+We represent the union of events mathematically using the <span class="math inline">\(\cup\)</span> symbol: for example, if the probability of rolling a six on the first throw is referred to as <span class="math inline">\(P(Roll6_{throw1})\)</span> and the probability of rolling a six on the second throw is <span class="math inline">\(P(Roll6_{throw2})\)</span>, then the union is referred to as <span class="math inline">\(P(Roll6_{throw1} \cup Roll6_{throw2})\)</span>.</p>
 <p>de Méré thought (incorrectly, as we will see below) that he could simply add together the probabilities of the individual events to compute the probability of the combined event, meaning that the probability of rolling a six on the first or second roll would be computed as follows:</p>
 <p><span class="math display">\[
-P(Roll1_{throw1}) = 1/6
+P(Roll6_{throw1}) = 1/6
 \]</span>
 <span class="math display">\[
-P(Roll1_{throw2}) = 1/6
+P(Roll6_{throw2}) = 1/6
 \]</span></p>
 <p><span class="math display">\[
 de Méré&#39;s \ error:
 \]</span>
 <span class="math display">\[
-P(Roll1_{throw1} \cup Roll1_{throw2}) = P(Roll1_{throw1}) + P(Roll1_{throw2}) = 1/6 + 1/6 = 1/3
+P(Roll6_{throw1} \cup Roll6_{throw2}) = P(Roll6_{throw1}) + P(Roll6_{throw2}) = 1/6 + 1/6 = 1/3
 \]</span></p>
 <p>de Méré reasoned based on this incorrect assumption that the probability of at least one six in four rolls was the sum of the probabilities on each of the individual throws: <span class="math inline">\(4*\frac{1}{6}=\frac{2}{3}\)</span>. Similarly, he reasoned that since the probability of a double-six when throwing two dice is 1/36, then the probability of at least one double-six on 24 rolls of two dice would be <span class="math inline">\(24*\frac{1}{36}=\frac{2}{3}\)</span>. Yet, while he consistently won money on the first bet, he lost money on the second bet. What gives?</p>
 <p>To understand de Méré’s error, we need to introduce some of the rules of probability theory. The first is the <em>rule of subtraction</em>, which says that the probability of some event A <em>not</em> happening is one minus the probability of the event happening:</p>
@@ -543,7 +543,7 @@ P(\neg A) = 1 - P(A)
 \]</span></p>
 <p>where <span class="math inline">\(\neg A\)</span> means “not A”. This rule derives directly from the axioms that we discussed above; because A and <span class="math inline">\(\neg A\)</span> are the only possible outcomes, then their total probability must sum to 1. For example, if the probability of rolling a one in a single throw is <span class="math inline">\(\frac{1}{6}\)</span>, then the probability of rolling anything other than a one is <span class="math inline">\(\frac{5}{6}\)</span>.</p>
 <p>A second rule tells us how to compute the probability of a conjoint event – that is, the probability that both of two events will occur. We refer to this as an <em>intersection</em>, which is signified by the <span class="math inline">\(\cap\)</span> symbol; thus, <span class="math inline">\(P(A \cap B)\)</span> means the probability that both A and B will occur.</p>
-<p>This version of the rule tells us how to compute this quantity in the special case when the two events are independent from one another; we will learn later exactly what the concept of <em>independence</em> means, but for now we can just take it for granted that the two die throws are independent events. We compute the probability of the union of two independent events by simply multiplying the probabilities of the individual events:</p>
+<p>This version of the rule tells us how to compute this quantity in the special case when the two events are independent from one another; we will learn later exactly what the concept of <em>independence</em> means, but for now we can just take it for granted that the two die throws are independent events. We compute the probability of the intersection of two independent events by simply multiplying the probabilities of the individual events:</p>
 <p><span class="math display">\[
 P(A \cap B) = P(A) * P(B)\ \text{if and only if A and B are independent}
 \]</span>
@@ -554,18 +554,18 @@ P(A \cup B) = P(A) + P(B) - P(A \cap B)
 \]</span>
 In a sense, this prevents us from counting those instances twice, and that’s what distinguishes the rule from de Méré’s incorrect computation. Let’s say that we want to find the probability of rolling 6 on either of two throws. According to our rules:</p>
 <p><span class="math display">\[
-P(Roll1_{throw1} \cup Roll1_{throw2}) = P(Roll1_{throw1}) + P(Roll1_{throw2}) - P(Roll1_{throw1} \cap Roll1_{throw2}) 
+P(Roll6_{throw1} \cup Roll6_{throw2}) = P(Roll6_{throw1}) + P(Roll6_{throw2}) - P(Roll6_{throw1} \cap Roll6_{throw2}) 
 \]</span>
 <span class="math display">\[
 = \frac{1}{6} + \frac{1}{6} - \frac{1}{36} = \frac{11}{36}
 \]</span></p>
 <div class="figure"><span id="fig:ThrowMatrix"></span>
-<img src="StatsThinking21_files/figure-html/ThrowMatrix-1.png" alt="Each cell in this matrix represents one outcome of two throws of a die, with the columns representing the first throw and the rows representing the second throw. Cells shown in red represent the cells with a one in either the first or second throw; the rest are shown in blue." width="384" height="50%" />
+<img src="StatsThinking21_files/figure-html/ThrowMatrix-1.png" alt="Each cell in this matrix represents one outcome of two throws of a die, with the columns representing the first throw and the rows representing the second throw. Cells shown in red represent the cells with a six in either the first or second throw; the rest are shown in blue." width="384" height="50%" />
 <p class="caption">
-Figure 6.2: Each cell in this matrix represents one outcome of two throws of a die, with the columns representing the first throw and the rows representing the second throw. Cells shown in red represent the cells with a one in either the first or second throw; the rest are shown in blue.
+Figure 6.2: Each cell in this matrix represents one outcome of two throws of a die, with the columns representing the first throw and the rows representing the second throw. Cells shown in red represent the cells with a six in either the first or second throw; the rest are shown in blue.
 </p>
 </div>
-<p>Let’s use a graphical depiction to get a different view of this rule. Figure <a href="probability.html#fig:ThrowMatrix">6.2</a> shows a matrix representing all possible combinations of results across two throws, and highlights the cells that involve a one on either the first or second throw. If you count up the cells in red you will see that there are 11 such cells. This shows why the addition rule gives a different answer from de Méré’s; if we were to simply add together the probabilities for the two throws as he did, then we would count (1,1) towards both, when it should really only be counted once.</p>
+<p>Let’s use a graphical depiction to get a different view of this rule. Figure <a href="probability.html#fig:ThrowMatrix">6.2</a> shows a matrix representing all possible combinations of results across two throws, and highlights the cells that involve a six on either the first or second throw. If you count up the cells in red you will see that there are 11 such cells. This shows why the addition rule gives a different answer from de Méré’s; if we were to simply add together the probabilities for the two throws as he did, then we would count (1,1) towards both, when it should really only be counted once.</p>
 </div>
 <div id="solving-de-mérés-problem" class="section level3">
 <h3><span class="header-section-number">6.2.4</span> Solving de Méré’s problem</h3>
@@ -744,27 +744,107 @@ Figure 6.3: A graphical depiction of conditional probability, showing how the co
 <p><span class="math display">\[
 P(A|B) = P(A)
 \]</span></p>
-<p>That is, the probability of A given some value of B is just the same as the overall probability of A. Looking at it this way, we see that many cases of what we would call “independence” in the real world are not actually statistically independent. For example, there is currently a move by a small group of California citizens to declare a new independent state called Jefferson, which would comprise a number of counties in northern California and Oregon. If this were to happen, then the probability that a current California resident would now live in the state of Jefferson would be <span class="math inline">\(P(\text{Jeffersonian})=0.014\)</span>, whereas the probability that they would remain a California resident would be <span class="math inline">\(P(\text{Californian})=0.986\)</span>. The new states might be politically independent, but they would <em>not</em> be statistically independent, because <span class="math inline">\(P(\text{Californian|Jeffersonian}) = 0\)</span>! That is, while independence in common language often refers to sets that are exclusive, statistical independence refers to the case where one cannot predict anything about one variable from the value of another variable. For example, knowing a person’s hair color is unlikely to tell you whether they prefer chocolate or strawberry ice cream.</p>
-<p>Let’s look at another example, using the NHANES data: Are physical health and mental health independent of one another? NHANES includes two relevant questions: <em>PhysActive</em>, which asks whether the individual is physically active, and <em>DaysMentHlthBad</em>, which asks how many days out of the last 30 that the individual experienced bad mental health. Let’s consider anyone who had more than 7 days of bad mental health in the last month to be in bad mental health. Based on this, we can define a new variable called <em>badMentalHealth</em> as a logical variable telling whether each person had more than 7 days of bad mental health or not. Using this new variable, we can then determine whether mental health and physical activity are independent by asking whether the simple probability of bad mental health is different from the conditional probability of bad mental health given that one is physically active.</p>
+<p>That is, the probability of A given some value of B is just the same as the overall probability of A. Looking at it this way, we see that many cases of what we would call “independence” in the real world are not actually statistically independent. For example, there is currently a move by a small group of California citizens to declare a new independent state called Jefferson, which would comprise a number of counties in northern California and Oregon. If this were to happen, then the probability that a current California resident would now live in the state of Jefferson would be <span class="math inline">\(P(\text{Jeffersonian})=0.014\)</span>, whereas the probability that they would remain a California resident would be <span class="math inline">\(P(\text{Californian})=0.986\)</span>. The new states might be politically independent, but they would <em>not</em> be statistically independent, because if we know that a person is Jeffersonian, then we can be sure that they are <em>not</em> Californian! That is, while independence in common language often refers to sets that are exclusive, statistical independence refers to the case where one cannot predict anything about one variable from the value of another variable. For example, knowing a person’s hair color is unlikely to tell you whether they prefer chocolate or strawberry ice cream.</p>
+<p>Let’s look at another example, using the NHANES data: Are physical health and mental health independent of one another? NHANES includes two relevant questions: <em>PhysActive</em>, which asks whether the individual is physically active, and <em>DaysMentHlthBad</em>, which asks how many days out of the last 30 that the individual experienced bad mental health. Let’s consider anyone who had more than 7 days of bad mental health in the last month to be in bad mental health. Based on this, we can define a new variable called <em>badMentalHealth</em> as a logical variable telling whether each person had more than 7 days of bad mental health or not. We can first summarize the data to show how many individuals fall into each combination of the two variables:</p>
 <table>
 <thead>
 <tr class="header">
 <th align="left">PhysActive</th>
-<th align="right">badMentalHealth</th>
+<th align="right">Bad Mental Health</th>
+<th align="right">Good Mental Health</th>
+<th align="right">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">No</td>
+<td align="right">414</td>
+<td align="right">1664</td>
+<td align="right">2078</td>
+</tr>
+<tr class="even">
+<td align="left">Yes</td>
+<td align="right">292</td>
+<td align="right">1926</td>
+<td align="right">2218</td>
+</tr>
+<tr class="odd">
+<td align="left">Total</td>
+<td align="right">706</td>
+<td align="right">3590</td>
+<td align="right">4296</td>
+</tr>
+</tbody>
+</table>
+<p>We can divide by the total number of observations to create a table of proportions:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">PhysActive</th>
+<th align="right">Bad Mental Health</th>
+<th align="right">Good Mental Health</th>
+<th align="right">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">No</td>
+<td align="right">0.10</td>
+<td align="right">0.39</td>
+<td align="right">0.48</td>
+</tr>
+<tr class="even">
+<td align="left">Yes</td>
+<td align="right">0.07</td>
+<td align="right">0.45</td>
+<td align="right">0.52</td>
+</tr>
+<tr class="odd">
+<td align="left">Total</td>
+<td align="right">0.16</td>
+<td align="right">0.84</td>
+<td align="right">1.00</td>
+</tr>
+</tbody>
+</table>
+<p>This shows us the proportion of all observations that fall into each cell. However, what we want to know here is the conditional probability of bad mental health, depending on whether one is physically active or not. To compute this, we divide each physical activity group by its total number of observations, so that each row now sums to one:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">PhysActive</th>
+<th align="right">Bad Mental Health</th>
+<th align="right">Good Mental Health</th>
+<th align="right">Total</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left">No</td>
 <td align="right">0.20</td>
+<td align="right">0.80</td>
+<td align="right">1</td>
 </tr>
 <tr class="even">
 <td align="left">Yes</td>
 <td align="right">0.13</td>
+<td align="right">0.87</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Total</td>
+<td align="right">0.16</td>
+<td align="right">0.84</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Now we see th</td>
+<td align="right">e conditional probab</td>
+<td align="right">ilities of bad or goo</td>
+<td align="right">d mental health for each physical activity group (in the top two rows) along with the overall probability of good or bad mental health in the third row. To determine whether mental health and physical activity are independent, we would compare the simple probability of bad mental health (in the third row) to the conditional probability of bad mental health given that one is physically active (in the second row).</td>
 </tr>
 </tbody>
 </table>
-<p>The overall probability of bad mental health <span class="math inline">\(P(\text{bad mental health})\)</span> is 0.16 while the conditional probability <span class="math inline">\(P(\text{bad mental health|physically active})\)</span> is 0.13. Thus, it seems that the conditional probability is somewhat smaller than the overall probability, suggesting that they are not independent, though we can’t know for sure just by looking at the numbers, since these numbers might be different due to random variability in our sample. Later in the course we will encounter tools that will let us more directly test whether two variables are independent.</p>
+<p>The overall probability of bad mental health <span class="math inline">\(P(\text{bad mental health})\)</span> is 0.16 while the conditional probability <span class="math inline">\(P(\text{bad mental health|physically active})\)</span> is 0.13. Thus, it seems that the conditional probability is somewhat smaller than the overall probability, suggesting that they are not independent, though we can’t know for sure just by looking at the numbers, since these numbers might be different due to random variability in our sample. Later in the book we will discuss statistical tools that will let us directly test whether two variables are independent.</p>
 </div>
 <div id="bayestheorem" class="section level2">
 <h2><span class="header-section-number">6.7</span> Reversing a conditional probability: Bayes’ rule</h2>
