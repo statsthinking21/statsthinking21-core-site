@@ -515,7 +515,7 @@ Figure 14.2: The linear regression solution for the study time data is shown in 
 <p>The concept of <em>regression to the mean</em> was one of Galton’s essential contributions to science, and it remains a critical point to understand when we interpret the results of experimental data analyses. Let’s say that we want to study the effects of a reading intervention on the performance of poor readers. To test our hypothesis, we might go into a school and recruit those individuals in the bottom 25% of the distribution on some reading test, administer the intervention, and then examine their performance on the test after the intervention. Let’s say that the intervention actually has no effect, such that reading scores for each individual are simply independent samples from a normal distribution. We can simulate this:</p>
 <table>
 <caption>
-<span id="tab:unnamed-chunk-103">Table 14.1: </span>Reading scores for Test 1 (which is lower, because it was the basis for selecting the students) and Test 2 (which is higher because it was not related to Test 1).
+<span id="tab:unnamed-chunk-104">Table 14.1: </span>Reading scores for Test 1 (which is lower, because it was the basis for selecting the students) and Test 2 (which is higher because it was not related to Test 1).
 </caption>
 <thead>
 <tr>
@@ -790,7 +790,7 @@ Figure 14.5: Q-Q plotsof normal (left) and non-normal (right) data. The line sho
 <p>As an example, let’s take a sample of 48 children from NHANES and fit a regression model for weight that includes several regressors (age, height, hours spent watching TV and using the computer, and household income) along with their interactions.</p>
 <table>
 <caption>
-<span id="tab:unnamed-chunk-110">Table 14.2: </span>Root mean squared error for model applied to original data and new data, and after shuffling the order of the y variable (in essence making the null hypothesis true)
+<span id="tab:unnamed-chunk-111">Table 14.2: </span>Root mean squared error for model applied to original data and new data, and after shuffling the order of the y variable (in essence making the null hypothesis true)
 </caption>
 <thead>
 <tr>
@@ -844,7 +844,7 @@ Figure 14.6: A schematic of the cross-validation procedure.
 <p>Let’s see how that would work for our weight prediction example. In this case we will perform 12-fold cross-validation, which means that we will break the data into 12 subsets, and then fit the model 12 times, in each case leaving out one of the subsets and then testing the model’s ability to accurately predict the value of the dependent variable for those held-out data points. Most statistical software provides tools to apply cross-validation to one’s data. Using this function we can run cross-validation on 100 samples from the NHANES dataset, and compute the RMSE for cross-validation, along with the RMSE for the original data and a new dataset, as we computed above.</p>
 <table>
 <caption>
-<span id="tab:unnamed-chunk-111">Table 14.3: </span>R-squared from cross-validation and new data, showing that cross-validation provides a reasonable estimate of the model’s performance on new data.
+<span id="tab:unnamed-chunk-112">Table 14.3: </span>R-squared from cross-validation and new data, showing that cross-validation provides a reasonable estimate of the model’s performance on new data.
 </caption>
 <thead>
 <tr>

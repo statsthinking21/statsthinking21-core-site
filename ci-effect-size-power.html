@@ -486,14 +486,21 @@ CI = \bar{X} \pm t_{crit}*SE
 <p>where <span class="math inline">\(t_{crit}\)</span> is the critical t value.
 For the NHANES weight example (with sample size of 250), the confidence interval would be 79.92 +/- 1.97 * 1.41 [77.15 - 82.69].</p>
 <p>Remember that this doesn’t tell us anything about the probability of the true population value falling within this interval, since it is a fixed parameter (which we know is 81.77 because we have the entire population in this case) and it either does or does not fall within this specific interval (in this case, it does). Instead, it tells us that in the long run, if we compute the confidence interval using this procedure, 95% of the time that confidence interval will capture the true population parameter.</p>
+<p>We can see this using the NHANES data as our population; in this case, we know the true value of the population parameter, so we can see how often the confidence interval ends up capturing that value across many different samples. Figure <a href="ci-effect-size-power.html#fig:CIcoverage">10.1</a> shows the confidence intervals for estimated mean weight computed for 100 samples from the NHANES dataset. Of these, 95 captured the true population mean weight, showing that the confidence interval procedure performs as it should.</p>
+<div class="figure"><span id="fig:CIcoverage"></span>
+<img src="StatsThinking21_files/figure-html/CIcoverage-1.png" alt="Samples were repeatedly taken from the NHANES dataset, and the 95% confidence interval of the mean was computed for each sample.  Intervals shown in red did not capture the true population mean (shown as the dotted line)." width="768" height="50%" />
+<p class="caption">
+Figure 10.1: Samples were repeatedly taken from the NHANES dataset, and the 95% confidence interval of the mean was computed for each sample. Intervals shown in red did not capture the true population mean (shown as the dotted line).
+</p>
+</div>
 </div>
 <div id="confidence-intervals-and-sample-size" class="section level3">
 <h3><span class="header-section-number">10.1.3</span> Confidence intervals and sample size</h3>
-<p>Because the standard error decreases with sample size, the confidence interval should get narrower as the sample size increases, providing progressively tighter bounds on our estimate. Figure <a href="ci-effect-size-power.html#fig:CISampSize">10.1</a> shows an example of how the confidence interval would change as a function of sample size for the weight example. From the figure it’s evident that the confidence interval becomes increasingly tighter as the sample size increases, but increasing samples provide diminishing returns, consistent with the fact that the denominator of the confidence interval term is proportional to the square root of the sample size.</p>
+<p>Because the standard error decreases with sample size, the confidence interval should get narrower as the sample size increases, providing progressively tighter bounds on our estimate. Figure <a href="ci-effect-size-power.html#fig:CISampSize">10.2</a> shows an example of how the confidence interval would change as a function of sample size for the weight example. From the figure it’s evident that the confidence interval becomes increasingly tighter as the sample size increases, but increasing samples provide diminishing returns, consistent with the fact that the denominator of the confidence interval term is proportional to the square root of the sample size.</p>
 <div class="figure"><span id="fig:CISampSize"></span>
 <img src="StatsThinking21_files/figure-html/CISampSize-1.png" alt="An example of the effect of sample size on the width of the confidence interval for the mean." width="384" height="50%" />
 <p class="caption">
-Figure 10.1: An example of the effect of sample size on the width of the confidence interval for the mean.
+Figure 10.2: An example of the effect of sample size on the width of the confidence interval for the mean.
 </p>
 </div>
 </div>
@@ -508,7 +515,7 @@ Figure 10.1: An example of the effect of sample size on the width of the confide
 ## 
 ## Intervals : 
 ## Level     Percentile     
-## 95%   (77, 83 )  
+## 95%   (78, 84 )  
 ## Calculations and Intervals on Original Scale</code></pre>
 <p>These values are fairly close to the values obtained using the t distribution above, though not exactly the same.</p>
 </div>
@@ -538,7 +545,7 @@ s = \sqrt{\frac{(n_1 - 1)s^2_1 + (n_2 - 1)s^2_2 }{n_1 +n_2 -2}}
 where <span class="math inline">\(n_1\)</span> and <span class="math inline">\(n_2\)</span> are the sample sizes and <span class="math inline">\(s^2_1\)</span> and <span class="math inline">\(s^2_2\)</span> are the standard deviations for the two groups respectively. Note that this is very similar in spirit to the t statistic — the main difference is that the denominator in the t statistic is based on the standard error of the mean, whereas the denominator in Cohen’s D is based on the standard deviation of the data. This means that while the t statistic will grow as the sample size gets larger, the value of Cohen’s D will remain the same.</p>
 <p>There is a commonly used scale for interpreting the size of an effect in terms of Cohen’s d:</p>
 <table>
-<caption><span id="tab:unnamed-chunk-55">Table 10.1: </span>Interpetation of Cohen’s D</caption>
+<caption><span id="tab:unnamed-chunk-56">Table 10.1: </span>Interpetation of Cohen’s D</caption>
 <thead>
 <tr class="header">
 <th align="left">D</th>
@@ -564,11 +571,11 @@ where <span class="math inline">\(n_1\)</span> and <span class="math inline">\(n
 </tr>
 </tbody>
 </table>
-<p>It can be useful to look at some commonly understood effects to help understand these interpretations. For example, the effect size for gender differences in height (d = 1.6) is very large by reference to our table above. We can also see this by looking at the distributions of male and female heights in a sample from the NHANES dataset. Figure <a href="ci-effect-size-power.html#fig:genderHist">10.2</a> shows that the two distributions are quite well separated, though still overlapping, highlighting the fact that even when there is a very large effect size for the difference between two groups, there will be individuals from each group that are more like the other group.</p>
+<p>It can be useful to look at some commonly understood effects to help understand these interpretations. For example, the effect size for gender differences in height (d = 2.05) is very large by reference to our table above. We can also see this by looking at the distributions of male and female heights in a sample from the NHANES dataset. Figure <a href="ci-effect-size-power.html#fig:genderHist">10.3</a> shows that the two distributions are quite well separated, though still overlapping, highlighting the fact that even when there is a very large effect size for the difference between two groups, there will be individuals from each group that are more like the other group.</p>
 <div class="figure"><span id="fig:genderHist"></span>
 <img src="StatsThinking21_files/figure-html/genderHist-1.png" alt="Smoothed histogram plots for male and female heights in the NHANES dataset, showing clearly distinct but also clearly overlapping distributions." width="384" height="50%" />
 <p class="caption">
-Figure 10.2: Smoothed histogram plots for male and female heights in the NHANES dataset, showing clearly distinct but also clearly overlapping distributions.
+Figure 10.3: Smoothed histogram plots for male and female heights in the NHANES dataset, showing clearly distinct but also clearly overlapping distributions.
 </p>
 </div>
 <p>It is also worth noting that we rarely encounter effects of this magnitude in science, in part because they are such obvious effects that we don’t need scientific research to find them. As we will see in Chapter <a href="doing-reproducible-research.html#doing-reproducible-research">17</a> on reproducibility, very large reported effects in scientific research often reflect the use of questionable research practices rather than truly huge effects in nature. It is also worth noting that even for such a huge effect, the two distributions still overlap - there will be some females who are taller than the average male, and vice versa. For most interesting scientific effects, the degree of overlap will be much greater, so we shouldn’t immediately jump to strong conclusions about individual from different populations based on even a large effect size.</p>
@@ -576,11 +583,11 @@ Figure 10.2: Smoothed histogram plots for male and female heights in the NHANES 
 <div id="pearsons-r" class="section level3">
 <h3><span class="header-section-number">10.2.2</span> Pearson’s r</h3>
 <p>Pearson’s <em>r</em>, also known as the <em>correlation coefficient</em>, is a measure of the strength of the linear relationship between two continuous variables. We will discuss correlation in much more detail in Chapter <a href="modeling-continuous-relationships.html#modeling-continuous-relationships">13</a>, so we will save the details for that chapter; here, we simply introduce <em>r</em> as a way to quantify the relation between two variables.</p>
-<p><em>r</em> is a measure that varies from -1 to 1, where a value of 1 represents a perfect positive relationship between the variables, 0 represents no relationship, and -1 represents a perfect negative relationship. Figure <a href="ci-effect-size-power.html#fig:corrFig">10.3</a> shows examples of various levels of correlation using randomly generated data.</p>
+<p><em>r</em> is a measure that varies from -1 to 1, where a value of 1 represents a perfect positive relationship between the variables, 0 represents no relationship, and -1 represents a perfect negative relationship. Figure <a href="ci-effect-size-power.html#fig:corrFig">10.4</a> shows examples of various levels of correlation using randomly generated data.</p>
 <div class="figure"><span id="fig:corrFig"></span>
 <img src="StatsThinking21_files/figure-html/corrFig-1.png" alt="Examples of various levels of Pearson's r." width="864" height="50%" />
 <p class="caption">
-Figure 10.3: Examples of various levels of Pearson’s r.
+Figure 10.4: Examples of various levels of Pearson’s r.
 </p>
 </div>
 </div>
@@ -593,7 +600,7 @@ odds\ of\ A = \frac{P(A)}{P(\neg A)}
 <p>We also discussed the <em>odds ratio</em>, which is simply the ratio of two odds. The odds ratio is a useful way to describe effect sizes for binary variables.</p>
 <p>For example, let’s take the case of smoking and lung cancer. A study published in the International Journal of Cancer in 2012 <span class="citation">(Pesch et al. <a href="#ref-pesc:kend:gust:2012">2012</a>)</span> combined data regarding the occurrence of lung cancer in smokers and individuals who have never smoked across a number of different studies. Note that these data come from case-control studies, which means that participants in the studies were recruited because they either did or did not have cancer; their smoking status was then examined. These numbers thus do not represent the prevalence of cancer amongst smokers in the general population – but they can tell us about the relationship between cancer and smoking.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-57">Table 10.2: </span>Lung cancer occurrence separately for current smokers and those who have never smoked</caption>
+<caption><span id="tab:unnamed-chunk-58">Table 10.2: </span>Lung cancer occurrence separately for current smokers and those who have never smoked</caption>
 <thead>
 <tr class="header">
 <th align="left">Status</th>
@@ -631,11 +638,11 @@ power = 1 - \beta
 <li>Effect size: A given design will always have greater power to find a large effect than a small effect (because finding large effects is easier)</li>
 <li>Type I error rate: There is a relationship between Type I error and power such that (all else being equal) decreasing Type I error will also decrease power.</li>
 </ul>
-<p>We can see this through simulation. First let’s simulate a single experiment, in which we compare the means of two groups using a standard t-test. We will vary the size of the effect (specified in terms of Cohen’s d), the Type I error rate, and the sample size, and for each of these we will examine how the proportion of significant results (i.e. power) is affected. Figure <a href="ci-effect-size-power.html#fig:plotPowerSim">10.4</a> shows an example of how power changes as a function of these factors.</p>
+<p>We can see this through simulation. First let’s simulate a single experiment, in which we compare the means of two groups using a standard t-test. We will vary the size of the effect (specified in terms of Cohen’s d), the Type I error rate, and the sample size, and for each of these we will examine how the proportion of significant results (i.e. power) is affected. Figure <a href="ci-effect-size-power.html#fig:plotPowerSim">10.5</a> shows an example of how power changes as a function of these factors.</p>
 <div class="figure"><span id="fig:plotPowerSim"></span>
 <img src="StatsThinking21_files/figure-html/plotPowerSim-1.png" alt="Results from power simulation, showing power as a function of sample size, with effect sizes shown as different colors, and alpha shown as line type. The standard criterion of 80 percent power is shown by the dotted black line." width="576" height="50%" />
 <p class="caption">
-Figure 10.4: Results from power simulation, showing power as a function of sample size, with effect sizes shown as different colors, and alpha shown as line type. The standard criterion of 80 percent power is shown by the dotted black line.
+Figure 10.5: Results from power simulation, showing power as a function of sample size, with effect sizes shown as different colors, and alpha shown as line type. The standard criterion of 80 percent power is shown by the dotted black line.
 </p>
 </div>
 <p>This simulation shows us that even with a sample size of 96, we will have relatively little power to find a small effect (<span class="math inline">\(d = 0.2\)</span>) with <span class="math inline">\(\alpha = 0.005\)</span>. This means that a study designed to do this would be <em>futile</em> – that is, it is almost guaranteed to find nothing even if a true effect of that size exists.</p>
