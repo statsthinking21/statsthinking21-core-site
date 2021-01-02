@@ -249,9 +249,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2" data-path="sampling.html"><a href="sampling.html#samplingerror"><i class="fa fa-check"></i><b>7.2</b> Sampling error</a></li>
 <li class="chapter" data-level="7.3" data-path="sampling.html"><a href="sampling.html#standard-error-of-the-mean"><i class="fa fa-check"></i><b>7.3</b> Standard error of the mean</a></li>
 <li class="chapter" data-level="7.4" data-path="sampling.html"><a href="sampling.html#the-central-limit-theorem"><i class="fa fa-check"></i><b>7.4</b> The Central Limit Theorem</a></li>
-<li class="chapter" data-level="7.5" data-path="sampling.html"><a href="sampling.html#confidence-intervals"><i class="fa fa-check"></i><b>7.5</b> Confidence intervals</a></li>
-<li class="chapter" data-level="7.6" data-path="sampling.html"><a href="sampling.html#learning-objectives-6"><i class="fa fa-check"></i><b>7.6</b> Learning objectives</a></li>
-<li class="chapter" data-level="7.7" data-path="sampling.html"><a href="sampling.html#suggested-readings-4"><i class="fa fa-check"></i><b>7.7</b> Suggested readings</a></li>
+<li class="chapter" data-level="7.5" data-path="sampling.html"><a href="sampling.html#learning-objectives-6"><i class="fa fa-check"></i><b>7.5</b> Learning objectives</a></li>
+<li class="chapter" data-level="7.6" data-path="sampling.html"><a href="sampling.html#suggested-readings-4"><i class="fa fa-check"></i><b>7.6</b> Suggested readings</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="resampling-and-simulation.html"><a href="resampling-and-simulation.html"><i class="fa fa-check"></i><b>8</b> Resampling and simulation</a><ul>
 <li class="chapter" data-level="8.1" data-path="resampling-and-simulation.html"><a href="resampling-and-simulation.html#monte-carlo-simulation"><i class="fa fa-check"></i><b>8.1</b> Monte Carlo simulation</a></li>
@@ -281,7 +280,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.6" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#suggested-readings-6"><i class="fa fa-check"></i><b>9.6</b> Suggested readings</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="ci-effect-size-power.html"><a href="ci-effect-size-power.html"><i class="fa fa-check"></i><b>10</b> Quantifying effects and designing studies</a><ul>
-<li class="chapter" data-level="10.1" data-path="ci-effect-size-power.html"><a href="ci-effect-size-power.html#confidence-intervals-1"><i class="fa fa-check"></i><b>10.1</b> Confidence intervals</a><ul>
+<li class="chapter" data-level="10.1" data-path="ci-effect-size-power.html"><a href="ci-effect-size-power.html#confidence-intervals"><i class="fa fa-check"></i><b>10.1</b> Confidence intervals</a><ul>
 <li class="chapter" data-level="10.1.1" data-path="ci-effect-size-power.html"><a href="ci-effect-size-power.html#confidence-intervals-using-the-normal-distribution"><i class="fa fa-check"></i><b>10.1.1</b> Confidence intervals using the normal distribution</a></li>
 <li class="chapter" data-level="10.1.2" data-path="ci-effect-size-power.html"><a href="ci-effect-size-power.html#confidence-intervals-using-the-t-distribution"><i class="fa fa-check"></i><b>10.1.2</b> Confidence intervals using the t distribution</a></li>
 <li class="chapter" data-level="10.1.3" data-path="ci-effect-size-power.html"><a href="ci-effect-size-power.html#confidence-intervals-and-sample-size"><i class="fa fa-check"></i><b>10.1.3</b> Confidence intervals and sample size</a></li>
@@ -529,54 +528,18 @@ Figure 7.2: Left: Distribution of the variable AlcoholYear in the NHANES dataset
 </div>
 <p>The Central Limit Theorem is important for statistics because it allows us to safely assume that the sampling distribution of the mean will be normal in most cases. This means that we can take advantage of statistical techniques that assume a normal distribution, as we will see in the next section. It’s also important because it tells us why normal distributions are so common in the real world; any time we combine many different factors into a single number, the result is likely to be a normal distribution. For example, the height of any adult depends on a complex mixture of their genetics and experience; even if those individual contributions may not be normally distributed, when we combine them the result is a normal distribution.</p>
 </div>
-<div id="confidence-intervals" class="section level2">
-<h2><span class="header-section-number">7.5</span> Confidence intervals</h2>
-<p>Most people are familiar with the idea of a “margin of error” for political polls. These polls usually try to provide an answer that is accurate within +/- 3 percent. For example, when a candidate is estimated to win an election by 9 percentage points with a margin of error of 3, the percentage by which they will win is estimated to fall within 6-12 percentage points. In statistics we refer to this range of values as the <em>confidence interval</em>, which provides a measure of our degree of uncertainty about how close our particular estimate based on a single sample is to the population parameter. The larger the confidence interval, the greater our uncertainty.</p>
-<p>We saw in the previous section that with sufficient sample size, the sampling distribution of the mean is normally distributed, and that the standard error describes the standard deviation of this sampling distribution. Using this knowledge, we can ask: What is the range of values within which we would expect to capture 95% of all estimates of the mean? To answer this, we can use the normal distribution, for which we know the values between which we expect 95% of all sample means to fall; in statistical software, we generally refer to these as <em>quantiles</em>. Specifically, we need to determine the 2.5% and 97.5% quantiles of the of the distribution. We choose these points because we want to find the 95% of values in the center of the distribution, so we need to cut off 2.5% on each end in order to end up with 95% in the middle. Figure <a href="sampling.html#fig:normalCutoffs">7.3</a> shows that this occurs for <span class="math inline">\(Z \pm 1.96\)</span>.</p>
-<div class="figure"><span id="fig:normalCutoffs"></span>
-<img src="StatsThinking21_files/figure-html/normalCutoffs-1.png" alt="Normal distribution, with the orange section in the center denoting the range in which we expect 95 percent of all values to fall.  The green sections show the portions of the distribution that are more extreme, which we would expect to occur less than 5 percent of the time." width="384" height="50%" />
-<p class="caption">
-Figure 7.3: Normal distribution, with the orange section in the center denoting the range in which we expect 95 percent of all values to fall. The green sections show the portions of the distribution that are more extreme, which we would expect to occur less than 5 percent of the time.
-</p>
-</div>
-<p>Using these cutoffs, we can create a confidence interval for the estimate of the mean:</p>
-<p><span class="math display">\[
-CI_{95\%} = \bar{X} \pm 1.96*SEM
-\]</span></p>
-<p>Let’s compute the confidence interval for the NHANES height data.</p>
-<table>
-<thead>
-<tr class="header">
-<th align="right">Sample mean</th>
-<th align="right">SEM</th>
-<th align="right">Lower bound of CI</th>
-<th align="right">Upper bound of CI</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">169</td>
-<td align="right">1.4</td>
-<td align="right">166</td>
-<td align="right">172</td>
-</tr>
-</tbody>
-</table>
-<p>Confidence intervals are notoriously confusing, primarily because they don’t mean what we would hope they mean. It seems natural to think that the 95% confidence interval tells us that there is a 95% chance that the population mean falls within the interval. However, as we will see throughout the course, concepts in statistics often don’t mean what we think they should mean. In the case of confidence intervals, we can’t interpret them in this way because the population parameter has a fixed value – it either is or isn’t in the interval, so it doesn’t make sense to talk about the probability of that occurring. The proper interpretation of the 95% confidence interval is that it is an interval that will contain the true population mean 95% of the time, and in fact we can confirm that using simulation. We will learn more about confidence intervals later in the course after we discuss hypothesis testing.</p>
-</div>
 <div id="learning-objectives-6" class="section level2">
-<h2><span class="header-section-number">7.6</span> Learning objectives</h2>
+<h2><span class="header-section-number">7.5</span> Learning objectives</h2>
 <p>Having read this chapter, you should be able to:</p>
 <ul>
 <li>Distinguish between a population and a sample, and between population parameters and sample statistics</li>
 <li>Describe the concepts of sampling error and sampling distribution</li>
 <li>Compute the standard error of the mean</li>
 <li>Describe how the Central Limit Theorem determines the nature of the sampling distribution of the mean</li>
-<li>Compute a confidence interval for the mean based on the normal distribution, and describe its appropriate interpretation</li>
 </ul>
 </div>
 <div id="suggested-readings-4" class="section level2">
-<h2><span class="header-section-number">7.7</span> Suggested readings</h2>
+<h2><span class="header-section-number">7.6</span> Suggested readings</h2>
 <ul>
 <li><em>The Signal and the Noise: Why So Many Predictions Fail - But Some Don’t</em>, by Nate Silver</li>
 </ul>

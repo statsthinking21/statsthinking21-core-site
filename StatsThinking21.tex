@@ -127,7 +127,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{Draft: 2021-01-01}
+    \date{Draft: 2021-01-02}
 
 \usepackage{booktabs}
 \usepackage{longtable}
@@ -2061,35 +2061,6 @@ To see the central limit theorem in action, let's work with the variable Alcohol
 
 The Central Limit Theorem is important for statistics because it allows us to safely assume that the sampling distribution of the mean will be normal in most cases. This means that we can take advantage of statistical techniques that assume a normal distribution, as we will see in the next section. It's also important because it tells us why normal distributions are so common in the real world; any time we combine many different factors into a single number, the result is likely to be a normal distribution. For example, the height of any adult depends on a complex mixture of their genetics and experience; even if those individual contributions may not be normally distributed, when we combine them the result is a normal distribution.
 
-\hypertarget{confidence-intervals}{%
-\section{Confidence intervals}\label{confidence-intervals}}
-
-Most people are familiar with the idea of a ``margin of error'' for political polls. These polls usually try to provide an answer that is accurate within +/- 3 percent. For example, when a candidate is estimated to win an election by 9 percentage points with a margin of error of 3, the percentage by which they will win is estimated to fall within 6-12 percentage points. In statistics we refer to this range of values as the \emph{confidence interval}, which provides a measure of our degree of uncertainty about how close our particular estimate based on a single sample is to the population parameter. The larger the confidence interval, the greater our uncertainty.
-
-We saw in the previous section that with sufficient sample size, the sampling distribution of the mean is normally distributed, and that the standard error describes the standard deviation of this sampling distribution. Using this knowledge, we can ask: What is the range of values within which we would expect to capture 95\% of all estimates of the mean? To answer this, we can use the normal distribution, for which we know the values between which we expect 95\% of all sample means to fall; in statistical software, we generally refer to these as \emph{quantiles}. Specifically, we need to determine the 2.5\% and 97.5\% quantiles of the of the distribution. We choose these points because we want to find the 95\% of values in the center of the distribution, so we need to cut off 2.5\% on each end in order to end up with 95\% in the middle. Figure \ref{fig:normalCutoffs} shows that this occurs for \(Z \pm 1.96\).
-
-\begin{figure}
-\includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/normalCutoffs-1} \caption{Normal distribution, with the orange section in the center denoting the range in which we expect 95 percent of all values to fall.  The green sections show the portions of the distribution that are more extreme, which we would expect to occur less than 5 percent of the time.}\label{fig:normalCutoffs}
-\end{figure}
-
-Using these cutoffs, we can create a confidence interval for the estimate of the mean:
-
-\[
-CI_{95\%} = \bar{X} \pm 1.96*SEM
-\]
-
-Let's compute the confidence interval for the NHANES height data.
-
-\begin{tabular}{r|r|r|r}
-\hline
-Sample mean & SEM & Lower bound of CI & Upper bound of CI\\
-\hline
-169 & 1.4 & 166 & 172\\
-\hline
-\end{tabular}
-
-Confidence intervals are notoriously confusing, primarily because they don't mean what we would hope they mean. It seems natural to think that the 95\% confidence interval tells us that there is a 95\% chance that the population mean falls within the interval. However, as we will see throughout the course, concepts in statistics often don't mean what we think they should mean. In the case of confidence intervals, we can't interpret them in this way because the population parameter has a fixed value -- it either is or isn't in the interval, so it doesn't make sense to talk about the probability of that occurring. The proper interpretation of the 95\% confidence interval is that it is an interval that will contain the true population mean 95\% of the time, and in fact we can confirm that using simulation. We will learn more about confidence intervals later in the course after we discuss hypothesis testing.
-
 \hypertarget{learning-objectives-6}{%
 \section{Learning objectives}\label{learning-objectives-6}}
 
@@ -2105,8 +2076,6 @@ Having read this chapter, you should be able to:
   Compute the standard error of the mean
 \item
   Describe how the Central Limit Theorem determines the nature of the sampling distribution of the mean
-\item
-  Compute a confidence interval for the mean based on the normal distribution, and describe its appropriate interpretation
 \end{itemize}
 
 \hypertarget{suggested-readings-4}{%
@@ -2201,9 +2170,9 @@ So far we have used simulation to demonstrate statistical principles, but we can
 \hypertarget{computing-the-bootstrap}{%
 \subsection{Computing the bootstrap}\label{computing-the-bootstrap}}
 
-In the previous chapter, we used our knowledge of the sampling distribution of the mean to compute the standard error of the mean and confidence intervals. But what if we can't assume that the estimates are normally distributed, or we don't know their distribution? The idea of the bootstrap is to use the data themselves to estimate an answer. The name comes from the idea of pulling one's self up by one's own bootstraps, expressing the idea that we don't have any external source of leverage so we have to rely upon the data themselves. The bootstrap method was conceived by Bradley Efron of the Stanford Department of Statistics, who is one of the world's most influential statisticians.
+In the previous chapter, we used our knowledge of the sampling distribution of the mean to compute the standard error of the mean. But what if we can't assume that the estimates are normally distributed, or we don't know their distribution? The idea of the bootstrap is to use the data themselves to estimate an answer. The name comes from the idea of pulling one's self up by one's own bootstraps, expressing the idea that we don't have any external source of leverage so we have to rely upon the data themselves. The bootstrap method was conceived by Bradley Efron of the Stanford Department of Statistics, who is one of the world's most influential statisticians.
 
-The idea behind the bootstrap is that we repeatedly sample from the actual dataset; importantly, we sample \emph{with replacement}, such that the same data point will often end up being represented multiple times within one of the samples. We then compute our statistic of interest on each of the bootstrap samples, and use the distribution of those estimates as our sampling distribution.
+The idea behind the bootstrap is that we repeatedly sample from the actual dataset; importantly, we sample \emph{with replacement}, such that the same data point will often end up being represented multiple times within one of the samples. We then compute our statistic of interest on each of the bootstrap samples, and use the distribution of those estimates as our sampling distribution. In a sense, we treat our particular sample as the entire population, and then repeatedly sample with replacement to generate our samples for analysis. This makes the assumption that our particular sample is an accurate reflection of the population, which is probably reasonable for larger samples but can break down when samples are smaller.
 
 Let's start by using the bootstrap to estimate the sampling distribution of the mean, so that we can compare the result to the standard error of the mean (SEM) that we discussed earlier.
 
@@ -2211,24 +2180,7 @@ Let's start by using the bootstrap to estimate the sampling distribution of the 
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/bootstrapSEM-1} \caption{An example of bootstrapping to compute the standard error of the mean. The histogram shows the distribution of means across bootstrap samples, while the red line shows the normal distribution based on the sample mean and standard deviation.}\label{fig:bootstrapSEM}
 \end{figure}
 
-Figure \ref{fig:bootstrapSEM} shows that the distribution of means across bootstrap samples is fairly close to the theoretical estimate based on the assumption of normality. We can also use the bootstrap samples to compute a confidence interval for the mean, simply by computing the quantiles of interest from the distribution of bootstrap samples.
-
-\begin{table}
-
-\caption{\label{tab:unnamed-chunk-42}Confidence limits for normal distribution and bootstrap methods}
-\centering
-\begin{tabular}[t]{l|r|r}
-\hline
-type & 2.5\% & 97.5\%\\
-\hline
-Normal & 166 & 173\\
-\hline
-Bootstrap & 166 & 172\\
-\hline
-\end{tabular}
-\end{table}
-
-We would not usually employ the bootstrap to compute confidence intervals for the mean (since we can generally assume that the normal distribution is appropriate for the sampling distribution of the mean, as long as our sample is large enough), but this example shows how the method gives us roughly the same result as the standard method based on the normal distribution. The bootstrap would more often be used to generate standard errors for estimates of other statistics where we know or suspect that the normal distribution is not appropriate.
+Figure \ref{fig:bootstrapSEM} shows that the distribution of means across bootstrap samples is fairly close to the theoretical estimate based on the assumption of normality. We would not usually employ the bootstrap to compute confidence intervals for the mean (since we can generally assume that the normal distribution is appropriate for the sampling distribution of the mean, as long as our sample is large enough), but this example shows how the method gives us roughly the same result as the standard method based on the normal distribution. The bootstrap would more often be used to generate standard errors for estimates of other statistics where we know or suspect that the normal distribution is not appropriate. In addition, in a later chapter you will see how we can also use the bootstrap samples to generate estimates of the uncertainty in our sample statistic as well.
 
 \hypertarget{learning-objectives-7}{%
 \section{Learning objectives}\label{learning-objectives-7}}
@@ -2364,7 +2316,7 @@ In this case, we will sample 250 individuals from the NHANES dataset. Figure \re
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-44}Summary of BMI data for active versus inactive individuals}
+\caption{\label{tab:unnamed-chunk-41}Summary of BMI data for active versus inactive individuals}
 \centering
 \begin{tabular}[t]{l|r|r|r}
 \hline
@@ -2696,16 +2648,21 @@ In the previous chapter we discussed how we can use data to test hypotheses. Tho
 
 In this chapter we will discuss methods to address these two questions: confidence intervals to provide a measure of our uncertainty about our estimates, and effect sizes to provide a standardized way to understand how large the effects are. We will also discuss the concept of \emph{statistical power} which tells us how well we can expect to find any true effects that might exist.
 
-\hypertarget{confidence-intervals-1}{%
-\section{Confidence intervals}\label{confidence-intervals-1}}
+\hypertarget{confidence-intervals}{%
+\section{Confidence intervals}\label{confidence-intervals}}
 
-So far in the book we have focused on estimating the specific value of a statistic. For example, let's say we want to estimate the mean weight of adults in the NHANES dataset. Let's take a sample from the dataset and estimate the mean. In this sample, the mean weight was 79.92 kilograms. We refer to this as a \emph{point estimate} since it provides us with a single number to describe our estimate of the population parameter. However, we know from our earlier discussion of sampling error that there is some uncertainty about this estimate, which is described by the standard error. You should also remember that the standard error is determined by two components: the population standard deviation (which is the numerator), and the square root of the sample size (which is in the denominator). The population standard deviation is a generally unknown but fixed parameter that is not under our control, whereas the sample size \emph{is} under our control. Thus, we can decrease our uncertainty about the estimate by increasing our sample size -- up to the limit of the entire population size, at which point there is no uncertainty at all because we can just calculate the population parameter directly from the data of the entire population.
+So far in the book we have focused on estimating a single value statistic. For example, let's say we want to estimate the mean weight of adults in the NHANES dataset, so we take a sample from the dataset and estimate the mean. In this sample, the mean weight was 79.92 kilograms. We refer to this as a \emph{point estimate} since it provides us with a single number to describe our estimate of the population parameter. However, we know from our earlier discussion of sampling error that there is some uncertainty about this estimate, which is described by the standard error. You should also remember that the standard error is determined by two components: the population standard deviation (which is the numerator), and the square root of the sample size (which is in the denominator). The population standard deviation is a generally unknown but fixed parameter that is not under our control, whereas the sample size \emph{is} under our control. Thus, we can decrease our uncertainty about the estimate by increasing our sample size -- up to the limit of the entire population size, at which point there is no uncertainty at all because we can just calculate the population parameter directly from the data of the entire population.
 
-You may also remember that earlier we introduced the concept of a \emph{confidence interval}, which is a way of describing our uncertainty about a statistical estimate. Remember that a confidence interval describes an interval that will on average contain the true population parameter with a given probability; for example, the 95\% confidence interval is an interval that will capture the true population parameter 95\% of the time. Note again that this is not a statement about the population parameter; any particular confidence interval either does or does not contain the true parameter. As Jerzy Neyman, the inventor of the confidence interval, said:
+We would often like to have a way to more directly describe our uncertainty about a statistical estimate, which we can accomplish using a \emph{confidence interval}.\\
+Most people are familiar with confidence intervals through the idea of a ``margin of error'' for political polls. These polls usually try to provide an answer that is accurate within +/- 3 percent. For example, when a candidate is estimated to win an election by 9 percentage points with a margin of error of 3, the percentage by which they will win is estimated to fall within 6-12 percentage points. In statistics we refer to this kind of range of values as a confidence interval, which provides a measure of our degree of uncertainty about how close our particular estimate based on a single sample is to the true population parameter: The larger the confidence interval, the greater our uncertainty.
+
+Confidence intervals are notoriously confusing, primarily because they don't mean what we might intuitively think they mean. If I tell you that I have computed a ``95\% confidence interval'' for my statistic, then it would seem natural to think that we can have 95\% confidence that the true parameter value falls within this interval. However, as we will see throughout the course, concepts in statistics often don't mean what we think they should mean. In the case of confidence intervals, we can't interpret them in this way because the population parameter has a fixed value -- it either is or isn't in the interval, so it doesn't make sense to talk about the probability of that occurring. s Jerzy Neyman, the inventor of the confidence interval, said:
 
 \begin{quote}
 ``The parameter is an unknown constant and no probability statement concerning its value may be made.''(Neyman \protect\hyperlink{ref-Neyman37}{1937})
 \end{quote}
+
+Instead, we have to view the confidence interval procedure from the same standpoint that we viewed hypothesis testing: As a procedure that in the long run will allow us to make correct statements with a particular probability. Thus, the proper interpretation of the 95\% confidence interval is that it is an interval that will contain the true population mean 95\% of the time, and in fact we can confirm that using simulation, as you will see below.
 
 The confidence interval for the mean is computed as:
 
@@ -2713,7 +2670,7 @@ The confidence interval for the mean is computed as:
 CI = \text{point estimate} \pm \text{critical value} * \text{standard error}
 \]
 
-where the critical value is determined by the sampling distribution of the estimate. The important question, then, is what that sampling distribution is.
+where the critical value is determined by the sampling distribution of the estimate. The important question, then, is how we obtain our estimate for that sampling distribution.
 
 \hypertarget{confidence-intervals-using-the-normal-distribution}{%
 \subsection{Confidence intervals using the normal distribution}\label{confidence-intervals-using-the-normal-distribution}}
@@ -2817,7 +2774,7 @@ There is a commonly used scale for interpreting the size of an effect in terms o
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-56}Interpetation of Cohen's D}
+\caption{\label{tab:unnamed-chunk-53}Interpetation of Cohen's D}
 \centering
 \begin{tabular}[t]{l|l}
 \hline
@@ -2868,7 +2825,7 @@ For example, let's take the case of smoking and lung cancer. A study published i
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-58}Lung cancer occurrence separately for current smokers and those who have never smoked}
+\caption{\label{tab:unnamed-chunk-55}Lung cancer occurrence separately for current smokers and those who have never smoked}
 \centering
 \begin{tabular}[t]{l|r|r}
 \hline
@@ -3396,7 +3353,7 @@ The standard way to represent data from a categorical analysis is through a \emp
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-85}Contingency table for police search data}
+\caption{\label{tab:unnamed-chunk-82}Contingency table for police search data}
 \centering
 \begin{tabular}[t]{l|r|r|r|r}
 \hline
@@ -3429,7 +3386,7 @@ Searched & P(S)*P(B) & P(S)*P(W) & P(S)\tabularnewline
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-86}Summary of the 2-way contingency table for police search data}
+\caption{\label{tab:unnamed-chunk-83}Summary of the 2-way contingency table for police search data}
 \centering
 \begin{tabular}[t]{l|l|r|r|r}
 \hline
@@ -3473,7 +3430,7 @@ The table shows these for the police stop data. These standardized residuals can
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-88}Summary of standardized residuals for police stop data}
+\caption{\label{tab:unnamed-chunk-85}Summary of standardized residuals for police stop data}
 \centering
 \begin{tabular}[t]{l|l|r}
 \hline
@@ -3539,7 +3496,7 @@ For example, let's look at the NHANES data and compare the variable \emph{Depres
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-90}Relationship between depression and sleep problems in the NHANES dataset}
+\caption{\label{tab:unnamed-chunk-87}Relationship between depression and sleep problems in the NHANES dataset}
 \centering
 \begin{tabular}[t]{l|r|r}
 \hline
@@ -3663,7 +3620,7 @@ This value will be far from zero when individual data points deviate by similar 
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-94}Data for toy example of covariance}
+\caption{\label{tab:unnamed-chunk-91}Data for toy example of covariance}
 \centering
 \begin{tabular}[t]{r|r|r|r|r}
 \hline
@@ -3947,7 +3904,7 @@ The concept of \emph{regression to the mean} was one of Galton's essential contr
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-104}Reading scores for Test 1 (which is lower, because it was the basis for selecting the students) and Test 2 (which is higher because it was not related to Test 1).}
+\caption{\label{tab:unnamed-chunk-101}Reading scores for Test 1 (which is lower, because it was the basis for selecting the students) and Test 2 (which is higher because it was not related to Test 1).}
 \centering
 \begin{tabular}[t]{l|r}
 \hline
@@ -4263,7 +4220,7 @@ As an example, let's take a sample of 48 children from NHANES and fit a regressi
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-111}Root mean squared error for model applied to original data and new data, and after shuffling the order of the y variable (in essence making the null hypothesis true)}
+\caption{\label{tab:unnamed-chunk-108}Root mean squared error for model applied to original data and new data, and after shuffling the order of the y variable (in essence making the null hypothesis true)}
 \centering
 \begin{tabular}[t]{l|r|r}
 \hline
@@ -4293,7 +4250,7 @@ Let's see how that would work for our weight prediction example. In this case we
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-112}R-squared from cross-validation and new data, showing that cross-validation provides a reasonable estimate of the model's performance on new data.}
+\caption{\label{tab:unnamed-chunk-109}R-squared from cross-validation and new data, showing that cross-validation provides a reasonable estimate of the model's performance on new data.}
 \centering
 \begin{tabular}[t]{l|r}
 \hline
@@ -5017,7 +4974,7 @@ If we look more closely at the Garder paper, we will see that they also report s
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-137}Presence of metabolic syndrome in each group in the AtoZ study.}
+\caption{\label{tab:unnamed-chunk-134}Presence of metabolic syndrome in each group in the AtoZ study.}
 \centering
 \begin{tabular}[t]{l|r|r}
 \hline
