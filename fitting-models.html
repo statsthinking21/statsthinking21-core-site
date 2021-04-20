@@ -591,7 +591,7 @@ Figure 5.7: A demonstration of the mean as the statistic that minimizes the sum 
 </div>
 <p>This minimization of SSE is a good feature, and it’s why the mean is the most commonly used statistic to summarize data. However, the mean also has a dark side. Let’s say that five people are in a bar, and we examine each person’s income:</p>
 <table>
-<caption><span id="tab:unnamed-chunk-17">Table 5.1: </span>Income for our five bar patrons</caption>
+<caption><span id="tab:unnamed-chunk-15">Table 5.1: </span>Income for our five bar patrons</caption>
 <thead>
 <tr class="header">
 <th align="right">income</th>
@@ -623,7 +623,7 @@ Figure 5.7: A demonstration of the mean as the statistic that minimizes the sum 
 </table>
 <p>The mean (61600.00) seems to be a pretty good summary of the income of those five people. Now let’s look at what happens if Beyoncé Knowles walks into the bar:</p>
 <table>
-<caption><span id="tab:unnamed-chunk-19">Table 5.2: </span>Income for our five bar patrons plus Beyoncé Knowles.</caption>
+<caption><span id="tab:unnamed-chunk-17">Table 5.2: </span>Income for our five bar patrons plus Beyoncé Knowles.</caption>
 <thead>
 <tr class="header">
 <th align="left">income</th>
@@ -668,7 +668,7 @@ Figure 5.7: A demonstration of the mean as the statistic that minimizes the sum 
 <p>Then the median is the middle value – in this case, the 5th of the 9 values.</p>
 <p>Whereas the mean minimizes the sum of squared errors, the median minimizes a slighty different quantity: The sum of <em>absolute</em> errors. This explains why it is less sensitive to outliers – squaring is going to exacerbate the effect of large errors compared to taking the absolute value. We can see this in the case of the income example: The median is much more representative of the group as a whole, and less sensitive to the one large outlier.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-20">Table 5.3: </span>Summary statistics for income after arrival of Beyoncé Knowles.</caption>
+<caption><span id="tab:unnamed-chunk-18">Table 5.3: </span>Summary statistics for income after arrival of Beyoncé Knowles.</caption>
 <thead>
 <tr class="header">
 <th align="left">Statistic</th>
@@ -713,7 +713,7 @@ Figure 5.7: A demonstration of the mean as the statistic that minimizes the sum 
 <p>I am a strong believer in the use of computer simulations to understand statistical concepts, and in later chapters we will dig deeply into their use. Here we will introduce the idea by asking whether we can confirm the need to subtract 1 from the sample size in computing the sample variance.</p>
 <p>Let’s treat the entire sample of children from the NHANES data as our “population”, and see how well the calculations of sample variance using either <span class="math inline">\(n\)</span> or <span class="math inline">\(n-1\)</span> in the denominator will estimate variance of this population, across a large number of simulated random samples from the data. We will return to the details of how to do this in a later chapter.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-22">Table 5.4: </span>Variance estimates using n versus n-1; the estimate using n-1 is closer to the population value</caption>
+<caption><span id="tab:unnamed-chunk-20">Table 5.4: </span>Variance estimates using n versus n-1; the estimate using n-1 is closer to the population value</caption>
 <thead>
 <tr class="header">
 <th align="left">Estimate</th>

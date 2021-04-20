@@ -615,7 +615,7 @@ P(k\le2)= P(k=2) + P(k=1) + P(k=0) = 6e^{-5} + .002 + .040 = .043
 \]</span></p>
 <p>In many cases the number of possible outcomes would be too large for us to compute the cumulative probability by enumerating all possible values; fortunately, it can be computed directly for any theoretical probability distribution. The table below shows the cumulative probability of each possible number of successful free throws in the example from above:</p>
 <table>
-<caption><span id="tab:unnamed-chunk-25">Table 6.1: </span>Cumulative probability distribution for number of successful free throws by Steph Curry in 4 attempts.</caption>
+<caption><span id="tab:unnamed-chunk-23">Table 6.1: </span>Cumulative probability distribution for number of successful free throws by Steph Curry in 4 attempts.</caption>
 <thead>
 <tr class="header">
 <th align="right">numSuccesses</th>
@@ -669,7 +669,7 @@ Figure 6.3: A graphical depiction of conditional probability, showing how the co
 <h2><span class="header-section-number">6.5</span> Computing conditional probabilities from data</h2>
 <p>We can also compute conditional probabilities directly from data. Let’s say that we are interested in the following question: What is the probability that someone has diabetes, given that they are not physically active? – that is, <span class="math inline">\(P(diabetes|inactive)\)</span>. The NHANES dataset includes two variables that address the two parts of this question. The first (<code>Diabetes</code>) asks whether the person has ever been told that they have diabetes, and the second (<code>PhysActive</code>) records whether the person engages in sports, fitness, or recreational activities that are at least of moderate intensity. Let’s first compute the simple probabilities.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-27">Table 6.2: </span>Summary data for diabetes and physical activity</caption>
+<caption><span id="tab:unnamed-chunk-25">Table 6.2: </span>Summary data for diabetes and physical activity</caption>
 <thead>
 <tr class="header">
 <th align="left">Answer</th>
@@ -698,7 +698,7 @@ Figure 6.3: A graphical depiction of conditional probability, showing how the co
 </table>
 <p>The table shows that the probability that someone in the NHANES dataset has diabetes is .1, and the probability that someone is inactive is .45.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-28">Table 6.3: </span>Joint probabilities for Diabetes and PhysActive variables.</caption>
+<caption><span id="tab:unnamed-chunk-26">Table 6.3: </span>Joint probabilities for Diabetes and PhysActive variables.</caption>
 <thead>
 <tr class="header">
 <th align="left">Diabetes</th>
@@ -876,7 +876,7 @@ That’s pretty small – do you find that surprising? Many people do, and in fa
 <p><span class="math display">\[
 P(B|A) =  \frac{P(A|B)*P(B)}{P(A)}
 \]</span></p>
-<p>The different parts of Bayes’ rule have specific names, that relate to their role in using Bayes’ rule to update our beliefs. We start out with an initial guess about the probability of B (<span class="math inline">\(P(B)\)</span>), which we refer to as the <em>prior</em> probability. In the PSA example we used the base rate as our prior, since it was our best guess as to the individual’s chance of cancer before we knew the test result. We then collect some data, which in our example was the test result. The degree to which the data A are consistent with outcome B is given by <span class="math inline">\(P(A|B)\)</span>, which we refer to as the <em>likelihood</em>. You can think of this as how likely the data are, given that the particular hypothesis being tested is true. In our example, the hypothesis being tested was whether the individual had cancer, and the likelihood was based on our knowledge about the sensitivity of the test (that is, the probability of cancer given a positive test outcome). The denominator (<span class="math inline">\(P(A)\)</span>) is referred to as the <em>marginal likelihood</em>, because it expresses the overall likelihood of the data, averaged across all of the possible values of B (which in our example were disease present and disease absent).
+<p>The different parts of Bayes’ rule have specific names, that relate to their role in using Bayes’ rule to update our beliefs. We start out with an initial guess about the probability of B (<span class="math inline">\(P(B)\)</span>), which we refer to as the <em>prior</em> probability. In the PSA example we used the base rate as our prior, since it was our best guess as to the individual’s chance of cancer before we knew the test result. We then collect some data, which in our example was the test result. The degree to which the data A are consistent with outcome B is given by <span class="math inline">\(P(A|B)\)</span>, which we refer to as the <em>likelihood</em>. You can think of this as how likely the data are, given that the particular hypothesis being tested is true. In our example, the hypothesis being tested was whether the individual had cancer, and the likelihood was based on our knowledge about the sensitivity of the test (that is, the probability of a positive test outcome given cancer is present). The denominator (<span class="math inline">\(P(A)\)</span>) is referred to as the <em>marginal likelihood</em>, because it expresses the overall likelihood of the data, averaged across all of the possible values of B (which in our example were disease present and disease absent).
 The outcome to the left (<span class="math inline">\(P(B|A)\)</span>) is referred to as the <em>posterior</em> - because it’s what comes out the back end of the computation.</p>
 <p>There is another way of writing Bayes rule that makes this a bit clearer:</p>
 <p><span class="math display">\[

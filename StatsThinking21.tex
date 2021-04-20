@@ -127,7 +127,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{Draft: 2021-01-09}
+    \date{Draft: 2021-04-20}
 
 \usepackage{booktabs}
 \usepackage{longtable}
@@ -180,7 +180,7 @@ The book is also written in the wake of the reproducibility crisis that has engu
 
 In 2018 I began teaching an undergraduate statistics course at Stanford (Psych 10/Stats 60). I had never taught statistics before, and this was a chance to shake things up. I have been increasingly unhappy with undergraduate statistics education in psychology, and I wanted to bring a number of new ideas and approaches to the class. In particular, I wanted to bring to bear the approaches that are increasingly used in real statistical practice in the 21st century. As Brad Efron and Trevor Hastie laid out so nicely in their book ``Computer Age Statistical Inference: Algorithms, Evidence, and Data Science'', these methods take advantage of today's increased computing power to solve statistical problems in ways that go far beyond the more standard methods that are usually taught in the undergraduate statistics course for psychology students.
 
-The first year that I taught the class, I used Andy Field's amazing graphic novel statistics book, ``An Adventure in Statistics'', as the textbook. There are many things that I really like about this book -- in particular, I like the way that it frames statistical practice around the building of models, and treats null hypothesis testing with sufficient caution (though insufficient disdain, in my opinion). Unfortunately, most of my students hated the book, primarily because it involved wading through a lot of story to get to the statistical knowledge. I also found it wanting because there are a number of topics (particularly those from the burgeoning field of artificial intelligence known as \emph{machine learning}) that I wanted to include but were not discussed in his book. I ultimately came to feel that the students would be best served by a book that follows very closely to my lectures, so I started writing down my lectures into a set of computational notebooks that would ultimately become this book. The outline of this book follows roughly that of Field's book, since the lectures were originally based in large part on the flow of that book, but the content is substantially different (and almost certainly much less fun and clever). I also tailored the book for the 10-week quarter system that we use at Stanford, which provides less time than the 16-week semester that most statistical textbooks are built for.
+The first year that I taught the class, I used Andy Field's amazing graphic novel statistics book, ``An Adventure in Statistics'', as the textbook. There are many things that I really like about this book -- in particular, I like the way that it frames statistical practice around the building of models, and treats null hypothesis testing with sufficient caution. Unfortunately, many of my students disliked the book (except for the English majors, who loved it!), primarily because it involved wading through a lot of story to get to the statistical knowledge. I also found it wanting because there are a number of topics (particularly those from the burgeoning field of artificial intelligence known as \emph{machine learning}) that I wanted to include but were not discussed in his book. I ultimately came to feel that the students would be best served by a book that follows very closely to my lectures, so I started writing down my lectures into a set of computational notebooks that would ultimately become this book. The outline of this book follows roughly that of Field's book, since the lectures were originally based in large part on the flow of that book, but the content is substantially different (and almost certainly much less fun and clever). I also tailored this book for the 10-week quarter system that we use at Stanford, which provides less time than the 16-week semester that most statistical textbooks are built for.
 
 \hypertarget{the-golden-age-of-data}{%
 \section{The golden age of data}\label{the-golden-age-of-data}}
@@ -206,14 +206,14 @@ The book is licensed according to the \href{https://creativecommons.org/licenses
 \hypertarget{acknowledgements}{%
 \section{Acknowledgements}\label{acknowledgements}}
 
-I'd first like to thank Susan Holmes, who first inspired me to consider writing my own statistics book. Anna Khazenzon provided early comments and inspiration. Lucy King provided detailed comments and edits on the entire book, and helped clean up the code so that it was consistent with the Tidyverse. Michael Henry Tessler provided very helpful comments on the Bayesian analysis chapter. Particular thanks also go to Yihui Xie, creator of the Bookdown package, for improving the book's use of Bookdown features (including the ability for users to directly generate edits via the Edit button). Finally, Jeanette Mumford provided very helpful suggestions on the book.
+I'd first like to thank Susan Holmes, who first inspired me to consider writing my own statistics book. Anna Khazenzon provided early comments and inspiration. Lucy King provided detailed comments and edits on the entire book, and helped clean up the code so that it was consistent with the Tidyverse. Michael Henry Tessler provided very helpful comments on the Bayesian analysis chapter. Particular thanks also go to Yihui Xie, creator of the Bookdown package, for improving the book's use of Bookdown features (including the ability for users to directly generate edits via the Edit button). Finally, Jeanette Mumford provided very helpful suggestions on the entire book.
 
 I'd also like to thank others who provided helpful comments and suggestions: Athanassios Protopapas, Wesley Tansey, Jack Van Horn, Thor Aspelund.
 
 Thanks to the following Twitter users for helpful suggestions: @enoriverbend
 
-Thanks to the man individuals who have contributed edits or issues by Github or email:
-Isis Anderson, Larissa Bersh, Isil Bilgin, Forrest Dollins, Chuanji Gao, Nate Guimond, Alan He, Wu Jianxiao, James Kent, Dan Kessler, Philipp Kuhnke, Leila Madeleine, Lee Matos, Ryan McCormick, Kirsten Mettler, Shanaathanan Modchalingam, Martijn Stegeman, Mehdi Rahim, Jassary Rico-Herrera, Mingquian Tan, Wenjin Tao, Laura Tobar, Albane Valenzuela, Alexander Wang, Michael Waskom,
+Thanks to the following individuals who have contributed edits or issues by Github or email:
+Isis Anderson, Larissa Bersh, Isil Bilgin, Forrest Dollins, Chuanji Gao, Nate Guimond, Alan He, Wu Jianxiao, James Kent, Dan Kessler, Philipp Kuhnke, Leila Madeleine, Lee Matos, Ryan McCormick, Jarod Meng, Kirsten Mettler, Shanaathanan Modchalingam, Martijn Stegeman, Mehdi Rahim, Jassary Rico-Herrera, Mingquian Tan, Wenjin Tao, Laura Tobar, Albane Valenzuela, Alexander Wang, Michael Waskom,
 barbyh, basicv8vc, brettelizabeth, codetrainee, dzonimn, epetsen, carlosivanr, hktang, jiamingkong, khtan, kiyofumi-kan, NevenaK, ttaweel.
 
 Special thanks to Isil Bilgin for assistance in fixing many of these issues.
@@ -226,16 +226,16 @@ Special thanks to Isil Bilgin for assistance in fixing many of these issues.
 \hypertarget{what-is-statistical-thinking}{%
 \section{What is statistical thinking?}\label{what-is-statistical-thinking}}
 
-Statistical thinking is a way of understanding a complex world by describing it in relatively simple terms that nonetheless capture essential aspects of its structure, and that also provide us some idea of how uncertain we are about that knowledge. The foundations of statistical thinking come primarily from mathematics and statistics, but also from computer science, psychology, and other fields of study.
+Statistical thinking is a way of understanding a complex world by describing it in relatively simple terms that nonetheless capture essential aspects of its structure or function, and that also provide us some idea of how uncertain we are about that knowledge. The foundations of statistical thinking come primarily from mathematics and statistics, but also from computer science, psychology, and other fields of study.
 
-We can distinguish statistical thinking from other forms of thinking that are less likely to describe the world accurately. In particular, human intuition often tries to answer the same questions that we can answer using statistical thinking, but often gets the answer wrong. For example, in recent years most Americans have reported that they think that violent crime was worse compared to the previous year (\href{http://www.pewresearch.org/fact-tank/2018/01/30/5-facts-about-crime-in-the-u-s/}{Pew Research Center}). However, a statistical analysis of the actual crime data shows that in fact violent crime has steadily \emph{decreased} since the 1990's. Intuition fails us because we rely upon best guesses (which psychologists refer to as \emph{heuristics}) that can often get it wrong. For example, humans often judge the prevalence of some event (like violent crime) using an \emph{availability heuristic} -- that is, how easily can we think of an example of violent crime. For this reason, our judgments of increasing crime rates may be more reflective of increasing news coverage, in spite of an actual decrease in the rate of crime. Statistical thinking provides us with the tools to more accurately understand the world and overcome the fallibility of human intuition.
+We can distinguish statistical thinking from other forms of thinking that are less likely to describe the world accurately. In particular, human intuition often tries to answer the same questions that we can answer using statistical thinking, but often gets the answer wrong. For example, in recent years most Americans have reported that they think that violent crime was worse compared to the previous year (\href{http://www.pewresearch.org/fact-tank/2018/01/30/5-facts-about-crime-in-the-u-s/}{Pew Research Center}). However, a statistical analysis of the actual crime data shows that in fact violent crime has steadily \emph{decreased} since the 1990's. Intuition fails us because we rely upon best guesses (which psychologists refer to as \emph{heuristics}) that can often get it wrong. For example, humans often judge the prevalence of some event (like violent crime) using an \emph{availability heuristic} -- that is, how easily can we think of an example of violent crime. For this reason, our judgments of increasing crime rates may be more reflective of increasing news coverage, in spite of an actual decrease in the rate of crime. Statistical thinking provides us with the tools to more accurately understand the world and overcome the biases of human judgment
 
 \hypertarget{dealing-with-statistics-anxiety}{%
 \section{Dealing with statistics anxiety}\label{dealing-with-statistics-anxiety}}
 
-Many people come to their first statistics class with a lot of trepidation and anxiety, especially once they hear that they will also have to learn to code in order to analyze data. In my class I give students a survey prior to the first session in order to measure their attitude towards statistics, asking them to rate a number of statments on a scale of 1 (strongly disagree) to 7 (strongly agree). One of the items on the survey is ``The thought of being enrolled in a statistics course makes me nervous''. In the most recent class, almost two-thirds of the class responded with a five or higher, and about one-fourth of the students said that they strongly agreed with the statement. So if you feel nervous about starting to learn statistics, you are not alone.
+Many people come to their first statistics class with a lot of trepidation and anxiety, especially once they hear that they will also have to learn to code in order to analyze data. In my class I give students a survey prior to the first session in order to measure their attitude towards statistics, asking them to rate a number of statments on a scale of 1 (strongly disagree) to 7 (strongly agree). One of the items on the survey is ``The thought of being enrolled in a statistics course makes me nervous''. In a recent class, almost two-thirds of the class responded with a five or higher, and about one-fourth of the students said that they strongly agreed with the statement. So if you feel nervous about starting to learn statistics, you are not alone.
 
-Anxiety feels uncomfortable, but psychology tells us that this kind of emotional arousal can actually help us perform \emph{better} on many tasks, by focusing our attention. So if you start to feel anxious about the material in this course, remind yourself that many others in the class are feeling similarly, and that the arousal could actually help you perform better (even if it doesn't seem like it!).
+Anxiety feels uncomfortable, but psychology tells us that this kind of emotional arousal can actually help us perform \emph{better} on many tasks, by focusing our attention. So if you start to feel anxious about the material in this book, remind yourself that many other readers are feeling similarly, and that this emotional arousal could actually help you learn the material better (even if it doesn't seem like it!).
 
 \hypertarget{what-can-statistics-do-for-us}{%
 \section{What can statistics do for us?}\label{what-can-statistics-do-for-us}}
@@ -252,15 +252,11 @@ There are three major things that we can do with statistics:
   \emph{Predict}: We often wish to make predictions about new situations based on our knowledge of previous situations.
 \end{itemize}
 
-Let's look at an example of these in action, centered on a question that many of us are interested in: How do we decide what's healthy to eat?\\
-There are many different sources of guidance; government dietary guidelines, diet books, and bloggers, just to name a few.\\
-Let's focus in on a specific question: Is saturated fat in our diet a bad thing?
+Let's look at an example of these in action, centered on a question that many of us are interested in: How do we decide what's healthy to eat? There are many different sources of guidance; government dietary guidelines, diet books, and bloggers, just to name a few. Let's focus in on a specific question: Is saturated fat in our diet a bad thing?
 
-One way that we might answer this question is common sense.\\
-If we eat fat, then it's going to turn straight into fat in our bodies, right?\\
-And we have all seen photos of arteries clogged with fat, so eating fat is going to clog our arteries, right?
+One way that we might answer this question is common sense. If we eat fat, then it's going to turn straight into fat in our bodies, right? And we have all seen photos of arteries clogged with fat, so eating fat is going to clog our arteries, right?
 
-Another way that we might answer this question is by listening to authority figures. The Dietary Guidelines from the US Food and Drug Administration have as one of their Key Recommendations that ``A healthy eating pattern limits saturated fats''. You might hope that these guidelines would be based on good science, and in some cases they are, but as Nina Teicholz outlined in her book ``Big Fat Surprise''(Teicholz \protect\hyperlink{ref-teic:2014}{2014}), this particular recommendation seems to be based more on the dogma of nutrition researchers than on actual evidence.
+Another way that we might answer this question is by listening to authority figures. The Dietary Guidelines from the US Food and Drug Administration have as one of their Key Recommendations that ``A healthy eating pattern limits saturated fats''. You might hope that these guidelines would be based on good science, and in some cases they are, but as Nina Teicholz outlined in her book ``Big Fat Surprise''(Teicholz \protect\hyperlink{ref-teic:2014}{2014}), this particular recommendation seems to be based more on the longstanding dogma of nutrition researchers than on actual evidence.
 
 Finally, we might look at actual scientific research. Let's start by looking at a large study called the PURE study, which has examined diets and health outcomes (including death) in more than 135,000 people from 18 different countries. In one of the analyses of this dataset (published in \emph{The Lancet} in 2017; Dehghan et al. (\protect\hyperlink{ref-dehg:ment:zhan:2017}{2017})), the PURE investigators reported an analysis of how intake of various classes of macronutrients (including saturated fats and carbohydrates) was related to the likelihood of dying during the time that people were followed. People were followed for a \emph{median} of 7.4 years, meaning that half of the people in the study were followed for less and half were followed for more than 7.4 years. Figure \ref{fig:PureDeathSatFat} plots some of the data from the study (extracted from the paper), showing the relationship between the intake of both saturated fats and carbohydrates and the risk of dying from any cause.
 
@@ -291,7 +287,7 @@ Statistics provides us with a way to describe how new data can be best used to u
 
 Another way to think of statistics is as ``the science of throwing away data''. In the example of the PURE study above, we took more than 100,000 numbers and condensed them into ten. It is this kind of \emph{aggregation} that is one of the most important concepts in statistics. When it was first advanced, this was revolutionary: If we throw out all of the details about every one of the participants, then how can we be sure that we aren't missing something important?
 
-As we will see, statistics provides us ways to characterize the structure of aggregates of data, and with theoretical foundations that explain why this usually works well. However, it's also important to keep in mind that aggregation can go too far, and later we will encounter cases where a summary can provide a misleading picture of the data being summarized.
+As we will see, statistics provides us ways to characterize the structure of aggregates of data, with theoretical foundations that explain why this usually works well. However, it's also important to keep in mind that aggregation can go too far, and later we will encounter cases where a summary can provide a very misleading picture of the data being summarized.
 
 \hypertarget{uncertainty}{%
 \subsection{Uncertainty}\label{uncertainty}}
@@ -303,12 +299,12 @@ One often sees journalists write that scientific researchers have ``proven'' som
 \hypertarget{sampling-from-a-population}{%
 \subsection{Sampling from a population}\label{sampling-from-a-population}}
 
-The concept of aggregation implies that we can make useful insights by collapsing across data -- but how much data do we need? The idea of \emph{sampling} says that we can summarize an entire population based on just a small number of samples from the population, as long as those samples are obtained in the right way. For example, the PURE study enrolled a sample of about 135,000 people, but its goal was to provide insights about the billions of humans who make up the population from which those people were sampled. As we already discussed above, the way that the study sample is obtained is critical, as it determines how broadly we can generalize the results. Another fundamental insight about sampling is that while larger samples are always better (in terms of their ability to accurately represent the entire population), there are diminishing returns as the sample gets larger. In fact, the rate at which the benefit of larger samples decreases follows a simple mathematical rule, growing as the square root of the sample size, such that in order to double the quality of our data we need to quadruple the size of our sample.
+The concept of aggregation implies that we can make useful insights by collapsing across data -- but how much data do we need? The idea of \emph{sampling} says that we can summarize an entire population based on just a small number of samples from the population, as long as those samples are obtained in the right way. For example, the PURE study enrolled a sample of about 135,000 people, but its goal was to provide insights about the billions of humans who make up the population from which those people were sampled. As we already discussed above, the way that the study sample is obtained is critical, as it determines how broadly we can generalize the results. Another fundamental insight about sampling is that while larger samples are always better (in terms of their ability to accurately represent the entire population), there are diminishing returns as the sample gets larger. In fact, the rate at which the benefit of larger samples decreases follows a simple mathematical rule, growing as the square root of the sample size, such that in order to double the precision of our estimate we need to quadruple the size of our sample.
 
 \hypertarget{causality-and-statistics}{%
 \section{Causality and statistics}\label{causality-and-statistics}}
 
-The PURE study seemed to provide pretty strong evidence for a positive relationship between eating saturated fat and living longer, but this doesn't tell us what we really want to know: If we eat more saturated fat, will that cause us to live longer? This is because we don't know whether there is a direct causal relationship between eating saturated fat and living longer. The data are consistent with such a relationship, but they are equally consistent with some other factor causing both higher saturated fat and longer life. For example, it is likely that people who are richer eat more saturated fat and richer people tend to live longer, but their longer life is not necessarily due to fat intake --- it could instead be due to better health care, reduced psychological stress, better food quality, or many other factors. The PURE study investigators tried to account for these factors, but we can't be certain that their efforts completely removed the effects of other variables. The fact that other factors may explain the relationship between saturated fat intake and death is an example of why introductory statistics classes often teach that ``correlation does not imply causation'', though the renowned data visualization expert Edward Tufte has added, ``but it sure is a hint.''
+The PURE study seemed to provide pretty strong evidence for a positive relationship between eating saturated fat and living longer, but this doesn't tell us what we really want to know: If we eat more saturated fat, will that cause us to live longer? This is because we don't know whether there is a direct causal relationship between eating saturated fat and living longer. The data are consistent with such a relationship, but they are equally consistent with some other factor causing both higher saturated fat and longer life. For example, one might imagine that people who are richer eat more saturated fat and richer people tend to live longer, but their longer life is not necessarily due to fat intake --- it could instead be due to better health care, reduced psychological stress, better food quality, or many other factors. The PURE study investigators tried to account for these factors, but we can't be certain that their efforts completely removed the effects of other variables. The fact that other factors may explain the relationship between saturated fat intake and death is an example of why introductory statistics classes often teach that ``correlation does not imply causation'', though the renowned data visualization expert Edward Tufte has added, ``but it sure is a hint.''
 
 Although observational research (like the PURE study) cannot conclusively demonstrate causal relations, we generally think that causation can be demonstrated using studies that experimentally control and manipulate a specific factor. In medicine, such a study is referred to as a \emph{randomized controlled trial} (RCT). Let's say that we wanted to do an RCT to examine whether increasing saturated fat intake increases life span. To do this, we would sample a group of people, and then assign them to either a treatment group (which would be told to increase their saturated fat intake) or a control group (who would be told to keep eating the same as before). It is essential that we assign the individuals to these groups randomly. Otherwise, people who choose the treatment might be different in some way than people who choose the control group -- for example, they might be more likely to engage in other healthy behaviors as well. We would then follow the participants over time and see how many people in each group died. Because we randomized the participants to treatment or control groups, we can be reasonably confident that there are no other differences between the groups that would \emph{confound} the treatment effect; however, we still can't be certain because sometimes randomization yields treatment versus control groups that \emph{do} vary in some important way. Researchers often try to address these confounds using statistical analyses, but removing the influence of a confound from the data can be very difficult.
 
@@ -348,12 +344,12 @@ Having read this chapter, you should be able to:
 \hypertarget{what-are-data}{%
 \section{What are data?}\label{what-are-data}}
 
-The first important point about data is that data \emph{are} -- meaning that the word ``data'' is plural (though some people disagree with me on this). You might also wonder how to pronounce ``data'' -- I say ``day-tah'', but I know many people who say ``dah-tah'', and I have been able to remain friends with them in spite of this. Now if I heard them say ``the data is'' then that would be a bigger issue\ldots{}
+The first important point about data is that data \emph{are} -- meaning that the word ``data'' is plural (though some people disagree with me on this). You might also wonder how to pronounce ``data'' -- I say ``day-tah'', but I know many people who say ``dah-tah'', and I have been able to remain friends with them in spite of this. Now, if I heard them say ``the data is'' then that would be a bigger issue\ldots{}
 
 \hypertarget{qualitative-data}{%
 \subsection{Qualitative data}\label{qualitative-data}}
 
-Data are composed of \emph{variables}, where a variable reflects a unique measurement or quantity. Some variables are \emph{qualitative}, meaning that they describe a quality rather than a numeric quantity. For example, in my stats course I generally give an introductory survey, both to obtain data to use in class and to learn more about the students. One of the questions that I ask is ``What is your favorite food?'', to which some of the answers have been: blueberries, chocolate, tamales, pasta, pizza, and mango. Those data are not intrinsically numerical; we could assign numbers to each one (1=blueberries, 2=chocolate, etc), but we would just be using the numbers as labels rather than as real numbers; for example, it wouldn't make sense to add the numbers together in this case. However, we will often code qualitative data using numbers in order to make them easier to work with, as you will see later.
+Data are composed of \emph{variables}, where a variable reflects a unique measurement or quantity. Some variables are \emph{qualitative}, meaning that they describe a quality rather than a numeric quantity. For example, in my stats course I generally give an introductory survey, both to obtain data to use in class and to learn more about the students. One of the questions that I ask is ``What is your favorite food?'', to which some of the answers have been: blueberries, chocolate, tamales, pasta, pizza, and mango. Those data are not intrinsically numerical; we could assign numbers to each one (1=blueberries, 2=chocolate, etc), but we would just be using the numbers as labels rather than as real numbers. This also constrains what we should do with those numbers; for example, it wouldn't make sense to compute the average of those numbers. However, we will often code qualitative data using numbers in order to make them easier to work with, as you will see later.
 
 \hypertarget{quantitative-data}{%
 \subsection{Quantitative data}\label{quantitative-data}}
@@ -381,7 +377,7 @@ Note that the students' answers were qualitative, but we generated a quantitativ
 \hypertarget{types-of-numbers}{%
 \subsubsection{Types of numbers}\label{types-of-numbers}}
 
-There are several different types of numbers that we work with in statistics. It's important to understand these differences, in part because programming languages like R often distinguish between them.
+There are several different types of numbers that we work with in statistics. It's important to understand these differences, in part because statistical analysis languages (such as R) often distinguish between them.
 
 \textbf{Binary numbers}. The simplest are binary numbers -- that is, zero or one. We will often use binary numbers to represent whether something is true or false, or present or absent. For example, I might ask 10 people if they have ever experienced a migraine headache, recording their answers as ``Yes'' or ``No''. It's often useful to instead use \emph{logical} values, which take the value of either \texttt{TRUE} or \texttt{FALSE}. This can be especially useful when we start using programming languages like R to analyze our data, since these languages already understand the concepts of TRUE and FALSE. In fact, most programming languages treat truth values and binary numbers equivalently. The number 1 is equal to the logical value \texttt{TRUE}, and the number zero is equal to the logical value \texttt{FALSE}.
 
@@ -392,7 +388,7 @@ There are several different types of numbers that we work with in statistics. It
 \hypertarget{discrete-versus-continuous-measurements}{%
 \section{Discrete versus continuous measurements}\label{discrete-versus-continuous-measurements}}
 
-A \emph{discrete} measurement is one that takes one of a set of particular values. These could be qualitative values (for example, different breeds of dogs) or numerical values (for example, how many friends one has on Facebook). Importantly, there is no middle ground between the measurements; it doesn't make sense to say that one has 33.7 friends.
+A \emph{discrete} measurement is one that takes one of a finite set of particular values. These could be qualitative values (for example, different breeds of dogs) or numerical values (for example, how many friends one has on Facebook). Importantly, there is no middle ground between the measurements; it doesn't make sense to say that one has 33.7 friends.
 
 A \emph{continuous} measurement is one that is defined in terms of a real number. It could fall anywhere in a particular range of values, though usually our measurement tools will limit the precision with which we can measure it; for example, a floor scale might measure weight to the nearest kg, even though weight could in theory be measured with much more precision.
 
@@ -403,7 +399,7 @@ It is common in statistics courses to go into more detail about different ``scal
 
 In many fields such as psychology, the thing that we are measuring is not a physical feature, but instead is an unobservable theoretical concept, which we usually refer to as a \emph{construct}. For example, let's say that I want to test how well you understand the distinction between the different types of numbers described above. I could give you a pop quiz that would ask you several questions about these concepts and count how many you got right. This test might or might not be a good measurement of the construct of your actual knowledge -- for example, if I were to write the test in a confusing way or use language that you don't understand, then the test might suggest you don't understand the concepts when really you do. On the other hand, if I give a multiple choice test with very obvious wrong answers, then you might be able to perform well on the test even if you don't actually understand the material.
 
-It is usually impossible to measure a construct without some amount of error. In the example above, you might know the answer, but you might mis-read the question and get it wrong. In other cases, there is error intrinsic to the thing being measured, such as when we measure how long it takes a person to respond on a simple reaction time test, which will vary from trial to trial for many reasons. We generally want our measurement error to be as low as possible.
+It is usually impossible to measure a construct without some amount of error. In the example above, you might know the answer, but you might mis-read the question and get it wrong. In other cases, there is error intrinsic to the thing being measured, such as when we measure how long it takes a person to respond on a simple reaction time test, which will vary from trial to trial for many reasons. We generally want our measurement error to be as low as possible, which we can acheive either by improving the quality of the measurement (for example, using a better time to measure reaction time), or by averaging over a larger number of indvidiual measurements.
 
 Sometimes there is a standard against which other measurements can be tested, which we might refer to as a ``gold standard'' -- for example, measurement of sleep can be done using many different devices (such as devices that measure movement in bed), but they are generally considered inferior to the gold standard of polysomnography (which uses measurement of brain waves to quantify the amount of time a person spends in each stage of sleep). Often the gold standard is more difficult or expensive to perform, and the cheaper method is used even though it might have greater error.
 
@@ -416,7 +412,7 @@ Reliability refers to the consistency of our measurements. One common form of re
 
 Another way to assess reliability comes in cases where the data include subjective judgments. For example, let's say that a researcher wants to determine whether a treatment changes how well an autistic child interacts with other children, which is measured by having experts watch the child and rate their interactions with the other children. In this case we would like to make sure that the answers don't depend on the individual rater --- that is, we would like for there to be high \emph{inter-rater reliability}. This can be assessed by having more than one rater perform the rating, and then comparing their ratings to make sure that they agree well with one another.
 
-Reliability is important if we want to compare one measurement to another. The relationship between two different variables can't be any stronger than the relationship between either of the variables and itself (i.e., its reliability). This means that an unreliable measure can never have a strong statistical relationship with any other measure. For this reason, researchers developing a new measurement (such as a new survey) will often go to great lengths to establish and improve its reliability.
+Reliability is important if we want to compare one measurement to another, because the relationship between two different variables can't be any stronger than the relationship between either of the variables and itself (i.e., its reliability). This means that an unreliable measure can never have a strong statistical relationship with any other measure. For this reason, researchers developing a new measurement (such as a new survey) will often go to great lengths to establish and improve its reliability.
 
 \begin{figure}
 \includegraphics[height=0.33\textheight]{StatsThinking21_files/figure-latex/ReliabilityValidity-1} \caption{A figure demonstrating the distinction between reliability and validity, using shots at a bullseye. Reliability refers to the consistency of location of shots, and validity refers to the accuracy of the shots with respect to the center of the bullseye. }\label{fig:ReliabilityValidity}
@@ -516,7 +512,7 @@ In this Chapter we will discuss why and how to summarize data.
 
 When we summarize data, we are necessarily throwing away information, and one might plausibly object to this. As an example, let's go back to the PURE study that we discussed in Chapter 1. Are we not supposed to believe that all of the details about each individual matter, beyond those that are summarized in the dataset? What about the specific details of how the data were collected, such as the time of day or the mood of the participant? All of these details are lost when we summarize the data.
 
-We summarize data in general because it provides us with a way to \emph{generalize} - that is, to make general statements that extend beyond specific observations. The importance of generalization was highlighted by the writer Jorge Luis Borges in his short story ``Funes the Memorious'', which describes an individual who loses the ability to forget. Borges focuses in on the relation between generalization (i.e.~throwing away data) and thinking: ``To think is to forget a difference, to generalize, to abstract. In the overly replete world of Funes, there were nothing but details.''
+One reason that we summarize data is that it provides us with a way to \emph{generalize} - that is, to make general statements that extend beyond specific observations. The importance of generalization was highlighted by the writer Jorge Luis Borges in his short story ``Funes the Memorious'', which describes an individual who loses the ability to forget. Borges focuses in on the relation between generalization (i.e.~throwing away data) and thinking: ``To think is to forget a difference, to generalize, to abstract. In the overly replete world of Funes, there were nothing but details.''
 
 Psychologists have long studied all of the ways in which generalization is central to thinking. One example is categorization: We are able to easily recognize different examples of the category of ``birds'' even though the individual examples may be very different in their surface features (such as an ostrich, a robin, and a chicken). Importantly, generalization lets us make predictions about these individuals -- in the case of birds, we can predict that they can fly and eat seeds, and that they probably can't drive a car or speak English. These predictions won't always be right, but they are often good enough to be useful in the world.
 
@@ -529,12 +525,12 @@ A simple way to summarize data is to generate a table representing counts of var
 \includegraphics[height=0.3\textheight]{images/Sales_contract_Shuruppak_Louvre_AO3760} \caption{A Sumerian tablet from the Louvre, showing a sales contract for a house and field.  Public domain, via Wikimedia Commons.}\label{fig:salesContract}
 \end{figure}
 
-Let's look at some examples of the use of tables, using a more realistic dataset. Throughout this book we will use the \href{https://www.cdc.gov/nchs/nhanes/index.htm}{National Health and Nutrition Examination Survey (NHANES)} dataset. This is an ongoing study that assesses the health and nutrition status of a sample of individuals from the United States on many different variables. We will use a version of the dataset that is available with the R software library. For this example, we will look at a simple variable, called ``PhysActive'' in the dataset. This variable contains one of three different values: ``Yes'' or ``No'' (indicating whether or not the person reports doing ``moderate or vigorous-intensity sports, fitness or recreational activities''), or ``NA'' if the data are missing for that individual. There are different reasons that the data might be missing; for example, this question was not asked of children younger than 12 years of age, while in other cases an adult may have declined to answer the question during the interview.
+Let's look at some examples of the use of tables, using a more realistic dataset. Throughout this book we will use the \href{https://www.cdc.gov/nchs/nhanes/index.htm}{National Health and Nutrition Examination Survey (NHANES)} dataset. This is an ongoing study that assesses the health and nutrition status of a sample of individuals from the United States on many different variables. We will use a version of the dataset that is available for the R statistical software package. For this example, we will look at a simple variable, called \emph{PhysActive} in the dataset. This variable contains one of three different values: ``Yes'' or ``No'' (indicating whether or not the person reports doing ``moderate or vigorous-intensity sports, fitness or recreational activities''), or ``NA'' if the data are missing for that individual. There are different reasons that the data might be missing; for example, this question was not asked of children younger than 12 years of age, while in other cases an adult may have declined to answer the question during the interview, or the interviewer's recording of the answer on their form might be unreadable.
 
 \hypertarget{frequency-distributions}{%
 \subsection{Frequency distributions}\label{frequency-distributions}}
 
-Let's look at how many people fall into each of these categories:
+A \emph{distribution} describes how data are divided between different possible values. For this example, let's look at how many people fall into each of the physical activity categories.
 
 \begin{tabular}{l|r}
 \hline
@@ -548,14 +544,14 @@ NA & 1334\\
 \hline
 \end{tabular}
 
-This table shows the frequencies of each of the different values; there were 2473 individuals who responded ``No'' to the question, 2972 who responded ``Yes'', and 1334 for whom no response was given. We call this a \emph{frequency distribution} because it tells us how frequent each of the possible values is within our sample.
+Table \ref{tab:PhysActiveTable} shows the frequencies of each of the different values; there were 2473 individuals who responded ``No'' to the question, 2972 who responded ``Yes'', and 1334 for whom no response was given. We call this a \emph{frequency distribution} because it tells us how frequent each of the possible values is within our sample.
 
-This shows us the absolute frequency of the two responses, for everyone who actually gave a response. We can see from this that there are more people saying ``Yes'' than ``No'', but it can be hard to tell from absolute numbers how big the difference is. For this reason, we often would rather present the data using \emph{relative frequency}, which is obtained by dividing each frequency by the sum of all frequencies:
+This shows us the absolute frequency of the two responses, for everyone who actually gave a response. We can see from this that there are more people saying ``Yes'' than ``No'', but it can be hard to tell from absolute numbers how big the difference is in relative terms. For this reason, we often would rather present the data using \emph{relative frequency}, which is obtained by dividing each frequency by the sum of all frequencies:
 
 \[
 relative\ frequency_i = \frac{absolute\ frequency_i}{\sum_{j=1}^N absolute\ frequency_j}
 \]
-The relative frequency provides a much easier way to see how big the imbalance is. We can also interpret the relative frequencies as percentages by multiplying them by 100. In this example, we will drop the NA values as well, since we would like to be able to interpret the relative frequencies of active versus inactive people.
+The relative frequency provides a much easier way to see how big the imbalance is. We can also interpret the relative frequencies as percentages by multiplying them by 100. In this example, we will drop the NA values as well, since we would like to be able to interpret the relative frequencies of active versus inactive people. However, for this to make sense we have to assume that the NA values are missing ``at random'', meaning that their presence or absence is not related to the true value of the variable for that person. For example, if inactive participants were more likely to refuse to answer the question than active participants, then that would \emph{bias} our estimate of the frequency of physical activity, meaning that our estimate would be different from the true value.
 
 \begin{table}
 
@@ -572,18 +568,18 @@ Yes & 2972 & 0.55 & 55\\
 \end{tabular}
 \end{table}
 
-This lets us see that 45.4 percent of the individuals in the NHANES sample said ``No'' and 54.6 percent said ``Yes''.
+Ta lets us see that 45.4 percent of the individuals in the NHANES sample said ``No'' and 54.6 percent said ``Yes''.
 
 \hypertarget{cumulative-distributions}{%
 \subsection{Cumulative distributions}\label{cumulative-distributions}}
 
-The PhysActive variable that we examined above only had two possible values, but often we wish to summarize data that can have many more possible values. When those values are quantitative, then one useful way to summarize them is via what we call a \emph{cumulative} frequency representation: rather than asking how many observations take on a specific value, we ask how many have a value of \emph{at most} some specific value.
+The \emph{PhysActive} variable that we examined above only had two possible values, but often we wish to summarize data that can have many more possible values. When those values are quantitative, then one useful way to summarize them is via what we call a \emph{cumulative} frequency representation: rather than asking how many observations take on a specific value, we ask how many have a value some specific value \emph{or less}.
 
-Let's look at another variable in the NHANES dataset, called SleepHrsNight which records how many hours the participant reports sleeping on usual weekdays. Let's create a frequency table as we did above, after removing anyone with missing data for this question.
+Let's look at another variable in the NHANES dataset, called \emph{SleepHrsNight} which records how many hours the participant reports sleeping on usual weekdays. Table \ref{tab:sleepTable} shows a frequency table created as we did above, after removing anyone with missing data for this question. We can already begin to summarize the dataset just by looking at the table; for example, we can see that most people report sleeping between 6 and 8 hours. To see this even more clearly, we can plot a \emph{histogram} which shows the number of cases having each of the different values; see left panel of Figure \ref{fig:sleepHist}. We can also plot the relative frequencies, which we will often refer to as \emph{densities} - see the right panel of Figure \ref{fig:sleepHist}.
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-7}Frequency distribution for number of hours of sleep per night in the NHANES dataset}
+\caption{\label{tab:sleepTable}Frequency distribution for number of hours of sleep per night in the NHANES dataset}
 \centering
 \begin{tabular}[t]{r|r|r|r}
 \hline
@@ -614,8 +610,6 @@ SleepHrsNight & AbsoluteFrequency & RelativeFrequency & Percentage\\
 \end{tabular}
 \end{table}
 
-We can already begin to summarize the dataset just by looking at the table; for example, we can see that most people report sleeping between 6 and 8 hours. Let's plot the data to see this more clearly. To do this we can plot a \emph{histogram} which shows the number of cases having each of the different values; see left panel of Figure \ref{fig:sleepHist}. We can also plot the relative frequencies, which we will often refer to as \emph{densities} - see the right panel of Figure \ref{fig:sleepHist}.
-
 \begin{figure}
 \includegraphics[height=0.33\textheight]{StatsThinking21_files/figure-latex/sleepHist-1} \caption{Left: Histogram showing the number (left) and proportion (right) of people reporting each possible value of the SleepHrsNight variable.}\label{fig:sleepHist}
 \end{figure}
@@ -625,12 +619,11 @@ What if we want to know how many people report sleeping 5 hours or less? To find
 \[
 cumulative\ frequency_j = \sum_{i=1}^{j}{absolute\ frequency_i}
 \]
-Let's do this for our sleep variable, computing the absolute and cumulative frequency in R:
 
 \newpage
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-9}Absolute and cumulative frquency distributions for SleepHrsNight variable}
+\caption{\label{tab:unnamed-chunk-8}Absolute and cumulative frquency distributions for SleepHrsNight variable}
 \centering
 \begin{tabular}[t]{r|r|r}
 \hline
@@ -661,7 +654,7 @@ SleepHrsNight & AbsoluteFrequency & CumulativeFrequency\\
 \end{tabular}
 \end{table}
 
-In the left panel of Figure \ref{fig:sleepAbsCumulRelFreq} we plot the data to see what these representations look like; the absolute frequency values are plotted in solid lines, and the cumulative frequencies are plotted in dashed lines We see that the cumulative frequency is \emph{monotonically increasing} -- that is, it can only go up or stay constant, but it can never decrease. Again, we usually find the relative frequencies to be more useful than the absolute; those are plotted in the right panel of Figure \ref{fig:sleepAbsCumulRelFreq}.
+Let's do this for our sleep variable, computing the absolute and cumulative frequency. In the left panel of Figure \ref{fig:sleepAbsCumulRelFreq} we plot the data to see what these representations look like; the absolute frequency values are plotted in solid lines, and the cumulative frequencies are plotted in dashed lines We see that the cumulative frequency is \emph{monotonically increasing} -- that is, it can only go up or stay constant, but it can never decrease. Again, we usually find the relative frequencies to be more useful than the absolute; those are plotted in the right panel of Figure \ref{fig:sleepAbsCumulRelFreq}. Importantly, the shape of the relative frequency plot is exactly the same as the absolute frequency plot -- only the size of the values has changed.
 
 \begin{figure}
 \includegraphics[height=0.33\textheight]{StatsThinking21_files/figure-latex/sleepAbsCumulRelFreq-1} \caption{A plot of the relative (solid) and cumulative relative (dashed) values for frequency (left) and proportion (right) for the possible values of SleepHrsNight.}\label{fig:sleepAbsCumulRelFreq}
@@ -674,9 +667,9 @@ In the left panel of Figure \ref{fig:sleepAbsCumulRelFreq} we plot the data to s
 \includegraphics[height=0.33\textheight]{StatsThinking21_files/figure-latex/ageHist-1} \caption{A histogram of the Age (left) and Height (right) variables in NHANES.}\label{fig:ageHist}
 \end{figure}
 
-The variables that we examined above were fairly simple, having only a few possible values. Now let's look at a more complex variable: Age. First let's plot the Age variable for all of the individuals in the NHANES dataset (see left panel of Figure \ref{fig:ageHist}). What do you see there? First, you should notice that the number of individuals in each age group is declining over time. This makes sense because the population is being randomly sampled, and thus death over time leads to fewer people in the older age ranges. Second, you probably notice a large spike in the graph at age 80. What do you think that's about?
+The variables that we examined above were fairly simple, having only a few possible values. Now let's look at a more complex variable: Age. First let's plot the \emph{Age} variable for all of the individuals in the NHANES dataset (see left panel of Figure \ref{fig:ageHist}). What do you see there? First, you should notice that the number of individuals in each age group is declining over time. This makes sense because the population is being randomly sampled, and thus death over time leads to fewer people in the older age ranges. Second, you probably notice a large spike in the graph at age 80. What do you think that's about?
 
-If were were to look up the information about the NHANES dataset in R, we would see the following definition: ``Age in years at screening of study participant. Note: Subjects 80 years or older were recorded as 80.'' The reason for this is that the relatively small number of individuals with very high ages would make it potentially easier to identify the specific person in the dataset if you knew their exact age; researchers generally promise their participants to keep their identity confidential, and this is one of the things they can do to help protect their research subjects. This also highlights the fact that it's always important to know where one's data have come from and how they have been processed; otherwise we might interpret them improperly, thinking that 80-year-olds had been somehow overrepresented in the sample.
+If were were to look up the information about the NHANES dataset, we would see the following definition for the \emph{Age} variable: ``Age in years at screening of study participant. Note: Subjects 80 years or older were recorded as 80.'' The reason for this is that the relatively small number of individuals with very high ages would make it potentially easier to identify the specific person in the dataset if you knew their exact age; researchers generally promise their participants to keep their identity confidential, and this is one of the things they can do to help protect their research subjects. This also highlights the fact that it's always important to know where one's data have come from and how they have been processed; otherwise we might interpret them improperly, thinking that 80-year-olds had been somehow overrepresented in the sample.
 
 Let's look at another more complex variable in the NHANES dataset: Height. The histogram of height values is plotted in the right panel of Figure \ref{fig:ageHist}. The first thing you should notice about this distribution is that most of its density is centered around about 170 cm, but the distribution has a ``tail'' on the left; there are a small number of individuals with much smaller heights. What do you think is going on here?
 
@@ -689,11 +682,11 @@ You may have intuited that the small heights are coming from the children in the
 \hypertarget{histogram-bins}{%
 \subsection{Histogram bins}\label{histogram-bins}}
 
-In our earlier example with the sleep variable, the data were reported in whole numbers, and we simply counted the number of people who reported each possible value. However, if you look at a few values of the Height variable in NHANES, you will see that it was measured in centimeters down to the first decimal place:
+In our earlier example with the sleep variable, the data were reported in whole numbers, and we simply counted the number of people who reported each possible value. However, if you look at a few values of the Height variable in NHANES (as shown in Table \ref{tab:heightVals}), you will see that it was measured in centimeters down to the first decimal place.
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-10}A few values from the NHANES data frame.}
+\caption{\label{tab:heightVals}A few values of Height from the NHANES data frame.}
 \centering
 \begin{tabular}[t]{l}
 \hline
@@ -714,11 +707,12 @@ Height\\
 \end{tabular}
 \end{table}
 
-Panel C of Figure \ref{fig:heightHistSep} shows a histogram that counts the density of each possible value. That histogram looks really jagged, which is because of the variability in specific decimal place values. For example, the value 173.2 occurs 32 times, while the value 173.3 only occurs 15 times. We probably don't think that there is really such a big difference between the prevalence of these two heights; more likely this is just due to random variability in our sample of people.
+Panel C of Figure \ref{fig:heightHistSep} shows a histogram that counts the density of each possible value down the first decimal place. That histogram looks really jagged, which is because of the variability in specific decimal place values. For example, the value 173.2 occurs 32 times, while the value 173.3 only occurs 15 times. We probably don't think that there is really such a big difference between the prevalence of these two heights; more likely this is just due to random variability in our sample of people.
 
-In general, when we create a histogram of data that are continuous or where there are many possible values, we will \emph{bin} the values so that instead of counting and plotting the frequency of every specific value, we count and plot the frequency of values falling within a specific range. That's why the plot looked less jagged above in Panel B of \ref{fig:heightHistSep}; in this panel we set the bin width to 1, which means that the histogram is computed by combining values within bins with a width of one; thus, the values 1.3, 1.5, and 1.6 would all count toward the frequency of the same bin, which would span from values equal to one up through values less than 2.
+In general, when we create a histogram of data that are continuous or where there are many possible values, we will \emph{bin} the values so that instead of counting and plotting the frequency of every specific value, we count and plot the frequency of values falling within specific ranges. That's why the plot looked less jagged above in Panel B of \ref{fig:heightHistSep}; in this panel we set the bin width to 1, which means that the histogram is computed by combining values within bins with a width of one; thus, the values 1.3, 1.5, and 1.6 would all count toward the frequency of the same bin, which would span from values equal to one up through values less than 2.
 
 Note that once the bin size has been selected, then the number of bins is determined by the data:
+
 \[
 number\, of\, bins  = \frac{range\, of\, scores}{bin\, width}
 \]
@@ -743,7 +737,7 @@ As we will see later when we discuss the central limit theorem, there is a deep 
 
 The examples in Figure \ref{fig:NormalDistPlotsWithDist} followed the normal distribution fairly well, but in many cases the data will deviate in a systematic way from the normal distribution. One way in which the data can deviate is when they are asymmetric, such that one tail of the distribution is more dense than the other. We refer to this as ``skewness''. Skewness commonly occurs when the measurement is constrained to be non-negative, such as when we are counting things or measuring elapsed times (and thus the variable can't take on negative values).
 
-An example of skewness can be seen in the average waiting times at the airport security lines at San Francisco International Airport, plotted in the left panel of Figure \ref{fig:SFOWaitTimes}. You can see that while most wait times are less than 20 minutes, there are a number of cases where they are much longer, over 60 minutes! This is an example of a ``right-skewed'' distribution, where the right tail is longer than the left; these are common when looking at counts or measured times, which can't be less than zero. It's less common to see ``left-skewed'' distributions, but they can occur, for example when looking at fractional values that can't take a value greater than one.
+An example of relatively mild skewness can be seen in the average waiting times at the airport security lines at San Francisco International Airport, plotted in the left panel of Figure \ref{fig:SFOWaitTimes}. You can see that while most wait times are less than 20 minutes, there are a number of cases where they are much longer, over 60 minutes! This is an example of a ``right-skewed'' distribution, where the right tail is longer than the left; these are common when looking at counts or measured times, which can't be less than zero. It's less common to see ``left-skewed'' distributions, but they can occur, for example when looking at fractional values that can't take a value greater than one.
 
 \begin{figure}
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/SFOWaitTimes-1} \caption{Examples of right-skewed and long-tailed distributions.  Left: Average wait times for security at SFO Terminal A (Jan-Oct 2017), obtained from https://awt.cbp.gov/ .  Right: A histogram of the number of Facebook friends amongst 3,663 individuals, obtained from the Stanford Large Network Database. The person with the maximum number of friends is indicated by the diamond.}\label{fig:SFOWaitTimes}
@@ -752,7 +746,7 @@ An example of skewness can be seen in the average waiting times at the airport s
 \hypertarget{long-tailed-distributions}{%
 \subsection{Long-tailed distributions}\label{long-tailed-distributions}}
 
-Historically, statistics has focused heavily on data that are normally distributed, but there are many data types that look nothing like the normal distribution. In particular, many real-world distributions are ``long-tailed'', meaning that the right tail extends far beyond the most typical members of the distribution. One of the most interesting types of data where long-tailed distributions occur arises from the analysis of social networks. For an example, let's look at the Facebook friend data from the \href{https://snap.stanford.edu/data/egonets-Facebook.html}{Stanford Large Network Database} and plot the histogram of number of friends across the 3,663 people in the database (see right panel of Figure \ref{fig:SFOWaitTimes}). As we can see, this distribution has a very long right tail -- the average person has 24.09 friends, while the person with the most friends (denoted by the blue dot) has 1043!
+Historically, statistics has focused heavily on data that are normally distributed, but there are many data types that look nothing like the normal distribution. In particular, many real-world distributions are ``long-tailed'', meaning that the right tail extends far beyond the most typical members of the distribution; that is, they are extremely skewed. One of the most interesting types of data where long-tailed distributions occur arises from the analysis of social networks. For an example, let's look at the Facebook friend data from the \href{https://snap.stanford.edu/data/egonets-Facebook.html}{Stanford Large Network Database} and plot the histogram of number of friends across the 3,663 people in the database (see right panel of Figure \ref{fig:SFOWaitTimes}). As we can see, this distribution has a very long right tail -- the average person has 24.09 friends, while the person with the most friends (denoted by the blue dot) has 1043!
 
 Long-tailed distributions are increasingly being recognized in the real world. In particular, many features of complex systems are characterized by these distributions, from the frequency of words in text, to the number of flights in and out of different airports, to the connectivity of brain networks. There are a number of different ways that long-tailed distributions can come about, but a common one occurs in cases of the so-called ``Matthew effect'' from the Christian Bible:
 
@@ -1195,7 +1189,7 @@ This minimization of SSE is a good feature, and it's why the mean is the most co
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-17}Income for our five bar patrons}
+\caption{\label{tab:unnamed-chunk-15}Income for our five bar patrons}
 \centering
 \begin{tabular}[t]{r|l}
 \hline
@@ -1218,7 +1212,7 @@ The mean (61600.00) seems to be a pretty good summary of the income of those fiv
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-19}Income for our five bar patrons plus Beyoncé Knowles.}
+\caption{\label{tab:unnamed-chunk-17}Income for our five bar patrons plus Beyoncé Knowles.}
 \centering
 \begin{tabular}[t]{l|l}
 \hline
@@ -1264,7 +1258,7 @@ Whereas the mean minimizes the sum of squared errors, the median minimizes a sli
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-20}Summary statistics for income after arrival of Beyoncé Knowles.}
+\caption{\label{tab:unnamed-chunk-18}Summary statistics for income after arrival of Beyoncé Knowles.}
 \centering
 \begin{tabular}[t]{l|r}
 \hline
@@ -1316,7 +1310,7 @@ Let's treat the entire sample of children from the NHANES data as our ``populati
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-22}Variance estimates using n versus n-1; the estimate using n-1 is closer to the population value}
+\caption{\label{tab:unnamed-chunk-20}Variance estimates using n versus n-1; the estimate using n-1 is closer to the population value}
 \centering
 \begin{tabular}[t]{l|r}
 \hline
@@ -1677,7 +1671,7 @@ In many cases the number of possible outcomes would be too large for us to compu
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-25}Cumulative probability distribution for number of successful free throws by Steph Curry in 4 attempts.}
+\caption{\label{tab:unnamed-chunk-23}Cumulative probability distribution for number of successful free throws by Steph Curry in 4 attempts.}
 \centering
 \begin{tabular}[t]{r|r}
 \hline
@@ -1726,7 +1720,7 @@ We can also compute conditional probabilities directly from data. Let's say that
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-27}Summary data for diabetes and physical activity}
+\caption{\label{tab:unnamed-chunk-25}Summary data for diabetes and physical activity}
 \centering
 \begin{tabular}[t]{l|r|r|r|r}
 \hline
@@ -1743,7 +1737,7 @@ The table shows that the probability that someone in the NHANES dataset has diab
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-28}Joint probabilities for Diabetes and PhysActive variables.}
+\caption{\label{tab:unnamed-chunk-26}Joint probabilities for Diabetes and PhysActive variables.}
 \centering
 \begin{tabular}[t]{l|l|r|r}
 \hline
@@ -1865,7 +1859,7 @@ Another way to think of Bayes' rule is as a way to update our beliefs on the bas
 P(B|A) =  \frac{P(A|B)*P(B)}{P(A)}
 \]
 
-The different parts of Bayes' rule have specific names, that relate to their role in using Bayes' rule to update our beliefs. We start out with an initial guess about the probability of B (\(P(B)\)), which we refer to as the \emph{prior} probability. In the PSA example we used the base rate as our prior, since it was our best guess as to the individual's chance of cancer before we knew the test result. We then collect some data, which in our example was the test result. The degree to which the data A are consistent with outcome B is given by \(P(A|B)\), which we refer to as the \emph{likelihood}. You can think of this as how likely the data are, given that the particular hypothesis being tested is true. In our example, the hypothesis being tested was whether the individual had cancer, and the likelihood was based on our knowledge about the sensitivity of the test (that is, the probability of cancer given a positive test outcome). The denominator (\(P(A)\)) is referred to as the \emph{marginal likelihood}, because it expresses the overall likelihood of the data, averaged across all of the possible values of B (which in our example were disease present and disease absent).
+The different parts of Bayes' rule have specific names, that relate to their role in using Bayes' rule to update our beliefs. We start out with an initial guess about the probability of B (\(P(B)\)), which we refer to as the \emph{prior} probability. In the PSA example we used the base rate as our prior, since it was our best guess as to the individual's chance of cancer before we knew the test result. We then collect some data, which in our example was the test result. The degree to which the data A are consistent with outcome B is given by \(P(A|B)\), which we refer to as the \emph{likelihood}. You can think of this as how likely the data are, given that the particular hypothesis being tested is true. In our example, the hypothesis being tested was whether the individual had cancer, and the likelihood was based on our knowledge about the sensitivity of the test (that is, the probability of a positive test outcome given cancer is present). The denominator (\(P(A)\)) is referred to as the \emph{marginal likelihood}, because it expresses the overall likelihood of the data, averaged across all of the possible values of B (which in our example were disease present and disease absent).
 The outcome to the left (\(P(B|A)\)) is referred to as the \emph{posterior} - because it's what comes out the back end of the computation.
 
 There is another way of writing Bayes rule that makes this a bit clearer:
@@ -2006,7 +2000,7 @@ In this example, we know the adult population mean (168.35) and standard deviati
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-35}Example means and standard deviations for several samples of Height variable from NARPS}
+\caption{\label{tab:unnamed-chunk-33}Example means and standard deviations for several samples of Height variable from NARPS}
 \centering
 \begin{tabular}[t]{r|r}
 \hline
@@ -2316,7 +2310,7 @@ In this case, we will sample 250 individuals from the NHANES dataset. Figure \re
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-41}Summary of BMI data for active versus inactive individuals}
+\caption{\label{tab:unnamed-chunk-39}Summary of BMI data for active versus inactive individuals}
 \centering
 \begin{tabular}[t]{l|r|r|r}
 \hline
@@ -2776,7 +2770,7 @@ There is a commonly used scale for interpreting the size of an effect in terms o
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-53}Interpetation of Cohen's D}
+\caption{\label{tab:unnamed-chunk-51}Interpetation of Cohen's D}
 \centering
 \begin{tabular}[t]{l|l}
 \hline
@@ -2827,7 +2821,7 @@ For example, let's take the case of smoking and lung cancer. A study published i
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-55}Lung cancer occurrence separately for current smokers and those who have never smoked}
+\caption{\label{tab:unnamed-chunk-53}Lung cancer occurrence separately for current smokers and those who have never smoked}
 \centering
 \begin{tabular}[t]{l|r|r}
 \hline
@@ -3355,7 +3349,7 @@ The standard way to represent data from a categorical analysis is through a \emp
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-82}Contingency table for police search data}
+\caption{\label{tab:unnamed-chunk-80}Contingency table for police search data}
 \centering
 \begin{tabular}[t]{l|r|r|r|r}
 \hline
@@ -3388,7 +3382,7 @@ Searched & P(S)*P(B) & P(S)*P(W) & P(S)\tabularnewline
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-83}Summary of the 2-way contingency table for police search data}
+\caption{\label{tab:unnamed-chunk-81}Summary of the 2-way contingency table for police search data}
 \centering
 \begin{tabular}[t]{l|l|r|r|r}
 \hline
@@ -3432,7 +3426,7 @@ The table shows these for the police stop data. These standardized residuals can
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-85}Summary of standardized residuals for police stop data}
+\caption{\label{tab:unnamed-chunk-83}Summary of standardized residuals for police stop data}
 \centering
 \begin{tabular}[t]{l|l|r}
 \hline
@@ -3498,7 +3492,7 @@ For example, let's look at the NHANES data and compare the variable \emph{Depres
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-87}Relationship between depression and sleep problems in the NHANES dataset}
+\caption{\label{tab:unnamed-chunk-85}Relationship between depression and sleep problems in the NHANES dataset}
 \centering
 \begin{tabular}[t]{l|r|r}
 \hline
@@ -3622,7 +3616,7 @@ This value will be far from zero when individual data points deviate by similar 
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-91}Data for toy example of covariance}
+\caption{\label{tab:unnamed-chunk-89}Data for toy example of covariance}
 \centering
 \begin{tabular}[t]{r|r|r|r|r}
 \hline
@@ -3906,7 +3900,7 @@ The concept of \emph{regression to the mean} was one of Galton's essential contr
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-101}Reading scores for Test 1 (which is lower, because it was the basis for selecting the students) and Test 2 (which is higher because it was not related to Test 1).}
+\caption{\label{tab:unnamed-chunk-99}Reading scores for Test 1 (which is lower, because it was the basis for selecting the students) and Test 2 (which is higher because it was not related to Test 1).}
 \centering
 \begin{tabular}[t]{l|r}
 \hline
@@ -4222,7 +4216,7 @@ As an example, let's take a sample of 48 children from NHANES and fit a regressi
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-108}Root mean squared error for model applied to original data and new data, and after shuffling the order of the y variable (in essence making the null hypothesis true)}
+\caption{\label{tab:unnamed-chunk-106}Root mean squared error for model applied to original data and new data, and after shuffling the order of the y variable (in essence making the null hypothesis true)}
 \centering
 \begin{tabular}[t]{l|r|r}
 \hline
@@ -4252,7 +4246,7 @@ Let's see how that would work for our weight prediction example. In this case we
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-109}R-squared from cross-validation and new data, showing that cross-validation provides a reasonable estimate of the model's performance on new data.}
+\caption{\label{tab:unnamed-chunk-107}R-squared from cross-validation and new data, showing that cross-validation provides a reasonable estimate of the model's performance on new data.}
 \centering
 \begin{tabular}[t]{l|r}
 \hline
@@ -4976,7 +4970,7 @@ If we look more closely at the Garder paper, we will see that they also report s
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-134}Presence of metabolic syndrome in each group in the AtoZ study.}
+\caption{\label{tab:unnamed-chunk-132}Presence of metabolic syndrome in each group in the AtoZ study.}
 \centering
 \begin{tabular}[t]{l|r|r}
 \hline
