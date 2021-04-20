@@ -484,9 +484,9 @@ Figure 5.1: Histogram of height of children in NHANES.
 <p>Remember that we want to describe the data as simply as possible while still capturing their important features. The simplest model that we can imagine would involve only a single number; that is, the model would predict the same value for each observation, regardless of what else we might know about those observations. We generally describe a model in terms of its <em>parameters</em>, which are values that we can change in order to modify the predictions of the model. Throughout the book we will refer to these using the Greek letter beta (<span class="math inline">\(\beta\)</span>); when the model has more than one parameter, we will use subscripted numbers to denote the different betas (e.g. <span class="math inline">\(\beta_1\)</span>). It’s also customary to refer to the values of the data using the letter <span class="math inline">\(y\)</span>, and to use a subscripted version <span class="math inline">\(y_i\)</span> to refer to the individual observations.</p>
 <p>We generally don’t know the true values of the parameters, so we have to estimate them from the data. For this reason, we will generally put a “hat” over the <span class="math inline">\(\beta\)</span> symbol to denote that we are using an estimate of the parameter value rather than its true value (which we generally don’t know). Thus, our simple model for height using a single parameter would be:</p>
 <p><span class="math display">\[
-y_i = \hat{\beta}
+y_i = \beta + \epsilon
 \]</span></p>
-<p>The subscript <span class="math inline">\(i\)</span> doesn’t appear on the right side of the equation, which means that the prediction of the model doesn’t depend on which observation we are looking at — it’s the same for all of them. The question then becomes: how do we best estimate the values of the parameter(s) in the model? In this particular case, what single value value is the best estimate for <span class="math inline">\(\hat{\beta}\)</span>? And, more importantly, how do we even define <em>best</em>?</p>
+<p>The subscript <span class="math inline">\(i\)</span> doesn’t appear on the right side of the equation, which means that the prediction of the model doesn’t depend on which observation we are looking at — it’s the same for all of them. The question then becomes: how do we estimate the best values of the parameter(s) in the model? In this particular case, what single value value is the best estimate for <span class="math inline">\(\beta\)</span>? And, more importantly, how do we even define <em>best</em>?</p>
 <p>One very simple estimator that we might imagine is the <em>mode</em>, which is simply the most common value in the dataset. This redescribes the entire set of 1691 children in terms of a single number. If we wanted to predict the height of any new children, then our predicted value would be the same number:</p>
 <p><span class="math display">\[
 \hat{y_i} = 166.5
@@ -501,7 +501,7 @@ What we find in this case is that the average individual has a fairly large erro
 <p><span class="math display">\[
 \bar{X} = \frac{\sum_{i=1}^{n}x_i}{n}
 \]</span></p>
-<p>It turns out that if we use the arithmetic mean as our estimator then the average error will indeed be zero (see the simple proof at the end of the chapter if you are interested). Even though the average of errors from the mean is zero, we can see from the histogram in Figure <a href="fitting-models.html#fig:meanError">5.2</a> that each individual still has some degree of error; some are positive and some are negative, and those cancel each other out.</p>
+<p>It turns out that if we use the arithmetic mean as our estimator then the average error will indeed be zero (see the simple proof at the end of the chapter if you are interested). Even though the average of errors from the mean is zero, we can see from the histogram in Figure <a href="fitting-models.html#fig:meanError">5.2</a> that each individual still has some degree of error; some are positive and some are negative, and those cancel each other out to give an average error of zero.</p>
 <div class="figure"><span id="fig:meanError"></span>
 <img src="StatsThinking21_files/figure-html/meanError-1.png" alt="Distribution of errors from the mean." width="384" height="50%" />
 <p class="caption">
@@ -561,7 +561,7 @@ Figure 5.5: Simulated relationship between blood alcohol content and reaction ti
 <div id="overfitting" class="section level2">
 <h2><span class="header-section-number">5.4</span> Can a model be too good?</h2>
 <p>Error sounds like a bad thing, and usually we will prefer a model that has lower error over one that has higher error. However, we mentioned above that there is a tension between the ability of a model to accurately fit the current dataset and its ability to generalize to new datasets, and it turns out that the model with the lowest error often is much worse at generalizing to new datasets!</p>
-<p>To see this, let’s once again generate some data so that we know the true relation between the variables. We will create two simulated datasets, which are generated in exactly the same way – they just have different random noise added to them.</p>
+<p>To see this, let’s once again generate some data so that we know the true relation between the variables. We will create two simulated datasets, which are generated in exactly the same way – they just have different random noise added to them. That is, the equation for both of them is <span class="math inline">\(y = \beta * X + \epsilon\)</span>; the only difference is that different random noise was used for <span class="math inline">\(\epsilon\)</span> in each case.</p>
 <div class="figure"><span id="fig:Overfitting"></span>
 <img src="StatsThinking21_files/figure-html/Overfitting-1.png" alt="An example of overfitting. Both datasets were generated using the same model, with different random noise added to generate each set.  The left panel shows the data used to fit the model, with a simple linear fit in blue and a complex (8th order polynomial) fit in red.  The root mean square error (RMSE) values for each model are shown in the figure; in this case, the complex model has a lower RMSE than the simple model.  The right panel shows the second dataset, with the same model overlaid on it and the RMSE values computed using the model obtained from the first dataset.  Here we see that the simpler model actually fits the new dataset better than the more complex model, which was overfitted to the first dataset." width="768" height="50%" />
 <p class="caption">
@@ -577,7 +577,7 @@ Figure 5.6: An example of overfitting. Both datasets were generated using the sa
 <p><span class="math display">\[
 \bar{X} = \frac{\sum_{i=1}^{n}x_i}{n}
 \]</span></p>
-<p>Note that I said that this formula was specifically for a <em>sample</em> of data, which is a set of data points selected from a larger population. Using a sample, we wish to characterize a larger population – the full set of individuals that we are interested in. For example, if we are a political pollster our population of interest might be all registered voters, whereas our sample might just include a few thousand people sampled from this population. Later in the course we will talk in more detail about sampling, but for now the important point is that statisticians generally like to use different symbols to differentiate <em>statistics</em> that describe values for a sample from <em>parameters</em> that describe the true values for a population; in this case, the formula for the population mean (denoted as <span class="math inline">\(\mu\)</span>) is:</p>
+<p>Note that I said that this formula was specifically for a <em>sample</em> of data, which is a set of data points selected from a larger population. Using a sample, we wish to characterize a larger population – the full set of individuals that we are interested in. For example, if we are a political pollster our population of interest might be all registered voters, whereas our sample might just include a few thousand people sampled from this population. In Chapter 7 we will talk in more detail about sampling, but for now the important point is that statisticians generally like to use different symbols to differentiate <em>statistics</em> that describe values for a sample from <em>parameters</em> that describe the true values for a population; in this case, the formula for the population mean (denoted as <span class="math inline">\(\mu\)</span>) is:</p>
 <p><span class="math display">\[
 \mu = \frac{\sum_{i=1}^{N}x_i}{N}
 \]</span>
@@ -589,9 +589,9 @@ where N is the size of the entire population.</p>
 Figure 5.7: A demonstration of the mean as the statistic that minimizes the sum of squared errors. Using the NHANES child height data, we compute the mean (denoted by the blue bar). Then, we test a range of possible parameter estimates, and for each one we compute the sum of squared errors for each data point from that value, which are denoted by the black curve. We see that the mean falls at the minimum of the squared error plot.
 </p>
 </div>
-<p>This minimization of SSE is a good feature, and it’s why the mean is the most commonly used statistic to summarize data. However, the mean also has a dark side. Let’s say that five people are in a bar, and we examine each person’s income:</p>
+<p>This minimization of SSE is a good feature, and it’s why the mean is the most commonly used statistic to summarize data. However, the mean also has a dark side. Let’s say that five people are in a bar, and we examine each person’s income (Table <a href="fitting-models.html#tab:income1">5.1</a>):</p>
 <table>
-<caption><span id="tab:unnamed-chunk-15">Table 5.1: </span>Income for our five bar patrons</caption>
+<caption><span id="tab:income1">Table 5.1: </span>Income for our five bar patrons</caption>
 <thead>
 <tr class="header">
 <th align="right">income</th>
@@ -621,9 +621,9 @@ Figure 5.7: A demonstration of the mean as the statistic that minimizes the sum 
 </tr>
 </tbody>
 </table>
-<p>The mean (61600.00) seems to be a pretty good summary of the income of those five people. Now let’s look at what happens if Beyoncé Knowles walks into the bar:</p>
+<p>The mean (61600.00) seems to be a pretty good summary of the income of those five people. Now let’s look at what happens if Beyoncé Knowles walks into the bar (Table <a href="fitting-models.html#tab:income2">5.2</a>).</p>
 <table>
-<caption><span id="tab:unnamed-chunk-17">Table 5.2: </span>Income for our five bar patrons plus Beyoncé Knowles.</caption>
+<caption><span id="tab:income2">Table 5.2: </span>Income for our five bar patrons plus Beyoncé Knowles.</caption>
 <thead>
 <tr class="header">
 <th align="left">income</th>
@@ -666,26 +666,7 @@ Figure 5.7: A demonstration of the mean as the statistic that minimizes the sum 
 <p>If we sort those values:</p>
 <pre><code>3  4  6  6  7  8  9 12 14</code></pre>
 <p>Then the median is the middle value – in this case, the 5th of the 9 values.</p>
-<p>Whereas the mean minimizes the sum of squared errors, the median minimizes a slighty different quantity: The sum of <em>absolute</em> errors. This explains why it is less sensitive to outliers – squaring is going to exacerbate the effect of large errors compared to taking the absolute value. We can see this in the case of the income example: The median is much more representative of the group as a whole, and less sensitive to the one large outlier.</p>
-<table>
-<caption><span id="tab:unnamed-chunk-18">Table 5.3: </span>Summary statistics for income after arrival of Beyoncé Knowles.</caption>
-<thead>
-<tr class="header">
-<th align="left">Statistic</th>
-<th align="right">Value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Mean</td>
-<td align="right">9051333</td>
-</tr>
-<tr class="even">
-<td align="left">Median</td>
-<td align="right">65000</td>
-</tr>
-</tbody>
-</table>
+<p>Whereas the mean minimizes the sum of squared errors, the median minimizes a slighty different quantity: The sum of the <em>absolute value</em> of errors. This explains why it is less sensitive to outliers – squaring is going to exacerbate the effect of large errors compared to taking the absolute value. We can see this in the case of the income example: The median income ($65,000) is much more representative of the group as a whole than the mean ($9,051,333), and less sensitive to the one large outlier.</p>
 <p>Given this, why would we ever use the mean? As we will see in a later chapter, the mean is the “best” estimator in the sense that it will vary less from sample to sample compared to other estimators. It’s up to us to decide whether that is worth the sensitivity to potential outliers – statistics is all about tradeoffs.</p>
 </div>
 </div>
@@ -710,10 +691,10 @@ Figure 5.7: A demonstration of the mean as the statistic that minimizes the sum 
 </div>
 <div id="using-simulations-to-understand-statistics" class="section level2">
 <h2><span class="header-section-number">5.8</span> Using simulations to understand statistics</h2>
-<p>I am a strong believer in the use of computer simulations to understand statistical concepts, and in later chapters we will dig deeply into their use. Here we will introduce the idea by asking whether we can confirm the need to subtract 1 from the sample size in computing the sample variance.</p>
+<p>I am a strong believer in the use of computer simulations to understand statistical concepts, and in later chapters we will dig more deeply into their use. Here we will introduce the idea by asking whether we can confirm the need to subtract 1 from the sample size in computing the sample variance.</p>
 <p>Let’s treat the entire sample of children from the NHANES data as our “population”, and see how well the calculations of sample variance using either <span class="math inline">\(n\)</span> or <span class="math inline">\(n-1\)</span> in the denominator will estimate variance of this population, across a large number of simulated random samples from the data. We will return to the details of how to do this in a later chapter.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-20">Table 5.4: </span>Variance estimates using n versus n-1; the estimate using n-1 is closer to the population value</caption>
+<caption><span id="tab:varsim">Table 5.3: </span>Variance estimates using n versus n-1; the estimate using n-1 is closer to the population value</caption>
 <thead>
 <tr class="header">
 <th align="left">Estimate</th>
@@ -735,7 +716,7 @@ Figure 5.7: A demonstration of the mean as the statistic that minimizes the sum 
 </tr>
 </tbody>
 </table>
-<p>This shows us that the theory outlined above was correct: The variance estimate using <span class="math inline">\(n - 1\)</span> as the denominator is very close to the variance computed on the full data (i.e, the population), whereas the variance computed using <span class="math inline">\(n\)</span> as the denominator is biased (smaller) compared to the true value.</p>
+<p>The results in <a href="fitting-models.html#tab:varsim">5.3</a> show us that the theory outlined above was correct: The variance estimate using <span class="math inline">\(n - 1\)</span> as the denominator is very close to the variance computed on the full data (i.e, the population), whereas the variance computed using <span class="math inline">\(n\)</span> as the denominator is biased (smaller) compared to the true value.</p>
 </div>
 <div id="z-scores" class="section level2">
 <h2><span class="header-section-number">5.9</span> Z-scores</h2>
@@ -758,7 +739,7 @@ Figure 5.9: Left: A plot of number of violent crimes versus population by state.
 <p><span class="math display">\[
 Z(x) = \frac{x - \mu}{\sigma}
 \]</span></p>
-<p>Intuitively, you can think of a Z-score as telling you how far away any data point is from the mean, in units of standard deviation. We can compute this for the crime rate data, as shown in Figure <a href="fitting-models.html#fig:crimeZplot">5.10</a>.</p>
+<p>Intuitively, you can think of a Z-score as telling you how far away any data point is from the mean, in units of standard deviation. We can compute this for the crime rate data, as shown in Figure <a href="fitting-models.html#fig:crimeZplot">5.10</a>. which plots the Z-scores against the original scores.</p>
 <div class="figure"><span id="fig:crimeZplot"></span>
 <img src="StatsThinking21_files/figure-html/crimeZplot-1.png" alt="Scatterplot of original crime rate data against Z-scored data." width="384" height="50%" />
 <p class="caption">
@@ -817,14 +798,14 @@ Figure 5.16: Left: Plot of violent vs. property crime rates, with population si
 </p>
 </div>
 <p>Because Z-scores are directly comparable, we can also compute a <em>difference score</em> that expresses the relative rate of violent to non-violent (property) crimes across states. We can then plot those scores against population (see right panel of Figure <a href="fitting-models.html#fig:crimeTypePopPlot">5.16</a>). This shows how we can use Z-scores to bring different variables together on a common scale.</p>
-<p>It is worth noting that the smallest states appear to have the largest differences in both directions. While it might be tempting to look at each state and try to determine why it has a high or low difference score, this probably reflects the fact that the estimates obtained from smaller samples are necessarily going to be more variable, as we will discuss in the later chapter on Sampling.</p>
+<p>It is worth noting that the smallest states appear to have the largest differences in both directions. While it might be tempting to look at each state and try to determine why it has a high or low difference score, this probably reflects the fact that the estimates obtained from smaller samples are necessarily going to be more variable, as we will discuss in Chapter 7.</p>
 </div>
 </div>
 </div>
 <div id="learning-objectives-4" class="section level2">
 <h2><span class="header-section-number">5.10</span> Learning objectives</h2>
 <ul>
-<li>Describe the basic equation for statistical models (outcome=model + error)</li>
+<li>Describe the basic equation for statistical models (data=model + error)</li>
 <li>Describe different measures of central tendency and dispersion, how they are computed, and which are appropriate under what circumstances.</li>
 <li>Compute a Z-score and describe why they are useful.</li>
 </ul>

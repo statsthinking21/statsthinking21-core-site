@@ -788,7 +788,7 @@ Having read this chapter, you should be able to:
 On January 28, 1986, the Space Shuttle Challenger exploded 73 seconds after takeoff, killing all 7 of the astronauts on board. As when any such disaster occurs, there was an official investigation into the cause of the accident, which found that an O-ring connecting two sections of the solid rocket booster leaked, resulting in failure of the joint and explosion of the large liquid fuel tank (see figure \ref{fig:srbLeak}).
 
 \begin{figure}
-\includegraphics[height=0.2\textheight]{images/Booster_Rocket_Breach_-_GPN-2000-001425} \caption{An image of the solid rocket booster leaking fuel, seconds before the explosion. By NASA (Great Images in NASA Description) [Public domain], via Wikimedia Commons}\label{fig:srbLeak}
+\includegraphics[height=0.2\textheight]{images/Booster_Rocket_Breach_-_GPN-2000-001425} \caption{An image of the solid rocket booster leaking fuel, seconds before the explosion. The small flame visible on the side of the rocket is the site of the O-ring failure. By NASA (Great Images in NASA Description) [Public domain], via Wikimedia Commons}\label{fig:srbLeak}
 \end{figure}
 
 The investigation found that many aspects of the NASA decision making process were flawed, and focused in particular on a meeting between NASA staff and engineers from Morton Thiokol, a contractor who built the solid rocket boosters. These engineers were particularly concerned because the temperatures were forecast to be very cold on the morning of the launch, and they had data from previous launches showing that performance of the O-rings was compromised at lower temperatures. In a meeting on the evening before the launch, the engineers presented their data to the NASA managers, but were unable to convince them to postpone the launch. Their evidence was a set of hand-written slides showing numbers from various past launches.
@@ -911,7 +911,7 @@ One good way to avoid chartjunk is to avoid using popular spreadsheet programs t
 It's often possible to use visualization to distort the message of a dataset. A very common one is use of different axis scaling to either exaggerate or hide a pattern of data. For example, let's say that we are interested in seeing whether rates of violent crime have changed in the US. In Figure \ref{fig:crimePlotAxes}, we can see these data plotted in ways that either make it look like crime has remained constant, or that it has plummeted. The same data can tell two very different stories!
 
 \begin{figure}
-\includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/crimePlotAxes-1} \caption{Crime data from 1990 to 2014 plotted over time.  Panels A and B show the same data, but with different axis ranges. Data obtained from https://www.ucrdatatool.gov/Search/Crime/State/RunCrimeStatebyState.cfm}\label{fig:crimePlotAxes}
+\includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/crimePlotAxes-1} \caption{Crime data from 1990 to 2014 plotted over time.  Panels A and B show the same data, but with different ranges of values along the Y axis. Data obtained from https://www.ucrdatatool.gov/Search/Crime/State/RunCrimeStatebyState.cfm}\label{fig:crimePlotAxes}
 \end{figure}
 
 One of the major controversies in statistical data visualization is how to choose the Y axis, and in particular whether it should always include zero. In his famous book ``How to lie with statistics'', Darrell Huff argued strongly that one should always include the zero point in the Y axis. On the other hand, Edward Tufte has argued against this:
@@ -942,7 +942,7 @@ Humans have both perceptual and cognitive limitations that can make some visuali
 \hypertarget{perceptual-limitations}{%
 \subsection{Perceptual limitations}\label{perceptual-limitations}}
 
-One important perceptual limitation that many people (including myself) suffer from is color blindness. This can make it very difficult to perceive the information in a figure (like the one in Figure \ref{fig:badColors}) where there is only color contrast between the elements but no brightness contrast. It is always helpful to use graph elements that differ substantially in brightness and/or texture, in addition to color. There are also \href{http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/\#a-colorblind-friendly-palette}{``colorblind-friendly'' palettes} available for use in R.
+One important perceptual limitation that many people (including myself) suffer from is color blindness. This can make it very difficult to perceive the information in a figure (like the one in Figure \ref{fig:badColors}) where there is only color contrast between the elements but no brightness contrast. It is always helpful to use graph elements that differ substantially in brightness and/or texture, in addition to color. There are also \href{http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/\#a-colorblind-friendly-palette}{``colorblind-friendly'' palettes} available for use with many visualization tools.
 
 \begin{figure}
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/badColors-1} \caption{Example of a bad figure that relies solely on color contrast.}\label{fig:badColors}
@@ -1051,10 +1051,10 @@ Remember that we want to describe the data as simply as possible while still cap
 We generally don't know the true values of the parameters, so we have to estimate them from the data. For this reason, we will generally put a ``hat'' over the \(\beta\) symbol to denote that we are using an estimate of the parameter value rather than its true value (which we generally don't know). Thus, our simple model for height using a single parameter would be:
 
 \[
-y_i = \hat{\beta}
+y_i = \beta + \epsilon
 \]
 
-The subscript \(i\) doesn't appear on the right side of the equation, which means that the prediction of the model doesn't depend on which observation we are looking at --- it's the same for all of them. The question then becomes: how do we best estimate the values of the parameter(s) in the model? In this particular case, what single value value is the best estimate for \(\hat{\beta}\)? And, more importantly, how do we even define \emph{best}?
+The subscript \(i\) doesn't appear on the right side of the equation, which means that the prediction of the model doesn't depend on which observation we are looking at --- it's the same for all of them. The question then becomes: how do we estimate the best values of the parameter(s) in the model? In this particular case, what single value value is the best estimate for \(\beta\)? And, more importantly, how do we even define \emph{best}?
 
 One very simple estimator that we might imagine is the \emph{mode}, which is simply the most common value in the dataset. This redescribes the entire set of 1691 children in terms of a single number. If we wanted to predict the height of any new children, then our predicted value would be the same number:
 
@@ -1076,7 +1076,7 @@ How might we find a better estimator for our model parameter? We might start by 
 \bar{X} = \frac{\sum_{i=1}^{n}x_i}{n}
 \]
 
-It turns out that if we use the arithmetic mean as our estimator then the average error will indeed be zero (see the simple proof at the end of the chapter if you are interested). Even though the average of errors from the mean is zero, we can see from the histogram in Figure \ref{fig:meanError} that each individual still has some degree of error; some are positive and some are negative, and those cancel each other out.
+It turns out that if we use the arithmetic mean as our estimator then the average error will indeed be zero (see the simple proof at the end of the chapter if you are interested). Even though the average of errors from the mean is zero, we can see from the histogram in Figure \ref{fig:meanError} that each individual still has some degree of error; some are positive and some are negative, and those cancel each other out to give an average error of zero.
 
 \begin{figure}
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/meanError-1} \caption{Distribution of errors from the mean.}\label{fig:meanError}
@@ -1153,7 +1153,7 @@ These were both examples where the relationship between the two variables appear
 
 Error sounds like a bad thing, and usually we will prefer a model that has lower error over one that has higher error. However, we mentioned above that there is a tension between the ability of a model to accurately fit the current dataset and its ability to generalize to new datasets, and it turns out that the model with the lowest error often is much worse at generalizing to new datasets!
 
-To see this, let's once again generate some data so that we know the true relation between the variables. We will create two simulated datasets, which are generated in exactly the same way -- they just have different random noise added to them.
+To see this, let's once again generate some data so that we know the true relation between the variables. We will create two simulated datasets, which are generated in exactly the same way -- they just have different random noise added to them. That is, the equation for both of them is \(y = \beta * X + \epsilon\); the only difference is that different random noise was used for \(\epsilon\) in each case.
 
 \begin{figure}
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/Overfitting-1} \caption{An example of overfitting. Both datasets were generated using the same model, with different random noise added to generate each set.  The left panel shows the data used to fit the model, with a simple linear fit in blue and a complex (8th order polynomial) fit in red.  The root mean square error (RMSE) values for each model are shown in the figure; in this case, the complex model has a lower RMSE than the simple model.  The right panel shows the second dataset, with the same model overlaid on it and the RMSE values computed using the model obtained from the first dataset.  Here we see that the simpler model actually fits the new dataset better than the more complex model, which was overfitted to the first dataset.}\label{fig:Overfitting}
@@ -1172,7 +1172,7 @@ We have already seen the formula for computing the mean of a sample of data:
 \bar{X} = \frac{\sum_{i=1}^{n}x_i}{n}
 \]
 
-Note that I said that this formula was specifically for a \emph{sample} of data, which is a set of data points selected from a larger population. Using a sample, we wish to characterize a larger population -- the full set of individuals that we are interested in. For example, if we are a political pollster our population of interest might be all registered voters, whereas our sample might just include a few thousand people sampled from this population. Later in the course we will talk in more detail about sampling, but for now the important point is that statisticians generally like to use different symbols to differentiate \emph{statistics} that describe values for a sample from \emph{parameters} that describe the true values for a population; in this case, the formula for the population mean (denoted as \(\mu\)) is:
+Note that I said that this formula was specifically for a \emph{sample} of data, which is a set of data points selected from a larger population. Using a sample, we wish to characterize a larger population -- the full set of individuals that we are interested in. For example, if we are a political pollster our population of interest might be all registered voters, whereas our sample might just include a few thousand people sampled from this population. In Chapter 7 we will talk in more detail about sampling, but for now the important point is that statisticians generally like to use different symbols to differentiate \emph{statistics} that describe values for a sample from \emph{parameters} that describe the true values for a population; in this case, the formula for the population mean (denoted as \(\mu\)) is:
 
 \[
 \mu = \frac{\sum_{i=1}^{N}x_i}{N}
@@ -1185,11 +1185,11 @@ We have already seen that the mean is the estimator that is guaranteed to give u
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/MinSSE-1} \caption{A demonstration of the mean as the statistic that minimizes the sum of squared errors.  Using the NHANES child height data, we compute the mean (denoted by the blue bar). Then, we test a range of possible parameter estimates, and for each one we compute the sum of squared errors for each data point from that value, which are denoted by the black curve.  We see that the mean falls at the minimum of the squared error plot.}\label{fig:MinSSE}
 \end{figure}
 
-This minimization of SSE is a good feature, and it's why the mean is the most commonly used statistic to summarize data. However, the mean also has a dark side. Let's say that five people are in a bar, and we examine each person's income:
+This minimization of SSE is a good feature, and it's why the mean is the most commonly used statistic to summarize data. However, the mean also has a dark side. Let's say that five people are in a bar, and we examine each person's income (Table \ref{tab:income1}):
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-15}Income for our five bar patrons}
+\caption{\label{tab:income1}Income for our five bar patrons}
 \centering
 \begin{tabular}[t]{r|l}
 \hline
@@ -1208,11 +1208,11 @@ income & person\\
 \end{tabular}
 \end{table}
 
-The mean (61600.00) seems to be a pretty good summary of the income of those five people. Now let's look at what happens if Beyoncé Knowles walks into the bar:
+The mean (61600.00) seems to be a pretty good summary of the income of those five people. Now let's look at what happens if Beyoncé Knowles walks into the bar (Table \ref{tab:income2}).
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-17}Income for our five bar patrons plus Beyoncé Knowles.}
+\caption{\label{tab:income2}Income for our five bar patrons plus Beyoncé Knowles.}
 \centering
 \begin{tabular}[t]{l|l}
 \hline
@@ -1254,22 +1254,7 @@ If we sort those values:
 
 Then the median is the middle value -- in this case, the 5th of the 9 values.
 
-Whereas the mean minimizes the sum of squared errors, the median minimizes a slighty different quantity: The sum of \emph{absolute} errors. This explains why it is less sensitive to outliers -- squaring is going to exacerbate the effect of large errors compared to taking the absolute value. We can see this in the case of the income example: The median is much more representative of the group as a whole, and less sensitive to the one large outlier.
-
-\begin{table}
-
-\caption{\label{tab:unnamed-chunk-18}Summary statistics for income after arrival of Beyoncé Knowles.}
-\centering
-\begin{tabular}[t]{l|r}
-\hline
-Statistic & Value\\
-\hline
-Mean & 9051333\\
-\hline
-Median & 65000\\
-\hline
-\end{tabular}
-\end{table}
+Whereas the mean minimizes the sum of squared errors, the median minimizes a slighty different quantity: The sum of the \emph{absolute value} of errors. This explains why it is less sensitive to outliers -- squaring is going to exacerbate the effect of large errors compared to taking the absolute value. We can see this in the case of the income example: The median income (\$65,000) is much more representative of the group as a whole than the mean (\$9,051,333), and less sensitive to the one large outlier.
 
 Given this, why would we ever use the mean? As we will see in a later chapter, the mean is the ``best'' estimator in the sense that it will vary less from sample to sample compared to other estimators. It's up to us to decide whether that is worth the sensitivity to potential outliers -- statistics is all about tradeoffs.
 
@@ -1304,13 +1289,13 @@ So when we say that we have ``lost'' a degree of freedom, it means that there is
 \hypertarget{using-simulations-to-understand-statistics}{%
 \section{Using simulations to understand statistics}\label{using-simulations-to-understand-statistics}}
 
-I am a strong believer in the use of computer simulations to understand statistical concepts, and in later chapters we will dig deeply into their use. Here we will introduce the idea by asking whether we can confirm the need to subtract 1 from the sample size in computing the sample variance.
+I am a strong believer in the use of computer simulations to understand statistical concepts, and in later chapters we will dig more deeply into their use. Here we will introduce the idea by asking whether we can confirm the need to subtract 1 from the sample size in computing the sample variance.
 
 Let's treat the entire sample of children from the NHANES data as our ``population'', and see how well the calculations of sample variance using either \(n\) or \(n-1\) in the denominator will estimate variance of this population, across a large number of simulated random samples from the data. We will return to the details of how to do this in a later chapter.
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-20}Variance estimates using n versus n-1; the estimate using n-1 is closer to the population value}
+\caption{\label{tab:varsim}Variance estimates using n versus n-1; the estimate using n-1 is closer to the population value}
 \centering
 \begin{tabular}[t]{l|r}
 \hline
@@ -1325,7 +1310,7 @@ Variance estimate using n-1 & 725\\
 \end{tabular}
 \end{table}
 
-This shows us that the theory outlined above was correct: The variance estimate using \(n - 1\) as the denominator is very close to the variance computed on the full data (i.e, the population), whereas the variance computed using \(n\) as the denominator is biased (smaller) compared to the true value.
+The results in \ref{tab:varsim} show us that the theory outlined above was correct: The variance estimate using \(n - 1\) as the denominator is very close to the variance computed on the full data (i.e, the population), whereas the variance computed using \(n\) as the denominator is biased (smaller) compared to the true value.
 
 \hypertarget{z-scores}{%
 \section{Z-scores}\label{z-scores}}
@@ -1350,7 +1335,7 @@ The \emph{Z-score} allows us to express data in a way that provides more insight
 Z(x) = \frac{x - \mu}{\sigma}
 \]
 
-Intuitively, you can think of a Z-score as telling you how far away any data point is from the mean, in units of standard deviation. We can compute this for the crime rate data, as shown in Figure \ref{fig:crimeZplot}.
+Intuitively, you can think of a Z-score as telling you how far away any data point is from the mean, in units of standard deviation. We can compute this for the crime rate data, as shown in Figure \ref{fig:crimeZplot}. which plots the Z-scores against the original scores.
 
 \begin{figure}
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/crimeZplot-1} \caption{Scatterplot of original crime rate data against Z-scored data.}\label{fig:crimeZplot}
@@ -1413,7 +1398,7 @@ Let's add one more factor to the plot: Population. In the left panel of Figure \
 
 Because Z-scores are directly comparable, we can also compute a \emph{difference score} that expresses the relative rate of violent to non-violent (property) crimes across states. We can then plot those scores against population (see right panel of Figure \ref{fig:crimeTypePopPlot}). This shows how we can use Z-scores to bring different variables together on a common scale.
 
-It is worth noting that the smallest states appear to have the largest differences in both directions. While it might be tempting to look at each state and try to determine why it has a high or low difference score, this probably reflects the fact that the estimates obtained from smaller samples are necessarily going to be more variable, as we will discuss in the later chapter on Sampling.
+It is worth noting that the smallest states appear to have the largest differences in both directions. While it might be tempting to look at each state and try to determine why it has a high or low difference score, this probably reflects the fact that the estimates obtained from smaller samples are necessarily going to be more variable, as we will discuss in Chapter 7.
 
 \hypertarget{learning-objectives-4}{%
 \section{Learning objectives}\label{learning-objectives-4}}
@@ -1421,7 +1406,7 @@ It is worth noting that the smallest states appear to have the largest differenc
 \begin{itemize}
 \tightlist
 \item
-  Describe the basic equation for statistical models (outcome=model + error)
+  Describe the basic equation for statistical models (data=model + error)
 \item
   Describe different measures of central tendency and dispersion, how they are computed, and which are appropriate under what circumstances.
 \item
@@ -1500,22 +1485,12 @@ Now that we know what a probability is, how do we actually figure out what the p
 \hypertarget{personal-belief}{%
 \subsection{Personal belief}\label{personal-belief}}
 
-Let's say that I asked you what the probability was that the Beatles would have been equally successful if they had not replaced their original drummer Pete Best with Ringo Starr in 1962. We will define ``success'' in terms of the number of number-one hits on the Billboard Hot 100 (which we refer to as \(N_{hits}\)); the Beatles had 20 such number-one hits, so the sample space is \{\(N_{hits} < 20\),\(N_{hits} \ge 20\) \}. We can't actually do the experiment to find the outcome. However, most people with knowledge of the Beatles would be willing to at least offer a guess at the probability of this event. In many cases personal knowledge and/or opinion is the only guide we have determining the probability of an event, but this is not very scientifically satisfying.
+Let's say that I asked you what the probability was that Bernie Sanders would have won the 2016 presidential election if he had been the democratic nominee instead of Hilary Clinton? We can't actually do the experiment to find the outcome. However, most people with knowledge of American politics would be willing to at least offer a guess at the probability of this event. In many cases personal knowledge and/or opinion is the only guide we have determining the probability of an event, but this is not very scientifically satisfying.
 
 \hypertarget{empirical-frequency}{%
 \subsection{Empirical frequency}\label{empirical-frequency}}
 
-Another way to determine the probability of an event is to do the experiment many times and count how often each event happens. From the relative frequency of the different outcomes, we can compute the probability of each outcome. For example, let's say that we are interested in knowing the probability of rain in San Francisco. We first have to define the experiment --- let's say that we will look at the National Weather Service data for each day in 2017 and determine whether there was any rain at the downtown San Francisco weather station.
-
-\begin{tabular}{r|r|r}
-\hline
-Number of rainy days & Number of days measured & P(rain)\\
-\hline
-73 & 365 & 0.2\\
-\hline
-\end{tabular}
-
-According to these data, in 2017 there were 73 rainy days. To compute the probability of rain in San Francisco, we simply divide the number of rainy days by the number of days counted (365), giving P(rain in SF in 2017) = 0.2.
+Another way to determine the probability of an event is to do the experiment many times and count how often each event happens. From the relative frequency of the different outcomes, we can compute the probability of each outcome. For example, let's say that we are interested in knowing the probability of rain in San Francisco. We first have to define the experiment --- let's say that we will look at the National Weather Service data for each day in 2017 and determine whether there was any rain at the downtown San Francisco weather station. According to these data, in 2017 there were 73 rainy days. To compute the probability of rain in San Francisco, we simply divide the number of rainy days by the number of days counted (365), giving P(rain in SF in 2017) = 0.2.
 
 How do we know that empirical probability gives us the right number? The answer to this question comes from the \emph{law of large numbers}, which shows that the empirical probability will approach the true probability as the sample size increases. We can see this by simulating a large number of coin flips, and looking at our estimate of the probability of heads after each flip. We will spend more time discussing simulation in a later chapter; for now, just assume that we have a computational way to generate a random outcome for each coin flip.
 
@@ -1525,7 +1500,7 @@ The left panel of Figure \ref{fig:ElectionResults} shows that as the number of s
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/ElectionResults-1} \caption{Left: A demonstration of the law of large numbers.  A coin was flipped 30,000 times, and after each flip the probability of heads was computed based on the number of heads and tail collected up to that point.  It takes about 15,000 flips for the probability to settle at the true probability of 0.5. Right: Relative proportion of the vote in the Dec 12, 2017 special election for the US Senate seat in Alabama, as a function of the percentage of precincts reporting. These data were transcribed from https://www.ajc.com/news/national/alabama-senate-race-live-updates-roy-moore-doug-jones/KPRfkdaweoiXICW3FHjXqI/}\label{fig:ElectionResults}
 \end{figure}
 
-These two examples show that while large samples will ultimately converge on the true probability, the results with small samples can be far off. Unfortunately, many people forget this and overinterpret results from small samples. This was referred to as the \emph{law of small numbers} by the psychologists Danny Kahneman and Amos Tversky, who showed that people (even trained researchers) often behave as if the law of large numbers applies even to small samples, giving too much credence to results from small datasets. We will see examples throughout the course of just how unstable statistical results can be when they are generated on the basis of small samples.
+These two examples show that while large samples will ultimately converge on the true probability, the results with small samples can be far off. Unfortunately, many people forget this and overinterpret results from small samples. This was referred to as the \emph{law of small numbers} by the psychologists Danny Kahneman and Amos Tversky, who showed that people (even trained researchers) often behave as if the law of large numbers applies even to small samples, giving too much credence to results based on small datasets. We will see examples throughout the course of just how unstable statistical results can be when they are generated on the basis of small samples.
 
 \hypertarget{classical-probability}{%
 \subsection{Classical probability}\label{classical-probability}}
@@ -1542,8 +1517,7 @@ P(outcome_i) = \frac{1}{\text{number of possible outcomes}}
 
 For the six-sided die, the probability of each individual outcome is 1/6.
 
-This is nice, but de Méré was interested in more complex events, like what happens on multiple dice throws. How do we compute the probability of a complex event (which is a \emph{union} of single events), like rolling a six on the first \emph{or} the second throw?\\
-We represent the union of events mathematically using the \(\cup\) symbol: for example, if the probability of rolling a six on the first throw is referred to as \(P(Roll6_{throw1})\) and the probability of rolling a six on the second throw is \(P(Roll6_{throw2})\), then the union is referred to as \(P(Roll6_{throw1} \cup Roll6_{throw2})\).
+This is nice, but de Méré was interested in more complex events, like what happens on multiple dice throws. How do we compute the probability of a complex event (which is a \emph{union} of single events), like rolling a six on the first \emph{or} the second throw? We represent the union of events mathematically using the \(\cup\) symbol: for example, if the probability of rolling a six on the first throw is referred to as \(P(Roll6_{throw1})\) and the probability of rolling a six on the second throw is \(P(Roll6_{throw2})\), then the union is referred to as \(P(Roll6_{throw1} \cup Roll6_{throw2})\).
 
 de Méré thought (incorrectly, as we will see below) that he could simply add together the probabilities of the individual events to compute the probability of the combined event, meaning that the probability of rolling a six on the first or second roll would be computed as follows:
 
@@ -1571,9 +1545,7 @@ P(\neg A) = 1 - P(A)
 
 where \(\neg A\) means ``not A''. This rule derives directly from the axioms that we discussed above; because A and \(\neg A\) are the only possible outcomes, then their total probability must sum to 1. For example, if the probability of rolling a one in a single throw is \(\frac{1}{6}\), then the probability of rolling anything other than a one is \(\frac{5}{6}\).
 
-A second rule tells us how to compute the probability of a conjoint event -- that is, the probability that both of two events will occur. We refer to this as an \emph{intersection}, which is signified by the \(\cap\) symbol; thus, \(P(A \cap B)\) means the probability that both A and B will occur.
-
-This version of the rule tells us how to compute this quantity in the special case when the two events are independent from one another; we will learn later exactly what the concept of \emph{independence} means, but for now we can just take it for granted that the two die throws are independent events. We compute the probability of the intersection of two independent events by simply multiplying the probabilities of the individual events:
+A second rule tells us how to compute the probability of a conjoint event -- that is, the probability that both of two events will occur. We refer to this as an \emph{intersection}, which is signified by the \(\cap\) symbol; thus, \(P(A \cap B)\) means the probability that both A and B will occur. We will focus on a version of the rule that tells us how to compute this quantity in the special case when the two events are independent from one another; we will learn later exactly what the concept of \emph{independence} means, but for now we can just take it for granted that the two die throws are independent events. We compute the probability of the intersection of two independent events by simply multiplying the probabilities of the individual events:
 
 \[
 P(A \cap B) = P(A) * P(B)\ \text{if and only if A and B are independent}
@@ -1631,7 +1603,7 @@ The probability of this outcome was slightly below 0.5, showing why de Méré lo
 \hypertarget{probability-distributions}{%
 \section{Probability distributions}\label{probability-distributions}}
 
-A \emph{probability distribution} describes the probability of all of the possible outcomes in an experiment. For example, on Jan 20 2018, the basketball player Steph Curry hit only 2 out of 4 free throws in a game against the Houston Rockets. We know that Curry's overall probability of hitting free throws across the entire season was 0.91, so it seems pretty unlikely that he would hit only 50\% of his free throws in a game, but exactly how unlikely is it? We can determine this using a theoretical probability distribution; during this course we will encounter a number of these probability distributions, each of which is appropriate to describe different types of data. In this case, we use the \emph{binomial} distribution, which provides a way to compute the probability of some number of successes out of a number of trials on which there is either success or failure and nothing in between (known as ``Bernoulli trials'') given some known probability of success on each trial. This distribution is defined as:
+A \emph{probability distribution} describes the probability of all of the possible outcomes in an experiment. For example, on Jan 20 2018, the basketball player Steph Curry hit only 2 out of 4 free throws in a game against the Houston Rockets. We know that Curry's overall probability of hitting free throws across the entire season was 0.91, so it seems pretty unlikely that he would hit only 50\% of his free throws in a game, but exactly how unlikely is it? We can determine this using a theoretical probability distribution; throughout this book we will encounter a number of these probability distributions, each of which is appropriate to describe different types of data. In this case, we use the \emph{binomial} distribution, which provides a way to compute the probability of some number of successes out of a number of trials on which there is either success or failure and nothing in between (known as ``Bernoulli trials''), given some known probability of success on each trial. This distribution is defined as:
 
 \[
 P(k; n,p) = P(X=k) = \binom{n}{k} p^k(1-p)^{n-k}
@@ -1648,6 +1620,8 @@ where the exclamation point (!) refers to the \emph{factorial} of the number:
 n! = \prod_{i=1}^n i = n*(n-1)*...*2*1 
 \]
 
+The product operator \(\prod\) is similar to the summation operator \(\sum\), except that it multiplies instead of adds. In this case, it is multiplying together all numbers from one to \(n\).
+
 In the example of Steph Curry's free throws:
 
 \[
@@ -1659,7 +1633,7 @@ This shows that given Curry's overall free throw percentage, it is very unlikely
 \hypertarget{cumulative-probability-distributions}{%
 \subsection{Cumulative probability distributions}\label{cumulative-probability-distributions}}
 
-Often we want to know not just how likely a specific value is, but how likely it is to find a value that is as extreme or more than a particular value; this will become very important when we discuss hypothesis testing in a later chapter. To answer this question, we can use a \emph{cumulative} probability distribution; whereas a standard probability distribution tells us the probability of some specific value, the cumulative distribution tells us the probability of a value as large or larger (or as small or smaller) than some specific value.
+Often we want to know not just how likely a specific value is, but how likely it is to find a value that is as extreme or more than a particular value; this will become very important when we discuss hypothesis testing in Chapter 9. To answer this question, we can use a \emph{cumulative} probability distribution; whereas a standard probability distribution tells us the probability of some specific value, the cumulative distribution tells us the probability of a value as large or larger (or as small or smaller) than some specific value.
 
 In the free throw example, we might want to know: What is the probability that Steph Curry hits 2 \emph{or fewer} free throws out of four, given his overall free throw probability of 0.91. To determine this, we could simply use the the binomial probability equation and plug in all of the possible values of k and add them together:
 
@@ -1667,30 +1641,28 @@ In the free throw example, we might want to know: What is the probability that S
 P(k\le2)= P(k=2) + P(k=1) + P(k=0) = 6e^{-5} + .002 + .040 = .043  
 \]
 
-In many cases the number of possible outcomes would be too large for us to compute the cumulative probability by enumerating all possible values; fortunately, it can be computed directly for any theoretical probability distribution. The table below shows the cumulative probability of each possible number of successful free throws in the example from above:
+In many cases the number of possible outcomes would be too large for us to compute the cumulative probability by enumerating all possible values; fortunately, it can be computed directly for any theoretical probability distribution. Table \ref{tab:freethrow} shows the cumulative probability of each possible number of successful free throws in the example from above, from which we can see that the probability of Curry landing 2 or fewer free throws out of 4 attempts is 0.043.
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-23}Cumulative probability distribution for number of successful free throws by Steph Curry in 4 attempts.}
+\caption{\label{tab:freethrow}Simple and cumulative probability distributions for number of successful free throws by Steph Curry in 4 attempts.}
 \centering
-\begin{tabular}[t]{r|r}
+\begin{tabular}[t]{r|r|r}
 \hline
-numSuccesses & CumulativeProbability\\
+numSuccesses & Probability & CumulativeProbability\\
 \hline
-0 & 0.000\\
+0 & 0.000 & 0.000\\
 \hline
-1 & 0.003\\
+1 & 0.003 & 0.003\\
 \hline
-2 & 0.043\\
+2 & 0.040 & 0.043\\
 \hline
-3 & 0.314\\
+3 & 0.271 & 0.314\\
 \hline
-4 & 1.000\\
+4 & 0.686 & 1.000\\
 \hline
 \end{tabular}
 \end{table}
-
-From the table we can see that the probability of Curry landing 2 or fewer free throws out of 4 attempts is 0.043.
 
 \hypertarget{conditional-probability}{%
 \section{Conditional probability}\label{conditional-probability}}
@@ -1716,11 +1688,11 @@ It can be useful to think of this graphically. Figure \ref{fig:conditionalProbab
 \hypertarget{computing-conditional-probabilities-from-data}{%
 \section{Computing conditional probabilities from data}\label{computing-conditional-probabilities-from-data}}
 
-We can also compute conditional probabilities directly from data. Let's say that we are interested in the following question: What is the probability that someone has diabetes, given that they are not physically active? -- that is, \(P(diabetes|inactive)\). The NHANES dataset includes two variables that address the two parts of this question. The first (\texttt{Diabetes}) asks whether the person has ever been told that they have diabetes, and the second (\texttt{PhysActive}) records whether the person engages in sports, fitness, or recreational activities that are at least of moderate intensity. Let's first compute the simple probabilities.
+We can also compute conditional probabilities directly from data. Let's say that we are interested in the following question: What is the probability that someone has diabetes, given that they are not physically active? -- that is, \(P(diabetes|inactive)\). The NHANES dataset includes two variables that address the two parts of this question. The first (\texttt{Diabetes}) asks whether the person has ever been told that they have diabetes, and the second (\texttt{PhysActive}) records whether the person engages in sports, fitness, or recreational activities that are at least of moderate intensity. Let's first compute the simple probabilities, which are shown in Table \ref{tab:simpleProb}. The table shows that the probability that someone in the NHANES dataset has diabetes is .1, and the probability that someone is inactive is .45.
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-25}Summary data for diabetes and physical activity}
+\caption{\label{tab:simpleProb}Summary data for diabetes and physical activity}
 \centering
 \begin{tabular}[t]{l|r|r|r|r}
 \hline
@@ -1733,11 +1705,9 @@ Yes & 550 & 0.1 & 2971 & 0.55\\
 \end{tabular}
 \end{table}
 
-The table shows that the probability that someone in the NHANES dataset has diabetes is .1, and the probability that someone is inactive is .45.
-
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-26}Joint probabilities for Diabetes and PhysActive variables.}
+\caption{\label{tab:jointProb}Joint probabilities for Diabetes and PhysActive variables.}
 \centering
 \begin{tabular}[t]{l|l|r|r}
 \hline
@@ -1754,8 +1724,7 @@ Yes & Yes & 201 & 0.04\\
 \end{tabular}
 \end{table}
 
-To compute \(P(diabetes|inactive)\) we would also need to know the joint probability of being diabetic \emph{and} inactive, in addition to the simple probabilities of each.
-
+To compute \(P(diabetes|inactive)\) we would also need to know the joint probability of being diabetic \emph{and} inactive, in addition to the simple probabilities of each. These are shown in Table \ref{tab:jointProb}.
 Based on these joint probabilities, we can compute \(P(diabetes|inactive)\). One way to do this in a computer program is to first determine the whether the PhysActive variable was equal to ``No'' for each indivdual, and then take the mean of those truth values. Since TRUE/FALSE values are treated as 1/0 respectively by most programming languages (including R and Python), this allows us to easily identify the probability of a simple event by simply taking the mean of a logical variable representing its truth value. We then use that value to compute the conditional probability, where we find that the probability of someone having diabetes given that they are physically inactive is 0.141.
 
 \hypertarget{independence}{%
@@ -1769,7 +1738,7 @@ P(A|B) = P(A)
 
 That is, the probability of A given some value of B is just the same as the overall probability of A. Looking at it this way, we see that many cases of what we would call ``independence'' in the real world are not actually statistically independent. For example, there is currently a move by a small group of California citizens to declare a new independent state called Jefferson, which would comprise a number of counties in northern California and Oregon. If this were to happen, then the probability that a current California resident would now live in the state of Jefferson would be \(P(\text{Jeffersonian})=0.014\), whereas the probability that they would remain a California resident would be \(P(\text{Californian})=0.986\). The new states might be politically independent, but they would \emph{not} be statistically independent, because if we know that a person is Jeffersonian, then we can be sure that they are \emph{not} Californian! That is, while independence in common language often refers to sets that are exclusive, statistical independence refers to the case where one cannot predict anything about one variable from the value of another variable. For example, knowing a person's hair color is unlikely to tell you whether they prefer chocolate or strawberry ice cream.
 
-Let's look at another example, using the NHANES data: Are physical health and mental health independent of one another? NHANES includes two relevant questions: \emph{PhysActive}, which asks whether the individual is physically active, and \emph{DaysMentHlthBad}, which asks how many days out of the last 30 that the individual experienced bad mental health. Let's consider anyone who had more than 7 days of bad mental health in the last month to be in bad mental health. Based on this, we can define a new variable called \emph{badMentalHealth} as a logical variable telling whether each person had more than 7 days of bad mental health or not. We can first summarize the data to show how many individuals fall into each combination of the two variables:
+Let's look at another example, using the NHANES data: Are physical health and mental health independent of one another? NHANES includes two relevant questions: \emph{PhysActive}, which asks whether the individual is physically active, and \emph{DaysMentHlthBad}, which asks how many days out of the last 30 that the individual experienced bad mental health. Let's consider anyone who had more than 7 days of bad mental health in the last month to be in bad mental health. Based on this, we can define a new variable called \emph{badMentalHealth} as a logical variable telling whether each person had more than 7 days of bad mental health or not. We can first summarize the data to show how many individuals fall into each combination of the two variables (shown in Table \ref{tab:mhCounts}), and then divide by the total number of observations to create a table of proportions (shown in Table \ref{tab:mhProps}):
 
 \begin{tabular}{l|r|r|r}
 \hline
@@ -1783,8 +1752,6 @@ Total & 706 & 3590 & 4296\\
 \hline
 \end{tabular}
 
-We can divide by the total number of observations to create a table of proportions:
-
 \begin{tabular}{l|r|r|r}
 \hline
 PhysActive & Bad Mental Health & Good Mental Health & Total\\
@@ -1797,7 +1764,7 @@ Total & 0.16 & 0.84 & 1.00\\
 \hline
 \end{tabular}
 
-This shows us the proportion of all observations that fall into each cell. However, what we want to know here is the conditional probability of bad mental health, depending on whether one is physically active or not. To compute this, we divide each physical activity group by its total number of observations, so that each row now sums to one:
+This shows us the proportion of all observations that fall into each cell. However, what we want to know here is the conditional probability of bad mental health, depending on whether one is physically active or not. To compute this, we divide each physical activity group by its total number of observations, so that each row now sums to one (shown in Table \ref{tab:condProb}). Here we see the conditional probabilities of bad or good mental health for each physical activity group (in the top two rows) along with the overall probability of good or bad mental health in the third row. To determine whether mental health and physical activity are independent, we would compare the simple probability of bad mental health (in the third row) to the conditional probability of bad mental health given that one is physically active (in the second row).
 
 \begin{tabular}{l|r|r|r}
 \hline
@@ -1810,8 +1777,6 @@ Yes & 0.13 & 0.87 & 1\\
 Total & 0.16 & 0.84 & 1\\
 \hline
 \end{tabular}
-
-Now we see the conditional probabilities of bad or good mental health for each physical activity group (in the top two rows) along with the overall probability of good or bad mental health in the third row. To determine whether mental health and physical activity are independent, we would compare the simple probability of bad mental health (in the third row) to the conditional probability of bad mental health given that one is physically active (in the second row).
 
 The overall probability of bad mental health \(P(\text{bad mental health})\) is 0.16 while the conditional probability \(P(\text{bad mental health|physically active})\) is 0.13. Thus, it seems that the conditional probability is somewhat smaller than the overall probability, suggesting that they are not independent, though we can't know for sure just by looking at the numbers, since these numbers might be different due to random variability in our sample. Later in the book we will discuss statistical tools that will let us directly test whether two variables are independent.
 
@@ -1911,7 +1876,7 @@ This tells us that the odds of having cancer are increased by 2.62 times given t
 
 It might strike you that it is a bit odd to talk about the probability of a person having cancer depending on a test result; after all, the person either has cancer or they don't. Historically, there have been two different ways that probabilities have been interpreted. The first (known as the \emph{frequentist} interpretation) interprets probabilities in terms of long-run frequencies. For example, in the case of a coin flip, it would reflect the relative frequencies of heads in the long run after a large number of flips. While this interpretation might make sense for events that can be repeated many times like a coin flip, it makes less sense for events that will only happen once, like an individual person's life or a particular presidential election; and as the economist John Maynard Keynes famously said, ``In the long run, we are all dead.''
 
-The other interpretation of probablities (known as the \emph{Bayesian} interpretation) is as a degree of belief in a particular proposition. If I were to ask you ``How likely is it that the US will return to the moon by 2026'', you can provide an answer to this question based on your knowledge and beliefs, even though there are no relevant frequencies to compute a frequentist probability. One way that we often frame subjective probabilities is in terms of one's willingness to accept a particular gamble. For example, if you think that the probability of the US landing on the moon by 2026 is 0.1 (i.e.~odds of 9 to 1), then that means that you should be willing to accept a gamble that would pay off with anything more than 9 to 1 odds if the event occurs.
+The other interpretation of probablities (known as the \emph{Bayesian} interpretation) is as a degree of belief in a particular proposition. If I were to ask you ``How likely is it that the US will return to the moon by 2040'', you can provide an answer to this question based on your knowledge and beliefs, even though there are no relevant frequencies to compute a frequentist probability. One way that we often frame subjective probabilities is in terms of one's willingness to accept a particular gamble. For example, if you think that the probability of the US landing on the moon by 2040 is 0.1 (i.e.~odds of 9 to 1), then that means that you should be willing to accept a gamble that would pay off with anything more than 9 to 1 odds if the event occurs.
 
 As we will see, these two different definitions of probability are very relevant to the two different ways that statisticians think about testing statistical hypotheses, which we will encounter in later chapters.
 
@@ -1945,6 +1910,8 @@ Having read this chapter, you should be able to:
 \tightlist
 \item
   \emph{The Drunkard's Walk: How Randomness Rules Our Lives}, by Leonard Mlodinow
+\item
+  \emph{Ten Great Ideas about Chance}, by Persi Diaconis and Brian Skyrms
 \end{itemize}
 
 \hypertarget{appendix-2}{%
@@ -2000,7 +1967,7 @@ In this example, we know the adult population mean (168.35) and standard deviati
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-33}Example means and standard deviations for several samples of Height variable from NARPS}
+\caption{\label{tab:unnamed-chunk-23}Example means and standard deviations for several samples of Height variable from NARPS}
 \centering
 \begin{tabular}[t]{r|r}
 \hline
@@ -2310,7 +2277,7 @@ In this case, we will sample 250 individuals from the NHANES dataset. Figure \re
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-39}Summary of BMI data for active versus inactive individuals}
+\caption{\label{tab:unnamed-chunk-29}Summary of BMI data for active versus inactive individuals}
 \centering
 \begin{tabular}[t]{l|r|r|r}
 \hline
@@ -2770,7 +2737,7 @@ There is a commonly used scale for interpreting the size of an effect in terms o
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-51}Interpetation of Cohen's D}
+\caption{\label{tab:unnamed-chunk-41}Interpetation of Cohen's D}
 \centering
 \begin{tabular}[t]{l|l}
 \hline
@@ -2821,7 +2788,7 @@ For example, let's take the case of smoking and lung cancer. A study published i
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-53}Lung cancer occurrence separately for current smokers and those who have never smoked}
+\caption{\label{tab:unnamed-chunk-43}Lung cancer occurrence separately for current smokers and those who have never smoked}
 \centering
 \begin{tabular}[t]{l|r|r}
 \hline
@@ -3349,7 +3316,7 @@ The standard way to represent data from a categorical analysis is through a \emp
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-80}Contingency table for police search data}
+\caption{\label{tab:unnamed-chunk-70}Contingency table for police search data}
 \centering
 \begin{tabular}[t]{l|r|r|r|r}
 \hline
@@ -3382,7 +3349,7 @@ Searched & P(S)*P(B) & P(S)*P(W) & P(S)\tabularnewline
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-81}Summary of the 2-way contingency table for police search data}
+\caption{\label{tab:unnamed-chunk-71}Summary of the 2-way contingency table for police search data}
 \centering
 \begin{tabular}[t]{l|l|r|r|r}
 \hline
@@ -3426,7 +3393,7 @@ The table shows these for the police stop data. These standardized residuals can
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-83}Summary of standardized residuals for police stop data}
+\caption{\label{tab:unnamed-chunk-73}Summary of standardized residuals for police stop data}
 \centering
 \begin{tabular}[t]{l|l|r}
 \hline
@@ -3492,7 +3459,7 @@ For example, let's look at the NHANES data and compare the variable \emph{Depres
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-85}Relationship between depression and sleep problems in the NHANES dataset}
+\caption{\label{tab:unnamed-chunk-75}Relationship between depression and sleep problems in the NHANES dataset}
 \centering
 \begin{tabular}[t]{l|r|r}
 \hline
@@ -3616,7 +3583,7 @@ This value will be far from zero when individual data points deviate by similar 
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-89}Data for toy example of covariance}
+\caption{\label{tab:unnamed-chunk-79}Data for toy example of covariance}
 \centering
 \begin{tabular}[t]{r|r|r|r|r}
 \hline
@@ -3900,7 +3867,7 @@ The concept of \emph{regression to the mean} was one of Galton's essential contr
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-99}Reading scores for Test 1 (which is lower, because it was the basis for selecting the students) and Test 2 (which is higher because it was not related to Test 1).}
+\caption{\label{tab:unnamed-chunk-89}Reading scores for Test 1 (which is lower, because it was the basis for selecting the students) and Test 2 (which is higher because it was not related to Test 1).}
 \centering
 \begin{tabular}[t]{l|r}
 \hline
@@ -4216,7 +4183,7 @@ As an example, let's take a sample of 48 children from NHANES and fit a regressi
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-106}Root mean squared error for model applied to original data and new data, and after shuffling the order of the y variable (in essence making the null hypothesis true)}
+\caption{\label{tab:unnamed-chunk-96}Root mean squared error for model applied to original data and new data, and after shuffling the order of the y variable (in essence making the null hypothesis true)}
 \centering
 \begin{tabular}[t]{l|r|r}
 \hline
@@ -4246,7 +4213,7 @@ Let's see how that would work for our weight prediction example. In this case we
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-107}R-squared from cross-validation and new data, showing that cross-validation provides a reasonable estimate of the model's performance on new data.}
+\caption{\label{tab:unnamed-chunk-97}R-squared from cross-validation and new data, showing that cross-validation provides a reasonable estimate of the model's performance on new data.}
 \centering
 \begin{tabular}[t]{l|r}
 \hline
@@ -4970,7 +4937,7 @@ If we look more closely at the Garder paper, we will see that they also report s
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-132}Presence of metabolic syndrome in each group in the AtoZ study.}
+\caption{\label{tab:unnamed-chunk-122}Presence of metabolic syndrome in each group in the AtoZ study.}
 \centering
 \begin{tabular}[t]{l|r|r}
 \hline
