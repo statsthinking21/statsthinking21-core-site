@@ -271,7 +271,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.3.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-2-specify-the-null-and-alternative-hypotheses"><i class="fa fa-check"></i><b>9.3.2</b> Step 2: Specify the null and alternative hypotheses</a></li>
 <li class="chapter" data-level="9.3.3" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-3-collect-some-data"><i class="fa fa-check"></i><b>9.3.3</b> Step 3: Collect some data</a></li>
 <li class="chapter" data-level="9.3.4" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-4-fit-a-model-to-the-data-and-compute-a-test-statistic"><i class="fa fa-check"></i><b>9.3.4</b> Step 4: Fit a model to the data and compute a test statistic</a></li>
-<li class="chapter" data-level="9.3.5" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-5-determine-the-probability-of-the-result-under-the-null-hypothesis"><i class="fa fa-check"></i><b>9.3.5</b> Step 5: Determine the probability of the result under the null hypothesis</a></li>
+<li class="chapter" data-level="9.3.5" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-5-determine-the-probability-of-the-observed-result-under-the-null-hypothesis"><i class="fa fa-check"></i><b>9.3.5</b> Step 5: Determine the probability of the observed result under the null hypothesis</a></li>
 <li class="chapter" data-level="9.3.6" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-6-assess-the-statistical-significance-of-the-result"><i class="fa fa-check"></i><b>9.3.6</b> Step 6: Assess the “statistical significance” of the result</a></li>
 <li class="chapter" data-level="9.3.7" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#what-does-a-significant-result-mean"><i class="fa fa-check"></i><b>9.3.7</b> What does a significant result mean?</a></li>
 </ul></li>
@@ -482,10 +482,10 @@ s^2 = \frac{\sum_{i=1}^n (x_i - \bar{x})^2}{N - 1}
 <p><span class="math display">\[
 covariance = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{N - 1}
 \]</span></p>
-<p>This value will be far from zero when individual data points deviate by similar amounts from their respective means; if they are deviant in the same direction then the covariance is positive, whereas if they are deviant in opposite directions the covariance is negative. Let’s look at a toy example first. The data are shown in the table, along with their individual deviations from the mean and their crossproducts.</p>
+<p>This value will be far from zero when individual data points deviate by similar amounts from their respective means; if they are deviant in the same direction then the covariance is positive, whereas if they are deviant in opposite directions the covariance is negative. Let’s look at a toy example first. The data are shown in Table <a href="modeling-continuous-relationships.html#tab:covTable">13.1</a>, along with their individual deviations from the mean and their crossproducts.</p>
 <table>
 <caption>
-<span id="tab:unnamed-chunk-78">Table 13.1: </span>Data for toy example of covariance
+<span id="tab:covTable">Table 13.1: </span>Data for toy example of covariance
 </caption>
 <thead>
 <tr>
@@ -617,8 +617,8 @@ In this case, the value is 0.89. The correlation coefficient is useful because i
 ## sample estimates:
 ##  cor 
 ## 0.42</code></pre>
-<p>This test shows that the likelihood of an r value this extreme or more is quite low, so we would reject the null hypothesis of <span class="math inline">\(r=0\)</span>. Note that this test assumes that both variables are normally distributed.</p>
-<p>We could also test this by randomization, in which we repeatedly shuffle the values of one of the variables and compute the correlation, and then compare our observed correlation value to this null distribution to determine how likely our observed value would be under the null hypothesis. The results are shown in Figure <a href="modeling-continuous-relationships.html#fig:shuffleCorr">13.2</a>. The p-value computed using randomization is reasonably similar to the answer give by the t-test.</p>
+<p>This test shows that the likelihood of an r value this extreme or more is quite low under the null hypothesis, so we would reject the null hypothesis of <span class="math inline">\(r=0\)</span>. Note that this test assumes that both variables are normally distributed.</p>
+<p>We could also test this by randomization, in which we repeatedly shuffle the values of one of the variables and compute the correlation, and then compare our observed correlation value to this null distribution to determine how likely our observed value would be under the null hypothesis. The results are shown in Figure <a href="modeling-continuous-relationships.html#fig:shuffleCorr">13.2</a>. The p-value computed using randomization is reasonably similar to the answer given by the t-test.</p>
 <div class="figure"><span id="fig:shuffleCorr"></span>
 <img src="StatsThinking21_files/figure-html/shuffleCorr-1.png" alt="Histogram of correlation values under the null hypothesis, obtained by shuffling values. Observed value is denoted by blue line." width="384" height="50%" />
 <p class="caption">

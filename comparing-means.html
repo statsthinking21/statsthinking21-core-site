@@ -271,7 +271,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.3.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-2-specify-the-null-and-alternative-hypotheses"><i class="fa fa-check"></i><b>9.3.2</b> Step 2: Specify the null and alternative hypotheses</a></li>
 <li class="chapter" data-level="9.3.3" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-3-collect-some-data"><i class="fa fa-check"></i><b>9.3.3</b> Step 3: Collect some data</a></li>
 <li class="chapter" data-level="9.3.4" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-4-fit-a-model-to-the-data-and-compute-a-test-statistic"><i class="fa fa-check"></i><b>9.3.4</b> Step 4: Fit a model to the data and compute a test statistic</a></li>
-<li class="chapter" data-level="9.3.5" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-5-determine-the-probability-of-the-result-under-the-null-hypothesis"><i class="fa fa-check"></i><b>9.3.5</b> Step 5: Determine the probability of the result under the null hypothesis</a></li>
+<li class="chapter" data-level="9.3.5" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-5-determine-the-probability-of-the-observed-result-under-the-null-hypothesis"><i class="fa fa-check"></i><b>9.3.5</b> Step 5: Determine the probability of the observed result under the null hypothesis</a></li>
 <li class="chapter" data-level="9.3.6" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-6-assess-the-statistical-significance-of-the-result"><i class="fa fa-check"></i><b>9.3.6</b> Step 6: Assess the “statistical significance” of the result</a></li>
 <li class="chapter" data-level="9.3.7" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#what-does-a-significant-result-mean"><i class="fa fa-check"></i><b>9.3.7</b> What does a significant result mean?</a></li>
 </ul></li>
@@ -468,7 +468,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## sample estimates:
 ## probability of success 
 ##                   0.19</code></pre>
-<p>Here we see that the proportion of individuals with positive signs is not very surprising under the null hypothesis of <span class="math inline">\(p=0.5\)</span>.</p>
+<p>Here we see that the proportion of individuals with positive signs is not very surprising under the null hypothesis of <span class="math inline">\(p \le 0.5\)</span>, which should not surprise us given that the observed value is actually less than <span class="math inline">\(0.5\)</span>.</p>
 <p>We can also ask this question using Student’s t-test, which you have already encountered earlier in the book. We will refer to the mean as <span class="math inline">\(\bar{X}\)</span> and the hypothesized population mean as <span class="math inline">\(\mu\)</span>. Then, the t test for a single mean is:</p>
 <p><span class="math display">\[
 t = \frac{\bar{X} - \mu}{SEM}
@@ -492,7 +492,7 @@ SEM = \frac{\hat{\sigma}}{\sqrt{n}}
 ##        70</code></pre>
 <p>This shows us that the mean diastolic blood pressure in the dataset (69.5) is actually much lower than 80, so our test for whether it is above 80 is very far from significance.</p>
 <p>Remember that a large p-value doesn’t provide us with evidence in favor of the null hypothesis, since we had already assumed that the null hypothesis is true to start with. However, as we discussed in the chapter on Bayesian analysis, we can use the Bayes factor to quantify evidence for or against the null hypothesis:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="kw">ttestBF</span>(NHANES_sample<span class="op">$</span>BPDiaAve, <span class="dt">mu=</span><span class="dv">80</span>, <span class="dt">nullInterval=</span><span class="kw">c</span>(<span class="op">-</span><span class="ot">Inf</span>, <span class="dv">80</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="kw">ttestBF</span>(NHANES_sample<span class="op">$</span>BPDiaAve, <span class="dt">mu=</span><span class="dv">80</span>, <span class="dt">nullInterval=</span><span class="kw">c</span>(<span class="op">-</span><span class="ot">Inf</span>, <span class="dv">80</span>))</a></code></pre></div>
 <pre><code>## Bayes factor analysis
 ## --------------
 ## [1] Alt., r=0.707 -Inf&lt;d&lt;80    : 2.7e+16  ±NA%
@@ -517,15 +517,15 @@ Figure 15.1: Left: Violin plot showing distributions of TV watching separated by
 <p><span class="math display">\[
 t = \frac{\bar{X_1} - \bar{X_2}}{\sqrt{\frac{S_1^2}{n_1} + \frac{S_2^2}{n_2}}}
 \]</span></p>
-<p>where <span class="math inline">\(\bar{X}_1\)</span> and <span class="math inline">\(\bar{X}_2\)</span> are the means of the two groups, <span class="math inline">\(S^2_1\)</span> and <span class="math inline">\(S^2_2\)</span> are the variances for each of the groups, and <span class="math inline">\(n_1\)</span> and <span class="math inline">\(n_2\)</span> are the sizes of the two groups. Under the null hypothesis of no difference between means, this statistic is distributed according to a t distribution with N - 2 degrees of freedom (since we have computed two parameter estimates, namely the means of the two groups). In this case, we started with the specific hypothesis that smoking marijuana is associated with greater TV watching, so we will use a one-tailed test. Here are the results from our statistical software:</p>
+<p>where <span class="math inline">\(\bar{X}_1\)</span> and <span class="math inline">\(\bar{X}_2\)</span> are the means of the two groups, <span class="math inline">\(S^2_1\)</span> and <span class="math inline">\(S^2_2\)</span> are the variances for each of the groups, and <span class="math inline">\(n_1\)</span> and <span class="math inline">\(n_2\)</span> are the sizes of the two groups. Under the null hypothesis of no difference between means, this statistic is distributed according to a t distribution, with degrees of freedom computed using the Welch test (as discussed previously) since the number of individuals differs between the two groups. In this case, we started with the specific hypothesis that smoking marijuana is associated with greater TV watching, so we will use a one-tailed test. Here are the results from our statistical software:</p>
 <pre><code>## 
-##  Two Sample t-test
+##  Welch Two Sample t-test
 ## 
 ## data:  TVHrsNum by RegularMarij
-## t = -3, df = 198, p-value = 4e-04
+## t = -3, df = 85, p-value = 6e-04
 ## alternative hypothesis: true difference in means is less than 0
 ## 95 percent confidence interval:
-##  -Inf -0.4
+##   -Inf -0.39
 ## sample estimates:
 ##  mean in group No mean in group Yes 
 ##               2.0               2.8</code></pre>
@@ -537,7 +537,7 @@ t = \frac{\bar{X_1} - \bar{X_2}}{\sqrt{\frac{S_1^2}{n_1} + \frac{S_2^2}{n_2}}}
 <p><span class="math display">\[
 \hat{TV} = \hat{\beta_1}*Marijuana + \hat{\beta_0}
 \]</span>
-Since smoking is a binary variable, we treat it as a <em>dummy variable</em> like we discussed in the previous chapter, setting it to a value of 1 for smokers and zero for nonsmokers. In that case, <span class="math inline">\(\hat{\beta_1}\)</span> is simply the difference in means between the two groups, and <span class="math inline">\(\hat{\beta_0}\)</span> is the mean for the group that was coded as zero. We can fit this model using the general linear model function in our statistical software, and see that it gives the same t statistic as the t-test above, except that it’s negative in this case because of the way that our software arranges the groups:</p>
+Since smoking is a binary variable, we treat it as a <em>dummy variable</em> like we discussed in the previous chapter, setting it to a value of 1 for smokers and zero for nonsmokers. In that case, <span class="math inline">\(\hat{\beta_1}\)</span> is simply the difference in means between the two groups, and <span class="math inline">\(\hat{\beta_0}\)</span> is the mean for the group that was coded as zero. We can fit this model using the general linear model function in our statistical software, and see that it gives the same t statistic as the t-test above, except that it’s positive in this case because of the way that our software arranges the groups:</p>
 <pre><code>## 
 ## Call:
 ## lm(formula = TVHrsNum ~ RegularMarij, data = NHANES_sample)
@@ -565,7 +565,7 @@ Since smoking is a binary variable, we treat it as a <em>dummy variable</em> lik
 d = \frac{\hat{\beta_1}}{\sigma_{residual}}
 \]</span>
 We can obtain these values from the analysis output above, giving us a d = 0.55, which we would generally interpret as a medium sized effect.</p>
-<p>We can also compute <span class="math inline">\(R^2\)</span> for this analysis, which tells us how much variance in TV watching is accounted for. This value (which is reported at the bottom of the summary of the linear model analysis above) is 0.05, which tells us that while the effect may be statistically significant, it accounts for relatively little of the variance in TV watching.</p>
+<p>We can also compute <span class="math inline">\(R^2\)</span> for this analysis, which tells us how what proportion of the variance in TV watching is accounted for by marijuana smoking. This value (which is reported at the bottom of the summary of the linear model analysis above) is 0.05, which tells us that while the effect may be statistically significant, it accounts for relatively little of the variance in TV watching.</p>
 </div>
 </div>
 <div id="bayes-factor-for-mean-differences" class="section level2">
@@ -603,7 +603,7 @@ Figure 15.2: Left: Violin plot of systolic blood pressure on first and second re
 ## sample estimates:
 ## mean in group BPSys1 mean in group BPSys2 
 ##                  121                  120</code></pre>
-<p>This analysis shows no significant difference. However, this analysis is inappropriate since it assumes that the two samples are independent, when in fact they are not, since the data come from the same individuals. We can plot the data with a line for each individual to show this (see Figure <a href="comparing-means.html#fig:BPfig">15.2</a>).</p>
+<p>This analysis shows no significant difference. However, this analysis is inappropriate since it assumes that the two samples are independent, when in fact they are not, since the data come from the same individuals. We can plot the data with a line for each individual to show this (see the right panel in Figure <a href="comparing-means.html#fig:BPfig">15.2</a>).</p>
 <p>In this analysis, what we really care about is whether the blood pressure for each person changed in a systematic way between the two measurements, so another way to represent the data is to compute the difference between the two timepoints for each individual, and then analyze these difference scores rather than analyzing the individual measurements. In Figure <a href="comparing-means.html#fig:BPDiffHist">15.3</a>, we show a histogram of these difference scores, with a blue line denoting the mean difference.</p>
 <div class="figure"><span id="fig:BPDiffHist"></span>
 <img src="StatsThinking21_files/figure-html/BPDiffHist-1.png" alt="Histogram of difference scores between first and second BP measurement. The vertical line represents the mean difference in the sample." width="384" height="50%" />
@@ -719,11 +719,11 @@ Figure 15.5: F distributions under the null hypothesis, for different values of 
 <div id="the-paired-t-test-as-a-linear-model" class="section level3">
 <h3><span class="header-section-number">15.8.1</span> The paired t-test as a linear model</h3>
 <p>We can also define the paired t-test in terms of a general linear model. To do this, we include all of the measurements for each subject as data points (within a tidy data frame). We then include in the model a variable that codes for the identity of each individual (in this case, the ID variable that contains a subject ID for each person). This is known as a <em>mixed model</em>, since it includes effects of independent variables as well as effects of individuals. The standard model fitting procedure <code>lm()</code> can’t do this, but we can do it using the <code>lmer()</code> function from a popular R package called <em>lme4</em>, which is specialized for estimating mixed models. The <code>(1|ID)</code> in the formula tells <code>lmer()</code> to estimate a separate intercept (which is what the <code>1</code> refers to) for each value of the <code>ID</code> variable (i.e. for each individual in the dataset), and then estimate a common slope relating timepoint to BP.</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1"><span class="co"># compute mixed model for paired test</span></a>
-<a class="sourceLine" id="cb42-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb42-3" data-line-number="3">lmrResult &lt;-<span class="st"> </span><span class="kw">lmer</span>(BPsys <span class="op">~</span><span class="st"> </span>timepoint <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">|</span><span class="st"> </span>ID), </a>
-<a class="sourceLine" id="cb42-4" data-line-number="4">                  <span class="dt">data =</span> NHANES_sample_tidy)</a>
-<a class="sourceLine" id="cb42-5" data-line-number="5"><span class="kw">summary</span>(lmrResult)</a></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1"><span class="co"># compute mixed model for paired test</span></a>
+<a class="sourceLine" id="cb41-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb41-3" data-line-number="3">lmrResult &lt;-<span class="st"> </span><span class="kw">lmer</span>(BPsys <span class="op">~</span><span class="st"> </span>timepoint <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">|</span><span class="st"> </span>ID), </a>
+<a class="sourceLine" id="cb41-4" data-line-number="4">                  <span class="dt">data =</span> NHANES_sample_tidy)</a>
+<a class="sourceLine" id="cb41-5" data-line-number="5"><span class="kw">summary</span>(lmrResult)</a></code></pre></div>
 <pre><code>## Linear mixed model fit by REML. t-tests use Satterthwaite&#39;s method [
 ## lmerModLmerTest]
 ## Formula: BPsys ~ timepoint + (1 | ID)

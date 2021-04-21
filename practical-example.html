@@ -271,7 +271,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.3.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-2-specify-the-null-and-alternative-hypotheses"><i class="fa fa-check"></i><b>9.3.2</b> Step 2: Specify the null and alternative hypotheses</a></li>
 <li class="chapter" data-level="9.3.3" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-3-collect-some-data"><i class="fa fa-check"></i><b>9.3.3</b> Step 3: Collect some data</a></li>
 <li class="chapter" data-level="9.3.4" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-4-fit-a-model-to-the-data-and-compute-a-test-statistic"><i class="fa fa-check"></i><b>9.3.4</b> Step 4: Fit a model to the data and compute a test statistic</a></li>
-<li class="chapter" data-level="9.3.5" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-5-determine-the-probability-of-the-result-under-the-null-hypothesis"><i class="fa fa-check"></i><b>9.3.5</b> Step 5: Determine the probability of the result under the null hypothesis</a></li>
+<li class="chapter" data-level="9.3.5" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-5-determine-the-probability-of-the-observed-result-under-the-null-hypothesis"><i class="fa fa-check"></i><b>9.3.5</b> Step 5: Determine the probability of the observed result under the null hypothesis</a></li>
 <li class="chapter" data-level="9.3.6" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#step-6-assess-the-statistical-significance-of-the-result"><i class="fa fa-check"></i><b>9.3.6</b> Step 6: Assess the “statistical significance” of the result</a></li>
 <li class="chapter" data-level="9.3.7" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#what-does-a-significant-result-mean"><i class="fa fa-check"></i><b>9.3.7</b> What does a significant result mean?</a></li>
 </ul></li>
@@ -537,7 +537,7 @@ BMIChange12Months \sim diet
 ## Residual standard error: 2.2 on 307 degrees of freedom
 ## Multiple R-squared:  0.0338, Adjusted R-squared:  0.0243 
 ## F-statistic: 3.58 on 3 and 307 DF,  p-value: 0.0143</code></pre>
-<p>Note that the software automatically generated dummy variables that correspond to three of the four diets, leaving the Atkins diet without a dummy variable. This means that the intercept models the Atkins diet, and the other three variables model the difference between each of those diets and the Atkins diet. Atkins was chosen as the unmodeled baseline variable simply because it is first in alphabetical order.</p>
+<p>Note that the software automatically generated dummy variables that correspond to three of the four diets, leaving the Atkins diet without a dummy variable. This means that the intercept represents the mean of the Atkins diet group, and the other three variables model the difference between the means for each of those diets and the mean for the Atkins diet. Atkins was chosen as the unmodeled baseline variable simply because it is first in alphabetical order.</p>
 </div>
 <div id="criticize-the-model-to-make-sure-it-fits-properly" class="section level3">
 <h3><span class="header-section-number">16.1.6</span> 6. Criticize the model to make sure it fits properly</h3>
@@ -548,7 +548,7 @@ BMIChange12Months \sim diet
 Figure 16.2: Distribution of residuals for for each condition
 </p>
 </div>
-<p>Another important assumption of the statistical tests that we apply to linear models is that the residuals from the model are normally distributed. The right panel of Figure <a href="practical-example.html#fig:diagnosticQQPlot">16.3</a> shows a Q-Q (quantile-quantile) plot, which plots the residuals against their expected values based on their quantiles in the normal distribution. If the residuals are normally distributed then the data points should fall along the dashed line — in this case it looks pretty good, except for a couple of outliers that are apparent here. Because this model is also relatively robust to violations of normality, and these are fairly small, we will go ahead and use the results.</p>
+<p>Another important assumption of the statistical tests that we apply to linear models is that the residuals from the model are normally distributed. It is a common misconception that linear models require that the <em>data</em> are normally distributed, but this is not the case; the only requirement for the statistics to be correct is that the residual errors are normally distributed. The right panel of Figure <a href="practical-example.html#fig:diagnosticQQPlot">16.3</a> shows a Q-Q (quantile-quantile) plot, which plots the residuals against their expected values based on their quantiles in the normal distribution. If the residuals are normally distributed then the data points should fall along the dashed line — in this case it looks pretty good, except for a couple of outliers that are apparent at the very bottom Because this model is also relatively robust to violations of normality, and these are fairly small, we will go ahead and use the results.</p>
 <div class="figure"><span id="fig:diagnosticQQPlot"></span>
 <img src="StatsThinking21_files/figure-html/diagnosticQQPlot-1.png" alt="Q-Q plot of actual residual values against theoretical residual values" width="384" />
 <p class="caption">
@@ -569,19 +569,30 @@ Figure 16.3: Q-Q plot of actual residual values against theoretical residual val
 ## Confidence level used: 0.95 
 ## P value adjustment: tukey method for comparing a family of 4 estimates 
 ## significance level used: alpha = 0.05</code></pre>
-<p>The letters in the rightmost column show us which of the groups differ from one another, using a method that adjusts for the number of comparisons being performed. This shows that Atkins and LEARN diets don’t differ from one another (since they share the letter a), and the LEARN, Ornish, and Zone diets don’t differ from one another (since they share the letter b), but the Atkins diet differs from the Ornish and Zone diets (since they share no letters).</p>
+<p>The letters in the rightmost column show us which of the groups differ from one another, using a method that adjusts for the number of comparisons being performed; conditions that share a letter are not significantly different from one another. This shows that Atkins and LEARN diets don’t differ from one another (since they share the letter a), and the LEARN, Ornish, and Zone diets don’t differ from one another (since they share the letter b), but the Atkins diet differs from the Ornish and Zone diets (since they share no letters).</p>
 <div id="bayes-factor-1" class="section level4">
 <h4><span class="header-section-number">16.1.7.1</span> Bayes factor</h4>
 <p>Let’s say that we want to have a better way to describe the amount of evidence provided by the data. One way we can do this is to compute a Bayes factor, which we can do by fitting the full model (including diet) and the reduced model (without diet) and then comparing their fit. For the reduced model, we only include an intercept. Note that Bayesian analysis can take substantially more time to run, since it requires the use of sampling techniques related to the Monte Carlo simulations that we discussed in Chapter 11.</p>
+<pre><code>## Iteration: 1
+## Iteration: 2
+## Iteration: 3
+## Iteration: 4
+## Iteration: 5
+## Iteration: 1
+## Iteration: 2
+## Iteration: 3
+## Iteration: 4
+## Iteration: 5</code></pre>
+<pre><code>## Estimated Bayes factor in favor of brmFullModel over brmReducedModel: 98.90213</code></pre>
 <p>This shows us that there is very strong evidence (Bayes factor of nearly 100) for differences between the diets.</p>
 </div>
 </div>
 <div id="what-about-possible-confounds" class="section level3">
 <h3><span class="header-section-number">16.1.8</span> What about possible confounds?</h3>
-<p>If we look more closely at the Garder paper, we will see that they also report statistics on how many individuals in each group had been diagnosed with <em>metabolic syndrome</em>, which is a syndrome characterized by high blood pressure, high blood glucose, excess body fat around the waist, and abnormal cholesterol levels and is associated with increased risk for cardiovascular problems. Here are the data from the Gardner paper:</p>
+<p>If we look more closely at the Garder paper, we will see that they also report statistics on how many individuals in each group had been diagnosed with <em>metabolic syndrome</em>, which is a syndrome characterized by high blood pressure, high blood glucose, excess body fat around the waist, and abnormal cholesterol levels and is associated with increased risk for cardiovascular problems. The data from the Gardner paper are presented in Table <a href="practical-example.html#tab:metsymData">16.1</a>.</p>
 <table>
 <caption>
-<span id="tab:unnamed-chunk-121">Table 16.1: </span>Presence of metabolic syndrome in each group in the AtoZ study.
+<span id="tab:metsymData">Table 16.1: </span>Presence of metabolic syndrome in each group in the AtoZ study.
 </caption>
 <thead>
 <tr>
