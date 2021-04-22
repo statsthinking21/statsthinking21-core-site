@@ -127,7 +127,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{Draft: 2021-04-21}
+    \date{Draft: 2021-04-22}
 
 \usepackage{booktabs}
 \usepackage{longtable}
@@ -4855,30 +4855,6 @@ The significant result in the omnibus F test also doesn't tell us which diets di
 \end{verbatim}
 
 The letters in the rightmost column show us which of the groups differ from one another, using a method that adjusts for the number of comparisons being performed; conditions that share a letter are not significantly different from one another. This shows that Atkins and LEARN diets don't differ from one another (since they share the letter a), and the LEARN, Ornish, and Zone diets don't differ from one another (since they share the letter b), but the Atkins diet differs from the Ornish and Zone diets (since they share no letters).
-
-\hypertarget{bayes-factor-1}{%
-\subsubsection{Bayes factor}\label{bayes-factor-1}}
-
-Let's say that we want to have a better way to describe the amount of evidence provided by the data. One way we can do this is to compute a Bayes factor, which we can do by fitting the full model (including diet) and the reduced model (without diet) and then comparing their fit. For the reduced model, we only include an intercept. Note that Bayesian analysis can take substantially more time to run, since it requires the use of sampling techniques related to the Monte Carlo simulations that we discussed in Chapter 11.
-
-\begin{verbatim}
-## Iteration: 1
-## Iteration: 2
-## Iteration: 3
-## Iteration: 4
-## Iteration: 5
-## Iteration: 1
-## Iteration: 2
-## Iteration: 3
-## Iteration: 4
-## Iteration: 5
-\end{verbatim}
-
-\begin{verbatim}
-## Estimated Bayes factor in favor of brmFullModel over brmReducedModel: 98.90213
-\end{verbatim}
-
-This shows us that there is very strong evidence (Bayes factor of nearly 100) for differences between the diets.
 
 \hypertarget{what-about-possible-confounds}{%
 \subsection{What about possible confounds?}\label{what-about-possible-confounds}}

@@ -570,22 +570,6 @@ Figure 16.3: Q-Q plot of actual residual values against theoretical residual val
 ## P value adjustment: tukey method for comparing a family of 4 estimates 
 ## significance level used: alpha = 0.05</code></pre>
 <p>The letters in the rightmost column show us which of the groups differ from one another, using a method that adjusts for the number of comparisons being performed; conditions that share a letter are not significantly different from one another. This shows that Atkins and LEARN diets don’t differ from one another (since they share the letter a), and the LEARN, Ornish, and Zone diets don’t differ from one another (since they share the letter b), but the Atkins diet differs from the Ornish and Zone diets (since they share no letters).</p>
-<div id="bayes-factor-1" class="section level4">
-<h4><span class="header-section-number">16.1.7.1</span> Bayes factor</h4>
-<p>Let’s say that we want to have a better way to describe the amount of evidence provided by the data. One way we can do this is to compute a Bayes factor, which we can do by fitting the full model (including diet) and the reduced model (without diet) and then comparing their fit. For the reduced model, we only include an intercept. Note that Bayesian analysis can take substantially more time to run, since it requires the use of sampling techniques related to the Monte Carlo simulations that we discussed in Chapter 11.</p>
-<pre><code>## Iteration: 1
-## Iteration: 2
-## Iteration: 3
-## Iteration: 4
-## Iteration: 5
-## Iteration: 1
-## Iteration: 2
-## Iteration: 3
-## Iteration: 4
-## Iteration: 5</code></pre>
-<pre><code>## Estimated Bayes factor in favor of brmFullModel over brmReducedModel: 98.90213</code></pre>
-<p>This shows us that there is very strong evidence (Bayes factor of nearly 100) for differences between the diets.</p>
-</div>
 </div>
 <div id="what-about-possible-confounds" class="section level3">
 <h3><span class="header-section-number">16.1.8</span> What about possible confounds?</h3>
