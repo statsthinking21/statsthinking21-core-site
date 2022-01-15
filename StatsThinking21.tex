@@ -7,7 +7,7 @@
 ]{book}
 \title{Statistical Thinking for the 21st Century}
 \author{Copyright 2019 Russell A. Poldrack}
-\date{Draft: 2022-01-13}
+\date{Draft: 2022-01-15}
 
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
@@ -394,7 +394,7 @@ It is common in statistics courses to go into more detail about different ``scal
 
 In many fields such as psychology, the thing that we are measuring is not a physical feature, but instead is an unobservable theoretical concept, which we usually refer to as a \emph{construct}. For example, let's say that I want to test how well you understand the distinction between the different types of numbers described above. I could give you a pop quiz that would ask you several questions about these concepts and count how many you got right. This test might or might not be a good measurement of the construct of your actual knowledge -- for example, if I were to write the test in a confusing way or use language that you don't understand, then the test might suggest you don't understand the concepts when really you do. On the other hand, if I give a multiple choice test with very obvious wrong answers, then you might be able to perform well on the test even if you don't actually understand the material.
 
-It is usually impossible to measure a construct without some amount of error. In the example above, you might know the answer, but you might mis-read the question and get it wrong. In other cases, there is error intrinsic to the thing being measured, such as when we measure how long it takes a person to respond on a simple reaction time test, which will vary from trial to trial for many reasons. We generally want our measurement error to be as low as possible, which we can acheive either by improving the quality of the measurement (for example, using a better time to measure reaction time), or by averaging over a larger number of indvidiual measurements.
+It is usually impossible to measure a construct without some amount of error. In the example above, you might know the answer, but you might mis-read the question and get it wrong. In other cases, there is error intrinsic to the thing being measured, such as when we measure how long it takes a person to respond on a simple reaction time test, which will vary from trial to trial for many reasons. We generally want our measurement error to be as low as possible, which we can achieve either by improving the quality of the measurement (for example, using a better time to measure reaction time), or by averaging over a larger number of indvidiual measurements.
 
 Sometimes there is a standard against which other measurements can be tested, which we might refer to as a ``gold standard'' -- for example, measurement of sleep can be done using many different devices (such as devices that measure movement in bed), but they are generally considered inferior to the gold standard of polysomnography (which uses measurement of brain waves to quantify the amount of time a person spends in each stage of sleep). Often the gold standard is more difficult or expensive to perform, and the cheaper method is used even though it might have greater error.
 
@@ -527,7 +527,11 @@ Let's look at some examples of the use of tables, using a more realistic dataset
 
 A \emph{distribution} describes how data are divided between different possible values. For this example, let's look at how many people fall into each of the physical activity categories.
 
-\begin{tabular}{l|r}
+\begin{table}
+
+\caption{\label{tab:PhysActiveTable}Frequency distribution for PhysActive variable}
+\centering
+\begin{tabular}[t]{l|r}
 \hline
 PhysActive & AbsoluteFrequency\\
 \hline
@@ -538,6 +542,7 @@ Yes & 2972\\
 NA & 1334\\
 \hline
 \end{tabular}
+\end{table}
 
 Table \ref{tab:PhysActiveTable} shows the frequencies of each of the different values; there were 2473 individuals who responded ``No'' to the question, 2972 who responded ``Yes,'' and 1334 for whom no response was given. We call this a \emph{frequency distribution} because it tells us how frequent each of the possible values is within our sample.
 
@@ -550,7 +555,7 @@ The relative frequency provides a much easier way to see how big the imbalance i
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-5}Absolute and relative frequencies and percentages for PhysActive variable}
+\caption{\label{tab:PhysActiveTableFiltered}Absolute and relative frequencies and percentages for PhysActive variable}
 \centering
 \begin{tabular}[t]{l|r|r|r}
 \hline
@@ -563,7 +568,7 @@ Yes & 2972 & 0.55 & 55\\
 \end{tabular}
 \end{table}
 
-Ta lets us see that 45.4 percent of the individuals in the NHANES sample said ``No'' and 54.6 percent said ``Yes.''
+Table \ref{tab:PhysActiveTableFiltered} lets us see that 45.4 percent of the individuals in the NHANES sample said ``No'' and 54.6 percent said ``Yes.''
 
 \hypertarget{cumulative-distributions}{%
 \subsection{Cumulative distributions}\label{cumulative-distributions}}
@@ -618,7 +623,7 @@ cumulative\ frequency_j = \sum_{i=1}^{j}{absolute\ frequency_i}
 \newpage
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-8}Absolute and cumulative frquency distributions for SleepHrsNight variable}
+\caption{\label{tab:unnamed-chunk-7}Absolute and cumulative frequency distributions for SleepHrsNight variable}
 \centering
 \begin{tabular}[t]{r|r|r}
 \hline
@@ -3385,7 +3390,7 @@ For example, let's look at the NHANES data and compare the variable \emph{Depres
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-68}Relationship between depression and sleep problems in the NHANES dataset}
+\caption{\label{tab:unnamed-chunk-67}Relationship between depression and sleep problems in the NHANES dataset}
 \centering
 \begin{tabular}[t]{l|r|r}
 \hline
@@ -4107,7 +4112,7 @@ As an example, let's take a sample of 48 children from NHANES and fit a regressi
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-87}Root mean squared error for model applied to original data and new data, and after shuffling the order of the y variable (in essence making the null hypothesis true)}
+\caption{\label{tab:unnamed-chunk-86}Root mean squared error for model applied to original data and new data, and after shuffling the order of the y variable (in essence making the null hypothesis true)}
 \centering
 \begin{tabular}[t]{l|r|r}
 \hline
@@ -4137,7 +4142,7 @@ Let's see how that would work for our weight prediction example. In this case we
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-88}R-squared from cross-validation and new data, showing that cross-validation provides a reasonable estimate of the model's performance on new data.}
+\caption{\label{tab:unnamed-chunk-87}R-squared from cross-validation and new data, showing that cross-validation provides a reasonable estimate of the model's performance on new data.}
 \centering
 \begin{tabular}[t]{l|r}
 \hline

@@ -3,10 +3,11 @@ tab:WhyTakingClass
 fig:ReliabilityValidity
 tab:MeasurementTypes
 fig:salesContract
-tab:unnamed-chunk-5
+tab:PhysActiveTable
+tab:PhysActiveTableFiltered
 tab:sleepTable
 fig:sleepHist
-tab:unnamed-chunk-8
+tab:unnamed-chunk-7
 fig:sleepAbsCumulRelFreq
 fig:ageHist
 fig:heightHistSep
@@ -85,7 +86,7 @@ tab:candyDf
 fig:chisqDist
 tab:policeCT
 tab:stdRes
-tab:unnamed-chunk-68
+tab:unnamed-chunk-67
 fig:hateCrimeGini
 tab:covTable
 fig:shuffleCorr
@@ -99,9 +100,9 @@ tab:readingTable
 fig:LinearRegressionByPriorClass
 fig:CaffeineAnxietyInteraction
 fig:qqplots
-tab:unnamed-chunk-87
+tab:unnamed-chunk-86
 fig:crossvalidation
-tab:unnamed-chunk-88
+tab:unnamed-chunk-87
 fig:GLMmatrix
 fig:PotTVViolin
 fig:BPfig
