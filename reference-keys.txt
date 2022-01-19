@@ -52,6 +52,9 @@ tab:freethrow
 fig:conditionalProbability
 tab:simpleProb
 tab:jointProb
+tab:mhCounts
+tab:mhProps
+tab:condProb
 tab:sampleExample
 fig:samplePlot
 fig:alcDist50

@@ -7,7 +7,7 @@
 ]{book}
 \title{Statistical Thinking for the 21st Century}
 \author{Copyright 2019 Russell A. Poldrack}
-\date{Draft: 2022-01-15}
+\date{Draft: 2022-01-19}
 
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
@@ -1054,7 +1054,7 @@ We generally don't know the true values of the parameters, so we have to estimat
 y_i = \beta + \epsilon
 \]
 
-The subscript \(i\) doesn't appear on the right side of the equation, which means that the prediction of the model doesn't depend on which observation we are looking at --- it's the same for all of them. The question then becomes: how do we estimate the best values of the parameter(s) in the model? In this particular case, what single value value is the best estimate for \(\beta\)? And, more importantly, how do we even define \emph{best}?
+The subscript \(i\) doesn't appear on the right side of the equation, which means that the prediction of the model doesn't depend on which observation we are looking at --- it's the same for all of them. The question then becomes: how do we estimate the best values of the parameter(s) in the model? In this particular case, what single value is the best estimate for \(\beta\)? And, more importantly, how do we even define \emph{best}?
 
 One very simple estimator that we might imagine is the \emph{mode}, which is simply the most common value in the dataset. This redescribes the entire set of 1691 children in terms of a single number. If we wanted to predict the height of any new children, then our predicted value would be the same number:
 
@@ -1082,7 +1082,7 @@ It turns out that if we use the arithmetic mean as our estimator then the averag
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/meanError-1} \caption{Distribution of errors from the mean.}\label{fig:meanError}
 \end{figure}
 
-The fact that the negative and positive errors cancel each other out means that two different models could have errors of very different magnitude in absolute terms, but would still have the same average error. This is exactly why the average error is not a good criterion for our estimator; we want a criterion that tries to minimize the overall error regardless of its direction. For this reason, we generally summarize errors in terms of some kind of measure that counts both positive and negative errors as bad. We could use the absolute value of each error value, but it's more common to use the squared errors, for reasons that we will see later in the book
+The fact that the negative and positive errors cancel each other out means that two different models could have errors of very different magnitude in absolute terms, but would still have the same average error. This is exactly why the average error is not a good criterion for our estimator; we want a criterion that tries to minimize the overall error regardless of its direction. For this reason, we generally summarize errors in terms of some kind of measure that counts both positive and negative errors as bad. We could use the absolute value of each error value, but it's more common to use the squared errors, for reasons that we will see later in the book.
 
 There are several common ways to summarize the squared error that you will encounter at various points in this book, so it's important to understand how they relate to one another. First, we could simply add them up; this is referred to as the \emph{sum of squared errors}. The reason we don't usually use this is that its magnitude depends on the number of data points, so it can be difficult to interpret unless we are looking at the same number of observations. Second, we could take the mean of the squared error values, which is referred to as the \emph{mean squared error (MSE)}. However, because we squared the values before averaging, they are not on the same scale as the original data; they are in \(centimeters^2\). For this reason, it's also common to take the square root of the MSE, which we refer to as the \emph{root mean squared error (RMSE)}, so that the error is measured in the same units as the original values (in this example, centimeters).
 
@@ -1335,7 +1335,7 @@ The \emph{Z-score} allows us to express data in a way that provides more insight
 Z(x) = \frac{x - \mu}{\sigma}
 \]
 
-Intuitively, you can think of a Z-score as telling you how far away any data point is from the mean, in units of standard deviation. We can compute this for the crime rate data, as shown in Figure \ref{fig:crimeZplot}. which plots the Z-scores against the original scores.
+Intuitively, you can think of a Z-score as telling you how far away any data point is from the mean, in units of standard deviation. We can compute this for the crime rate data, as shown in Figure \ref{fig:crimeZplot}, which plots the Z-scores against the original scores.
 
 \begin{figure}
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/crimeZplot-1} \caption{Scatterplot of original crime rate data against Z-scored data.}\label{fig:crimeZplot}
@@ -1570,7 +1570,7 @@ P(Roll6_{throw1} \cup Roll6_{throw2}) = P(Roll6_{throw1}) + P(Roll6_{throw2}) - 
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/ThrowMatrix-1} \caption{Each cell in this matrix represents one outcome of two throws of a die, with the columns representing the first throw and the rows representing the second throw. Cells shown in red represent the cells with a six in either the first or second throw; the rest are shown in blue.}\label{fig:ThrowMatrix}
 \end{figure}
 
-Let's use a graphical depiction to get a different view of this rule. Figure \ref{fig:ThrowMatrix} shows a matrix representing all possible combinations of results across two throws, and highlights the cells that involve a six on either the first or second throw. If you count up the cells in red you will see that there are 11 such cells. This shows why the addition rule gives a different answer from de Méré's; if we were to simply add together the probabilities for the two throws as he did, then we would count (1,1) towards both, when it should really only be counted once.
+Let's use a graphical depiction to get a different view of this rule. Figure \ref{fig:ThrowMatrix} shows a matrix representing all possible combinations of results across two throws, and highlights the cells that involve a six on either the first or second throw. If you count up the cells in red you will see that there are 11 such cells. This shows why the addition rule gives a different answer from de Méré's; if we were to simply add together the probabilities for the two throws as he did, then we would count (6,6) towards both, when it should really only be counted once.
 
 \hypertarget{solving-de-muxe9ruxe9s-problem}{%
 \subsection{Solving de Méré's problem}\label{solving-de-muxe9ruxe9s-problem}}
@@ -1740,7 +1740,11 @@ That is, the probability of A given some value of B is just the same as the over
 
 Let's look at another example, using the NHANES data: Are physical health and mental health independent of one another? NHANES includes two relevant questions: \emph{PhysActive}, which asks whether the individual is physically active, and \emph{DaysMentHlthBad}, which asks how many days out of the last 30 that the individual experienced bad mental health. Let's consider anyone who had more than 7 days of bad mental health in the last month to be in bad mental health. Based on this, we can define a new variable called \emph{badMentalHealth} as a logical variable telling whether each person had more than 7 days of bad mental health or not. We can first summarize the data to show how many individuals fall into each combination of the two variables (shown in Table \ref{tab:mhCounts}), and then divide by the total number of observations to create a table of proportions (shown in Table \ref{tab:mhProps}):
 
-\begin{tabular}{l|r|r|r}
+\begin{table}
+
+\caption{\label{tab:mhCounts}Summary of absolute frequency data for mental health and physical activity.}
+\centering
+\begin{tabular}[t]{l|r|r|r}
 \hline
 PhysActive & Bad Mental Health & Good Mental Health & Total\\
 \hline
@@ -1751,8 +1755,13 @@ Yes & 292 & 1926 & 2218\\
 Total & 706 & 3590 & 4296\\
 \hline
 \end{tabular}
+\end{table}
 
-\begin{tabular}{l|r|r|r}
+\begin{table}
+
+\caption{\label{tab:mhProps}Summary of relative frequency data for mental health and physical activity.}
+\centering
+\begin{tabular}[t]{l|r|r|r}
 \hline
 PhysActive & Bad Mental Health & Good Mental Health & Total\\
 \hline
@@ -1763,10 +1772,15 @@ Yes & 0.07 & 0.45 & 0.52\\
 Total & 0.16 & 0.84 & 1.00\\
 \hline
 \end{tabular}
+\end{table}
 
 This shows us the proportion of all observations that fall into each cell. However, what we want to know here is the conditional probability of bad mental health, depending on whether one is physically active or not. To compute this, we divide each physical activity group by its total number of observations, so that each row now sums to one (shown in Table \ref{tab:condProb}). Here we see the conditional probabilities of bad or good mental health for each physical activity group (in the top two rows) along with the overall probability of good or bad mental health in the third row. To determine whether mental health and physical activity are independent, we would compare the simple probability of bad mental health (in the third row) to the conditional probability of bad mental health given that one is physically active (in the second row).
 
-\begin{tabular}{l|r|r|r}
+\begin{table}
+
+\caption{\label{tab:condProb}Summary of conditional probabilities for mental health given physical activity.}
+\centering
+\begin{tabular}[t]{l|r|r|r}
 \hline
 PhysActive & Bad Mental Health & Good Mental Health & Total\\
 \hline
@@ -1777,6 +1791,7 @@ Yes & 0.13 & 0.87 & 1\\
 Total & 0.16 & 0.84 & 1\\
 \hline
 \end{tabular}
+\end{table}
 
 The overall probability of bad mental health \(P(\text{bad mental health})\) is 0.16 while the conditional probability \(P(\text{bad mental health|physically active})\) is 0.13. Thus, it seems that the conditional probability is somewhat smaller than the overall probability, suggesting that they are not independent, though we can't know for sure just by looking at the numbers, since these numbers might be different due to random variability in our sample. Later in the book we will discuss statistical tools that will let us directly test whether two variables are independent.
 
@@ -1967,7 +1982,7 @@ In this example, we know the adult population mean (168.35) and standard deviati
 
 \begin{table}
 
-\caption{\label{tab:sampleExample}Example means and standard deviations for several samples of Height variable from NARPS}
+\caption{\label{tab:sampleExample}Example means and standard deviations for several samples of Height variable from NHANES.}
 \centering
 \begin{tabular}[t]{r|r}
 \hline
@@ -2012,7 +2027,7 @@ The formula for the standard error of the mean implies that the quality of our m
 
 The Central Limit Theorem tells us that as sample sizes get larger, the sampling distribution of the mean will become normally distributed, \emph{even if the data within each sample are not normally distributed}.
 
-First, let's say a little bit about the normal distribution. It's also known as the \emph{Gaussian} distribution, after Carl Friedrich Gauss, a mathematician who didn't invent it but played a role in its development. The normal distribution is described in terms of two parameters: the mean (which you can think of as the location of the peak), and the standard distribution (which specifies the width of the distribution). The bell-like shape of the distribution never changes, only its location and width. The normal distribution is commonly observed in data collected in the real world, as we have already seen in Chapter 3 --- and the central limit theorem gives us some insight into why that occurs.
+First, let's say a little bit about the normal distribution. It's also known as the \emph{Gaussian} distribution, after Carl Friedrich Gauss, a mathematician who didn't invent it but played a role in its development. The normal distribution is described in terms of two parameters: the mean (which you can think of as the location of the peak), and the standard deviation (which specifies the width of the distribution). The bell-like shape of the distribution never changes, only its location and width. The normal distribution is commonly observed in data collected in the real world, as we have already seen in Chapter 3 --- and the central limit theorem gives us some insight into why that occurs.
 
 To see the central limit theorem in action, let's work with the variable AlcoholYear from the NHANES dataset, which is highly skewed, as shown in the left panel of Figure \ref{fig:alcDist50}. This distribution is, for lack of a better word, funky -- and definitely not normally distributed. Now let's look at the sampling distribution of the mean for this variable. Figure \ref{fig:alcDist50} shows the sampling distribution for this variable, which is obtained by repeatedly drawing samples of size 50 from the NHANES dataset and taking the mean. Despite the clear non-normality of the original data, the sampling distribution is remarkably close to the normal.
 
