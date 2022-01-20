@@ -246,7 +246,7 @@ what-does-a-significant-result-mean
 does-it-mean-that-the-probability-of-the-null-hypothesis-being-true-is-.01
 does-it-mean-that-the-probability-that-you-are-making-the-wrong-decision-is-.01
 does-it-mean-that-if-you-ran-the-study-again-you-would-obtain-the-same-result-99-of-the-time
-does-it-mean-that-you-have-found-a-practially-important-effect
+does-it-mean-that-you-have-found-a-practically-important-effect
 nhst-in-a-modern-context-multiple-testing
 learning-objectives-8
 suggested-readings-6

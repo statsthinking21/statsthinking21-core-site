@@ -7,7 +7,7 @@
 ]{book}
 \title{Statistical Thinking for the 21st Century}
 \author{Copyright 2019 Russell A. Poldrack}
-\date{Draft: 2022-01-19}
+\date{Draft: 2022-01-20}
 
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
@@ -2361,7 +2361,7 @@ P(X \ge k) = 1 - P(X < k)
 Using the binomial distribution, the probability of 69 or fewer heads given P(heads)=0.5 is 0.999961, so the probability of 70 or more heads is simply one minus that value (0.000039).
 This computation shows us that the likelihood of getting 70 or more heads if the coin is indeed fair is very small.
 
-Now, what if we didn't have a standard function to tell us the probability of that number of heads? We could instead determine it by simulation -- we repeatedly flip a coin 100 times using a true probability of 0.5, and then compute the distribution of the number of heads across those simulation runs. Figure \ref{fig:coinFlips} shows the result from this simulation. Here we can see that the probability computed via simulation (0.000030) is very close to the theoretical probability (.00004).
+Now, what if we didn't have a standard function to tell us the probability of that number of heads? We could instead determine it by simulation -- we repeatedly flip a coin 100 times using a true probability of 0.5, and then compute the distribution of the number of heads across those simulation runs. Figure \ref{fig:coinFlips} shows the result from this simulation. Here we can see that the probability computed via simulation (0.000030) is very close to the theoretical probability (0.000039).
 
 \hypertarget{pvalues-tdist}{%
 \subsubsection{\texorpdfstring{Computing p-values using the \emph{t} distribution}{Computing p-values using the t distribution}}\label{pvalues-tdist}}
@@ -2540,8 +2540,8 @@ No.~This would be \(P(H_0|data)\), but remember as above that p-values are proba
 
 No.~The p-value is a statement about the likelihood of a particular dataset under the null; it does not allow us to make inferences about the likelihood of future events such as replication.
 
-\hypertarget{does-it-mean-that-you-have-found-a-practially-important-effect}{%
-\subsubsection{Does it mean that you have found a practially important effect?}\label{does-it-mean-that-you-have-found-a-practially-important-effect}}
+\hypertarget{does-it-mean-that-you-have-found-a-practically-important-effect}{%
+\subsubsection{Does it mean that you have found a practically important effect?}\label{does-it-mean-that-you-have-found-a-practically-important-effect}}
 
 No.~There is an essential distinction between \emph{statistical significance} and \emph{practical significance}. As an example, let's say that we performed a randomized controlled trial to examine the effect of a particular diet on body weight, and we find a statistically significant effect at p\textless.05. What this doesn't tell us is how much weight was actually lost, which we refer to as the \emph{effect size} (to be discussed in more detail in Chapter \ref{ci-effect-size-power}). If we think about a study of weight loss, then we probably don't think that the loss of one ounce (i.e.~the weight of a few potato chips) is practically significant. Let's look at our ability to detect a significant difference of 1 ounce as the sample size increases.
 
@@ -2601,7 +2601,7 @@ A simple way to control for the familywise error is to divide the alpha level by
 
 In the previous chapter we discussed how we can use data to test hypotheses. Those methods provided a binary answer: we either reject or fail to reject the null hypothesis. However, this kind of decision overlooks a couple of important questions. First, we would like to know how much uncertainty we have about the answer (regardless of which way it goes). In addition, sometimes we don't have a clear null hypothesis, so we would like to see what range of estimates are consistent with the data. Second, we would like to know how large the effect actually is, since as we saw in the weight loss example in the previous chapter, a statistically significant effect is not necessarily a practically important effect.
 
-In this chapter we will discuss methods to address these two questions: confidence intervals to provide a measure of our uncertainty about our estimates, and effect sizes to provide a standardized way to understand how large the effects are. We will also discuss the concept of \emph{statistical power} which tells us likely we are to find any true effects that actually exist.
+In this chapter we will discuss methods to address these two questions: confidence intervals to provide a measure of our uncertainty about our estimates, and effect sizes to provide a standardized way to understand how large the effects are. We will also discuss the concept of \emph{statistical power} which tells us how likely we are to find any true effects that actually exist.
 
 \hypertarget{confidence-intervals}{%
 \section{Confidence intervals}\label{confidence-intervals}}
@@ -2773,7 +2773,7 @@ odds\ of\ A = \frac{P(A)}{P(\neg A)}
 
 We also discussed the \emph{odds ratio}, which is simply the ratio of two odds. The odds ratio is a useful way to describe effect sizes for binary variables.
 
-For example, let's take the case of smoking and lung cancer. A study published in the International Journal of Cancer in 2012 (\protect\hyperlink{ref-pesc:kend:gust:2012}{Pesch et al. 2012}) combined data regarding the occurrence of lung cancer in smokers and individuals who have never smoked across a number of different studies. Note that these data come from case-control studies, which means that participants in the studies were recruited because they either did or did not have cancer; their smoking status was then examined. These numbers (shown in Table \ref{tab:smokingData} thus do not represent the prevalence of cancer amongst smokers in the general population -- but they can tell us about the relationship between cancer and smoking.
+For example, let's take the case of smoking and lung cancer. A study published in the International Journal of Cancer in 2012 (\protect\hyperlink{ref-pesc:kend:gust:2012}{Pesch et al. 2012}) combined data regarding the occurrence of lung cancer in smokers and individuals who have never smoked across a number of different studies. Note that these data come from case-control studies, which means that participants in the studies were recruited because they either did or did not have cancer; their smoking status was then examined. These numbers (shown in Table \ref{tab:smokingData}) thus do not represent the prevalence of cancer amongst smokers in the general population -- but they can tell us about the relationship between cancer and smoking.
 
 \begin{table}
 
@@ -3071,7 +3071,7 @@ In panel C of Figure \ref{fig:posteriorDistPrior} we see that there is zero dens
 
 The impact of priors on the resulting inferences are the most controversial aspect of Bayesian statistics. What is the right prior to use? If the choice of prior determines the results (i.e., the posterior), how can you be sure you results are trustworthy? These are difficult questions, but we should not back away just because we are faced with hard questions. As we discussed previously, Bayesian analyses give us interpretable results (credible intervals, etc.). This alone should inspire us to think hard about these questions so that we can arrive with results that are reasonable and interpretable.
 
-There are various ways to choose one's priors, which (as we saw above) can impact the resulting inferences. Sometimes we have a very specific prior, as in the case where we expected our coin to lands heads 50\% of the time, but in many cases we don't have such strong a starting point. \emph{Uninformative priors} attempt to influence the resulting posterior as little as possible, as we saw in the example of the uniform prior above. It's also common to use \emph{weakly informative priors} (or \emph{default priors}), which influence the result only very slightly. For example, if we had used a binomial distribution based on one heads out of two coin flips, the prior would have been centered around 0.5 but fairly flat, influence the posterior only slightly. It is also possible to use priors based on the scientific literature or pre-existing data, which we would call \emph{empirical priors}. In general, however, we will stick to the use of uninformative/weakly informative priors, since they raise the least concern about influencing our results.
+There are various ways to choose one's priors, which (as we saw above) can impact the resulting inferences. Sometimes we have a very specific prior, as in the case where we expected our coin to lands heads 50\% of the time, but in many cases we don't have such strong a starting point. \emph{Uninformative priors} attempt to influence the resulting posterior as little as possible, as we saw in the example of the uniform prior above. It's also common to use \emph{weakly informative priors} (or \emph{default priors}), which influence the result only very slightly. For example, if we had used a binomial distribution based on one heads out of two coin flips, the prior would have been centered around 0.5 but fairly flat, influencing the posterior only slightly. It is also possible to use priors based on the scientific literature or pre-existing data, which we would call \emph{empirical priors}. In general, however, we will stick to the use of uninformative/weakly informative priors, since they raise the least concern about influencing our results.
 
 \hypertarget{bayesian-hypothesis-testing}{%
 \section{Bayesian hypothesis testing}\label{bayesian-hypothesis-testing}}
@@ -3208,7 +3208,7 @@ After reading this chapter, should be able to:
 \hypertarget{rejection-sampling}{%
 \subsection{Rejection sampling}\label{rejection-sampling}}
 
-We will generate samples from our posterior distribution using a simple algorithm known as \href{https://am207.github.io/2017/wiki/rejectionsampling.html}{\emph{rejection sampling}}. The idea is that we choose a random value of x (in this case \(p_{respond}\)) and a random value of y (in this case, the posterior probability of \(p_{respond}\)) each from a uniform distribution. We then only accept the sample if \(y < f(x)\) - in this case, if the randomly selected value of y is less than the actual posterior probability of y. Figure \ref{fig:rejectionSampling} shows an example of a histogram of samples using rejection sampling, along with the 95\% credible intervals obtained using this method (with the values presented in Table \ref{tab:credInt})
+We will generate samples from our posterior distribution using a simple algorithm known as \href{https://am207.github.io/2017/wiki/rejectionsampling.html}{\emph{rejection sampling}}. The idea is that we choose a random value of x (in this case \(p_{respond}\)) and a random value of y (in this case, the posterior probability of \(p_{respond}\)) each from a uniform distribution. We then only accept the sample if \(y < f(x)\) - in this case, if the randomly selected value of y is less than the actual posterior probability of y. Figure \ref{fig:rejectionSampling} shows an example of a histogram of samples using rejection sampling, along with the 95\% credible intervals obtained using this method (with the values presented in Table \ref{tab:credInt}).
 
 \begin{tabular}{l|r}
 \hline
@@ -3227,7 +3227,7 @@ We will generate samples from our posterior distribution using a simple algorith
 \hypertarget{modeling-categorical-relationships}{%
 \chapter{Modeling categorical relationships}\label{modeling-categorical-relationships}}
 
-So far we have discussed the general concepts of statistical modeling and hypothesis testing, and applied them to some simple analyses; now we will will turn to the question of how to model particular kinds of relationships in our data. In this chapter we will focus on the modeling of \emph{categorical} relationships, by which we mean relationships between variables that are measured qualitatively. These data are usually expressed in terms of counts; that is, for each value of the variable (or combination of values of multiple variables), how many observations take that value? For example, when we count how many people from each major are in our class, we are fitting a categorical model to the data.
+So far we have discussed the general concepts of statistical modeling and hypothesis testing, and applied them to some simple analyses; now we will turn to the question of how to model particular kinds of relationships in our data. In this chapter we will focus on the modeling of \emph{categorical} relationships, by which we mean relationships between variables that are measured qualitatively. These data are usually expressed in terms of counts; that is, for each value of the variable (or combination of values of multiple variables), how many observations take that value? For example, when we count how many people from each major are in our class, we are fitting a categorical model to the data.
 
 \hypertarget{example-candy-colors}{%
 \section{Example: Candy colors}\label{example-candy-colors}}
@@ -3805,7 +3805,7 @@ We will not go into the details of how the best fitting slope and intercept are 
 \hypertarget{regression-to-the-mean}{%
 \subsection{Regression to the mean}\label{regression-to-the-mean}}
 
-The concept of \emph{regression to the mean} was one of Galton's essential contributions to science, and it remains a critical point to understand when we interpret the results of experimental data analyses. Let's say that we want to study the effects of a reading intervention on the performance of poor readers. To test our hypothesis, we might go into a school and recruit those individuals in the bottom 25\% of the distribution on some reading test, administer the intervention, and then examine their performance on the test after the intervention. Let's say that the intervention actually has no effect, such that reading scores for each individual are simply independent samples from a normal distribution. Results from a computer simulation of this hypothetic experiment are presented in \ref{tab:readingTable}.
+The concept of \emph{regression to the mean} was one of Galton's essential contributions to science, and it remains a critical point to understand when we interpret the results of experimental data analyses. Let's say that we want to study the effects of a reading intervention on the performance of poor readers. To test our hypothesis, we might go into a school and recruit those individuals in the bottom 25\% of the distribution on some reading test, administer the intervention, and then examine their performance on the test after the intervention. Let's say that the intervention actually has no effect, such that reading scores for each individual are simply independent samples from a normal distribution. Results from a computer simulation of this hypothetic experiment are presented in Table \ref{tab:readingTable}.
 
 \begin{table}
 
@@ -4075,7 +4075,7 @@ Sometimes we want to compare the relative fit of two different models, in order 
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 \end{verbatim}
 
-This tells us that there is good evidence to prefer the model with the interaction over the one without an interaction. Model comparison is relatively simple in this case because the two models are \emph{nested} -- one of the models is a simplified version of the other model, such that all of the variable in the simpler model are contained in the more complex model. Model comparison with non-nested models can get much more complicated.
+This tells us that there is good evidence to prefer the model with the interaction over the one without an interaction. Model comparison is relatively simple in this case because the two models are \emph{nested} -- one of the models is a simplified version of the other model, such that all of the variables in the simpler model are contained in the more complex model. Model comparison with non-nested models can get much more complicated.
 
 \hypertarget{beyond-linear-predictors-and-outcomes}{%
 \section{Beyond linear predictors and outcomes}\label{beyond-linear-predictors-and-outcomes}}
@@ -4460,7 +4460,7 @@ d = \frac{\hat{\beta_1}}{\sigma_{residual}}
 \]
 We can obtain these values from the analysis output above, giving us a d = 0.55, which we would generally interpret as a medium sized effect.
 
-We can also compute \(R^2\) for this analysis, which tells us how what proportion of the variance in TV watching is accounted for by marijuana smoking. This value (which is reported at the bottom of the summary of the linear model analysis above) is 0.05, which tells us that while the effect may be statistically significant, it accounts for relatively little of the variance in TV watching.
+We can also compute \(R^2\) for this analysis, which tells us what proportion of the variance in TV watching is accounted for by marijuana smoking. This value (which is reported at the bottom of the summary of the linear model analysis above) is 0.05, which tells us that while the effect may be statistically significant, it accounts for relatively little of the variance in TV watching.
 
 \hypertarget{bayes-factor-for-mean-differences}{%
 \section{Bayes factor for mean differences}\label{bayes-factor-for-mean-differences}}
@@ -4873,7 +4873,7 @@ The letters in the rightmost column show us which of the groups differ from one 
 \hypertarget{what-about-possible-confounds}{%
 \subsection{What about possible confounds?}\label{what-about-possible-confounds}}
 
-If we look more closely at the Garder paper, we will see that they also report statistics on how many individuals in each group had been diagnosed with \emph{metabolic syndrome}, which is a syndrome characterized by high blood pressure, high blood glucose, excess body fat around the waist, and abnormal cholesterol levels and is associated with increased risk for cardiovascular problems. The data from the Gardner paper are presented in Table \ref{tab:metsymData}.
+If we look more closely at the Gardner paper, we will see that they also report statistics on how many individuals in each group had been diagnosed with \emph{metabolic syndrome}, which is a syndrome characterized by high blood pressure, high blood glucose, excess body fat around the waist, and abnormal cholesterol levels and is associated with increased risk for cardiovascular problems. The data from the Gardner paper are presented in Table \ref{tab:metsymData}.
 
 \begin{table}
 
