@@ -7,7 +7,7 @@
 ]{book}
 \title{Statistical Thinking for the 21st Century}
 \author{Copyright 2019 Russell A. Poldrack}
-\date{Draft: 2022-01-20}
+\date{Draft: 2022-01-21}
 
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
@@ -3636,11 +3636,11 @@ One useful way to describe causal relations between variables is through a \emph
 However, in reality the effects on finishing time and grades are not due directly to the amount of time spent studying, but rather to the amount of knowledge that the student gains by studying. We would usually say that knowledge is a \emph{latent} variable -- that is, we can't measure it directly but we can see it reflected in variables that we can measure (like grades and finishing times). Figure \ref{fig:latentCausalGraph} shows this.
 
 \begin{figure}
-\includegraphics[width=13.33in,height=0.5\textheight]{images/dag_example} \caption{A graph showing causal relationships between three variables: study time, exam grades, and exam finishing time.  A green arrow represents a positive relationship (i.e. more study time causes exam grades to increase), and a red arrow represents a negative relationship (i.e. more study time causes faster completion of the exam).}\label{fig:simpleCausalGraph}
+\includegraphics[width=6.94in,height=0.5\textheight]{images/dag_example} \caption{A graph showing causal relationships between three variables: study time, exam grades, and exam finishing time.  A green arrow represents a positive relationship (i.e. more study time causes exam grades to increase), and a red arrow represents a negative relationship (i.e. more study time causes faster completion of the exam).}\label{fig:simpleCausalGraph}
 \end{figure}
 
 \begin{figure}
-\includegraphics[width=13.33in,height=0.5\textheight]{images/dag_latent_example} \caption{A graph showing the same causal relationships as above, but now also showing the latent variable (knowledge) using a square box.}\label{fig:latentCausalGraph}
+\includegraphics[width=6.94in,height=0.5\textheight]{images/dag_latent_example} \caption{A graph showing the same causal relationships as above, but now also showing the latent variable (knowledge) using a square box.}\label{fig:latentCausalGraph}
 \end{figure}
 
 Here we would say that knowledge \emph{mediates} the relationship between study time and grades/finishing times. That means that if we were able to hold knowledge constant (for example, by administering a drug that causes immediate forgetting), then the amount of study time should no longer have an effect on grades and finishing times.

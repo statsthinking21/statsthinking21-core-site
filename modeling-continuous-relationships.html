@@ -750,13 +750,13 @@ Figure 13.3: An simulated example of the effects of outliers on correlation. Wit
 <p>One useful way to describe causal relations between variables is through a <em>causal graph</em>, which shows variables as circles and causal relations between them as arrows. For example, Figure <a href="modeling-continuous-relationships.html#fig:simpleCausalGraph">13.4</a> shows the causal relationships between study time and two variables that we think should be affected by it: exam grades and exam finishing times.</p>
 <p>However, in reality the effects on finishing time and grades are not due directly to the amount of time spent studying, but rather to the amount of knowledge that the student gains by studying. We would usually say that knowledge is a <em>latent</em> variable – that is, we can’t measure it directly but we can see it reflected in variables that we can measure (like grades and finishing times). Figure <a href="modeling-continuous-relationships.html#fig:latentCausalGraph">13.5</a> shows this.</p>
 <div class="figure"><span style="display:block;" id="fig:simpleCausalGraph"></span>
-<img src="images/dag_example.png" alt="A graph showing causal relationships between three variables: study time, exam grades, and exam finishing time.  A green arrow represents a positive relationship (i.e. more study time causes exam grades to increase), and a red arrow represents a negative relationship (i.e. more study time causes faster completion of the exam)." width="480" height="50%" />
+<img src="images/dag_example.png" alt="A graph showing causal relationships between three variables: study time, exam grades, and exam finishing time.  A green arrow represents a positive relationship (i.e. more study time causes exam grades to increase), and a red arrow represents a negative relationship (i.e. more study time causes faster completion of the exam)." width="250" height="50%" />
 <p class="caption">
 Figure 13.4: A graph showing causal relationships between three variables: study time, exam grades, and exam finishing time. A green arrow represents a positive relationship (i.e. more study time causes exam grades to increase), and a red arrow represents a negative relationship (i.e. more study time causes faster completion of the exam).
 </p>
 </div>
 <div class="figure"><span style="display:block;" id="fig:latentCausalGraph"></span>
-<img src="images/dag_latent_example.png" alt="A graph showing the same causal relationships as above, but now also showing the latent variable (knowledge) using a square box." width="480" height="50%" />
+<img src="images/dag_latent_example.png" alt="A graph showing the same causal relationships as above, but now also showing the latent variable (knowledge) using a square box." width="250" height="50%" />
 <p class="caption">
 Figure 13.5: A graph showing the same causal relationships as above, but now also showing the latent variable (knowledge) using a square box.
 </p>
