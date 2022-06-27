@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 11 Bayesian statistics | Statistical Thinking for the 21st Century</title>
   <meta name="description" content="A book about statistics." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 11 Bayesian statistics | Statistical Thinking for the 21st Century" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="A book about statistics." />
   <meta name="github-repo" content="poldrack/psych10-book" />
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="ci-effect-size-power.html"/>
 <link rel="next" href="modeling-categorical-relationships.html"/>
-<script src="book_assets/header-attrs-2.11/header-attrs.js"></script>
 <script src="book_assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="book_assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="book_assets/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="book_assets/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="book_assets/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="book_assets/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="book_assets/anchor-sections-1.1.0/anchor-sections.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129414074-1"></script>
 <script>
@@ -251,7 +250,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="5.2.1" data-path="fitting-models.html"><a href="fitting-models.html#improving-our-model"><i class="fa fa-check"></i><b>5.2.1</b> Improving our model</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="fitting-models.html"><a href="fitting-models.html#what-makes-a-model-good"><i class="fa fa-check"></i><b>5.3</b> What makes a model “good?”</a></li>
+<li class="chapter" data-level="5.3" data-path="fitting-models.html"><a href="fitting-models.html#what-makes-a-model-good"><i class="fa fa-check"></i><b>5.3</b> What makes a model “good”?</a></li>
 <li class="chapter" data-level="5.4" data-path="fitting-models.html"><a href="fitting-models.html#overfitting"><i class="fa fa-check"></i><b>5.4</b> Can a model be too good?</a></li>
 <li class="chapter" data-level="5.5" data-path="fitting-models.html"><a href="fitting-models.html#summarizing-data-using-the-mean"><i class="fa fa-check"></i><b>5.5</b> Summarizing data using the mean</a>
 <ul>
@@ -482,44 +481,66 @@ div.csl-indent {
 <li class="chapter" data-level="15.8.1" data-path="comparing-means.html"><a href="comparing-means.html#the-paired-t-test-as-a-linear-model"><i class="fa fa-check"></i><b>15.8.1</b> The paired t-test as a linear model</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="practical-example.html"><a href="practical-example.html"><i class="fa fa-check"></i><b>16</b> Practical statistical modeling</a>
+<li class="chapter" data-level="16" data-path="multivariate.html"><a href="multivariate.html"><i class="fa fa-check"></i><b>16</b> Multivariate statistics</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="practical-example.html"><a href="practical-example.html#the-process-of-statistical-modeling"><i class="fa fa-check"></i><b>16.1</b> The process of statistical modeling</a>
+<li class="chapter" data-level="16.1" data-path="multivariate.html"><a href="multivariate.html#multivariate-data-an-example"><i class="fa fa-check"></i><b>16.1</b> Multivariate data: An example</a></li>
+<li class="chapter" data-level="16.2" data-path="multivariate.html"><a href="multivariate.html#visualizing-multivariate-data"><i class="fa fa-check"></i><b>16.2</b> Visualizing multivariate data</a>
 <ul>
-<li class="chapter" data-level="16.1.1" data-path="practical-example.html"><a href="practical-example.html#specify-your-question-of-interest"><i class="fa fa-check"></i><b>16.1.1</b> 1: Specify your question of interest</a></li>
-<li class="chapter" data-level="16.1.2" data-path="practical-example.html"><a href="practical-example.html#identify-or-collect-the-appropriate-data"><i class="fa fa-check"></i><b>16.1.2</b> 2: Identify or collect the appropriate data</a></li>
-<li class="chapter" data-level="16.1.3" data-path="practical-example.html"><a href="practical-example.html#prepare-the-data-for-analysis"><i class="fa fa-check"></i><b>16.1.3</b> 3: Prepare the data for analysis</a></li>
-<li class="chapter" data-level="16.1.4" data-path="practical-example.html"><a href="practical-example.html#determine-the-appropriate-model"><i class="fa fa-check"></i><b>16.1.4</b> 4. Determine the appropriate model</a></li>
-<li class="chapter" data-level="16.1.5" data-path="practical-example.html"><a href="practical-example.html#fit-the-model-to-the-data"><i class="fa fa-check"></i><b>16.1.5</b> 5. Fit the model to the data</a></li>
-<li class="chapter" data-level="16.1.6" data-path="practical-example.html"><a href="practical-example.html#criticize-the-model-to-make-sure-it-fits-properly"><i class="fa fa-check"></i><b>16.1.6</b> 6. Criticize the model to make sure it fits properly</a></li>
-<li class="chapter" data-level="16.1.7" data-path="practical-example.html"><a href="practical-example.html#test-hypothesis-and-quantify-effect-size"><i class="fa fa-check"></i><b>16.1.7</b> 7. Test hypothesis and quantify effect size</a></li>
-<li class="chapter" data-level="16.1.8" data-path="practical-example.html"><a href="practical-example.html#what-about-possible-confounds"><i class="fa fa-check"></i><b>16.1.8</b> What about possible confounds?</a></li>
+<li class="chapter" data-level="16.2.1" data-path="multivariate.html"><a href="multivariate.html#scatterplot-of-matrices"><i class="fa fa-check"></i><b>16.2.1</b> Scatterplot of matrices</a></li>
+<li class="chapter" data-level="16.2.2" data-path="multivariate.html"><a href="multivariate.html#heatmap"><i class="fa fa-check"></i><b>16.2.2</b> Heatmap</a></li>
 </ul></li>
-<li class="chapter" data-level="16.2" data-path="practical-example.html"><a href="practical-example.html#getting-help"><i class="fa fa-check"></i><b>16.2</b> Getting help</a></li>
-</ul></li>
-<li class="chapter" data-level="17" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html"><i class="fa fa-check"></i><b>17</b> Doing reproducible research</a>
+<li class="chapter" data-level="16.3" data-path="multivariate.html"><a href="multivariate.html#clustering"><i class="fa fa-check"></i><b>16.3</b> Clustering</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#how-we-think-science-should-work"><i class="fa fa-check"></i><b>17.1</b> How we think science should work</a></li>
-<li class="chapter" data-level="17.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#how-science-sometimes-actually-works"><i class="fa fa-check"></i><b>17.2</b> How science (sometimes) actually works</a></li>
-<li class="chapter" data-level="17.3" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#the-reproducibility-crisis-in-science"><i class="fa fa-check"></i><b>17.3</b> The reproducibility crisis in science</a>
-<ul>
-<li class="chapter" data-level="17.3.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#positive-predictive-value-and-statistical-significance"><i class="fa fa-check"></i><b>17.3.1</b> Positive predictive value and statistical significance</a></li>
-<li class="chapter" data-level="17.3.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#the-winners-curse"><i class="fa fa-check"></i><b>17.3.2</b> The winner’s curse</a></li>
+<li class="chapter" data-level="16.3.1" data-path="multivariate.html"><a href="multivariate.html#k-means-clustering"><i class="fa fa-check"></i><b>16.3.1</b> K-means clustering</a></li>
+<li class="chapter" data-level="16.3.2" data-path="multivariate.html"><a href="multivariate.html#hierarchical-clustering"><i class="fa fa-check"></i><b>16.3.2</b> Hierarchical clustering</a></li>
 </ul></li>
-<li class="chapter" data-level="17.4" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#questionable-research-practices"><i class="fa fa-check"></i><b>17.4</b> Questionable research practices</a>
+<li class="chapter" data-level="16.4" data-path="multivariate.html"><a href="multivariate.html#dimensionality-reduction"><i class="fa fa-check"></i><b>16.4</b> Dimensionality reduction</a>
 <ul>
-<li class="chapter" data-level="17.4.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#esp-or-qrp"><i class="fa fa-check"></i><b>17.4.1</b> ESP or QRP?</a></li>
+<li class="chapter" data-level="16.4.1" data-path="multivariate.html"><a href="multivariate.html#principal-component-analysis"><i class="fa fa-check"></i><b>16.4.1</b> Principal component analysis</a></li>
+<li class="chapter" data-level="16.4.2" data-path="multivariate.html"><a href="multivariate.html#factor-analysis"><i class="fa fa-check"></i><b>16.4.2</b> Factor analysis</a></li>
+<li class="chapter" data-level="16.4.3" data-path="multivariate.html"><a href="multivariate.html#determining-the-number-of-factors"><i class="fa fa-check"></i><b>16.4.3</b> Determining the number of factors</a></li>
 </ul></li>
-<li class="chapter" data-level="17.5" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#doing-reproducible-research-1"><i class="fa fa-check"></i><b>17.5</b> Doing reproducible research</a>
+<li class="chapter" data-level="16.5" data-path="multivariate.html"><a href="multivariate.html#learning-objectives-15"><i class="fa fa-check"></i><b>16.5</b> Learning objectives</a></li>
+<li class="chapter" data-level="16.6" data-path="multivariate.html"><a href="multivariate.html#suggested-readings-11"><i class="fa fa-check"></i><b>16.6</b> Suggested readings</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="practical-example.html"><a href="practical-example.html"><i class="fa fa-check"></i><b>17</b> Practical statistical modeling</a>
 <ul>
-<li class="chapter" data-level="17.5.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#pre-registration"><i class="fa fa-check"></i><b>17.5.1</b> Pre-registration</a></li>
-<li class="chapter" data-level="17.5.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#reproducible-practices"><i class="fa fa-check"></i><b>17.5.2</b> Reproducible practices</a></li>
-<li class="chapter" data-level="17.5.3" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#replication"><i class="fa fa-check"></i><b>17.5.3</b> Replication</a></li>
+<li class="chapter" data-level="17.1" data-path="practical-example.html"><a href="practical-example.html#the-process-of-statistical-modeling"><i class="fa fa-check"></i><b>17.1</b> The process of statistical modeling</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="practical-example.html"><a href="practical-example.html#specify-your-question-of-interest"><i class="fa fa-check"></i><b>17.1.1</b> 1: Specify your question of interest</a></li>
+<li class="chapter" data-level="17.1.2" data-path="practical-example.html"><a href="practical-example.html#identify-or-collect-the-appropriate-data"><i class="fa fa-check"></i><b>17.1.2</b> 2: Identify or collect the appropriate data</a></li>
+<li class="chapter" data-level="17.1.3" data-path="practical-example.html"><a href="practical-example.html#prepare-the-data-for-analysis"><i class="fa fa-check"></i><b>17.1.3</b> 3: Prepare the data for analysis</a></li>
+<li class="chapter" data-level="17.1.4" data-path="practical-example.html"><a href="practical-example.html#determine-the-appropriate-model"><i class="fa fa-check"></i><b>17.1.4</b> 4. Determine the appropriate model</a></li>
+<li class="chapter" data-level="17.1.5" data-path="practical-example.html"><a href="practical-example.html#fit-the-model-to-the-data"><i class="fa fa-check"></i><b>17.1.5</b> 5. Fit the model to the data</a></li>
+<li class="chapter" data-level="17.1.6" data-path="practical-example.html"><a href="practical-example.html#criticize-the-model-to-make-sure-it-fits-properly"><i class="fa fa-check"></i><b>17.1.6</b> 6. Criticize the model to make sure it fits properly</a></li>
+<li class="chapter" data-level="17.1.7" data-path="practical-example.html"><a href="practical-example.html#test-hypothesis-and-quantify-effect-size"><i class="fa fa-check"></i><b>17.1.7</b> 7. Test hypothesis and quantify effect size</a></li>
+<li class="chapter" data-level="17.1.8" data-path="practical-example.html"><a href="practical-example.html#what-about-possible-confounds"><i class="fa fa-check"></i><b>17.1.8</b> What about possible confounds?</a></li>
 </ul></li>
-<li class="chapter" data-level="17.6" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#doing-reproducible-data-analysis"><i class="fa fa-check"></i><b>17.6</b> Doing reproducible data analysis</a></li>
-<li class="chapter" data-level="17.7" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#conclusion-doing-better-science"><i class="fa fa-check"></i><b>17.7</b> Conclusion: Doing better science</a></li>
-<li class="chapter" data-level="17.8" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#learning-objectives-15"><i class="fa fa-check"></i><b>17.8</b> Learning objectives</a></li>
-<li class="chapter" data-level="17.9" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#suggested-readings-11"><i class="fa fa-check"></i><b>17.9</b> Suggested Readings</a></li>
+<li class="chapter" data-level="17.2" data-path="practical-example.html"><a href="practical-example.html#getting-help"><i class="fa fa-check"></i><b>17.2</b> Getting help</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html"><i class="fa fa-check"></i><b>18</b> Doing reproducible research</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#how-we-think-science-should-work"><i class="fa fa-check"></i><b>18.1</b> How we think science should work</a></li>
+<li class="chapter" data-level="18.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#how-science-sometimes-actually-works"><i class="fa fa-check"></i><b>18.2</b> How science (sometimes) actually works</a></li>
+<li class="chapter" data-level="18.3" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#the-reproducibility-crisis-in-science"><i class="fa fa-check"></i><b>18.3</b> The reproducibility crisis in science</a>
+<ul>
+<li class="chapter" data-level="18.3.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#positive-predictive-value-and-statistical-significance"><i class="fa fa-check"></i><b>18.3.1</b> Positive predictive value and statistical significance</a></li>
+<li class="chapter" data-level="18.3.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#the-winners-curse"><i class="fa fa-check"></i><b>18.3.2</b> The winner’s curse</a></li>
+</ul></li>
+<li class="chapter" data-level="18.4" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#questionable-research-practices"><i class="fa fa-check"></i><b>18.4</b> Questionable research practices</a>
+<ul>
+<li class="chapter" data-level="18.4.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#esp-or-qrp"><i class="fa fa-check"></i><b>18.4.1</b> ESP or QRP?</a></li>
+</ul></li>
+<li class="chapter" data-level="18.5" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#doing-reproducible-research-1"><i class="fa fa-check"></i><b>18.5</b> Doing reproducible research</a>
+<ul>
+<li class="chapter" data-level="18.5.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#pre-registration"><i class="fa fa-check"></i><b>18.5.1</b> Pre-registration</a></li>
+<li class="chapter" data-level="18.5.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#reproducible-practices"><i class="fa fa-check"></i><b>18.5.2</b> Reproducible practices</a></li>
+<li class="chapter" data-level="18.5.3" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#replication"><i class="fa fa-check"></i><b>18.5.3</b> Replication</a></li>
+</ul></li>
+<li class="chapter" data-level="18.6" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#doing-reproducible-data-analysis"><i class="fa fa-check"></i><b>18.6</b> Doing reproducible data analysis</a></li>
+<li class="chapter" data-level="18.7" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#conclusion-doing-better-science"><i class="fa fa-check"></i><b>18.7</b> Conclusion: Doing better science</a></li>
+<li class="chapter" data-level="18.8" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#learning-objectives-16"><i class="fa fa-check"></i><b>18.8</b> Learning objectives</a></li>
+<li class="chapter" data-level="18.9" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#suggested-readings-12"><i class="fa fa-check"></i><b>18.9</b> Suggested Readings</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
@@ -539,11 +560,11 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="bayesian-statistics" class="section level1" number="11">
-<h1><span class="header-section-number">Chapter 11</span> Bayesian statistics</h1>
+<div id="bayesian-statistics" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">Chapter 11</span> Bayesian statistics<a href="bayesian-statistics.html#bayesian-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>In this chapter we will take up the approach to statistical modeling and inference that stands in contrast to the null hypothesis testing framework that you encountered in Chapter <a href="hypothesis-testing.html#hypothesis-testing">9</a>. This is known as “Bayesian statistics” after the Reverend Thomas Bayes, whose theorem you have already encountered in Chapter <a href="probability.html#probability">6</a>. In this chapter you will learn how Bayes’ theorem provides a way of understanding data that solves many of the conceptual problems that we discussed regarding null hypothesis testing, while also introducing some new challenges.</p>
-<div id="generative-models" class="section level2" number="11.1">
-<h2><span class="header-section-number">11.1</span> Generative models</h2>
+<div id="generative-models" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Generative models<a href="bayesian-statistics.html#generative-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Say you are walking down the street and a friend of yours walks right by but doesn’t say hello. You would probably try to decide why this happened – Did they not see you? Are they mad at you? Are you suddenly cloaked in a magic invisibility shield? One of the basic ideas behind Bayesian statistics is that we want to infer the details of how the data are being generated, based on the data themselves. In this case, you want to use the data (i.e. the fact that your friend did not say hello) to infer the process that generated the data (e.g. whether or not they actually saw you, how they feel about you, etc).</p>
 <p>The idea behind a generative model is that a <em>latent</em> (unseen) process generates the data we observe, usually with some amount of randomness in the process. When we take a sample of data from a population and estimate a parameter from the sample, what we are doing in essence is trying to learn the value of a latent variable (the population mean) that gives rise through sampling to the observed data (the sample mean). Figure <a href="bayesian-statistics.html#fig:GenerativeModel">11.1</a> shows a schematic of this idea.</p>
 <div class="figure"><span style="display:block;" id="fig:GenerativeModel"></span>
@@ -554,8 +575,8 @@ Figure 11.1: A schematic of the idea of a generative model.
 </div>
 <p>If we know the value of the latent variable, then it’s easy to reconstruct what the observed data should look like. For example, let’s say that we are flipping a coin that we know to be fair, such that we would expect it to land on heads 50% of the time. We can describe the coin by a binomial distribution with a value of <span class="math inline">\(P_{heads}=0.5\)</span>, and then we could generate random samples from such a distribution in order to see what the observed data should look like. However, in general we are in the opposite situation: We don’t know the value of the latent variable of interest, but we have some data that we would like to use to estimate it.</p>
 </div>
-<div id="bayes-theorem-and-inverse-inference" class="section level2" number="11.2">
-<h2><span class="header-section-number">11.2</span> Bayes’ theorem and inverse inference</h2>
+<div id="bayes-theorem-and-inverse-inference" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> Bayes’ theorem and inverse inference<a href="bayesian-statistics.html#bayes-theorem-and-inverse-inference" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The reason that Bayesian statistics has its name is because it takes advantage of Bayes’ theorem to make inferences from data about the underlying process that generated the data. Let’s say that we want to know whether a coin is fair. To test this, we flip the coin 10 times and come up with 7 heads. Before this test we were pretty sure that the <span class="math inline">\(P_{heads}=0.5\)</span>, but finding 7 heads out of 10 flips would certainly give us pause if we believed that <span class="math inline">\(P_{heads}=0.5\)</span>. We already know how to compute the conditional probability that we would flip 7 or more heads out of 10 if the coin is really fair (<span class="math inline">\(P(n\ge7|p_{heads}=0.5)\)</span>), using the binomial distribution.</p>
 <p>The resulting probability is 0.055. That is a fairly small number, but this number doesn’t really answer the question that we are asking – it is telling us about the likelihood of 7 or more heads given some particular probability of heads, whereas what we really want to know is the true probability of heads for this particular coin. This should sound familiar, as it’s exactly the situation that we were in with null hypothesis testing, which told us about the likelihood of data rather than the likelihood of hypotheses.</p>
 <p>Remember that Bayes’ theorem provides us with the tool that we need to invert a conditional probability:</p>
@@ -578,24 +599,24 @@ P(H|D) = \frac{P(D|H)*P(H)}{P(D)}
 </ul>
 <p>Here we see one of the primary differences between frequentist and Bayesian statistics. Frequentists do not believe in the idea of a probability of a hypothesis (i.e. our degree of belief about a hypothesis) – for them, a hypothesis is either true or it isn’t. Another way to say this is that for the frequentist, the hypothesis is fixed and the data are random, which is why frequentist inference focuses on describing the probability of data given a hypothesis (i.e. the p-value). Bayesians, on the other hand, are comfortable making probability statements about both data and hypotheses.</p>
 </div>
-<div id="doing-bayesian-estimation" class="section level2" number="11.3">
-<h2><span class="header-section-number">11.3</span> Doing Bayesian estimation</h2>
+<div id="doing-bayesian-estimation" class="section level2 hasAnchor" number="11.3">
+<h2><span class="header-section-number">11.3</span> Doing Bayesian estimation<a href="bayesian-statistics.html#doing-bayesian-estimation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We ultimately want to use Bayesian statistics to make decisions about hypotheses, but before we do that we need to estimate the parameters that are necessary to make the decision. Here we will walk through the process of Bayesian estimation. Let’s use another screening example: Airport security screening. If you fly a lot, it’s just a matter of time until one of the random explosive screenings comes back positive; I had the particularly unfortunate experience of this happening soon after September 11, 2001, when airport security staff were especially on edge.</p>
 <p>What the security staff want to know is what is the likelihood that a person is carrying an explosive, given that the machine has given a positive test. Let’s walk through how to calculate this value using Bayesian analysis.</p>
-<div id="specifying-the-prior" class="section level3" number="11.3.1">
-<h3><span class="header-section-number">11.3.1</span> Specifying the prior</h3>
+<div id="specifying-the-prior" class="section level3 hasAnchor" number="11.3.1">
+<h3><span class="header-section-number">11.3.1</span> Specifying the prior<a href="bayesian-statistics.html#specifying-the-prior" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To use Bayes’ theorem, we first need to specify the prior probability for the hypothesis. In this case, we don’t know the real number but we can assume that it’s quite small. According to the <a href="https://www.faa.gov/air_traffic/by_the_numbers/media/Air_Traffic_by_the_Numbers_2018.pdf">FAA</a>, there were 971,595,898 air passengers in the U.S. in 2017. Let’s say that one of those travelers was carrying an explosive in their bag — that would give a prior probability of 1 out of 971 million, which is very small! The security personnel may have reasonably held a stronger prior in the months after the 9/11 attack, so let’s say that their subjective belief was that one out of every million flyers was carrying an explosive.</p>
 </div>
-<div id="collect-some-data" class="section level3" number="11.3.2">
-<h3><span class="header-section-number">11.3.2</span> Collect some data</h3>
+<div id="collect-some-data" class="section level3 hasAnchor" number="11.3.2">
+<h3><span class="header-section-number">11.3.2</span> Collect some data<a href="bayesian-statistics.html#collect-some-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The data are composed of the results of the explosive screening test. Let’s say that the security staff runs the bag through their testing apparatus 3 times, and it gives a positive reading on 3 of the 3 tests.</p>
 </div>
-<div id="computing-the-likelihood" class="section level3" number="11.3.3">
-<h3><span class="header-section-number">11.3.3</span> Computing the likelihood</h3>
+<div id="computing-the-likelihood" class="section level3 hasAnchor" number="11.3.3">
+<h3><span class="header-section-number">11.3.3</span> Computing the likelihood<a href="bayesian-statistics.html#computing-the-likelihood" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We want to compute the likelihood of the data under the hypothesis that there is an explosive in the bag. Let’s say that we know (from the machine’s manufacturer) that the sensitivity of the test is 0.99 – that is, when a device is present, it will detect it 99% of the time. To determine the likelihood of our data under the hypothesis that a device is present, we can treat each test as a Bernoulli trial (that is, a trial with an outcome of true or false) with a probability of success of 0.99, which we can model using a binomial distribution.</p>
 </div>
-<div id="computing-the-marginal-likelihood" class="section level3" number="11.3.4">
-<h3><span class="header-section-number">11.3.4</span> Computing the marginal likelihood</h3>
+<div id="computing-the-marginal-likelihood" class="section level3 hasAnchor" number="11.3.4">
+<h3><span class="header-section-number">11.3.4</span> Computing the marginal likelihood<a href="bayesian-statistics.html#computing-the-marginal-likelihood" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We also need to know the overall likelihood of the data – that is, finding 3 positives out of 3 tests. Computing the marginal likelihood is often one of the most difficult aspects of Bayesian analysis, but for our example it’s simple because we can take advantage of the specific form of Bayes’ theorem for a binary outcome that we introduced in Section <a href="probability.html#bayestheorem">6.7</a>:</p>
 <p><span class="math display">\[
 P(E|T) = \frac{P(T|E)*P(E)}{P(T|E)*P(E) + P(T|\neg E)*P(\neg E)}
@@ -603,26 +624,26 @@ P(E|T) = \frac{P(T|E)*P(E)}{P(T|E)*P(E) + P(T|\neg E)*P(\neg E)}
 <p>where <span class="math inline">\(E\)</span> refers to the presence of explosives, and <span class="math inline">\(T\)</span> refers to a postive test result.</p>
 <p>The marginal likelihood in this case is a weighted average of the likelihood of the data under either presence or absence of the explosive, multiplied by the probability of the explosive being present (i.e. the prior). In this case, let’s say that we know (from the manufacturer) that the specificity of the test is 0.99, such that the likelihood of a positive result when there is no explosive (<span class="math inline">\(P(T|\neg E)\)</span>) is 0.01.</p>
 </div>
-<div id="computing-the-posterior" class="section level3" number="11.3.5">
-<h3><span class="header-section-number">11.3.5</span> Computing the posterior</h3>
+<div id="computing-the-posterior" class="section level3 hasAnchor" number="11.3.5">
+<h3><span class="header-section-number">11.3.5</span> Computing the posterior<a href="bayesian-statistics.html#computing-the-posterior" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We now have all of the parts that we need to compute the posterior probability of an explosive being present, given the observed 3 positive outcomes out of 3 tests.<br />
 This result shows us that the posterior probability of an explosive in the bag given these positive tests (0.492) is just under 50%, again highlighting the fact that testing for rare events is almost always liable to produce high numbers of false positives, even when the specificity and sensitivity are very high.</p>
 <p>An important aspect of Bayesian analysis is that it can be sequential. Once we have the posterior from one analysis, it can become the prior for the next analysis!</p>
 </div>
 </div>
-<div id="estimating-posterior-distributions" class="section level2" number="11.4">
-<h2><span class="header-section-number">11.4</span> Estimating posterior distributions</h2>
+<div id="estimating-posterior-distributions" class="section level2 hasAnchor" number="11.4">
+<h2><span class="header-section-number">11.4</span> Estimating posterior distributions<a href="bayesian-statistics.html#estimating-posterior-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In the previous example there were only two possible outcomes – the explosive is either there or it’s not – and we wanted to know which outcome was most likely given the data. However, in other cases we want to use Bayesian estimation to estimate the numeric value of a parameter. Let’s say that we want to know about the effectiveness of a new drug for pain; to test this, we can administer the drug to a group of patients and then ask them whether their pain was improved or not after taking the drug. We can use Bayesian analysis to estimate the proportion of people for whom the drug will be effective using these data.</p>
-<div id="specifying-the-prior-1" class="section level3" number="11.4.1">
-<h3><span class="header-section-number">11.4.1</span> Specifying the prior</h3>
+<div id="specifying-the-prior-1" class="section level3 hasAnchor" number="11.4.1">
+<h3><span class="header-section-number">11.4.1</span> Specifying the prior<a href="bayesian-statistics.html#specifying-the-prior-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In this case, we don’t have any prior information about the effectiveness of the drug, so we will use a <em>uniform distribution</em> as our prior, since all values are equally likely under a uniform distribution. In order to simplify the example, we will only look at a subset of 99 possible values of effectiveness (from .01 to .99, in steps of .01). Therefore, each possible value has a prior probability of 1/99.</p>
 </div>
-<div id="collect-some-data-1" class="section level3" number="11.4.2">
-<h3><span class="header-section-number">11.4.2</span> Collect some data</h3>
+<div id="collect-some-data-1" class="section level3 hasAnchor" number="11.4.2">
+<h3><span class="header-section-number">11.4.2</span> Collect some data<a href="bayesian-statistics.html#collect-some-data-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We need some data in order to estimate the effect of the drug. Let’s say that we administer the drug to 100 individuals, we find that 64 respond positively to the drug.</p>
 </div>
-<div id="computing-the-likelihood-1" class="section level3" number="11.4.3">
-<h3><span class="header-section-number">11.4.3</span> Computing the likelihood</h3>
+<div id="computing-the-likelihood-1" class="section level3 hasAnchor" number="11.4.3">
+<h3><span class="header-section-number">11.4.3</span> Computing the likelihood<a href="bayesian-statistics.html#computing-the-likelihood-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We can compute the likelihood of the observed data under any particular value of the effectiveness parameter using the binomial density function. In Figure <a href="bayesian-statistics.html#fig:like2">11.2</a> you can see the likelihood curves over numbers of responders for several different values of <span class="math inline">\(P_{respond}\)</span>. Looking at this, it seems that our observed data are relatively more likely under the hypothesis of <span class="math inline">\(P_{respond}=0.7\)</span>, somewhat less likely under the hypothesis of <span class="math inline">\(P_{respond}=0.5\)</span>, and quite unlikely under the hypothesis of <span class="math inline">\(P_{respond}=0.3\)</span>. One of the fundamental ideas of Bayesian inference is that we should upweight our belief in values of our parameter of interest in proportion to how likely the data are under those values, balanced against what we believed about the parameter values before having seen the data (our prior knowledge).</p>
 <div class="figure"><span style="display:block;" id="fig:like2"></span>
 <img src="StatsThinking21_files/figure-html/like2-1.png" alt="Likelihood of each possible number of responders under several different hypotheses (p(respond)=0.5 (solid), 0.7 (dotted), 0.3 (dashed).  Observed value shown in the vertical line" width="384" height="50%" />
@@ -631,12 +652,12 @@ Figure 11.2: Likelihood of each possible number of responders under several diff
 </p>
 </div>
 </div>
-<div id="computing-the-marginal-likelihood-1" class="section level3" number="11.4.4">
-<h3><span class="header-section-number">11.4.4</span> Computing the marginal likelihood</h3>
+<div id="computing-the-marginal-likelihood-1" class="section level3 hasAnchor" number="11.4.4">
+<h3><span class="header-section-number">11.4.4</span> Computing the marginal likelihood<a href="bayesian-statistics.html#computing-the-marginal-likelihood-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In addition to the likelihood of the data under different hypotheses, we need to know the overall likelihood of the data, combining across all hypotheses (i.e., the marginal likelihood). This marginal likelihood is primarily important because it helps to ensure that the posterior values are true probabilities. In this case, our use of a set of discrete possible parameter values makes it easy to compute the marginal likelihood, because we can just compute the likelihood of each parameter value under each hypothesis and add them up.</p>
 </div>
-<div id="computing-the-posterior-1" class="section level3" number="11.4.5">
-<h3><span class="header-section-number">11.4.5</span> Computing the posterior</h3>
+<div id="computing-the-posterior-1" class="section level3 hasAnchor" number="11.4.5">
+<h3><span class="header-section-number">11.4.5</span> Computing the posterior<a href="bayesian-statistics.html#computing-the-posterior-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We now have all of the parts that we need to compute the posterior probability distribution across all possible values of <span class="math inline">\(p_{respond}\)</span>, as shown in Figure <a href="bayesian-statistics.html#fig:posteriorDist">11.3</a>.</p>
 <div class="figure"><span style="display:block;" id="fig:posteriorDist"></span>
 <img src="StatsThinking21_files/figure-html/posteriorDist-1.png" alt="Posterior probability distribution for the observed data plotted in solid line against uniform prior distribution (dotted line). The maximum a posteriori (MAP) value is signified by the diamond symbol." width="384" height="50%" />
@@ -645,18 +666,18 @@ Figure 11.3: Posterior probability distribution for the observed data plotted in
 </p>
 </div>
 </div>
-<div id="maximum-a-posteriori-map-estimation" class="section level3" number="11.4.6">
-<h3><span class="header-section-number">11.4.6</span> Maximum a posteriori (MAP) estimation</h3>
+<div id="maximum-a-posteriori-map-estimation" class="section level3 hasAnchor" number="11.4.6">
+<h3><span class="header-section-number">11.4.6</span> Maximum a posteriori (MAP) estimation<a href="bayesian-statistics.html#maximum-a-posteriori-map-estimation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Given our data we would like to obtain an estimate of <span class="math inline">\(p_{respond}\)</span> for our sample. One way to do this is to find the value of <span class="math inline">\(p_{respond}\)</span> for which the posterior probability is the highest, which we refer to as the <em>maximum a posteriori</em> (MAP) estimate. We can find this from the data in <a href="bayesian-statistics.html#fig:posteriorDist">11.3</a> — it’s the value shown with a marker at the top of the distribution. Note that the result (0.64) is simply the proportion of responders from our sample – this occurs because the prior was uniform and thus didn’t influence our estimate.</p>
 </div>
-<div id="credible-intervals" class="section level3" number="11.4.7">
-<h3><span class="header-section-number">11.4.7</span> Credible intervals</h3>
+<div id="credible-intervals" class="section level3 hasAnchor" number="11.4.7">
+<h3><span class="header-section-number">11.4.7</span> Credible intervals<a href="bayesian-statistics.html#credible-intervals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Often we would like to know not just a single estimate for the posterior, but an interval in which we are confident that the posterior falls. We previously discussed the concept of confidence intervals in the context of frequentist inference, and you may remember that the interpretation of confidence intervals was particularly convoluted: It was an interval that will contain the the value of the parameter 95% of the time. What we really want is an interval in which we are confident that the true parameter falls, and Bayesian statistics can give us such an interval, which we call a <em>credible interval</em>.</p>
 <p>The interpretation of this credible interval is much closer to what we had hoped we could get from a confidence interval (but could not): It tells us that there is a 95% probability that the value of <span class="math inline">\(p_{respond}\)</span> falls between these two values. Importantly, in this case it shows that we have high confidence that <span class="math inline">\(p_{respond} &gt; 0.0\)</span>, meaning that the drug seems to have a positive effect.</p>
 <p>In some cases the credible interval can be computed <em>numerically</em> based on a known distribution, but it’s more common to generate a credible interval by sampling from the posterior distribution and then to compute quantiles of the samples. This is particularly useful when we don’t have an easy way to express the posterior distribution numerically, which is often the case in real Bayesian data analysis. One such method (rejection sampling) is explained in more detail in the Appendix at the end of this chapter.</p>
 </div>
-<div id="effects-of-different-priors" class="section level3" number="11.4.8">
-<h3><span class="header-section-number">11.4.8</span> Effects of different priors</h3>
+<div id="effects-of-different-priors" class="section level3 hasAnchor" number="11.4.8">
+<h3><span class="header-section-number">11.4.8</span> Effects of different priors<a href="bayesian-statistics.html#effects-of-different-priors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In the previous example we used a <em>flat prior</em>, meaning that we didn’t have any reason to believe that any particular value of <span class="math inline">\(p_{respond}\)</span> was more or less likely. However, let’s say that we had instead started with some previous data: In a previous study, researchers had tested 20 people and found that 10 of them had responded positively. This would have lead us to start with a prior belief that the treatment has an effect in 50% of people. We can do the same computation as above, but using the information from our previous study to inform our prior (see panel A in Figure <a href="bayesian-statistics.html#fig:posteriorDistPrior">11.4</a>).</p>
 <p>Note that the likelihood and marginal likelihood did not change - only the prior changed. The effect of the change in prior to was to pull the posterior closer to the mass of the new prior, which is centered at 0.5.</p>
 <p>Now let’s see what happens if we come to the analysis with an even stronger prior belief. Let’s say that instead of having previously observed 10 responders out of 20 people, the prior study had instead tested 500 people and found 250 responders. This should in principle give us a much stronger prior, and as we see in panel B of Figure <a href="bayesian-statistics.html#fig:posteriorDistPrior">11.4</a> , that’s what happens: The prior is much more concentrated around 0.5, and the posterior is also much closer to the prior. The general idea is that Bayesian inference combines the information from the prior and the likelihood, weighting the relative strength of each.</p>
@@ -671,24 +692,24 @@ Figure 11.4: A: Effects of priors on the posterior distribution. The original po
 <p>In panel C of Figure <a href="bayesian-statistics.html#fig:posteriorDistPrior">11.4</a> we see that there is zero density in the posterior for any of the values where the prior was set to zero - the data are overwhelmed by the absolute prior.</p>
 </div>
 </div>
-<div id="choosing-a-prior" class="section level2" number="11.5">
-<h2><span class="header-section-number">11.5</span> Choosing a prior</h2>
+<div id="choosing-a-prior" class="section level2 hasAnchor" number="11.5">
+<h2><span class="header-section-number">11.5</span> Choosing a prior<a href="bayesian-statistics.html#choosing-a-prior" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The impact of priors on the resulting inferences are the most controversial aspect of Bayesian statistics. What is the right prior to use? If the choice of prior determines the results (i.e., the posterior), how can you be sure you results are trustworthy? These are difficult questions, but we should not back away just because we are faced with hard questions. As we discussed previously, Bayesian analyses give us interpretable results (credible intervals, etc.). This alone should inspire us to think hard about these questions so that we can arrive with results that are reasonable and interpretable.</p>
 <p>There are various ways to choose one’s priors, which (as we saw above) can impact the resulting inferences. Sometimes we have a very specific prior, as in the case where we expected our coin to lands heads 50% of the time, but in many cases we don’t have such strong a starting point. <em>Uninformative priors</em> attempt to influence the resulting posterior as little as possible, as we saw in the example of the uniform prior above. It’s also common to use <em>weakly informative priors</em> (or <em>default priors</em>), which influence the result only very slightly. For example, if we had used a binomial distribution based on one heads out of two coin flips, the prior would have been centered around 0.5 but fairly flat, influencing the posterior only slightly. It is also possible to use priors based on the scientific literature or pre-existing data, which we would call <em>empirical priors</em>. In general, however, we will stick to the use of uninformative/weakly informative priors, since they raise the least concern about influencing our results.</p>
 </div>
-<div id="bayesian-hypothesis-testing" class="section level2" number="11.6">
-<h2><span class="header-section-number">11.6</span> Bayesian hypothesis testing</h2>
+<div id="bayesian-hypothesis-testing" class="section level2 hasAnchor" number="11.6">
+<h2><span class="header-section-number">11.6</span> Bayesian hypothesis testing<a href="bayesian-statistics.html#bayesian-hypothesis-testing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Having learned how to perform Bayesian estimation, we now turn to the use of Bayesian methods for hypothesis testing. Let’s say that there are two politicians who differ in their beliefs about whether the public is in favor an extra tax to support the national parks. Senator Smith thinks that only 40% of people are in favor of the tax, whereas Senator Jones thinks that 60% of people are in favor. They arrange to have a poll done to test this, which asks 1000 randomly selected people whether they support such a tax. The results are that 490 of the people in the polled sample were in favor of the tax. Based on these data, we would like to know: Do the data support the claims of one senator over the other,and by how much? We can test this using a concept known as the <a href="https://bayesfactor.blogspot.com/2014/02/the-bayesfactor-package-this-blog-is.html">Bayes factor</a>, which quantifies which hypothesis is better by comparing how well each predicts the observed data.</p>
-<div id="Bayes-factors" class="section level3" number="11.6.1">
-<h3><span class="header-section-number">11.6.1</span> Bayes factors</h3>
+<div id="Bayes-factors" class="section level3 hasAnchor" number="11.6.1">
+<h3><span class="header-section-number">11.6.1</span> Bayes factors<a href="bayesian-statistics.html#Bayes-factors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The Bayes factor characterizes the relative likelihood of the data under two different hypotheses. It is defined as:</p>
 <p><span class="math display">\[
 BF = \frac{p(data|H_1)}{p(data|H_2)}
 \]</span></p>
 <p>for two hypotheses <span class="math inline">\(H_1\)</span> and <span class="math inline">\(H_2\)</span>. In the case of our two senators, we know how to compute the likelihood of the data under each hypothesis using the binomial distribution; let’s assume for the moment that our prior probability for each senator being correct is the same (<span class="math inline">\(P_{H_1} = P_{H_2} = 0.5\)</span>). We will put Senator Smith in the numerator and Senator Jones in the denominator, so that a value greater than one will reflect greater evidence for Senator Smith, and a value less than one will reflect greater evidence for Senator Jones. The resulting Bayes Factor (3325.26) provides a measure of the evidence that the data provides regarding the two hypotheses - in this case, it tells us the data support Senator Smith more than 3000 times more strongly than they support Senator Jones.</p>
 </div>
-<div id="bayes-factors-for-statistical-hypotheses" class="section level3" number="11.6.2">
-<h3><span class="header-section-number">11.6.2</span> Bayes factors for statistical hypotheses</h3>
+<div id="bayes-factors-for-statistical-hypotheses" class="section level3 hasAnchor" number="11.6.2">
+<h3><span class="header-section-number">11.6.2</span> Bayes factors for statistical hypotheses<a href="bayesian-statistics.html#bayes-factors-for-statistical-hypotheses" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In the previous example we had specific predictions from each senator, whose likelihood we could quantify using the binomial distribution. In addition, our prior probability for the two hypotheses was equal. However, in real data analysis we generally must deal with uncertainty about our parameters, which complicates the Bayes factor, because we need to compute the marginal likelihood (that is, an integrated average of the likelihoods over all possible model parameters, weighted by their prior probabilities). However, in exchange we gain the ability to quantify the relative amount of evidence in favor of the null versus alternative hypotheses.</p>
 <p>Let’s say that we are a medical researcher performing a clinical trial for the treatment of diabetes, and we wish to know whether a particular drug reduces blood glucose compared to placebo. We recruit a set of volunteers and randomly assign them to either drug or placebo group, and we measure the change in hemoglobin A1C (a marker for blood glucose levels) in each group over the period in which the drug or placebo was administered. What we want to know is: Is there a difference between the drug and placebo?</p>
 <p>First, let’s generate some data and analyze them using null hypothesis testing (see Figure <a href="bayesian-statistics.html#fig:bayesTesting">11.5</a>). Then let’s perform an independent-samples t-test, which shows that there is a significant difference between the groups:</p>
@@ -713,19 +734,19 @@ Figure 11.5: Box plots showing data for drug and placebo groups.
 <pre><code>## Bayes factor analysis
 ## --------------
 ## [1] Alt., r=0.707 0&lt;d&lt;Inf    : 3.4  ±0%
-## [2] Alt., r=0.707 !(0&lt;d&lt;Inf) : 0.12 ±0%
+## [2] Alt., r=0.707 !(0&lt;d&lt;Inf) : 0.12 ±0.01%
 ## 
 ## Against denominator:
 ##   Null, mu1-mu2 = 0 
 ## ---
 ## Bayes factor type: BFindepSample, JZS</code></pre>
 <p>We are particularly interested in the Bayes Factor for an effect greater than zero, which is listed in the line marked “[1]” in the report. The Bayes factor here tells us that the alternative hypothesis (i.e. that the difference is greater than zero) is about 3 times more likely than the point null hypothesis (i.e. a mean difference of exactly zero) given the data. Thus, while the effect is significant, the amount of evidence it provides us in favor of the alternative hypothesis is rather weak.</p>
-<div id="one-sided-tests" class="section level4" number="11.6.2.1">
-<h4><span class="header-section-number">11.6.2.1</span> One-sided tests</h4>
+<div id="one-sided-tests" class="section level4 hasAnchor" number="11.6.2.1">
+<h4><span class="header-section-number">11.6.2.1</span> One-sided tests<a href="bayesian-statistics.html#one-sided-tests" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We generally are less interested in testing against the null hypothesis of a specific point value (e.g. mean difference = 0) than we are in testing against a directional null hypothesis (e.g. that the difference is less than or equal to zero). We can also perform a directional (or <em>one-sided</em>) test using the results from <code>ttestBF</code> analysis, since it provides two Bayes factors: one for the alternative hypothesis that the mean difference is greater than zero, and one for the alternative hypothesis that the mean difference is less than zero. If we want to assess the relative evidence for a positive effect, we can compute a Bayes factor comparing the relative evidence for a positive versus a negative effect by simply dividing the two Bayes factors returned by the function:</p>
 <pre><code>## Bayes factor analysis
 ## --------------
-## [1] Alt., r=0.707 0&lt;d&lt;Inf : 29 ±0%
+## [1] Alt., r=0.707 0&lt;d&lt;Inf : 29 ±0.01%
 ## 
 ## Against denominator:
 ##   Alternative, r = 0.707106781186548, mu =/= 0 !(0&lt;d&lt;Inf) 
@@ -733,8 +754,8 @@ Figure 11.5: Box plots showing data for drug and placebo groups.
 ## Bayes factor type: BFindepSample, JZS</code></pre>
 <p>Now we see that the Bayes factor for a positive effect versus a negative effect is substantially larger (almost 30).</p>
 </div>
-<div id="interpreting-bayes-factors" class="section level4" number="11.6.2.2">
-<h4><span class="header-section-number">11.6.2.2</span> Interpreting Bayes Factors</h4>
+<div id="interpreting-bayes-factors" class="section level4 hasAnchor" number="11.6.2.2">
+<h4><span class="header-section-number">11.6.2.2</span> Interpreting Bayes Factors<a href="bayesian-statistics.html#interpreting-bayes-factors" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>How do we know whether a Bayes factor of 2 or 20 is good or bad? There is a general guideline for interpretation of Bayes factors suggested by <a href="https://www.andrew.cmu.edu/user/kk3n/simplicity/KassRaftery1995.pdf">Kass &amp; Rafferty (1995)</a>:</p>
 <table>
 <thead>
@@ -765,13 +786,13 @@ Figure 11.5: Box plots showing data for drug and placebo groups.
 <p>Based on this, even though the statisical result is significant, the amount of evidence in favor of the alternative vs. the point null hypothesis is weak enough that it’s hardly worth even mentioning, whereas the evidence for the directional hypothesis is relatively strong.</p>
 </div>
 </div>
-<div id="assessing-evidence-for-the-null-hypothesis" class="section level3" number="11.6.3">
-<h3><span class="header-section-number">11.6.3</span> Assessing evidence for the null hypothesis</h3>
+<div id="assessing-evidence-for-the-null-hypothesis" class="section level3 hasAnchor" number="11.6.3">
+<h3><span class="header-section-number">11.6.3</span> Assessing evidence for the null hypothesis<a href="bayesian-statistics.html#assessing-evidence-for-the-null-hypothesis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Because the Bayes factor is comparing evidence for two hypotheses, it also allows us to assess whether there is evidence in favor of the null hypothesis, which we couldn’t do with standard null hypothesis testing (because it starts with the assumption that the null is true). This can be very useful for determining whether a non-significant result really provides strong evidence that there is no effect, or instead just reflects weak evidence overall.</p>
 </div>
 </div>
-<div id="learning-objectives-10" class="section level2" number="11.7">
-<h2><span class="header-section-number">11.7</span> Learning objectives</h2>
+<div id="learning-objectives-10" class="section level2 hasAnchor" number="11.7">
+<h2><span class="header-section-number">11.7</span> Learning objectives<a href="bayesian-statistics.html#learning-objectives-10" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>After reading this chapter, should be able to:</p>
 <ul>
 <li>Describe the main differences between Bayesian analysis and null hypothesis testing</li>
@@ -780,17 +801,17 @@ Figure 11.5: Box plots showing data for drug and placebo groups.
 <li>Describe the difference in interpretation between a confidence interval and a Bayesian credible interval</li>
 </ul>
 </div>
-<div id="suggested-readings-8" class="section level2" number="11.8">
-<h2><span class="header-section-number">11.8</span> Suggested readings</h2>
+<div id="suggested-readings-8" class="section level2 hasAnchor" number="11.8">
+<h2><span class="header-section-number">11.8</span> Suggested readings<a href="bayesian-statistics.html#suggested-readings-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><em>The Theory That Would Not Die: How Bayes’ Rule Cracked the Enigma Code, Hunted Down Russian Submarines, and Emerged Triumphant from Two Centuries of Controversy</em>, by Sharon Bertsch McGrayne</li>
 <li><em>Doing Bayesian Data Analysis: A Tutorial Introduction with R</em>, by John K. Kruschke</li>
 </ul>
 </div>
-<div id="appendix-3" class="section level2" number="11.9">
-<h2><span class="header-section-number">11.9</span> Appendix:</h2>
-<div id="rejection-sampling" class="section level3" number="11.9.1">
-<h3><span class="header-section-number">11.9.1</span> Rejection sampling</h3>
+<div id="appendix-3" class="section level2 hasAnchor" number="11.9">
+<h2><span class="header-section-number">11.9</span> Appendix:<a href="bayesian-statistics.html#appendix-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="rejection-sampling" class="section level3 hasAnchor" number="11.9.1">
+<h3><span class="header-section-number">11.9.1</span> Rejection sampling<a href="bayesian-statistics.html#rejection-sampling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We will generate samples from our posterior distribution using a simple algorithm known as <a href="https://am207.github.io/2017/wiki/rejectionsampling.html"><em>rejection sampling</em></a>. The idea is that we choose a random value of x (in this case <span class="math inline">\(p_{respond}\)</span>) and a random value of y (in this case, the posterior probability of <span class="math inline">\(p_{respond}\)</span>) each from a uniform distribution. We then only accept the sample if <span class="math inline">\(y &lt; f(x)\)</span> - in this case, if the randomly selected value of y is less than the actual posterior probability of y. Figure <a href="bayesian-statistics.html#fig:rejectionSampling">11.6</a> shows an example of a histogram of samples using rejection sampling, along with the 95% credible intervals obtained using this method (with the values presented in Table <a href="#tab:credInt"><strong>??</strong></a>).</p>
 <table>
 <thead>

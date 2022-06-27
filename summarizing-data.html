@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Summarizing data | Statistical Thinking for the 21st Century</title>
   <meta name="description" content="A book about statistics." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Summarizing data | Statistical Thinking for the 21st Century" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="A book about statistics." />
   <meta name="github-repo" content="poldrack/psych10-book" />
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="working-with-data.html"/>
 <link rel="next" href="data-visualization.html"/>
-<script src="book_assets/header-attrs-2.11/header-attrs.js"></script>
 <script src="book_assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="book_assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="book_assets/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="book_assets/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="book_assets/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="book_assets/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="book_assets/anchor-sections-1.1.0/anchor-sections.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129414074-1"></script>
 <script>
@@ -251,7 +250,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="5.2.1" data-path="fitting-models.html"><a href="fitting-models.html#improving-our-model"><i class="fa fa-check"></i><b>5.2.1</b> Improving our model</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="fitting-models.html"><a href="fitting-models.html#what-makes-a-model-good"><i class="fa fa-check"></i><b>5.3</b> What makes a model “good?”</a></li>
+<li class="chapter" data-level="5.3" data-path="fitting-models.html"><a href="fitting-models.html#what-makes-a-model-good"><i class="fa fa-check"></i><b>5.3</b> What makes a model “good”?</a></li>
 <li class="chapter" data-level="5.4" data-path="fitting-models.html"><a href="fitting-models.html#overfitting"><i class="fa fa-check"></i><b>5.4</b> Can a model be too good?</a></li>
 <li class="chapter" data-level="5.5" data-path="fitting-models.html"><a href="fitting-models.html#summarizing-data-using-the-mean"><i class="fa fa-check"></i><b>5.5</b> Summarizing data using the mean</a>
 <ul>
@@ -482,44 +481,66 @@ div.csl-indent {
 <li class="chapter" data-level="15.8.1" data-path="comparing-means.html"><a href="comparing-means.html#the-paired-t-test-as-a-linear-model"><i class="fa fa-check"></i><b>15.8.1</b> The paired t-test as a linear model</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="practical-example.html"><a href="practical-example.html"><i class="fa fa-check"></i><b>16</b> Practical statistical modeling</a>
+<li class="chapter" data-level="16" data-path="multivariate.html"><a href="multivariate.html"><i class="fa fa-check"></i><b>16</b> Multivariate statistics</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="practical-example.html"><a href="practical-example.html#the-process-of-statistical-modeling"><i class="fa fa-check"></i><b>16.1</b> The process of statistical modeling</a>
+<li class="chapter" data-level="16.1" data-path="multivariate.html"><a href="multivariate.html#multivariate-data-an-example"><i class="fa fa-check"></i><b>16.1</b> Multivariate data: An example</a></li>
+<li class="chapter" data-level="16.2" data-path="multivariate.html"><a href="multivariate.html#visualizing-multivariate-data"><i class="fa fa-check"></i><b>16.2</b> Visualizing multivariate data</a>
 <ul>
-<li class="chapter" data-level="16.1.1" data-path="practical-example.html"><a href="practical-example.html#specify-your-question-of-interest"><i class="fa fa-check"></i><b>16.1.1</b> 1: Specify your question of interest</a></li>
-<li class="chapter" data-level="16.1.2" data-path="practical-example.html"><a href="practical-example.html#identify-or-collect-the-appropriate-data"><i class="fa fa-check"></i><b>16.1.2</b> 2: Identify or collect the appropriate data</a></li>
-<li class="chapter" data-level="16.1.3" data-path="practical-example.html"><a href="practical-example.html#prepare-the-data-for-analysis"><i class="fa fa-check"></i><b>16.1.3</b> 3: Prepare the data for analysis</a></li>
-<li class="chapter" data-level="16.1.4" data-path="practical-example.html"><a href="practical-example.html#determine-the-appropriate-model"><i class="fa fa-check"></i><b>16.1.4</b> 4. Determine the appropriate model</a></li>
-<li class="chapter" data-level="16.1.5" data-path="practical-example.html"><a href="practical-example.html#fit-the-model-to-the-data"><i class="fa fa-check"></i><b>16.1.5</b> 5. Fit the model to the data</a></li>
-<li class="chapter" data-level="16.1.6" data-path="practical-example.html"><a href="practical-example.html#criticize-the-model-to-make-sure-it-fits-properly"><i class="fa fa-check"></i><b>16.1.6</b> 6. Criticize the model to make sure it fits properly</a></li>
-<li class="chapter" data-level="16.1.7" data-path="practical-example.html"><a href="practical-example.html#test-hypothesis-and-quantify-effect-size"><i class="fa fa-check"></i><b>16.1.7</b> 7. Test hypothesis and quantify effect size</a></li>
-<li class="chapter" data-level="16.1.8" data-path="practical-example.html"><a href="practical-example.html#what-about-possible-confounds"><i class="fa fa-check"></i><b>16.1.8</b> What about possible confounds?</a></li>
+<li class="chapter" data-level="16.2.1" data-path="multivariate.html"><a href="multivariate.html#scatterplot-of-matrices"><i class="fa fa-check"></i><b>16.2.1</b> Scatterplot of matrices</a></li>
+<li class="chapter" data-level="16.2.2" data-path="multivariate.html"><a href="multivariate.html#heatmap"><i class="fa fa-check"></i><b>16.2.2</b> Heatmap</a></li>
 </ul></li>
-<li class="chapter" data-level="16.2" data-path="practical-example.html"><a href="practical-example.html#getting-help"><i class="fa fa-check"></i><b>16.2</b> Getting help</a></li>
-</ul></li>
-<li class="chapter" data-level="17" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html"><i class="fa fa-check"></i><b>17</b> Doing reproducible research</a>
+<li class="chapter" data-level="16.3" data-path="multivariate.html"><a href="multivariate.html#clustering"><i class="fa fa-check"></i><b>16.3</b> Clustering</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#how-we-think-science-should-work"><i class="fa fa-check"></i><b>17.1</b> How we think science should work</a></li>
-<li class="chapter" data-level="17.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#how-science-sometimes-actually-works"><i class="fa fa-check"></i><b>17.2</b> How science (sometimes) actually works</a></li>
-<li class="chapter" data-level="17.3" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#the-reproducibility-crisis-in-science"><i class="fa fa-check"></i><b>17.3</b> The reproducibility crisis in science</a>
-<ul>
-<li class="chapter" data-level="17.3.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#positive-predictive-value-and-statistical-significance"><i class="fa fa-check"></i><b>17.3.1</b> Positive predictive value and statistical significance</a></li>
-<li class="chapter" data-level="17.3.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#the-winners-curse"><i class="fa fa-check"></i><b>17.3.2</b> The winner’s curse</a></li>
+<li class="chapter" data-level="16.3.1" data-path="multivariate.html"><a href="multivariate.html#k-means-clustering"><i class="fa fa-check"></i><b>16.3.1</b> K-means clustering</a></li>
+<li class="chapter" data-level="16.3.2" data-path="multivariate.html"><a href="multivariate.html#hierarchical-clustering"><i class="fa fa-check"></i><b>16.3.2</b> Hierarchical clustering</a></li>
 </ul></li>
-<li class="chapter" data-level="17.4" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#questionable-research-practices"><i class="fa fa-check"></i><b>17.4</b> Questionable research practices</a>
+<li class="chapter" data-level="16.4" data-path="multivariate.html"><a href="multivariate.html#dimensionality-reduction"><i class="fa fa-check"></i><b>16.4</b> Dimensionality reduction</a>
 <ul>
-<li class="chapter" data-level="17.4.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#esp-or-qrp"><i class="fa fa-check"></i><b>17.4.1</b> ESP or QRP?</a></li>
+<li class="chapter" data-level="16.4.1" data-path="multivariate.html"><a href="multivariate.html#principal-component-analysis"><i class="fa fa-check"></i><b>16.4.1</b> Principal component analysis</a></li>
+<li class="chapter" data-level="16.4.2" data-path="multivariate.html"><a href="multivariate.html#factor-analysis"><i class="fa fa-check"></i><b>16.4.2</b> Factor analysis</a></li>
+<li class="chapter" data-level="16.4.3" data-path="multivariate.html"><a href="multivariate.html#determining-the-number-of-factors"><i class="fa fa-check"></i><b>16.4.3</b> Determining the number of factors</a></li>
 </ul></li>
-<li class="chapter" data-level="17.5" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#doing-reproducible-research-1"><i class="fa fa-check"></i><b>17.5</b> Doing reproducible research</a>
+<li class="chapter" data-level="16.5" data-path="multivariate.html"><a href="multivariate.html#learning-objectives-15"><i class="fa fa-check"></i><b>16.5</b> Learning objectives</a></li>
+<li class="chapter" data-level="16.6" data-path="multivariate.html"><a href="multivariate.html#suggested-readings-11"><i class="fa fa-check"></i><b>16.6</b> Suggested readings</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="practical-example.html"><a href="practical-example.html"><i class="fa fa-check"></i><b>17</b> Practical statistical modeling</a>
 <ul>
-<li class="chapter" data-level="17.5.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#pre-registration"><i class="fa fa-check"></i><b>17.5.1</b> Pre-registration</a></li>
-<li class="chapter" data-level="17.5.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#reproducible-practices"><i class="fa fa-check"></i><b>17.5.2</b> Reproducible practices</a></li>
-<li class="chapter" data-level="17.5.3" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#replication"><i class="fa fa-check"></i><b>17.5.3</b> Replication</a></li>
+<li class="chapter" data-level="17.1" data-path="practical-example.html"><a href="practical-example.html#the-process-of-statistical-modeling"><i class="fa fa-check"></i><b>17.1</b> The process of statistical modeling</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="practical-example.html"><a href="practical-example.html#specify-your-question-of-interest"><i class="fa fa-check"></i><b>17.1.1</b> 1: Specify your question of interest</a></li>
+<li class="chapter" data-level="17.1.2" data-path="practical-example.html"><a href="practical-example.html#identify-or-collect-the-appropriate-data"><i class="fa fa-check"></i><b>17.1.2</b> 2: Identify or collect the appropriate data</a></li>
+<li class="chapter" data-level="17.1.3" data-path="practical-example.html"><a href="practical-example.html#prepare-the-data-for-analysis"><i class="fa fa-check"></i><b>17.1.3</b> 3: Prepare the data for analysis</a></li>
+<li class="chapter" data-level="17.1.4" data-path="practical-example.html"><a href="practical-example.html#determine-the-appropriate-model"><i class="fa fa-check"></i><b>17.1.4</b> 4. Determine the appropriate model</a></li>
+<li class="chapter" data-level="17.1.5" data-path="practical-example.html"><a href="practical-example.html#fit-the-model-to-the-data"><i class="fa fa-check"></i><b>17.1.5</b> 5. Fit the model to the data</a></li>
+<li class="chapter" data-level="17.1.6" data-path="practical-example.html"><a href="practical-example.html#criticize-the-model-to-make-sure-it-fits-properly"><i class="fa fa-check"></i><b>17.1.6</b> 6. Criticize the model to make sure it fits properly</a></li>
+<li class="chapter" data-level="17.1.7" data-path="practical-example.html"><a href="practical-example.html#test-hypothesis-and-quantify-effect-size"><i class="fa fa-check"></i><b>17.1.7</b> 7. Test hypothesis and quantify effect size</a></li>
+<li class="chapter" data-level="17.1.8" data-path="practical-example.html"><a href="practical-example.html#what-about-possible-confounds"><i class="fa fa-check"></i><b>17.1.8</b> What about possible confounds?</a></li>
 </ul></li>
-<li class="chapter" data-level="17.6" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#doing-reproducible-data-analysis"><i class="fa fa-check"></i><b>17.6</b> Doing reproducible data analysis</a></li>
-<li class="chapter" data-level="17.7" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#conclusion-doing-better-science"><i class="fa fa-check"></i><b>17.7</b> Conclusion: Doing better science</a></li>
-<li class="chapter" data-level="17.8" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#learning-objectives-15"><i class="fa fa-check"></i><b>17.8</b> Learning objectives</a></li>
-<li class="chapter" data-level="17.9" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#suggested-readings-11"><i class="fa fa-check"></i><b>17.9</b> Suggested Readings</a></li>
+<li class="chapter" data-level="17.2" data-path="practical-example.html"><a href="practical-example.html#getting-help"><i class="fa fa-check"></i><b>17.2</b> Getting help</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html"><i class="fa fa-check"></i><b>18</b> Doing reproducible research</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#how-we-think-science-should-work"><i class="fa fa-check"></i><b>18.1</b> How we think science should work</a></li>
+<li class="chapter" data-level="18.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#how-science-sometimes-actually-works"><i class="fa fa-check"></i><b>18.2</b> How science (sometimes) actually works</a></li>
+<li class="chapter" data-level="18.3" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#the-reproducibility-crisis-in-science"><i class="fa fa-check"></i><b>18.3</b> The reproducibility crisis in science</a>
+<ul>
+<li class="chapter" data-level="18.3.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#positive-predictive-value-and-statistical-significance"><i class="fa fa-check"></i><b>18.3.1</b> Positive predictive value and statistical significance</a></li>
+<li class="chapter" data-level="18.3.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#the-winners-curse"><i class="fa fa-check"></i><b>18.3.2</b> The winner’s curse</a></li>
+</ul></li>
+<li class="chapter" data-level="18.4" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#questionable-research-practices"><i class="fa fa-check"></i><b>18.4</b> Questionable research practices</a>
+<ul>
+<li class="chapter" data-level="18.4.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#esp-or-qrp"><i class="fa fa-check"></i><b>18.4.1</b> ESP or QRP?</a></li>
+</ul></li>
+<li class="chapter" data-level="18.5" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#doing-reproducible-research-1"><i class="fa fa-check"></i><b>18.5</b> Doing reproducible research</a>
+<ul>
+<li class="chapter" data-level="18.5.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#pre-registration"><i class="fa fa-check"></i><b>18.5.1</b> Pre-registration</a></li>
+<li class="chapter" data-level="18.5.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#reproducible-practices"><i class="fa fa-check"></i><b>18.5.2</b> Reproducible practices</a></li>
+<li class="chapter" data-level="18.5.3" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#replication"><i class="fa fa-check"></i><b>18.5.3</b> Replication</a></li>
+</ul></li>
+<li class="chapter" data-level="18.6" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#doing-reproducible-data-analysis"><i class="fa fa-check"></i><b>18.6</b> Doing reproducible data analysis</a></li>
+<li class="chapter" data-level="18.7" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#conclusion-doing-better-science"><i class="fa fa-check"></i><b>18.7</b> Conclusion: Doing better science</a></li>
+<li class="chapter" data-level="18.8" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#learning-objectives-16"><i class="fa fa-check"></i><b>18.8</b> Learning objectives</a></li>
+<li class="chapter" data-level="18.9" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#suggested-readings-12"><i class="fa fa-check"></i><b>18.9</b> Suggested Readings</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
@@ -539,18 +560,18 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="summarizing-data" class="section level1" number="3">
-<h1><span class="header-section-number">Chapter 3</span> Summarizing data</h1>
+<div id="summarizing-data" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Summarizing data<a href="summarizing-data.html#summarizing-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>I mentioned in the Introduction that one of the big discoveries of statistics is the idea that we can better understand the world by throwing away information, and that’s exactly what we are doing when we summarize a dataset.
 In this Chapter we will discuss why and how to summarize data.</p>
-<div id="why-summarize-data" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Why summarize data?</h2>
+<div id="why-summarize-data" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Why summarize data?<a href="summarizing-data.html#why-summarize-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>When we summarize data, we are necessarily throwing away information, and one might plausibly object to this. As an example, let’s go back to the PURE study that we discussed in Chapter 1. Are we not supposed to believe that all of the details about each individual matter, beyond those that are summarized in the dataset? What about the specific details of how the data were collected, such as the time of day or the mood of the participant? All of these details are lost when we summarize the data.</p>
-<p>One reason that we summarize data is that it provides us with a way to <em>generalize</em> - that is, to make general statements that extend beyond specific observations. The importance of generalization was highlighted by the writer Jorge Luis Borges in his short story “Funes the Memorious,” which describes an individual who loses the ability to forget. Borges focuses in on the relation between generalization (i.e. throwing away data) and thinking: “To think is to forget a difference, to generalize, to abstract. In the overly replete world of Funes, there were nothing but details.”</p>
+<p>One reason that we summarize data is that it provides us with a way to <em>generalize</em> - that is, to make general statements that extend beyond specific observations. The importance of generalization was highlighted by the writer Jorge Luis Borges in his short story “Funes the Memorious”, which describes an individual who loses the ability to forget. Borges focuses in on the relation between generalization (i.e. throwing away data) and thinking: “To think is to forget a difference, to generalize, to abstract. In the overly replete world of Funes, there were nothing but details.”</p>
 <p>Psychologists have long studied all of the ways in which generalization is central to thinking. One example is categorization: We are able to easily recognize different examples of the category of “birds” even though the individual examples may be very different in their surface features (such as an ostrich, a robin, and a chicken). Importantly, generalization lets us make predictions about these individuals – in the case of birds, we can predict that they can fly and eat seeds, and that they probably can’t drive a car or speak English. These predictions won’t always be right, but they are often good enough to be useful in the world.</p>
 </div>
-<div id="summarizing-data-using-tables" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Summarizing data using tables</h2>
+<div id="summarizing-data-using-tables" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Summarizing data using tables<a href="summarizing-data.html#summarizing-data-using-tables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A simple way to summarize data is to generate a table representing counts of various types of observations. This type of table has been used for thousands of years (see Figure <a href="summarizing-data.html#fig:salesContract">3.1</a>).</p>
 <div class="figure"><span style="display:block;" id="fig:salesContract"></span>
 <img src="images/Sales_contract_Shuruppak_Louvre_AO3760.jpg" alt="A Sumerian tablet from the Louvre, showing a sales contract for a house and field.  Public domain, via Wikimedia Commons." width="288" height="30%" />
@@ -559,8 +580,8 @@ Figure 3.1: A Sumerian tablet from the Louvre, showing a sales contract for a ho
 </p>
 </div>
 <p>Let’s look at some examples of the use of tables, using a more realistic dataset. Throughout this book we will use the <a href="https://www.cdc.gov/nchs/nhanes/index.htm">National Health and Nutrition Examination Survey (NHANES)</a> dataset. This is an ongoing study that assesses the health and nutrition status of a sample of individuals from the United States on many different variables. We will use a version of the dataset that is available for the R statistical software package. For this example, we will look at a simple variable, called <em>PhysActive</em> in the dataset. This variable contains one of three different values: “Yes” or “No” (indicating whether or not the person reports doing “moderate or vigorous-intensity sports, fitness or recreational activities”), or “NA” if the data are missing for that individual. There are different reasons that the data might be missing; for example, this question was not asked of children younger than 12 years of age, while in other cases an adult may have declined to answer the question during the interview, or the interviewer’s recording of the answer on their form might be unreadable.</p>
-<div id="frequency-distributions" class="section level3" number="3.2.1">
-<h3><span class="header-section-number">3.2.1</span> Frequency distributions</h3>
+<div id="frequency-distributions" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Frequency distributions<a href="summarizing-data.html#frequency-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A <em>distribution</em> describes how data are divided between different possible values. For this example, let’s look at how many people fall into each of the physical activity categories.</p>
 <table>
 <caption><span id="tab:PhysActiveTable">Table 3.1: </span>Frequency distribution for PhysActive variable</caption>
@@ -585,12 +606,12 @@ Figure 3.1: A Sumerian tablet from the Louvre, showing a sales contract for a ho
 </tr>
 </tbody>
 </table>
-<p>Table <a href="summarizing-data.html#tab:PhysActiveTable">3.1</a> shows the frequencies of each of the different values; there were 2473 individuals who responded “No” to the question, 2972 who responded “Yes,” and 1334 for whom no response was given. We call this a <em>frequency distribution</em> because it tells us how frequent each of the possible values is within our sample.</p>
-<p>This shows us the absolute frequency of the two responses, for everyone who actually gave a response. We can see from this that there are more people saying “Yes” than “No,” but it can be hard to tell from absolute numbers how big the difference is in relative terms. For this reason, we often would rather present the data using <em>relative frequency</em>, which is obtained by dividing each frequency by the sum of all frequencies:</p>
+<p>Table <a href="summarizing-data.html#tab:PhysActiveTable">3.1</a> shows the frequencies of each of the different values; there were 2473 individuals who responded “No” to the question, 2972 who responded “Yes”, and 1334 for whom no response was given. We call this a <em>frequency distribution</em> because it tells us how frequent each of the possible values is within our sample.</p>
+<p>This shows us the absolute frequency of the two responses, for everyone who actually gave a response. We can see from this that there are more people saying “Yes” than “No”, but it can be hard to tell from absolute numbers how big the difference is in relative terms. For this reason, we often would rather present the data using <em>relative frequency</em>, which is obtained by dividing each frequency by the sum of all frequencies:</p>
 <p><span class="math display">\[
 relative\ frequency_i = \frac{absolute\ frequency_i}{\sum_{j=1}^N absolute\ frequency_j}
 \]</span>
-The relative frequency provides a much easier way to see how big the imbalance is. We can also interpret the relative frequencies as percentages by multiplying them by 100. In this example, we will drop the NA values as well, since we would like to be able to interpret the relative frequencies of active versus inactive people. However, for this to make sense we have to assume that the NA values are missing “at random,” meaning that their presence or absence is not related to the true value of the variable for that person. For example, if inactive participants were more likely to refuse to answer the question than active participants, then that would <em>bias</em> our estimate of the frequency of physical activity, meaning that our estimate would be different from the true value.</p>
+The relative frequency provides a much easier way to see how big the imbalance is. We can also interpret the relative frequencies as percentages by multiplying them by 100. In this example, we will drop the NA values as well, since we would like to be able to interpret the relative frequencies of active versus inactive people. However, for this to make sense we have to assume that the NA values are missing “at random”, meaning that their presence or absence is not related to the true value of the variable for that person. For example, if inactive participants were more likely to refuse to answer the question than active participants, then that would <em>bias</em> our estimate of the frequency of physical activity, meaning that our estimate would be different from the true value.</p>
 <table>
 <caption><span id="tab:PhysActiveTableFiltered">Table 3.2: </span>Absolute and relative frequencies and percentages for PhysActive variable</caption>
 <thead>
@@ -616,10 +637,10 @@ The relative frequency provides a much easier way to see how big the imbalance i
 </tr>
 </tbody>
 </table>
-<p>Table <a href="summarizing-data.html#tab:PhysActiveTableFiltered">3.2</a> lets us see that 45.4 percent of the individuals in the NHANES sample said “No” and 54.6 percent said “Yes.”</p>
+<p>Table <a href="summarizing-data.html#tab:PhysActiveTableFiltered">3.2</a> lets us see that 45.4 percent of the individuals in the NHANES sample said “No” and 54.6 percent said “Yes”.</p>
 </div>
-<div id="cumulative-distributions" class="section level3" number="3.2.2">
-<h3><span class="header-section-number">3.2.2</span> Cumulative distributions</h3>
+<div id="cumulative-distributions" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Cumulative distributions<a href="summarizing-data.html#cumulative-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <em>PhysActive</em> variable that we examined above only had two possible values, but often we wish to summarize data that can have many more possible values. When those values are quantitative, then one useful way to summarize them is via what we call a <em>cumulative</em> frequency representation: rather than asking how many observations take on a specific value, we ask how many have a value some specific value <em>or less</em>.</p>
 <p>Let’s look at another variable in the NHANES dataset, called <em>SleepHrsNight</em> which records how many hours the participant reports sleeping on usual weekdays. Table <a href="summarizing-data.html#tab:sleepTable">3.3</a> shows a frequency table created as we did above, after removing anyone with missing data for this question. We can already begin to summarize the dataset just by looking at the table; for example, we can see that most people report sleeping between 6 and 8 hours. To see this even more clearly, we can plot a <em>histogram</em> which shows the number of cases having each of the different values; see left panel of Figure <a href="summarizing-data.html#fig:sleepHist">3.2</a>. We can also plot the relative frequencies, which we will often refer to as <em>densities</em> - see the right panel of Figure <a href="summarizing-data.html#fig:sleepHist">3.2</a>.</p>
 <table>
@@ -787,8 +808,8 @@ Figure 3.3: A plot of the relative (solid) and cumulative relative (dashed) valu
 </p>
 </div>
 </div>
-<div id="plotting-histograms" class="section level3" number="3.2.3">
-<h3><span class="header-section-number">3.2.3</span> Plotting histograms</h3>
+<div id="plotting-histograms" class="section level3 hasAnchor" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Plotting histograms<a href="summarizing-data.html#plotting-histograms" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="figure"><span style="display:block;" id="fig:ageHist"></span>
 <img src="StatsThinking21_files/figure-html/ageHist-1.png" alt="A histogram of the Age (left) and Height (right) variables in NHANES." width="768" height="33%" />
 <p class="caption">
@@ -806,8 +827,8 @@ Figure 3.5: Histogram of heights for NHANES. A: values plotted separately for ch
 </p>
 </div>
 </div>
-<div id="histogram-bins" class="section level3" number="3.2.4">
-<h3><span class="header-section-number">3.2.4</span> Histogram bins</h3>
+<div id="histogram-bins" class="section level3 hasAnchor" number="3.2.4">
+<h3><span class="header-section-number">3.2.4</span> Histogram bins<a href="summarizing-data.html#histogram-bins" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In our earlier example with the sleep variable, the data were reported in whole numbers, and we simply counted the number of people who reported each possible value. However, if you look at a few values of the Height variable in NHANES (as shown in Table <a href="summarizing-data.html#tab:heightVals">3.5</a>), you will see that it was measured in centimeters down to the first decimal place.</p>
 <table>
 <caption><span id="tab:heightVals">Table 3.5: </span>A few values of Height from the NHANES data frame.</caption>
@@ -846,8 +867,8 @@ number\, of\, bins  = \frac{range\, of\, scores}{bin\, width}
 <p>There is no hard and fast rule for how to choose the optimal bin width. Occasionally it will be obvious (as when there are only a few possible values), but in many cases it would require trial and error. There are methods that try to find an optimal bin size automatically, such as the Freedman-Diaconis method that we will use in some later examples.</p>
 </div>
 </div>
-<div id="idealized-representations-of-distributions" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Idealized representations of distributions</h2>
+<div id="idealized-representations-of-distributions" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Idealized representations of distributions<a href="summarizing-data.html#idealized-representations-of-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Datasets are like snowflakes, in that every one is different, but nonetheless there are patterns that one often sees in different types of data. This allows us to use idealized representations of the data to further summarize them. Let’s take the adult height data plotted in <a href="summarizing-data.html#fig:heightHistSep">3.5</a>, and plot them alongside a very different variable: pulse rate (heartbeats per minute), also measured in NHANES (see Figure <a href="summarizing-data.html#fig:NormalDistPlotsWithDist">3.6</a>).</p>
 <div class="figure"><span style="display:block;" id="fig:NormalDistPlotsWithDist"></span>
 <img src="StatsThinking21_files/figure-html/NormalDistPlotsWithDist-1.png" alt="Histograms for height (left) and pulse (right) in the NHANES dataset, with the normal distribution overlaid for each dataset." width="768" height="50%" />
@@ -857,9 +878,9 @@ Figure 3.6: Histograms for height (left) and pulse (right) in the NHANES dataset
 </div>
 <p>While these plots certainly don’t look exactly the same, both have the general characteristic of being relatively symmetric around a rounded peak in the middle. This shape is in fact one of the commonly observed shapes of distributions when we collect data, which we call the <em>normal</em> (or <em>Gaussian</em>) distribution. This distribution is defined in terms of two values (which we call <em>parameters</em> of the distribution): the location of the center peak (which we call the <em>mean</em>) and the width of the distribution (which is described in terms of a parameter called the <em>standard deviation</em>). Figure <a href="summarizing-data.html#fig:NormalDistPlotsWithDist">3.6</a> shows the appropriate normal distribution plotted on top of each of the histrograms.You can see that although the curves don’t fit the data exactly, they do a pretty good job of characterizing the distribution – with just two numbers!</p>
 <p>As we will see later when we discuss the central limit theorem, there is a deep mathematical reason why many variables in the world exhibit the form of a normal distribution.</p>
-<div id="skewness" class="section level3" number="3.3.1">
-<h3><span class="header-section-number">3.3.1</span> Skewness</h3>
-<p>The examples in Figure <a href="summarizing-data.html#fig:NormalDistPlotsWithDist">3.6</a> followed the normal distribution fairly well, but in many cases the data will deviate in a systematic way from the normal distribution. One way in which the data can deviate is when they are asymmetric, such that one tail of the distribution is more dense than the other. We refer to this as “skewness.” Skewness commonly occurs when the measurement is constrained to be non-negative, such as when we are counting things or measuring elapsed times (and thus the variable can’t take on negative values).</p>
+<div id="skewness" class="section level3 hasAnchor" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Skewness<a href="summarizing-data.html#skewness" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The examples in Figure <a href="summarizing-data.html#fig:NormalDistPlotsWithDist">3.6</a> followed the normal distribution fairly well, but in many cases the data will deviate in a systematic way from the normal distribution. One way in which the data can deviate is when they are asymmetric, such that one tail of the distribution is more dense than the other. We refer to this as “skewness”. Skewness commonly occurs when the measurement is constrained to be non-negative, such as when we are counting things or measuring elapsed times (and thus the variable can’t take on negative values).</p>
 <p>An example of relatively mild skewness can be seen in the average waiting times at the airport security lines at San Francisco International Airport, plotted in the left panel of Figure <a href="summarizing-data.html#fig:SFOWaitTimes">3.7</a>. You can see that while most wait times are less than 20 minutes, there are a number of cases where they are much longer, over 60 minutes! This is an example of a “right-skewed” distribution, where the right tail is longer than the left; these are common when looking at counts or measured times, which can’t be less than zero. It’s less common to see “left-skewed” distributions, but they can occur, for example when looking at fractional values that can’t take a value greater than one.</p>
 <div class="figure"><span style="display:block;" id="fig:SFOWaitTimes"></span>
 <img src="StatsThinking21_files/figure-html/SFOWaitTimes-1.png" alt="Examples of right-skewed and long-tailed distributions.  Left: Average wait times for security at SFO Terminal A (Jan-Oct 2017), obtained from https://awt.cbp.gov/ .  Right: A histogram of the number of Facebook friends amongst 3,663 individuals, obtained from the Stanford Large Network Database. The person with the maximum number of friends is indicated by the diamond." width="768" height="50%" />
@@ -868,19 +889,19 @@ Figure 3.7: Examples of right-skewed and long-tailed distributions. Left: Averag
 </p>
 </div>
 </div>
-<div id="long-tailed-distributions" class="section level3" number="3.3.2">
-<h3><span class="header-section-number">3.3.2</span> Long-tailed distributions</h3>
-<p>Historically, statistics has focused heavily on data that are normally distributed, but there are many data types that look nothing like the normal distribution. In particular, many real-world distributions are “long-tailed,” meaning that the right tail extends far beyond the most typical members of the distribution; that is, they are extremely skewed. One of the most interesting types of data where long-tailed distributions occur arises from the analysis of social networks. For an example, let’s look at the Facebook friend data from the <a href="https://snap.stanford.edu/data/egonets-Facebook.html">Stanford Large Network Database</a> and plot the histogram of number of friends across the 3,663 people in the database (see right panel of Figure <a href="summarizing-data.html#fig:SFOWaitTimes">3.7</a>). As we can see, this distribution has a very long right tail – the average person has 24.09 friends, while the person with the most friends (denoted by the blue dot) has 1043!</p>
+<div id="long-tailed-distributions" class="section level3 hasAnchor" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Long-tailed distributions<a href="summarizing-data.html#long-tailed-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Historically, statistics has focused heavily on data that are normally distributed, but there are many data types that look nothing like the normal distribution. In particular, many real-world distributions are “long-tailed”, meaning that the right tail extends far beyond the most typical members of the distribution; that is, they are extremely skewed. One of the most interesting types of data where long-tailed distributions occur arises from the analysis of social networks. For an example, let’s look at the Facebook friend data from the <a href="https://snap.stanford.edu/data/egonets-Facebook.html">Stanford Large Network Database</a> and plot the histogram of number of friends across the 3,663 people in the database (see right panel of Figure <a href="summarizing-data.html#fig:SFOWaitTimes">3.7</a>). As we can see, this distribution has a very long right tail – the average person has 24.09 friends, while the person with the most friends (denoted by the blue dot) has 1043!</p>
 <p>Long-tailed distributions are increasingly being recognized in the real world. In particular, many features of complex systems are characterized by these distributions, from the frequency of words in text, to the number of flights in and out of different airports, to the connectivity of brain networks. There are a number of different ways that long-tailed distributions can come about, but a common one occurs in cases of the so-called “Matthew effect” from the Christian Bible:</p>
 <blockquote>
 <p>For to every one who has will more be given, and he will have abundance; but from him who has not, even what he has will be taken away. — Matthew 25:29, Revised Standard Version</p>
 </blockquote>
-<p>This is often paraphrased as “the rich get richer.” In these situations, advantages compound, such that those with more friends have access to even more new friends, and those with more money have the ability to do things that increase their riches even more.</p>
-<p>As the course progresses we will see several examples of long-tailed distributions, and we should keep in mind that many of the tools in statistics can fail when faced with long-tailed data. As Nassim Nicholas Taleb pointed out in his book “The Black Swan,” such long-tailed distributions played a critical role in the 2008 financial crisis, because many of the financial models used by traders assumed that financial systems would follow the normal distribution, which they clearly did not.</p>
+<p>This is often paraphrased as “the rich get richer”. In these situations, advantages compound, such that those with more friends have access to even more new friends, and those with more money have the ability to do things that increase their riches even more.</p>
+<p>As the course progresses we will see several examples of long-tailed distributions, and we should keep in mind that many of the tools in statistics can fail when faced with long-tailed data. As Nassim Nicholas Taleb pointed out in his book “The Black Swan”, such long-tailed distributions played a critical role in the 2008 financial crisis, because many of the financial models used by traders assumed that financial systems would follow the normal distribution, which they clearly did not.</p>
 </div>
 </div>
-<div id="learning-objectives-2" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Learning objectives</h2>
+<div id="learning-objectives-2" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Learning objectives<a href="summarizing-data.html#learning-objectives-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Having read this chapter, you should be able to:</p>
 <ul>
 <li>Compute absolute, relative, and cumulative frequency distributions for a given dataset</li>
@@ -888,8 +909,8 @@ Figure 3.7: Examples of right-skewed and long-tailed distributions. Left: Averag
 <li>Describe the difference between a normal and a long-tailed distribution, and describe the situations that commonly give rise to each</li>
 </ul>
 </div>
-<div id="suggested-readings-2" class="section level2" number="3.5">
-<h2><span class="header-section-number">3.5</span> Suggested readings</h2>
+<div id="suggested-readings-2" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Suggested readings<a href="summarizing-data.html#suggested-readings-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><em>The Black Swan: The Impact of the Highly Improbable</em>, by Nassim Nicholas Taleb</li>
 </ul>

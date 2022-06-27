@@ -5,10 +5,6 @@
 \documentclass[
   12pt,
 ]{book}
-\title{Statistical Thinking for the 21st Century}
-\author{Copyright 2019 Russell A. Poldrack}
-\date{Draft: 2022-02-26}
-
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
 \usepackage{iftex}
@@ -155,6 +151,10 @@
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 
+\title{Statistical Thinking for the 21st Century}
+\author{Copyright 2019 Russell A. Poldrack}
+\date{Draft: 2022-06-27}
+
 \begin{document}
 \maketitle
 
@@ -173,9 +173,9 @@ The book is also written in the wake of the reproducibility crisis that has engu
 \hypertarget{why-does-this-book-exist}{%
 \section{Why does this book exist?}\label{why-does-this-book-exist}}
 
-In 2018 I began teaching an undergraduate statistics course at Stanford (Psych 10/Stats 60). I had never taught statistics before, and this was a chance to shake things up. I have been increasingly unhappy with undergraduate statistics education in psychology, and I wanted to bring a number of new ideas and approaches to the class. In particular, I wanted to bring to bear the approaches that are increasingly used in real statistical practice in the 21st century. As Brad Efron and Trevor Hastie laid out so nicely in their book ``Computer Age Statistical Inference: Algorithms, Evidence, and Data Science,'' these methods take advantage of today's increased computing power to solve statistical problems in ways that go far beyond the more standard methods that are usually taught in the undergraduate statistics course for psychology students.
+In 2018 I began teaching an undergraduate statistics course at Stanford (Psych 10/Stats 60). I had never taught statistics before, and this was a chance to shake things up. I have been increasingly unhappy with undergraduate statistics education in psychology, and I wanted to bring a number of new ideas and approaches to the class. In particular, I wanted to bring to bear the approaches that are increasingly used in real statistical practice in the 21st century. As Brad Efron and Trevor Hastie laid out so nicely in their book ``Computer Age Statistical Inference: Algorithms, Evidence, and Data Science'', these methods take advantage of today's increased computing power to solve statistical problems in ways that go far beyond the more standard methods that are usually taught in the undergraduate statistics course for psychology students.
 
-The first year that I taught the class, I used Andy Field's amazing graphic novel statistics book, ``An Adventure in Statistics,'' as the textbook. There are many things that I really like about this book -- in particular, I like the way that it frames statistical practice around the building of models, and treats null hypothesis testing with sufficient caution. Unfortunately, many of my students disliked the book (except for the English majors, who loved it!), primarily because it involved wading through a lot of story to get to the statistical knowledge. I also found it wanting because there are a number of topics (particularly those from the burgeoning field of artificial intelligence known as \emph{machine learning}) that I wanted to include but were not discussed in his book. I ultimately came to feel that the students would be best served by a book that follows very closely to my lectures, so I started writing down my lectures into a set of computational notebooks that would ultimately become this book. The outline of this book follows roughly that of Field's book, since the lectures were originally based in large part on the flow of that book, but the content is substantially different (and almost certainly much less fun and clever). I also tailored this book for the 10-week quarter system that we use at Stanford, which provides less time than the 16-week semester that most statistical textbooks are built for.
+The first year that I taught the class, I used Andy Field's amazing graphic novel statistics book, ``An Adventure in Statistics'', as the textbook. There are many things that I really like about this book -- in particular, I like the way that it frames statistical practice around the building of models, and treats null hypothesis testing with sufficient caution. Unfortunately, many of my students disliked the book (except for the English majors, who loved it!), primarily because it involved wading through a lot of story to get to the statistical knowledge. I also found it wanting because there are a number of topics (particularly those from the burgeoning field of artificial intelligence known as \emph{machine learning}) that I wanted to include but were not discussed in his book. I ultimately came to feel that the students would be best served by a book that follows very closely to my lectures, so I started writing down my lectures into a set of computational notebooks that would ultimately become this book. The outline of this book follows roughly that of Field's book, since the lectures were originally based in large part on the flow of that book, but the content is substantially different (and almost certainly much less fun and clever). I also tailored this book for the 10-week quarter system that we use at Stanford, which provides less time than the 16-week semester that most statistical textbooks are built for.
 
 \hypertarget{the-golden-age-of-data}{%
 \section{The golden age of data}\label{the-golden-age-of-data}}
@@ -228,7 +228,7 @@ We can distinguish statistical thinking from other forms of thinking that are le
 \hypertarget{dealing-with-statistics-anxiety}{%
 \section{Dealing with statistics anxiety}\label{dealing-with-statistics-anxiety}}
 
-Many people come to their first statistics class with a lot of trepidation and anxiety, especially once they hear that they will also have to learn to code in order to analyze data. In my class I give students a survey prior to the first session in order to measure their attitude towards statistics, asking them to rate a number of statments on a scale of 1 (strongly disagree) to 7 (strongly agree). One of the items on the survey is ``The thought of being enrolled in a statistics course makes me nervous.'' In a recent class, almost two-thirds of the class responded with a five or higher, and about one-fourth of the students said that they strongly agreed with the statement. So if you feel nervous about starting to learn statistics, you are not alone.
+Many people come to their first statistics class with a lot of trepidation and anxiety, especially once they hear that they will also have to learn to code in order to analyze data. In my class I give students a survey prior to the first session in order to measure their attitude towards statistics, asking them to rate a number of statments on a scale of 1 (strongly disagree) to 7 (strongly agree). One of the items on the survey is ``The thought of being enrolled in a statistics course makes me nervous''. In a recent class, almost two-thirds of the class responded with a five or higher, and about one-fourth of the students said that they strongly agreed with the statement. So if you feel nervous about starting to learn statistics, you are not alone.
 
 Anxiety feels uncomfortable, but psychology tells us that this kind of emotional arousal can actually help us perform \emph{better} on many tasks, by focusing our attention. So if you start to feel anxious about the material in this book, remind yourself that many other readers are feeling similarly, and that this emotional arousal could actually help you learn the material better (even if it doesn't seem like it!).
 
@@ -251,9 +251,9 @@ Let's look at an example of these in action, centered on a question that many of
 
 One way that we might answer this question is common sense. If we eat fat, then it's going to turn straight into fat in our bodies, right? And we have all seen photos of arteries clogged with fat, so eating fat is going to clog our arteries, right?
 
-Another way that we might answer this question is by listening to authority figures. The Dietary Guidelines from the US Food and Drug Administration have as one of their Key Recommendations that ``A healthy eating pattern limits saturated fats.'' You might hope that these guidelines would be based on good science, and in some cases they are, but as Nina Teicholz outlined in her book ``Big Fat Surprise''(\protect\hyperlink{ref-teic:2014}{Teicholz 2014}), this particular recommendation seems to be based more on the longstanding dogma of nutrition researchers than on actual evidence.
+Another way that we might answer this question is by listening to authority figures. The Dietary Guidelines from the US Food and Drug Administration have as one of their Key Recommendations that ``A healthy eating pattern limits saturated fats''. You might hope that these guidelines would be based on good science, and in some cases they are, but as Nina Teicholz outlined in her book ``Big Fat Surprise''(\protect\hyperlink{ref-teic:2014}{Teicholz 2014}), this particular recommendation seems to be based more on the longstanding dogma of nutrition researchers than on actual evidence.
 
-Finally, we might look at actual scientific research. Let's start by looking at a large study called the PURE study, which has examined diets and health outcomes (including death) in more than 135,000 people from 18 different countries. In one of the analyses of this dataset (published in \emph{The Lancet} in 2017; \protect\hyperlink{ref-dehg:ment:zhan:2017}{Dehghan et al.} (\protect\hyperlink{ref-dehg:ment:zhan:2017}{2017})), the PURE investigators reported an analysis of how intake of various classes of macronutrients (including saturated fats and carbohydrates) was related to the likelihood of dying during the time that people were followed. People were followed for a \emph{median} of 7.4 years, meaning that half of the people in the study were followed for less and half were followed for more than 7.4 years. Figure \ref{fig:PureDeathSatFat} plots some of the data from the study (extracted from the paper), showing the relationship between the intake of both saturated fats and carbohydrates and the risk of dying from any cause.
+Finally, we might look at actual scientific research. Let's start by looking at a large study called the PURE study, which has examined diets and health outcomes (including death) in more than 135,000 people from 18 different countries. In one of the analyses of this dataset (published in \emph{The Lancet} in 2017; Dehghan et al. (\protect\hyperlink{ref-dehg:ment:zhan:2017}{2017})), the PURE investigators reported an analysis of how intake of various classes of macronutrients (including saturated fats and carbohydrates) was related to the likelihood of dying during the time that people were followed. People were followed for a \emph{median} of 7.4 years, meaning that half of the people in the study were followed for less and half were followed for more than 7.4 years. Figure \ref{fig:PureDeathSatFat} plots some of the data from the study (extracted from the paper), showing the relationship between the intake of both saturated fats and carbohydrates and the risk of dying from any cause.
 
 \begin{figure}
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/PureDeathSatFat-1} \caption{A plot of data from the PURE study, showing the relationship between death from any cause and the relative intake of saturated fats and carbohydrates.}\label{fig:PureDeathSatFat}
@@ -268,7 +268,7 @@ Based on the data we would also like to make predictions about future outcomes. 
 \hypertarget{the-big-ideas-of-statistics}{%
 \section{The big ideas of statistics}\label{the-big-ideas-of-statistics}}
 
-There are a number of very basic ideas that cut through nearly all aspects of statistical thinking. Several of these are outlined by \protect\hyperlink{ref-stig}{Stigler} (\protect\hyperlink{ref-stig}{2016}) in his outstanding book ``The Seven Pillars of Statistical Wisdom,'' which I have augmented here.
+There are a number of very basic ideas that cut through nearly all aspects of statistical thinking. Several of these are outlined by Stigler (\protect\hyperlink{ref-stig}{2016}) in his outstanding book ``The Seven Pillars of Statistical Wisdom'', which I have augmented here.
 
 \hypertarget{learning-from-data}{%
 \subsection{Learning from data}\label{learning-from-data}}
@@ -280,7 +280,7 @@ Statistics provides us with a way to describe how new data can be best used to u
 \hypertarget{aggregation}{%
 \subsection{Aggregation}\label{aggregation}}
 
-Another way to think of statistics is as ``the science of throwing away data.'' In the example of the PURE study above, we took more than 100,000 numbers and condensed them into ten. It is this kind of \emph{aggregation} that is one of the most important concepts in statistics. When it was first advanced, this was revolutionary: If we throw out all of the details about every one of the participants, then how can we be sure that we aren't missing something important?
+Another way to think of statistics is as ``the science of throwing away data''. In the example of the PURE study above, we took more than 100,000 numbers and condensed them into ten. It is this kind of \emph{aggregation} that is one of the most important concepts in statistics. When it was first advanced, this was revolutionary: If we throw out all of the details about every one of the participants, then how can we be sure that we aren't missing something important?
 
 As we will see, statistics provides us ways to characterize the structure of aggregates of data, with theoretical foundations that explain why this usually works well. However, it's also important to keep in mind that aggregation can go too far, and later we will encounter cases where a summary can provide a very misleading picture of the data being summarized.
 
@@ -299,7 +299,7 @@ The concept of aggregation implies that we can make useful insights by collapsin
 \hypertarget{causality-and-statistics}{%
 \section{Causality and statistics}\label{causality-and-statistics}}
 
-The PURE study seemed to provide pretty strong evidence for a positive relationship between eating saturated fat and living longer, but this doesn't tell us what we really want to know: If we eat more saturated fat, will that cause us to live longer? This is because we don't know whether there is a direct causal relationship between eating saturated fat and living longer. The data are consistent with such a relationship, but they are equally consistent with some other factor causing both higher saturated fat and longer life. For example, one might imagine that people who are richer eat more saturated fat and richer people tend to live longer, but their longer life is not necessarily due to fat intake --- it could instead be due to better health care, reduced psychological stress, better food quality, or many other factors. The PURE study investigators tried to account for these factors, but we can't be certain that their efforts completely removed the effects of other variables. The fact that other factors may explain the relationship between saturated fat intake and death is an example of why introductory statistics classes often teach that ``correlation does not imply causation,'' though the renowned data visualization expert Edward Tufte has added, ``but it sure is a hint.''
+The PURE study seemed to provide pretty strong evidence for a positive relationship between eating saturated fat and living longer, but this doesn't tell us what we really want to know: If we eat more saturated fat, will that cause us to live longer? This is because we don't know whether there is a direct causal relationship between eating saturated fat and living longer. The data are consistent with such a relationship, but they are equally consistent with some other factor causing both higher saturated fat and longer life. For example, one might imagine that people who are richer eat more saturated fat and richer people tend to live longer, but their longer life is not necessarily due to fat intake --- it could instead be due to better health care, reduced psychological stress, better food quality, or many other factors. The PURE study investigators tried to account for these factors, but we can't be certain that their efforts completely removed the effects of other variables. The fact that other factors may explain the relationship between saturated fat intake and death is an example of why introductory statistics classes often teach that ``correlation does not imply causation'', though the renowned data visualization expert Edward Tufte has added, ``but it sure is a hint.''
 
 Although observational research (like the PURE study) cannot conclusively demonstrate causal relations, we generally think that causation can be demonstrated using studies that experimentally control and manipulate a specific factor. In medicine, such a study is referred to as a \emph{randomized controlled trial} (RCT). Let's say that we wanted to do an RCT to examine whether increasing saturated fat intake increases life span. To do this, we would sample a group of people, and then assign them to either a treatment group (which would be told to increase their saturated fat intake) or a control group (who would be told to keep eating the same as before). It is essential that we assign the individuals to these groups randomly. Otherwise, people who choose the treatment might be different in some way than people who choose the control group -- for example, they might be more likely to engage in other healthy behaviors as well. We would then follow the participants over time and see how many people in each group died. Because we randomized the participants to treatment or control groups, we can be reasonably confident that there are no other differences between the groups that would \emph{confound} the treatment effect; however, we still can't be certain because sometimes randomization yields treatment versus control groups that \emph{do} vary in some important way. Researchers often try to address these confounds using statistical analyses, but removing the influence of a confound from the data can be very difficult.
 
@@ -339,12 +339,12 @@ Having read this chapter, you should be able to:
 \hypertarget{what-are-data}{%
 \section{What are data?}\label{what-are-data}}
 
-The first important point about data is that data \emph{are} -- meaning that the word ``data'' is plural (though some people disagree with me on this). You might also wonder how to pronounce ``data'' -- I say ``day-tah,'' but I know many people who say ``dah-tah,'' and I have been able to remain friends with them in spite of this. Now, if I heard them say ``the data is'' then that would be a bigger issue\ldots{}
+The first important point about data is that data \emph{are} -- meaning that the word ``data'' is plural (though some people disagree with me on this). You might also wonder how to pronounce ``data'' -- I say ``day-tah'', but I know many people who say ``dah-tah'', and I have been able to remain friends with them in spite of this. Now, if I heard them say ``the data is'' then that would be a bigger issue\ldots{}
 
 \hypertarget{qualitative-data}{%
 \subsection{Qualitative data}\label{qualitative-data}}
 
-Data are composed of \emph{variables}, where a variable reflects a unique measurement or quantity. Some variables are \emph{qualitative}, meaning that they describe a quality rather than a numeric quantity. For example, in my stats course I generally give an introductory survey, both to obtain data to use in class and to learn more about the students. One of the questions that I ask is ``What is your favorite food?'' to which some of the answers have been: blueberries, chocolate, tamales, pasta, pizza, and mango. Those data are not intrinsically numerical; we could assign numbers to each one (1=blueberries, 2=chocolate, etc), but we would just be using the numbers as labels rather than as real numbers. This also constrains what we should do with those numbers; for example, it wouldn't make sense to compute the average of those numbers. However, we will often code qualitative data using numbers in order to make them easier to work with, as you will see later.
+Data are composed of \emph{variables}, where a variable reflects a unique measurement or quantity. Some variables are \emph{qualitative}, meaning that they describe a quality rather than a numeric quantity. For example, in my stats course I generally give an introductory survey, both to obtain data to use in class and to learn more about the students. One of the questions that I ask is ``What is your favorite food?'', to which some of the answers have been: blueberries, chocolate, tamales, pasta, pizza, and mango. Those data are not intrinsically numerical; we could assign numbers to each one (1=blueberries, 2=chocolate, etc), but we would just be using the numbers as labels rather than as real numbers. This also constrains what we should do with those numbers; for example, it wouldn't make sense to compute the average of those numbers. However, we will often code qualitative data using numbers in order to make them easier to work with, as you will see later.
 
 \hypertarget{quantitative-data}{%
 \subsection{Quantitative data}\label{quantitative-data}}
@@ -374,7 +374,7 @@ Note that the students' answers were qualitative, but we generated a quantitativ
 
 There are several different types of numbers that we work with in statistics. It's important to understand these differences, in part because statistical analysis languages (such as R) often distinguish between them.
 
-\textbf{Binary numbers}. The simplest are binary numbers -- that is, zero or one. We will often use binary numbers to represent whether something is true or false, or present or absent. For example, I might ask 10 people if they have ever experienced a migraine headache, recording their answers as ``Yes'' or ``No.'' It's often useful to instead use \emph{logical} values, which take the value of either \texttt{TRUE} or \texttt{FALSE}. This can be especially useful when we start using programming languages like R to analyze our data, since these languages already understand the concepts of TRUE and FALSE. In fact, most programming languages treat truth values and binary numbers equivalently. The number 1 is equal to the logical value \texttt{TRUE}, and the number zero is equal to the logical value \texttt{FALSE}.
+\textbf{Binary numbers}. The simplest are binary numbers -- that is, zero or one. We will often use binary numbers to represent whether something is true or false, or present or absent. For example, I might ask 10 people if they have ever experienced a migraine headache, recording their answers as ``Yes'' or ``No''. It's often useful to instead use \emph{logical} values, which take the value of either \texttt{TRUE} or \texttt{FALSE}. This can be especially useful when we start using programming languages like R to analyze our data, since these languages already understand the concepts of TRUE and FALSE. In fact, most programming languages treat truth values and binary numbers equivalently. The number 1 is equal to the logical value \texttt{TRUE}, and the number zero is equal to the logical value \texttt{FALSE}.
 
 \textbf{Integers}. Integers are whole numbers with no fractional or decimal part. We most commonly encounter integers when we count things, but they also often occur in psychological measurement. For example, in my introductory survey I administer a set of questions about attitudes towards statistics (such as ``Statistics seems very mysterious to me.''), on which the students respond with a number between 1 (``Disagree strongly'') and 7 (``Agree strongly'').
 
@@ -403,7 +403,7 @@ When we think about what makes a good measurement, we usually distinguish two di
 \hypertarget{reliability}{%
 \subsection{Reliability}\label{reliability}}
 
-Reliability refers to the consistency of our measurements. One common form of reliability, known as ``test-retest reliability,'' measures how well the measurements agree if the same measurement is performed twice. For example, I might give you a questionnaire about your attitude towards statistics today, repeat this same questionnaire tomorrow, and compare your answers on the two days; we would hope that they would be very similar to one another, unless something happened in between the two tests that should have changed your view of statistics (like reading this book!).
+Reliability refers to the consistency of our measurements. One common form of reliability, known as ``test-retest reliability'', measures how well the measurements agree if the same measurement is performed twice. For example, I might give you a questionnaire about your attitude towards statistics today, repeat this same questionnaire tomorrow, and compare your answers on the two days; we would hope that they would be very similar to one another, unless something happened in between the two tests that should have changed your view of statistics (like reading this book!).
 
 Another way to assess reliability comes in cases where the data include subjective judgments. For example, let's say that a researcher wants to determine whether a treatment changes how well an autistic child interacts with other children, which is measured by having experts watch the child and rate their interactions with the other children. In this case we would like to make sure that the answers don't depend on the individual rater --- that is, we would like for there to be high \emph{inter-rater reliability}. This can be assessed by having more than one rater perform the rating, and then comparing their ratings to make sure that they agree well with one another.
 
@@ -468,7 +468,7 @@ All variables must take on at least two different possible values (otherwise the
 
 There are four different scales of measurement that go along with these different ways that values of a variable can differ.
 
-\emph{Nominal scale}. A nominal variable satisfies the criterion of identity, such that each value of the variable represents something different, but the numbers simply serve as qualitative labels as discussed above. For example, we might ask people for their political party affiliation, and then code those as numbers: 1 = ``Republican,'' 2 = ``Democrat,'' 3 = ``Libertarian,'' and so on. However, the different numbers do not have any ordered relationship with one another.
+\emph{Nominal scale}. A nominal variable satisfies the criterion of identity, such that each value of the variable represents something different, but the numbers simply serve as qualitative labels as discussed above. For example, we might ask people for their political party affiliation, and then code those as numbers: 1 = ``Republican'', 2 = ``Democrat'', 3 = ``Libertarian'', and so on. However, the different numbers do not have any ordered relationship with one another.
 
 \emph{Ordinal scale}. An ordinal variable satisfies the criteria of identity and magnitude, such that the values can be ordered in terms of their magnitude. For example, we might ask a person with chronic pain to complete a form every day assessing how bad their pain is, using a 1-7 numeric scale. Note that while the person is presumably feeling more pain on a day when they report a 6 versus a day when they report a 3, it wouldn't make sense to say that their pain is twice as bad on the former versus the latter day; the ordering gives us information about relative magnitude, but the differences between values are not necessarily equal in magnitude.
 
@@ -507,7 +507,7 @@ In this Chapter we will discuss why and how to summarize data.
 
 When we summarize data, we are necessarily throwing away information, and one might plausibly object to this. As an example, let's go back to the PURE study that we discussed in Chapter 1. Are we not supposed to believe that all of the details about each individual matter, beyond those that are summarized in the dataset? What about the specific details of how the data were collected, such as the time of day or the mood of the participant? All of these details are lost when we summarize the data.
 
-One reason that we summarize data is that it provides us with a way to \emph{generalize} - that is, to make general statements that extend beyond specific observations. The importance of generalization was highlighted by the writer Jorge Luis Borges in his short story ``Funes the Memorious,'' which describes an individual who loses the ability to forget. Borges focuses in on the relation between generalization (i.e.~throwing away data) and thinking: ``To think is to forget a difference, to generalize, to abstract. In the overly replete world of Funes, there were nothing but details.''
+One reason that we summarize data is that it provides us with a way to \emph{generalize} - that is, to make general statements that extend beyond specific observations. The importance of generalization was highlighted by the writer Jorge Luis Borges in his short story ``Funes the Memorious'', which describes an individual who loses the ability to forget. Borges focuses in on the relation between generalization (i.e.~throwing away data) and thinking: ``To think is to forget a difference, to generalize, to abstract. In the overly replete world of Funes, there were nothing but details.''
 
 Psychologists have long studied all of the ways in which generalization is central to thinking. One example is categorization: We are able to easily recognize different examples of the category of ``birds'' even though the individual examples may be very different in their surface features (such as an ostrich, a robin, and a chicken). Importantly, generalization lets us make predictions about these individuals -- in the case of birds, we can predict that they can fly and eat seeds, and that they probably can't drive a car or speak English. These predictions won't always be right, but they are often good enough to be useful in the world.
 
@@ -544,14 +544,14 @@ NA & 1334\\
 \end{tabular}
 \end{table}
 
-Table \ref{tab:PhysActiveTable} shows the frequencies of each of the different values; there were 2473 individuals who responded ``No'' to the question, 2972 who responded ``Yes,'' and 1334 for whom no response was given. We call this a \emph{frequency distribution} because it tells us how frequent each of the possible values is within our sample.
+Table \ref{tab:PhysActiveTable} shows the frequencies of each of the different values; there were 2473 individuals who responded ``No'' to the question, 2972 who responded ``Yes'', and 1334 for whom no response was given. We call this a \emph{frequency distribution} because it tells us how frequent each of the possible values is within our sample.
 
-This shows us the absolute frequency of the two responses, for everyone who actually gave a response. We can see from this that there are more people saying ``Yes'' than ``No,'' but it can be hard to tell from absolute numbers how big the difference is in relative terms. For this reason, we often would rather present the data using \emph{relative frequency}, which is obtained by dividing each frequency by the sum of all frequencies:
+This shows us the absolute frequency of the two responses, for everyone who actually gave a response. We can see from this that there are more people saying ``Yes'' than ``No'', but it can be hard to tell from absolute numbers how big the difference is in relative terms. For this reason, we often would rather present the data using \emph{relative frequency}, which is obtained by dividing each frequency by the sum of all frequencies:
 
 \[
 relative\ frequency_i = \frac{absolute\ frequency_i}{\sum_{j=1}^N absolute\ frequency_j}
 \]
-The relative frequency provides a much easier way to see how big the imbalance is. We can also interpret the relative frequencies as percentages by multiplying them by 100. In this example, we will drop the NA values as well, since we would like to be able to interpret the relative frequencies of active versus inactive people. However, for this to make sense we have to assume that the NA values are missing ``at random,'' meaning that their presence or absence is not related to the true value of the variable for that person. For example, if inactive participants were more likely to refuse to answer the question than active participants, then that would \emph{bias} our estimate of the frequency of physical activity, meaning that our estimate would be different from the true value.
+The relative frequency provides a much easier way to see how big the imbalance is. We can also interpret the relative frequencies as percentages by multiplying them by 100. In this example, we will drop the NA values as well, since we would like to be able to interpret the relative frequencies of active versus inactive people. However, for this to make sense we have to assume that the NA values are missing ``at random'', meaning that their presence or absence is not related to the true value of the variable for that person. For example, if inactive participants were more likely to refuse to answer the question than active participants, then that would \emph{bias} our estimate of the frequency of physical activity, meaning that our estimate would be different from the true value.
 
 \begin{table}
 
@@ -568,7 +568,7 @@ Yes & 2972 & 0.55 & 55\\
 \end{tabular}
 \end{table}
 
-Table \ref{tab:PhysActiveTableFiltered} lets us see that 45.4 percent of the individuals in the NHANES sample said ``No'' and 54.6 percent said ``Yes.''
+Table \ref{tab:PhysActiveTableFiltered} lets us see that 45.4 percent of the individuals in the NHANES sample said ``No'' and 54.6 percent said ``Yes''.
 
 \hypertarget{cumulative-distributions}{%
 \subsection{Cumulative distributions}\label{cumulative-distributions}}
@@ -735,7 +735,7 @@ As we will see later when we discuss the central limit theorem, there is a deep 
 \hypertarget{skewness}{%
 \subsection{Skewness}\label{skewness}}
 
-The examples in Figure \ref{fig:NormalDistPlotsWithDist} followed the normal distribution fairly well, but in many cases the data will deviate in a systematic way from the normal distribution. One way in which the data can deviate is when they are asymmetric, such that one tail of the distribution is more dense than the other. We refer to this as ``skewness.'' Skewness commonly occurs when the measurement is constrained to be non-negative, such as when we are counting things or measuring elapsed times (and thus the variable can't take on negative values).
+The examples in Figure \ref{fig:NormalDistPlotsWithDist} followed the normal distribution fairly well, but in many cases the data will deviate in a systematic way from the normal distribution. One way in which the data can deviate is when they are asymmetric, such that one tail of the distribution is more dense than the other. We refer to this as ``skewness''. Skewness commonly occurs when the measurement is constrained to be non-negative, such as when we are counting things or measuring elapsed times (and thus the variable can't take on negative values).
 
 An example of relatively mild skewness can be seen in the average waiting times at the airport security lines at San Francisco International Airport, plotted in the left panel of Figure \ref{fig:SFOWaitTimes}. You can see that while most wait times are less than 20 minutes, there are a number of cases where they are much longer, over 60 minutes! This is an example of a ``right-skewed'' distribution, where the right tail is longer than the left; these are common when looking at counts or measured times, which can't be less than zero. It's less common to see ``left-skewed'' distributions, but they can occur, for example when looking at fractional values that can't take a value greater than one.
 
@@ -746,7 +746,7 @@ An example of relatively mild skewness can be seen in the average waiting times 
 \hypertarget{long-tailed-distributions}{%
 \subsection{Long-tailed distributions}\label{long-tailed-distributions}}
 
-Historically, statistics has focused heavily on data that are normally distributed, but there are many data types that look nothing like the normal distribution. In particular, many real-world distributions are ``long-tailed,'' meaning that the right tail extends far beyond the most typical members of the distribution; that is, they are extremely skewed. One of the most interesting types of data where long-tailed distributions occur arises from the analysis of social networks. For an example, let's look at the Facebook friend data from the \href{https://snap.stanford.edu/data/egonets-Facebook.html}{Stanford Large Network Database} and plot the histogram of number of friends across the 3,663 people in the database (see right panel of Figure \ref{fig:SFOWaitTimes}). As we can see, this distribution has a very long right tail -- the average person has 24.09 friends, while the person with the most friends (denoted by the blue dot) has 1043!
+Historically, statistics has focused heavily on data that are normally distributed, but there are many data types that look nothing like the normal distribution. In particular, many real-world distributions are ``long-tailed'', meaning that the right tail extends far beyond the most typical members of the distribution; that is, they are extremely skewed. One of the most interesting types of data where long-tailed distributions occur arises from the analysis of social networks. For an example, let's look at the Facebook friend data from the \href{https://snap.stanford.edu/data/egonets-Facebook.html}{Stanford Large Network Database} and plot the histogram of number of friends across the 3,663 people in the database (see right panel of Figure \ref{fig:SFOWaitTimes}). As we can see, this distribution has a very long right tail -- the average person has 24.09 friends, while the person with the most friends (denoted by the blue dot) has 1043!
 
 Long-tailed distributions are increasingly being recognized in the real world. In particular, many features of complex systems are characterized by these distributions, from the frequency of words in text, to the number of flights in and out of different airports, to the connectivity of brain networks. There are a number of different ways that long-tailed distributions can come about, but a common one occurs in cases of the so-called ``Matthew effect'' from the Christian Bible:
 
@@ -754,9 +754,9 @@ Long-tailed distributions are increasingly being recognized in the real world. I
 For to every one who has will more be given, and he will have abundance; but from him who has not, even what he has will be taken away. --- Matthew 25:29, Revised Standard Version
 \end{quote}
 
-This is often paraphrased as ``the rich get richer.'' In these situations, advantages compound, such that those with more friends have access to even more new friends, and those with more money have the ability to do things that increase their riches even more.
+This is often paraphrased as ``the rich get richer''. In these situations, advantages compound, such that those with more friends have access to even more new friends, and those with more money have the ability to do things that increase their riches even more.
 
-As the course progresses we will see several examples of long-tailed distributions, and we should keep in mind that many of the tools in statistics can fail when faced with long-tailed data. As Nassim Nicholas Taleb pointed out in his book ``The Black Swan,'' such long-tailed distributions played a critical role in the 2008 financial crisis, because many of the financial models used by traders assumed that financial systems would follow the normal distribution, which they clearly did not.
+As the course progresses we will see several examples of long-tailed distributions, and we should keep in mind that many of the tools in statistics can fail when faced with long-tailed data. As Nassim Nicholas Taleb pointed out in his book ``The Black Swan'', such long-tailed distributions played a critical role in the 2008 financial crisis, because many of the financial models used by traders assumed that financial systems would follow the normal distribution, which they clearly did not.
 
 \hypertarget{learning-objectives-2}{%
 \section{Learning objectives}\label{learning-objectives-2}}
@@ -914,7 +914,7 @@ It's often possible to use visualization to distort the message of a dataset. A 
 \includegraphics[height=0.5\textheight]{StatsThinking21_files/figure-latex/crimePlotAxes-1} \caption{Crime data from 1990 to 2014 plotted over time.  Panels A and B show the same data, but with different ranges of values along the Y axis. Data obtained from https://www.ucrdatatool.gov/Search/Crime/State/RunCrimeStatebyState.cfm}\label{fig:crimePlotAxes}
 \end{figure}
 
-One of the major controversies in statistical data visualization is how to choose the Y axis, and in particular whether it should always include zero. In his famous book ``How to lie with statistics,'' Darrell Huff argued strongly that one should always include the zero point in the Y axis. On the other hand, Edward Tufte has argued against this:
+One of the major controversies in statistical data visualization is how to choose the Y axis, and in particular whether it should always include zero. In his famous book ``How to lie with statistics'', Darrell Huff argued strongly that one should always include the zero point in the Y axis. On the other hand, Edward Tufte has argued against this:
 
 \begin{quote}
 ``In general, in a time-series, use a baseline that shows the data not the zero point; don't spend a lot of empty vertical space trying to reach down to the zero point at the cost of hiding what is going on in the data line itself.'' (from \url{https://qz.com/418083/its-ok-not-to-start-your-y-axis-at-zero/})
@@ -1128,11 +1128,11 @@ Our error is much smaller using this model -- only 8.36 centimeters on average. 
 \end{figure}
 
 \hypertarget{what-makes-a-model-good}{%
-\section{What makes a model ``good?''}\label{what-makes-a-model-good}}
+\section{What makes a model ``good''?}\label{what-makes-a-model-good}}
 
 There are generally two different things that we want from our statistical model. First, we want it to describe our data well; that is, we want it to have the lowest possible error when modeling our data. Second, we want it to generalize well to new datasets; that is, we want its error to be as low as possible when we apply it to a new dataset in order to make a prediction. It turns out that these two features can often be in conflict.
 
-To understand this, let's think about where error comes from. First, it can occur if our model is wrong; for example, if we inaccurately said that height goes down with age instead of going up, then our error will be higher than it would be for the correct model. Similarly, if there is an important factor that is missing from our model, that will also increase our error (as it did when we left age out of the model for height). However, error can also occur even when the model is correct, due to random variation in the data, which we often refer to as ``measurement error'' or ``noise.'' Sometimes this really is due to error in our measurement -- for example, when the measurements rely on a human, such as using a stopwatch to measure elapsed time in a footrace. In other cases, our measurement device is highly accurate (like a digital scale to measure body weight), but the thing being measured is affected by many different factors that cause it to be variable. If we knew all of these factors then we could build a more accurate model, but in reality that's rarely possible.
+To understand this, let's think about where error comes from. First, it can occur if our model is wrong; for example, if we inaccurately said that height goes down with age instead of going up, then our error will be higher than it would be for the correct model. Similarly, if there is an important factor that is missing from our model, that will also increase our error (as it did when we left age out of the model for height). However, error can also occur even when the model is correct, due to random variation in the data, which we often refer to as ``measurement error'' or ``noise''. Sometimes this really is due to error in our measurement -- for example, when the measurements rely on a human, such as using a stopwatch to measure elapsed time in a footrace. In other cases, our measurement device is highly accurate (like a digital scale to measure body weight), but the thing being measured is affected by many different factors that cause it to be variable. If we knew all of these factors then we could build a more accurate model, but in reality that's rarely possible.
 
 Let's use an example to show this. Rather than using real data, we will generate some data for the example using a computer simulation (about which we will have more to say in a few chapters). Let's say that we want to understand the relationship between a person's blood alcohol content (BAC) and their reaction time on a simulated driving test. We can generate some simulated data and plot the relationship (see Panel A of Figure \ref{fig:BACrt}).
 
@@ -1266,7 +1266,7 @@ Sometimes we wish to describe the central tendency of a dataset that is not nume
 \hypertarget{variability-how-well-does-the-mean-fit-the-data}{%
 \section{Variability: How well does the mean fit the data?}\label{variability-how-well-does-the-mean-fit-the-data}}
 
-Once we have described the central tendency of the data, we often also want to describe how variable the data are -- this is sometimes also referred to as ``dispersion,'' reflecting the fact that it describes how widely dispersed the data are.
+Once we have described the central tendency of the data, we often also want to describe how variable the data are -- this is sometimes also referred to as ``dispersion'', reflecting the fact that it describes how widely dispersed the data are.
 
 We have already encountered the sum of squared errors above, which is the basis for the most commonly used measures of variability: the \emph{variance} and the \emph{standard deviation}. The variance for a population (referred to as \(\sigma^2\)) is simply the sum of squared errors divided by the number of observations - that is, it is exactly the same as the \emph{mean squared error} that you encountered earlier:
 
@@ -1291,7 +1291,7 @@ So when we say that we have ``lost'' a degree of freedom, it means that there is
 
 I am a strong believer in the use of computer simulations to understand statistical concepts, and in later chapters we will dig more deeply into their use. Here we will introduce the idea by asking whether we can confirm the need to subtract 1 from the sample size in computing the sample variance.
 
-Let's treat the entire sample of children from the NHANES data as our ``population,'' and see how well the calculations of sample variance using either \(n\) or \(n-1\) in the denominator will estimate variance of this population, across a large number of simulated random samples from the data. We will return to the details of how to do this in a later chapter.
+Let's treat the entire sample of children from the NHANES data as our ``population'', and see how well the calculations of sample variance using either \(n\) or \(n-1\) in the denominator will estimate variance of this population, across a large number of simulated random samples from the data. We will return to the details of how to do this in a later chapter.
 
 \begin{table}
 
@@ -1543,7 +1543,7 @@ To understand de Méré's error, we need to introduce some of the rules of proba
 P(\neg A) = 1 - P(A)
 \]
 
-where \(\neg A\) means ``not A.'' This rule derives directly from the axioms that we discussed above; because A and \(\neg A\) are the only possible outcomes, then their total probability must sum to 1. For example, if the probability of rolling a one in a single throw is \(\frac{1}{6}\), then the probability of rolling anything other than a one is \(\frac{5}{6}\).
+where \(\neg A\) means ``not A''. This rule derives directly from the axioms that we discussed above; because A and \(\neg A\) are the only possible outcomes, then their total probability must sum to 1. For example, if the probability of rolling a one in a single throw is \(\frac{1}{6}\), then the probability of rolling anything other than a one is \(\frac{5}{6}\).
 
 A second rule tells us how to compute the probability of a conjoint event -- that is, the probability that both of two events will occur. We refer to this as an \emph{intersection}, which is signified by the \(\cap\) symbol; thus, \(P(A \cap B)\) means the probability that both A and B will occur. We will focus on a version of the rule that tells us how to compute this quantity in the special case when the two events are independent from one another; we will learn later exactly what the concept of \emph{independence} means, but for now we can just take it for granted that the two die throws are independent events. We compute the probability of the intersection of two independent events by simply multiplying the probabilities of the individual events:
 
@@ -1891,7 +1891,7 @@ This tells us that the odds of having cancer are increased by 2.62 times given t
 
 It might strike you that it is a bit odd to talk about the probability of a person having cancer depending on a test result; after all, the person either has cancer or they don't. Historically, there have been two different ways that probabilities have been interpreted. The first (known as the \emph{frequentist} interpretation) interprets probabilities in terms of long-run frequencies. For example, in the case of a coin flip, it would reflect the relative frequencies of heads in the long run after a large number of flips. While this interpretation might make sense for events that can be repeated many times like a coin flip, it makes less sense for events that will only happen once, like an individual person's life or a particular presidential election; and as the economist John Maynard Keynes famously said, ``In the long run, we are all dead.''
 
-The other interpretation of probablities (known as the \emph{Bayesian} interpretation) is as a degree of belief in a particular proposition. If I were to ask you ``How likely is it that the US will return to the moon by 2040,'' you can provide an answer to this question based on your knowledge and beliefs, even though there are no relevant frequencies to compute a frequentist probability. One way that we often frame subjective probabilities is in terms of one's willingness to accept a particular gamble. For example, if you think that the probability of the US landing on the moon by 2040 is 0.1 (i.e.~odds of 9 to 1), then that means that you should be willing to accept a gamble that would pay off with anything more than 9 to 1 odds if the event occurs.
+The other interpretation of probablities (known as the \emph{Bayesian} interpretation) is as a degree of belief in a particular proposition. If I were to ask you ``How likely is it that the US will return to the moon by 2040'', you can provide an answer to this question based on your knowledge and beliefs, even though there are no relevant frequencies to compute a frequentist probability. One way that we often frame subjective probabilities is in terms of one's willingness to accept a particular gamble. For example, if you think that the probability of the US landing on the moon by 2040 is 0.1 (i.e.~odds of 9 to 1), then that means that you should be willing to accept a gamble that would pay off with anything more than 9 to 1 odds if the event occurs.
 
 As we will see, these two different definitions of probability are very relevant to the two different ways that statisticians think about testing statistical hypotheses, which we will encounter in later chapters.
 
@@ -2102,7 +2102,7 @@ As an example, let's say that I want to figure out how much time to allow for an
 
 The term ``random'' is often used colloquially to refer to things that are bizarre or unexpected, but in statistics the term has a very specific meaning: A process is \emph{random} if it is unpredictable. For example, if I flip a fair coin 10 times, the value of the outcome on one flip does not provide me with any information that lets me predict the outcome on the next flip. It's important to note that the fact that something is unpredictable doesn't necessarily mean that it is not deterministic. For example, when we flip a coin, the outcome of the flip is determined by the laws of physics; if we knew all of the conditions in enough detail, we should be able to predict the outcome of the flip. However, many factors combine to make the outcome of the coin flip unpredictable in practice.
 
-Psychologists have shown that humans actually have a fairly bad sense of randomness. First, we tend to see patterns when they don't exist. In the extreme, this leads to the phenomenon of \emph{pareidolia}, in which people will perceive familiar objects within random patterns (such as perceiving a cloud as a human face or seeing the Virgin Mary in a piece of toast). Second, humans tend to think of random processes as self-correcting, which leads us to expect that we are ``due for a win'' after losing many rounds in a game of chance, a phenomenon known as the ``gambler's fallacy.''
+Psychologists have shown that humans actually have a fairly bad sense of randomness. First, we tend to see patterns when they don't exist. In the extreme, this leads to the phenomenon of \emph{pareidolia}, in which people will perceive familiar objects within random patterns (such as perceiving a cloud as a human face or seeing the Virgin Mary in a piece of toast). Second, humans tend to think of random processes as self-correcting, which leads us to expect that we are ``due for a win'' after losing many rounds in a game of chance, a phenomenon known as the ``gambler's fallacy''.
 
 \hypertarget{generating-random-numbers}{%
 \section{Generating random numbers}\label{generating-random-numbers}}
@@ -2204,7 +2204,7 @@ In this chapter we will introduce the ideas behind the use of statistics to make
 \hypertarget{null-hypothesis-statistical-testing-nhst}{%
 \section{Null Hypothesis Statistical Testing (NHST)}\label{null-hypothesis-statistical-testing-nhst}}
 
-The specific type of hypothesis testing that we will discuss is known (for reasons that will become clear) as \emph{null hypothesis statistical testing} (NHST). If you pick up almost any scientific or biomedical research publication, you will see NHST being used to test hypotheses, and in their introductory psychology textbook, Gerrig \& Zimbardo (2002) referred to NHST as the ``backbone of psychological research.'' Thus, learning how to use and interpret the results from hypothesis testing is essential to understand the results from many fields of research.
+The specific type of hypothesis testing that we will discuss is known (for reasons that will become clear) as \emph{null hypothesis statistical testing} (NHST). If you pick up almost any scientific or biomedical research publication, you will see NHST being used to test hypotheses, and in their introductory psychology textbook, Gerrig \& Zimbardo (2002) referred to NHST as the ``backbone of psychological research''. Thus, learning how to use and interpret the results from hypothesis testing is essential to understand the results from many fields of research.
 
 It is also important for you to know, however, that NHST is deeply flawed, and that many statisticians and researchers (including myself) think that it has been the cause of serious problems in science, which we will discuss in Chapter \ref{doing-reproducible-research}. For more than 50 years, there have been calls to abandon NHST in favor of other approaches (like those that we will discuss in the following chapters):
 
@@ -2227,7 +2227,7 @@ Before we get to the results, let's ask how you would think the statistical anal
 
 It turns out that this is \emph{not} how null hypothesis testing works. Instead, we first take our hypothesis of interest (i.e.~that body-worn cameras reduce use of force), and flip it on its head, creating a \emph{null hypothesis} -- in this case, the null hypothesis would be that cameras do not reduce use of force. Importantly, we then assume that the null hypothesis is true. We then look at the data, and determine how likely the data would be if the null hypothesis were true. If the the data are sufficiently unlikely under the null hypothesis that we can reject the null in favor of the \emph{alternative hypothesis} which is our hypothesis of interest. If there is not sufficient evidence to reject the null, then we say that we retain (or ``fail to reject'') the null, sticking with our initial assumption that the null is true.
 
-Understanding some of the concepts of NHST, particularly the notorious ``p-value,'' is invariably challenging the first time one encounters them, because they are so counter-intuitive. As we will see later, there are other approaches that provide a much more intuitive way to address hypothesis testing (but have their own complexities). However, before we get to those, it's important for you to have a deep understanding of how hypothesis testing works, because it's clearly not going to go away any time soon.
+Understanding some of the concepts of NHST, particularly the notorious ``p-value'', is invariably challenging the first time one encounters them, because they are so counter-intuitive. As we will see later, there are other approaches that provide a much more intuitive way to address hypothesis testing (but have their own complexities). However, before we get to those, it's important for you to have a deep understanding of how hypothesis testing works, because it's clearly not going to go away any time soon.
 
 \hypertarget{the-process-of-null-hypothesis-testing}{%
 \section{The process of null hypothesis testing}\label{the-process-of-null-hypothesis-testing}}
@@ -2314,7 +2314,7 @@ Yes & 119 & 27 & 5.2\\
 
 We next want to use the data to compute a statistic that will ultimately let us decide whether the null hypothesis is rejected or not. To do this, the model needs to quantify the amount of evidence in favor of the alternative hypothesis, relative to the variability in the data. Thus we can think of the test statistic as providing a measure of the size of the effect compared to the variability in the data. In general, this test statistic will have a probability distribution associated with it, because that allows us to determine how likely our observed value of the statistic is under the null hypothesis.
 
-For the BMI example, we need a test statistic that allows us to test for a difference between two means, since the hypotheses are stated in terms of mean BMI for each group. One statistic that is often used to compare two means is the \emph{t} statistic, first developed by the statistician William Sealy Gossett, who worked for the Guiness Brewery in Dublin and wrote under the pen name ``Student'' - hence, it is often called ``Student's \emph{t} statistic.'' The \emph{t} statistic is appropriate for comparing the means of two groups when the sample sizes are relatively small and the population standard deviation is unknown. The \emph{t} statistic for comparison of two independent groups is computed as:
+For the BMI example, we need a test statistic that allows us to test for a difference between two means, since the hypotheses are stated in terms of mean BMI for each group. One statistic that is often used to compare two means is the \emph{t} statistic, first developed by the statistician William Sealy Gossett, who worked for the Guiness Brewery in Dublin and wrote under the pen name ``Student'' - hence, it is often called ``Student's \emph{t} statistic''. The \emph{t} statistic is appropriate for comparing the means of two groups when the sample sizes are relatively small and the population standard deviation is unknown. The \emph{t} statistic for comparison of two independent groups is computed as:
 
 \[
 t = \frac{\bar{X_1} - \bar{X_2}}{\sqrt{\frac{S_1^2}{n_1} + \frac{S_2^2}{n_2}}}
@@ -2322,7 +2322,7 @@ t = \frac{\bar{X_1} - \bar{X_2}}{\sqrt{\frac{S_1^2}{n_1} + \frac{S_2^2}{n_2}}}
 
 where \(\bar{X}_1\) and \(\bar{X}_2\) are the means of the two groups, \(S^2_1\) and \(S^2_2\) are the estimated variances of the groups, and \(n_1\) and \(n_2\) are the sizes of the two groups. Because the variance of a difference between two independent variables is the sum of the variances of each individual variable (\(var(A - B) = var(A) + var(B)\)), we add the variances for each group divided by their sample sizes in order to compute the standard error of the difference. Thus, one can view the the \emph{t} statistic as a way of quantifying how large the difference between groups is in relation to the sampling variability of the difference between means.
 
-The \emph{t} statistic is distributed according to a probability distribution known as a \emph{t} distribution. The \emph{t} distribution looks quite similar to a normal distribution, but it differs depending on the number of degrees of freedom. When the degrees of freedom are large (say 1000), then the \emph{t} distribution looks essentially like the normal distribution, but when they are small then the \emph{t} distribution has longer tails than the normal (see Figure \ref{fig:tVersusNormal}). In the simplest case, where the groups are the same size and have equal variance, the degrees of freedom for the \emph{t} test is the number of observations minus 2, since we have computed two means and thus given up two degrees of freedom. In this case it's pretty clear from the box plot that the inactive group is more variable than then active group, and the numbers in each group differ, so we need to use a slightly more complex formula for the degrees of freedom, which is often referred to as a ``Welch t-test.'' The formula is:
+The \emph{t} statistic is distributed according to a probability distribution known as a \emph{t} distribution. The \emph{t} distribution looks quite similar to a normal distribution, but it differs depending on the number of degrees of freedom. When the degrees of freedom are large (say 1000), then the \emph{t} distribution looks essentially like the normal distribution, but when they are small then the \emph{t} distribution has longer tails than the normal (see Figure \ref{fig:tVersusNormal}). In the simplest case, where the groups are the same size and have equal variance, the degrees of freedom for the \emph{t} test is the number of observations minus 2, since we have computed two means and thus given up two degrees of freedom. In this case it's pretty clear from the box plot that the inactive group is more variable than then active group, and the numbers in each group differ, so we need to use a slightly more complex formula for the degrees of freedom, which is often referred to as a ``Welch t-test''. The formula is:
 
 \[
  \mathrm{d.f.} = \frac{\left(\frac{S_1^2}{n_1} + \frac{S_2^2}{n_2}\right)^2}{\frac{\left(S_1^2/n_1\right)^2}{n_1-1} + \frac{\left(S_2^2/n_2\right)^2}{n_2-1}}
@@ -2336,7 +2336,7 @@ This will be equal to \(n_1 + n_2 - 2\) when the variances and sample sizes are 
 \hypertarget{step-5-determine-the-probability-of-the-observed-result-under-the-null-hypothesis}{%
 \subsection{Step 5: Determine the probability of the observed result under the null hypothesis}\label{step-5-determine-the-probability-of-the-observed-result-under-the-null-hypothesis}}
 
-This is the step where NHST starts to violate our intuition. Rather than determining the likelihood that the null hypothesis is true given the data, we instead determine the likelihood under the null hypothesis of observing a statistic at least as extreme as one that we have observed --- because we started out by assuming that the null hypothesis is true! To do this, we need to know the expected probability distribution for the statistic under the null hypothesis, so that we can ask how likely the result would be under that distribution. Note that when I say ``how likely the result would be,'' what I really mean is ``how likely the observed result or one more extreme would be.'' There are (at least) two reasons that we need to add this caveat. The first is that when we are talking about continuous values, the probability of any particular value is zero (as you might remember if you've taken a calculus class). More importantly, we are trying to determine how weird our result would be if the null hypothesis were true, and any result that is more extreme will be even more weird, so we want to count all of those weirder possibilities when we compute the probability of our result under the null hypothesis.
+This is the step where NHST starts to violate our intuition. Rather than determining the likelihood that the null hypothesis is true given the data, we instead determine the likelihood under the null hypothesis of observing a statistic at least as extreme as one that we have observed --- because we started out by assuming that the null hypothesis is true! To do this, we need to know the expected probability distribution for the statistic under the null hypothesis, so that we can ask how likely the result would be under that distribution. Note that when I say ``how likely the result would be'', what I really mean is ``how likely the observed result or one more extreme would be''. There are (at least) two reasons that we need to add this caveat. The first is that when we are talking about continuous values, the probability of any particular value is zero (as you might remember if you've taken a calculus class). More importantly, we are trying to determine how weird our result would be if the null hypothesis were true, and any result that is more extreme will be even more weird, so we want to count all of those weirder possibilities when we compute the probability of our result under the null hypothesis.
 
 We can obtain this ``null distribution'' either using a theoretical distribution (like the \emph{t} distribution), or using randomization. Before we move to our BMI example, let's start with some simpler examples.
 
@@ -2706,7 +2706,7 @@ Things get trickier if we want to compare the means of two conditions (\protect\
 
 In the previous chapter, we discussed the idea that statistical significance may not necessarily reflect practical significance. In order to discuss practical significance, we need a standard way to describe the size of an effect in terms of the actual data, which we refer to as an \emph{effect size}. In this section we will introduce the concept and discuss various ways that effect sizes can be calculated.
 
-An effect size is a standardized measurement that compares the size of some statistical effect to a reference quantity, such as the variability of the statistic. In some fields of science and engineering, this idea is referred to as a ``signal to noise ratio.'' There are many different ways that the effect size can be quantified, which depend on the nature of the data.
+An effect size is a standardized measurement that compares the size of some statistical effect to a reference quantity, such as the variability of the statistic. In some fields of science and engineering, this idea is referred to as a ``signal to noise ratio''. There are many different ways that the effect size can be quantified, which depend on the nature of the data.
 
 \hypertarget{cohens-d}{%
 \subsection{Cohen's D}\label{cohens-d}}
@@ -2795,7 +2795,7 @@ We can convert these numbers to odds ratios for each of the groups. The odds of 
 \hypertarget{statistical-power}{%
 \section{Statistical power}\label{statistical-power}}
 
-Remember from the previous chapter that under the Neyman-Pearson hypothesis testing approach, we have to specify our level of tolerance for two kinds of errors: False positives (which they called \emph{Type I error}) and false negatives (which they called \emph{Type II error}). People often focus heavily on Type I error, because making a false positive claim is generally viewed as a very bad thing; for example, the now discredited claims by \protect\hyperlink{ref-wake:1999}{Wakefield} (\protect\hyperlink{ref-wake:1999}{1999}) that autism was associated with vaccination led to anti-vaccine sentiment that has resulted in substantial increases in childhood diseases such as measles. Similarly, we don't want to claim that a drug cures a disease if it really doesn't. That's why the tolerance for Type I errors is generally set fairly low, usually at \(\alpha = 0.05\). But what about Type II errors?
+Remember from the previous chapter that under the Neyman-Pearson hypothesis testing approach, we have to specify our level of tolerance for two kinds of errors: False positives (which they called \emph{Type I error}) and false negatives (which they called \emph{Type II error}). People often focus heavily on Type I error, because making a false positive claim is generally viewed as a very bad thing; for example, the now discredited claims by Wakefield (\protect\hyperlink{ref-wake:1999}{1999}) that autism was associated with vaccination led to anti-vaccine sentiment that has resulted in substantial increases in childhood diseases such as measles. Similarly, we don't want to claim that a drug cures a disease if it really doesn't. That's why the tolerance for Type I errors is generally set fairly low, usually at \(\alpha = 0.05\). But what about Type II errors?
 
 The concept of \emph{statistical power} is the complement of Type II error -- that is, it is the likelihood of finding a positive result given that it exists:
 
@@ -3122,7 +3122,7 @@ This test tells us that there is a significant difference between the groups, bu
 ## Bayes factor analysis
 ## --------------
 ## [1] Alt., r=0.707 0<d<Inf    : 3.4  ±0%
-## [2] Alt., r=0.707 !(0<d<Inf) : 0.12 ±0%
+## [2] Alt., r=0.707 !(0<d<Inf) : 0.12 ±0.01%
 ## 
 ## Against denominator:
 ##   Null, mu1-mu2 = 0 
@@ -3140,7 +3140,7 @@ We generally are less interested in testing against the null hypothesis of a spe
 \begin{verbatim}
 ## Bayes factor analysis
 ## --------------
-## [1] Alt., r=0.707 0<d<Inf : 29 ±0%
+## [1] Alt., r=0.707 0<d<Inf : 29 ±0.01%
 ## 
 ## Against denominator:
 ##   Alternative, r = 0.707106781186548, mu =/= 0 !(0<d<Inf) 
@@ -3401,7 +3401,7 @@ This shows that the evidence in favor of a relationship between driver race and 
 
 Categorical analysis can also be applied to contingency tables where there are more than two categories for each variable.
 
-For example, let's look at the NHANES data and compare the variable \emph{Depressed} which denotes the ``self-reported number of days where the participant felt down, depressed or hopeless.'' This variable is coded as \texttt{None}, \texttt{Several}, or \texttt{Most}. Let's test whether this variable is related to the \emph{SleepTrouble} variable which denotes whether the individual has reported sleeping problems to a doctor.
+For example, let's look at the NHANES data and compare the variable \emph{Depressed} which denotes the ``self-reported number of days where the participant felt down, depressed or hopeless''. This variable is coded as \texttt{None}, \texttt{Several}, or \texttt{Most}. Let's test whether this variable is related to the \emph{SleepTrouble} variable which denotes whether the individual has reported sleeping problems to a doctor.
 
 \begin{table}
 
@@ -3450,9 +3450,32 @@ Here we see that the Bayes factor is very large (\(1.8 * 10^{35}\)), showing tha
 
 The contingency tables presented above represent summaries of large numbers of observations, but summaries can sometimes be misleading. Let's take an example from baseball. The table below shows the batting data (hits/at bats and batting average) for Derek Jeter and David Justice over the years 1995-1997:
 
-\begin{longtable}[]{@{}lllllllll@{}}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1286}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1286}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0857}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1286}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0857}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1286}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0857}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0857}}@{}}
 \toprule
-Player & 1995 & & 1996 & & 1997 & & Combined & \\
+\begin{minipage}[b]{\linewidth}\raggedright
+Player
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+1995
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+1996
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+1997
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Combined
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} \\
 \midrule
 \endhead
 Derek Jeter & 12/48 & .250 & 183/582 & .314 & 190/654 & .291 & 385/1284 & \textbf{.300} \\
@@ -3495,7 +3518,7 @@ Most people are familiar with the concept of \emph{correlation}, and in this cha
 In 2017, the web site Fivethirtyeight.com published a story titled \href{https://fivethirtyeight.com/features/higher-rates-of-hate-crimes-are-tied-to-income-inequality/}{\emph{Higher Rates Of Hate Crimes Are Tied To Income Inequality}} which discussed the relationship between the prevalence of hate crimes and income inequality in the wake of the 2016 Presidential election. The story reported an analysis of hate crime data from the FBI and the Southern Poverty Law Center, on the basis of which they report:
 
 \begin{quote}
-``we found that income inequality was the most significant determinant of population-adjusted hate crimes and hate incidents across the United States.''
+``we found that income inequality was the most significant determinant of population-adjusted hate crimes and hate incidents across the United States''.
 \end{quote}
 
 The data for this analysis are available as part the \texttt{fivethirtyeight} package for the R statistical software, which makes it easy for us to access them. The analysis reported in the story focused on the relationship between income inequality (defined by a quantity called the \emph{Gini index} --- see Appendix for more details) and the prevalence of hate crimes in each state.
@@ -3714,7 +3737,7 @@ We can also analyze the FiveThirtyEight data using Bayesian analysis, which has 
 ## 
 ## Parameter | Median |       95% CI |     pd |          ROPE | % in ROPE |    BF |         Prior
 ## ----------------------------------------------------------------------------------------------
-## rho       |   0.38 | [0.16, 0.60] | 99.88% | [-0.05, 0.05] |        0% | 20.85 | Beta (3 +- 3)
+## rho       |   0.38 | [0.13, 0.58] | 99.88% | [-0.05, 0.05] |        0% | 20.85 | Beta (3 +- 3)
 \end{verbatim}
 
 Notice that the correlation estimated using the Bayesian method (0.38) is slightly smaller than the one estimated using the standard correlation coefficient (0.42), which is due to the fact that the estimate is based on a combination of the evidence and the prior, which effectively shrinks the estimate toward zero. However, notice that the Bayesian analysis is not robust to the outlier, and it still says that there is fairly strong evidence that the correlation is greater than zero (with a Bayes factor of more than 20).
@@ -3929,6 +3952,8 @@ In the case of our study time example, \(R^2\) = 0.4, which means that we have a
 
 More generally we can think of \(R^2\) as a measure of the fraction of variance in the data that is accounted for by the model, which can be computed by breaking the variance into multiple components:
 
+\textbf{THIS IS CONFUSING, CHANGE TO RESIDUAL RATHER THAN ERROR}
+
 \[
 SS_{total} = SS_{model} + SS_{error}
 \]
@@ -4087,7 +4112,7 @@ It is important to note that despite the fact that it is called the general \emp
 
 The saying ``garbage in, garbage out'' is as true of statistics as anywhere else. In the case of statistical models, we have to make sure that our model is properly specified and that our data are appropriate for the model.
 
-When we say that the model is ``properly specified,'' we mean that we have included the appropriate set of independent variables in the model. We have already seen examples of misspecified models, in Figure \ref{fig:childHeightLine}. Remember that we saw several cases where the model failed to properly account for the data, such as failing to include an intercept. When building a model, we need to ensure that it includes all of the appropriate variables.
+When we say that the model is ``properly specified'', we mean that we have included the appropriate set of independent variables in the model. We have already seen examples of misspecified models, in Figure \ref{fig:childHeightLine}. Remember that we saw several cases where the model failed to properly account for the data, such as failing to include an intercept. When building a model, we need to ensure that it includes all of the appropriate variables.
 
 We also need to worry about whether our model satisfies the assumptions of our statistical methods. One of the most important assumptions that we make when using the general linear model is that the residuals (that is, the difference between the model's predictions and the actual data) are normally distributed. This can fail for many reasons, either because the model was not properly specified or because the data that we are modeling are inappropriate.
 
@@ -4121,7 +4146,7 @@ Model diagnostics will be explored in more detail in a later chapter.
 \hypertarget{what-does-predict-really-mean}{%
 \section{What does ``predict'' really mean?}\label{what-does-predict-really-mean}}
 
-When we talk about ``prediction'' in daily life, we are generally referring to the ability to estimate the value of some variable in advance of seeing the data. However, the term is often used in the context of linear regression to refer to the fitting of a model to the data; the estimated values (\(\hat{y}\)) are sometimes referred to as ``predictions'' and the independent variables are referred to as ``predictors.'' This has an unfortunate connotation, as it implies that our model should also be able to predict the values of new data points in the future. In reality, the fit of a model to the dataset used to obtain the parameters will nearly always be better than the fit of the model to a new dataset (\protect\hyperlink{ref-copa:1983}{Copas 1983}).
+When we talk about ``prediction'' in daily life, we are generally referring to the ability to estimate the value of some variable in advance of seeing the data. However, the term is often used in the context of linear regression to refer to the fitting of a model to the data; the estimated values (\(\hat{y}\)) are sometimes referred to as ``predictions'' and the independent variables are referred to as ``predictors''. This has an unfortunate connotation, as it implies that our model should also be able to predict the values of new data points in the future. In reality, the fit of a model to the dataset used to obtain the parameters will nearly always be better than the fit of the model to a new dataset (\protect\hyperlink{ref-copa:1983}{Copas 1983}).
 
 As an example, let's take a sample of 48 children from NHANES and fit a regression model for weight that includes several regressors (age, height, hours spent watching TV and using the computer, and household income) along with their interactions.
 
@@ -4470,7 +4495,7 @@ As we discussed in the chapter on Bayesian analysis, Bayes factors provide a way
 \begin{verbatim}
 ## Bayes factor analysis
 ## --------------
-## [1] Alt., r=0.707 0<d<Inf    : 0.041 ±0.03%
+## [1] Alt., r=0.707 0<d<Inf    : 0.041 ±0%
 ## [2] Alt., r=0.707 !(0<d<Inf) : 61    ±0%
 ## 
 ## Against denominator:
@@ -4546,12 +4571,12 @@ A more common strategy is to use a \emph{paired t-test}, which is equivalent to 
 ## 
 ## data:  BPsys by timepoint
 ## t = 3, df = 199, p-value = 0.007
-## alternative hypothesis: true difference in means is not equal to 0
+## alternative hypothesis: true mean difference is not equal to 0
 ## 95 percent confidence interval:
 ##  0.29 1.75
 ## sample estimates:
-## mean of the differences 
-##                       1
+## mean difference 
+##               1
 \end{verbatim}
 
 With this analyses we see that there is in fact a significant difference between the two measurements. Let's compute the Bayes factor to see how much evidence is provided by the result:
@@ -4559,7 +4584,7 @@ With this analyses we see that there is in fact a significant difference between
 \begin{verbatim}
 ## Bayes factor analysis
 ## --------------
-## [1] Alt., r=0.707 : 3 ±0%
+## [1] Alt., r=0.707 : 3 ±0.01%
 ## 
 ## Against denominator:
 ##   Null, mu = 0 
@@ -4695,6 +4720,347 @@ We can also define the paired t-test in terms of a general linear model. To do t
 \end{verbatim}
 
 You can see that this shows us a p-value that is very close to the result from the paired t-test computed using the \texttt{t.test()} function.
+
+\hypertarget{multivariate}{%
+\chapter{Multivariate statistics}\label{multivariate}}
+
+The term \emph{multivariate} refers to analyses that involve more than one random variable. Whereas we have seen previous examples where the model included multiple variables (as in linear regression), in those cases we were specifically interested in how the variation in a \emph{dependent variable} could be explained in terms of one or more \emph{independent variables} that are usually specified by the experimenter rather than measured. In a multivariate analysis we generally treat all of the variables as equals, and seek to understand how they relate to one another as a group.
+
+There are many different kinds of multivariate analysis, but we will focus on two major approaches in this chapter. First, we may simply want to understand and visualize the structure that exists in the data, by which we usually mean which variables or observations are related to which other. We would usually define ``related'' in terms of some measure that indexes the distance between the values across variables. One important method that fits under this category is known as \emph{clustering}, which aims to find clusters of variables or observations that are similar across variables.
+
+Second, we may want to take a large number of variables and reduce them to a smaller number of variables in a way that retains as much information as possible. This is referred to as \emph{dimensionality reduction}, where ``dimensionality'' refers to the number of variables in the dataset. We will discuss two techniques commonly used for dimensionality reduction, known as \emph{principal component analysis} and \emph{factor analysis}.
+
+Clustering and dimensionality reduction are often classified as forms of \emph{unsupervised learning}; this is in contrast to \emph{supervised learning} which characterizes models such as linear regression that you've learned about so far. The reason that we consider linear regression to be ``supervised'' is that we know the value of thing that we are trying to predict (i.e.~the dependent variable) and we are trying to find the model that best predicts those values. In unspervised learning, we don't have a specific value that we are trying to predict; instead, we are trying to discover structure in the data that might be useful for understanding what's going on, which generally requires some assumptions about what kind of structure we want to find.
+
+One thing that you will discover in this chapter is that whereas there is generally a ``right'' answer in supervised learning (once we have agreed upon how to determine the ``best'' model, such as the sum of squared errors), there is often not an agreed-upon ``right'' answer in unsupervised learning. Different unsupervised learning methods can give very different answers about the same data, and there is usually no way in principle to determine which of these is ``correct'', as it depends on the goals of the analysis and the assumptions that one is willing to make about the mechanisms that give rise to the data. Some people find this frustrating, while others find it exhilarating; it will be up to you to figure out which of these camps you fall into.
+
+\hypertarget{multivariate-data-an-example}{%
+\section{Multivariate data: An example}\label{multivariate-data-an-example}}
+
+As an example of multivariate analysis, we will look at a dataset collected by my group and published by Eisenberg et al. (\protect\hyperlink{ref-Eisenberg:2019um}{\textbf{Eisenberg:2019um?}}). This dataset is useful both because it has a large number of interesting variables collected on a relatively large number of individuals, and because it is freely available online, so that you can explore it on your own.
+
+This study was performed because we were interested in understanding how several different aspects of psychological function are related to one another, focusing particularly on psychological measures of self-control and related concepts. Participants performed a ten-hour long battery of cognitive tests and surveys over the course of a week; in this first example we will focus on variables related to two specific aspects of self-control. \emph{Response inhibition} is defined as the ability to quickly stop an action, and in this study was measured using a set of tasks known as \emph{stop-signal tasks}. The variable of interest for these tasks is an estimate of how long it takes a person to stop themself, known as the \emph{stop-signal reaction time} (\emph{SSRT}), of which there are four different measures in the dataset. \emph{Impulsivity} is defined as the tendency to make decisions on impulse, without regard to potential consequences and longer-term goals. The study included a number of different surveys measuring impulsivity, but we will focus on the \emph{UPPS-P} survey, which assesses five different facets of impulsivity.
+
+After these scores have been computed for each of the 522 participants in Eisenberg's study, we end up with 9 numbers for each individual. While multivariate data can sometimes have thousands or even millions of variables, it's useful to see how the methods work with a small number of variables first.
+
+\hypertarget{visualizing-multivariate-data}{%
+\section{Visualizing multivariate data}\label{visualizing-multivariate-data}}
+
+A fundamental challenge of multivariate data is that the human eye and brain are simply not equipped to visualize data with more than three dimensions. There are various tools that we can use to try to visualize multivariate data, but all of them break down as the number of variables grows. Once the number of variables becomes too large to directly visualize, one approach is to first reduce the number of dimensions (as discussed further below), and then visualize that reduced dataset.
+
+\hypertarget{scatterplot-of-matrices}{%
+\subsection{Scatterplot of matrices}\label{scatterplot-of-matrices}}
+
+One useful way to visualize a small number of variables is to plot each pair of variables against one another, sometimes known as a ``scatterplot of matrices''; An example is shown in Figure \ref{fig:pairpanel}. Each row/column in the panel refers to a single variable -- in this case one of our psychological variables from the earlier example. The diagonal elements on the plot show the distribution of each variable as a histogram. The elements below the diagonal show a scatterplot for each pair of matrices, overlaid with a regression line describing the relationship between the variables. The elements above the diagonal show the correlation coefficient for each pair of variables. When the number of variables is relatively small (about 10 or less) this can be a useful way to get good insight into a multivariate dataset.
+
+\begin{figure}
+\centering
+\includegraphics{StatsThinking21_files/figure-latex/pairpanel-1.pdf}
+\caption{\label{fig:pairpanel}Scatterplot of matrices for the nine variables in the self-control dataset. The diagonal elements in the matrix show the histogram for each of the individual variables. The lower left panels show scatterplots of the relationship between each pair of variables, and the upper right panel shows the correlation coefficient for each pair of variables.}
+\end{figure}
+
+\hypertarget{heatmap}{%
+\subsection{Heatmap}\label{heatmap}}
+
+In some cases we wish to visualize the relationships between a large number of variables at once, usually focusing on the correlation coefficient. A useful way to do this can be to plot the correlation values as a \emph{heatmap}, in which the color of the map relates to the value of the correlation. Figure \ref{fig:hmap} shows an example with a relatively small number of variables, using our psychological example from above. In this case, the heatmap helps the structure of the data ``pop out'' at us; we see that there are strong intercorrelations within the SSRT variables and within the UPPS variables, with relatively little correlation between the two sets of variables.
+
+\begin{figure}
+\centering
+\includegraphics{StatsThinking21_files/figure-latex/hmap-1.pdf}
+\caption{\label{fig:hmap}Heatmap of the correlation matrix for the nine self-control variables. The brighter yellow areas in the top left and bottom right highlight the higher correlations within the two subsets of variables.}
+\end{figure}
+
+Heatmaps become particularly useful for visualizing correlations between large numbers of variables. We can use brain imaging data as an example. It is common for neuroscience researchers to collect data about brain function from a large number of locations in the brain using functional magnetic resonance imaging (fMRI), and then to assess the correlation between those locations, to measure ``function connectivity'' between the regions. For example, Figure \ref{fig:parcelheatmap} shows a heatmap for a large correlation matrix, based on activity in over 300 regions in the brain of a single individual (yours truly). The presence of clear structure in the data pops out simply by looking at the heatmap. In particular we see that there are large sets of brain regions whose activity is highly correlated with each other (visible in the large yellow blocks along the diagonal of the correlation matrix), whereas these blocks are also strongly negatively correlated with other blocks (visible in the large blue blocks seen off the diagonal). Heatmaps are a powerful tool for easily visualizing large data matrices.
+
+\begin{figure}
+\centering
+\includegraphics{StatsThinking21_files/figure-latex/parcelheatmap-1.pdf}
+\caption{\label{fig:parcelheatmap}A heatmap showing the correlation coefficient of brain activity between 316 regions in the left hemisphere of a single individiual. Cells in yellow reflect strong positive correlation, whereas cells in blue reflect strong negative correlation. The large blocks of positive correlation along the diagonal of the matrix correspond to the major connected networks in the brain}
+\end{figure}
+
+\hypertarget{clustering}{%
+\section{Clustering}\label{clustering}}
+
+Clustering refers to a set of methods for identifying groups of related observations or variables within a dataset, based on the similarity of the values of the observations. Usually this similarity will be quantified in terms of some measure of the \emph{distance} between multivariate values. The clustering method then finds the set of groups that have the lowest distance between their members.
+
+One commonly used measure of distance for clustering is the \emph{Euclidean distance}, which is basically the length of the line that connects two data points. Figure \ref{fig:eucdist} shows an example of a dataset with two data points and two dimensions (X and Y). The Euclidean distance between these two points is the length of the dotted line that connects the points in space.
+
+\begin{figure}
+\centering
+\includegraphics{StatsThinking21_files/figure-latex/eucdist-1.pdf}
+\caption{\label{fig:eucdist}A depiction of the Euclidean distance between two points, (1,2) and (4,3). The two points differ by 3 along the X axis and by 1 along the Y axis.}
+\end{figure}
+
+The Euclidean distance is computed by squaring the differences in the locations of the points in each dimension, adding these squared differences, and then taking the square root. When there are two dimensions \(x\) and \(y\), this would be computed as:
+
+\[
+d(x, y) = \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}
+\]
+
+Plugging in the values from our example data:
+
+\[
+d(x, y) = \sqrt{(1 - 4)^2 + (2 - 3)^2} = 3.16
+\]
+
+If the formula for Euclidean distance seems slightly familiar, this is because it is identical to the \emph{Pythagorean theorem} that most of us learned in geometry class, which computes the length of the hypotenuse of a right triangle based on the lengths of the two sides. In this case, the length of the sides of the triangle correspond to the distance between the points along each of the two dimensions. While this example was in two dimensions, we will often work with data that have many more than two dimensions, but the same idea extends to arbitrary numbers of dimensions.
+
+One important feature of the Euclidean distance is that it is sensitive to the overall mean and variability of the data. In this sense it is unlike the correlation coefficient, which measures the linear relationship between variables in a way that is insensitive to the overall mean or variability. For this reason, it is common to \emph{scale} the data prior to computing the Euclidean distance, which is equivalent to converting each variable into its Z-scored version.
+
+\hypertarget{k-means-clustering}{%
+\subsection{K-means clustering}\label{k-means-clustering}}
+
+One commonly used method for clustering data is \emph{K-means clustering}. This technique identifies a set of cluster centers, and then assigns each data point to the cluster whose center is the closest (that is, has the lowest Euclidean distance) from the data point. As an example, let's take the latitude and longitude of a number of countries around the world as our data points, and see whether K-means clustering can effectively identify the continents of the world.
+
+Most statistical software packages have a built-in function for performing K-means clustering using a single command, but it's useful to understand how it works step by step. We must first decide on a specific value for \emph{K}, the number of clusters to be found in the data. It's important to point out that there is no unique ``correct'' value for the number of clusters; there are various techniques that one can use to try to determine which solution is ``best'' but they can often give different answers, as they incorporate different assumptions or tradeoffs. Nonetheless, clustering techniques such as K-means are an important tool for understanding the structure of data, especially as they become high-dimensional.
+
+Having selected the number of clusters (\emph{K}) that we wish to find, we must come up with K locations that will be our starting guesses for the centers of our clusters (since we don't initially know where the centers are). One simple way to start is to choose K of the actual data points at random and use those as our starting points, which are referred to as \emph{centroids}. We then compute the Euclidean distance of each data point to each of the centroids, and assign each point to a cluster based on its closest centroid. Using these new cluster assignments, we recompute the centroid of each cluster by averaging the location of all of the points assigned to that cluster. This process is then repeated until a stable solution is found; we refer to this as an \emph{iterative} processes, because it iterates until the answer doesn't change, or until some other kind of limit is reached, such as a maximum number of possible iterations.
+
+\begin{figure}
+\centering
+\includegraphics{StatsThinking21_files/figure-latex/kmeans-1.pdf}
+\caption{\label{fig:kmeans}A two-dimensional depiction of clustering on the latitude and longitude of countries across the world. The square black symbols show the starting centroids for each cluster, and the lines show the movement of the centroid for that cluster across the iterations of the algorithm.}
+\end{figure}
+
+Applying K-means clustering to the latitude/longitude data (Figure \ref{fig:kmeans}), we see that there is a reasonable match between the resulting clusters and the continents, though none of the continents is perfectly matched to any of the clusters. We can further examine this by plotting a table that compares the membership of each cluster to the actual continents for each country; this kind of table is often called a \emph{confusion matrix}.
+
+\begin{verbatim}
+##       
+## labels AF AS EU NA OC SA
+##      1  5  1 36  0  0  0
+##      2  3 24  0  0  0  0
+##      3  0  0  0  0  0  7
+##      4  0  0  0 15  0  4
+##      5  0 10  0  0  6  0
+##      6 35  0  0  0  0  0
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Cluster 1 contains all European countries, as well as countries from northern Africa and Asia.
+\item
+  Cluster 2 contains contains Asian countries as well as several African countries.
+\item
+  Cluster 3 contains countries from the southern part of South America.
+\item
+  Cluster 4 contains all of the North American countries as well as northern South American countries.
+\item
+  Cluster 5 contains Oceania as well as several Asian countries
+\item
+  Cluster 6 contains all of the remaining African countries.
+\end{itemize}
+
+Although in this example we know the actual clusters (that is, the continents of the world), in general we don't actually know the ground truth for unsupervised learning problems, so we simply have to trust that the clustering method has found useful structure in the data. However, one important point about K-means clustering, and iterative procedures in general, is that they are not guaranteed to give the same answer each time they are run. The use of random numbers to determine the starting points means that the starting points can differ each time, and depending on the data this can sometimes lead to different solutions being found. For this example, K-means clustering will sometimes find a single cluster encompassing both North and South America, and sometimes find two clusters (as it did for the specific choice of random seed used here). Whenever using a method that involves an iterative solution, it is important to rerun the method a number of times using different random seeds, to make sure that the answers don't diverge too greatly between runs. If they do, then one should avoid making strong conclusions based on the unstable results. In fact, it's probably a good idea to avoid strong conclusions on the basis of clustering results more generally; they are primarily useful for getting intuition about the structure that might be present in a dataset.
+
+We can apply K-means clustering to the self-control variables in order to determine which variables are most closely related to one another. For K=2, the K-means algorithm consistently picks out one cluster containing the SSRT variables and one containing the impulsivity variables. With higher values of K, the results are less consistent; for example, with K=3 the algorithm sometimes identifies a third cluster containing only the UPPS sensation seeking variable, whereas in other cases it splits the SSRT variables into two separate clusters (as seen in Figure @ref(fig:kmeans\_sro)). The stability of the clusters with K=2 suggests that this is probably the most robust clustering for these data, but these results also highlight the importance of running the algorithm multiple times to determine whether any particular clustering result is stable.
+
+\begin{figure}
+\centering
+\includegraphics{StatsThinking21_files/figure-latex/kmeans_sro-1.pdf}
+\caption{(\#fig:kmeans\_sro)A visualization of the clustering results from 10 runs of the K-means clustering algorithm with K=3. Each row in the figure represents a different run of the clustering algorithm (with different random starting points), and variables sharing the same color are members of the same cluster.}
+\end{figure}
+
+\hypertarget{hierarchical-clustering}{%
+\subsection{Hierarchical clustering}\label{hierarchical-clustering}}
+
+Another useful method for examining the structure of a multivariate dataset is known as \emph{hierarchical clustering}. This technique also uses the distances between data points to determine clusters, but it also provides a way to visualize the relationships between data points in terms of a tree-like structure known as a \emph{dendrogram}.
+
+The most commonly used hierarchical clustering procedure is known as \emph{agglomerative clustering}. This procedure starts by treating each data point as its own cluster, and then progressively creates new clusters by combining the two clusters with the least distance between them. It continues to do this until there is only a single cluster. This requires computing the distance between clusters, and there are numerous ways to do this; in this example we will use the \emph{average linkage} method, which simply takes the average of all of the distances between each each data point in each of two clusters. As an example, we will examine the relationship between the self-control variables that were described above.
+
+\begin{figure}
+\centering
+\includegraphics{StatsThinking21_files/figure-latex/dendro-1.pdf}
+\caption{\label{fig:dendro}A dendrogram depicting the relative similarity of the nine self-control variables. The three colored vertical lines represent three different cutoffs, resulting in either two (blue line), three (green line), or four (red line) clusters.}
+\end{figure}
+
+Figure \ref{fig:dendro} shows the dendrogram generated from the self-regulation dataset. Here we see that there is structure in the relationships between variables that can be understood at various levels by ``cutting'' the tree to create different numbers of clusters: if we cut the tree at 25, we get two clusters; if we cut it at 20 we get three clusters, and at 19 we get four clusters.
+
+Interestingly, the solution found by the hierarchical clustering analysis of the self-control data is identical to the solution found in the majority of the K-means clustering runs, which is comforting.
+
+Our interpretation of this analysis would be that there is a high degree of similarity within each of the variable sets (SSRT and UPPS) compared to between the sets. Within the UPPS variables, it seems that the sensation seeking variable stands separately from the others, which are much more similar to one another. Within the SSRT variables, it seems that the stimulus selective SSRT variable is distinct from the other three, which are more similar. These are the kinds of conclusions that can be drawn from a clustering analysis. It is again important to point out that there is no single ``right'' number of clusters; different methods rely upon different assumptions or heuristics, and can give different results and interpretations. In general, it's good to present the data clustered at several different levels, and make sure that this doesn't drastically change the interpretation of the data.
+
+\hypertarget{dimensionality-reduction}{%
+\section{Dimensionality reduction}\label{dimensionality-reduction}}
+
+It is often the case with multivariate data that many of the variables will be highly similar to one another, such that they are largely measuring the same thing. One way to think of this is that while the data have a particular number of variables, which we call its \emph{dimensionality}, in reality there are not as many underlying sources of information as there are variables. The idea behind \emph{dimensionality reduction} is to reduce the number of variables in order to create composite variables that reflect underlying signals in the data.
+
+\hypertarget{principal-component-analysis}{%
+\subsection{Principal component analysis}\label{principal-component-analysis}}
+
+The idea behind principal component analysis is to find a lower-dimensional description of a set of variables that accounts for the maximum possible amount of information in the full dataset. A deep understanding of principal component analysis requires an understanding of linear algebra, which is beyond the scope of this book; see the resources at the end of this chapter for helpful guides to this topic. In this section I will outline the concept and hopefully whet your appetite to learn more.
+
+We will start with a simple example with just two variables in order to give an intuition for how it works. First we generate some synthetic data for variables X and Y, with a correlation of 0.7 between the two variables. The goal of principal component analysis is to find a linear combination of the observed variables in the dataset that will explain the maximum amount of variance; the idea here is that the variance in the data is a combination of signal and noise, and we want to find the strongest common signal between the variables. The first principal component is the combination that explains the maximum variance. The second component is the the one that explains the maximum remaining variance, while also being uncorrelated with the first component. With more variables we can continue this process to obtain as many components as there are variables (assuming that there are more observations than there are variables), though in practice we usually hope to find a small number of components that can explain a large portion of the variance.
+
+In the case of our two-dimensional example, we can compute the principal components and plot them over the data (Figure @ref(fig:pca\_plot)). What we see is that the first principal component (shown in green) follows the direction of the greatest variance. This line is similar, though not identical, to the linear regression line; while the linear regression solution minimizes the distance between each data point and the regression line at the same X value (i.e.~the vertical distance), the principal component minimizes the Euclidean distance between the data points and the line representing the component (i.e.~the distance perpendicular to the component). The second component points in a direction that is perpendicular to the first component (which is equivalent to being uncorrelated).
+
+\begin{figure}
+\centering
+\includegraphics{StatsThinking21_files/figure-latex/pca_plot-1.pdf}
+\caption{(\#fig:pca\_plot)A plot of synthetic data, with the first principal component plotted in green and the second in red.}
+\end{figure}
+
+It's common to use PCA to reduce the dimensionality of a more complex dataset. For example, let's say that we would like to know whether performance on all four of the stop signal task variables in the earlier dataset are related to the five impulsivity survey variables. We can perform PCA on each of those datasets separately, and examine how much of the variance in the data is accounted for by the first principal component, which will serve as our summary of the data.
+
+\begin{figure}
+\centering
+\includegraphics{StatsThinking21_files/figure-latex/VAF-1.pdf}
+\caption{\label{fig:VAF}A plot of the variance accounted for (or \emph{scree plot}) for PCA applied separately to the response inhibition and impulsivity variables from the Eisenberg dataset.}
+\end{figure}
+
+We see in Figure \ref{fig:VAF} that for the stop signal variables, the first principal component accounts for about 60\% of the variance in the data, whereas for the UPPS it accounts for about 55\% of the variance. We can then compute the correlation between the scores obtained using the first principal component from each set of variables, in order to ask whether the there is a relation between the two sets of variables. The correlation of -0.014 between the two summary variables suggests that there is no overall relationship between response inhibition and impulsivity in this dataset.
+
+\begin{verbatim}
+## 
+##  Pearson's product-moment correlation
+## 
+## data:  pca_df$SSRT and pca_df$UPPS
+## t = -0.3, df = 327, p-value = 0.8
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  -0.123  0.093
+## sample estimates:
+##    cor 
+## -0.015
+\end{verbatim}
+
+We could also perform PCA on all of these variables at once. Looking at the plot of variance accounted for (also known as a *scree plot) in Figure \ref{fig:dendro}, we can see that the first two components account for a substantial amount of the variance in the data. We can then look at the loadings of each of the individual variables on these two components to understand how each specific variable is associated with the different components.
+
+\begin{figure}
+\centering
+\includegraphics{StatsThinking21_files/figure-latex/imp_pc_scree-1.pdf}
+\caption{(\#fig:imp\_pc\_scree)Plot of variance accounted for by PCA components computed on the full set of self-control variables.}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{StatsThinking21_files/figure-latex/pca_var_plot-1.pdf}
+\caption{(\#fig:pca\_var\_plot)Plot of variable loadings in PCA solution including all self-control variables. Each variable is shown in terms of its loadings on each of the two components; reflected in the two rows respectively.}
+\end{figure}
+
+Doing this for the impulsivity dataset (Figure @ref(fig:pca\_var\_plot)), we see that the first component (in the first row of the figure) has nonzero loadings for most of the UPPS variables, and nearly zero loadings for each of the SSRT variables, whereas the opposite is true of the second principal component, which loads primarily on the SSRT variables. This tells us that the first principal component captured mostly variance related to the impulsivity measures, while the second component captured mostly variance related to the response inhibition measures. You might notice that the loadings are actually negative for most of these variables; the sign of the loadings is arbitrary, so we should make sure to look at large positive and negative loadings.
+
+\hypertarget{factor-analysis}{%
+\subsection{Factor analysis}\label{factor-analysis}}
+
+While principal component analysis can be useful for reducing a dataset to a smaller number of composite variables, the standard methods for PCA have some limitations. Most importantly, it ensures that the components are uncorrelated; while this may sometimes be useful, there are often cases where we want to extract dimensions that may be correlated with one another. A second limitation is that PCA doesn't account for measurement error in the variables that are being analyzed, which can lead to difficult in interpreting the resulting loadings on the components. Although there are modifications of PCA that can address these issues, it is more common in some fields (such as psychology) to use a technique called \emph{exploratory factor analysis} (or EFA) to reduce the dimensionality of a dataset.\footnote{There is another application of factor analysis known as \emph{confirmatory factor analysis} (or CFA) that we will not discuss here; In practice its application can be problematic, and recent work has started to move towards modifications of EFA that can answer the questions often addressed using CFA.(\protect\hyperlink{ref-Marsh:2014th}{\textbf{Marsh:2014th?}})}
+
+The idea behind EFA is that each observed variable is created through a combination of contributions from a set of \emph{latent variables} -- that is, variables that cannot be observed directly -- along with some amount of measurement error for each variable. For this reason, EFA models are often referred to as belonging to a class of statistical models known as \emph{latent variable models}.
+
+For example, let's say that we want to understand how measures of several different variables relate to the underlying factors that give rise to those measurements. We will first generate a synthetic dataset to show how this might work. We will generate a set of individuals for whom we will pretend that we know the values of several latent psychological variables: impulsivity, working memory capacity, and fluid reasoning We will assume that working memory capacity and fluid reasoning are correlated with one another, but that neither is correlated with impulsivity. From these latent variables we will then generate a set of eight observed variables for each indivdiual, which are simply linear combinations of the latent variables along with random noise added to simulate measurement error.
+
+We can further examine the data by displaying a heatmap of the correlation matrix relating all of these variables (Figure \ref{fig:dendro}. We see from this that there are three clusters of variables corresponding to our three latent variables, which is as it should be.
+
+\begin{figure}
+\centering
+\includegraphics{StatsThinking21_files/figure-latex/efa_cor_hmap-1.pdf}
+\caption{(\#fig:efa\_cor\_hmap)A heatmap showing the correlations between the variables generated from the three underlying latent variables.}
+\end{figure}
+
+We can think of EFA as estimating the parameters of a set of linear models all at once, where each model relates each of the observed variables to the latent variables. For our example, these equations would look as follows. In these equations, the \(\beta\) characters have two subscripts, one that refers to the task and the other than refers to the latent variable, and a variable \(\epsilon\) that refers to the error. Here we will assume that everything has a mean of zero, so that we don't need to include an extra intercept term for each equation.
+
+\[
+\begin{array}{lcl}
+nback & = &beta_{[1, 1]} * WM + \beta_{[1, 2]} * FR + \beta_{[1, 3]} * IMP  + \epsilon \\
+dspan & = &beta_{[2, 1]} * WM + \beta_{[2, 2]} * FR + \beta_{[2, 3]} * IMP  + \epsilon \\
+ospan & = &beta_{[3, 1]} * WM + \beta_{[3, 2]} * FR + \beta_{[3, 3]} * IMP  + \epsilon \\
+ravens & = &beta_{[4, 1]} * WM + \beta_{[4, 2]} * FR + \beta_{[4, 3]} * IMP   + \epsilon \\
+crt & = &beta_{[5, 1]} * WM + \beta_{[5, 2]} * FR + \beta_{[5, 3]} * IMP   + \epsilon \\
+UPPS & = &beta_{[6, 1]} * WM + \beta_{[6, 2]} * FR + \beta_{[6, 3]} * IMP   + \epsilon \\
+BIS11 & = &beta_{[7, 1]} * WM + \beta_{[7, 2]} * FR + \beta_{[7, 3]} * IMP  + \epsilon \\
+dickman & = &beta_{[8, 1]} * WM + \beta_{[8, 2]} * FR + \beta_{[8, 3]} * IMP   + \epsilon \\
+\end{array}
+\]
+
+In effect what we want to do using EFA is to estimate the \emph{matrix} of coefficients (betas) that map the latent variables into the observed variables. For the data that we are generating, we know that most of the betas in this matrix are zero because we created them that way; for each task, only one of the weights is set to 1, which means that each task is a noisy measurement of a single latent variable.
+
+We can apply EFA to our synthetic dataset to estimate these parameters. We won't go into the details of how EFA is actually performed, other than to mention one important point. Most of the previous analyses in this book have relied upon methods that try to minimize the difference between the observed data values and the values predicted by the model. The methods that are used to estimate the parameters for EFA instead attempt to minimize the difference between the observed \emph{covariances} between the observed variables, and the covariances implied by the model parameters. For this reason, these methods are often referred to as \emph{covariance structure models}.
+
+Let's apply an exploratory factor analysis to our synthetic data. As with clustering methods, we need to first determine how many latent factors we want to include in our model. In this case we know there are three factors, so let's start with that; later on we will examine ways to estimate the number of factors directly from the data. Here is the output from our statistical software for this model:
+
+\begin{verbatim}
+## 
+## Factor analysis with Call: fa(r = observed_df, nfactors = 3)
+## 
+## Test of the hypothesis that 3 factors are sufficient.
+## The degrees of freedom for the model is 7  and the objective function was  0.04 
+## The number of observations was  200  with Chi Square =  8  with prob <  0.34 
+## 
+## The root mean square of the residuals (RMSA) is  0.01 
+## The df corrected root mean square of the residuals is  0.03 
+## 
+## Tucker Lewis Index of factoring reliability =  0.99
+## RMSEA index =  0.026  and the 10 % confidence intervals are  0 0.094
+## BIC =  -29
+##  With factor correlations of 
+##      MR1  MR2  MR3
+## MR1 1.00 0.03 0.47
+## MR2 0.03 1.00 0.03
+## MR3 0.47 0.03 1.00
+\end{verbatim}
+
+One question that we would like to ask is how well our model actually fits the data. There is no single way to answer this question; rather, researchers have developed a number of different methods that provide some insight into how well the model fits the data. For example, one commonly used criterion is based on the \emph{root mean square error of approximation} (RMSEA) statistic, which quantifies how far the predicted covariances are from the actual covariances; a value of RMSEA less than 0.08 is often considered to reflect an adequately fitting model. In the example here, the RMSEA value is 0.026, which suggests a model that fits quite well.
+
+We can also examine the parameter estimates in order to see whether the model has appropriately identified the structure in the data. It's common to plot this as a graph, with arrows from the latent variables (represented as ellipses) pointing to the observed variables (represented as rectangles), where an arrow represents a substantial loading of the observed variable on the latent variable; this kind of graph is often referred to as a \emph{path diagram} since it reflects the paths relating the variables. This is shown in Figure @ref(fig:v{]}fa\_diagram). In this case the EFA procedure correctly identified the structure present in the data, both in terms of which observed variables are related to each of the latent variables, and in terms of the correlations between latent variables.
+
+\begin{figure}
+\centering
+\includegraphics{StatsThinking21_files/figure-latex/fa_diagram-1.pdf}
+\caption{(\#fig:fa\_diagram)Path diagram for the exploratory factor analysis model.}
+\end{figure}
+
+\hypertarget{determining-the-number-of-factors}{%
+\subsection{Determining the number of factors}\label{determining-the-number-of-factors}}
+
+One of the main challenges in applying EFA is to determine the number of factors. A common way to do this is to examine the fit of the model while varying the number of factors, and then selecting the model that gives the best fit. This is not foolproof, and there are multiple ways to quantify the fit of the model that can sometimes give different answers.
+
+One might think that we could simply look at how well the model fits and pick the number of factors with the best fit, but this won't work, because a more complex model will always fit the data better (as we saw in our earlier discussion of overfitting). For this reason, we need to use a metric of model fit that penalizes for the number of parameters in the model. For the purposes of this example we will select one of the common methods for quantifying model fit, which is known as the \emph{sample-size adjusted Bayesian information criterion} (or \emph{SABIC}). This measure quantifies how well the model fits the data, while also taking into account the number of parameters in the model (which in this case is related to the number of factors) as well as the sample size. While the absolute value of the SABIC is not interpretable, when using the same data and same kind of model we can compare models using SABIC to determine which is most appropriate for the data. One important thing to know about SABIC and other measures like it (known as \emph{information criteria}) is that lower values represent better fit of the model, so in this case we want to find the number of factors with the lowest SABIC. In Figure @ref(fig:sabic\_plot) we see that the model with the lowest SABIC has three factors, which shows that this approach was able to accurately determine the number of factors used to generate the data.
+
+\begin{figure}
+\centering
+\includegraphics{StatsThinking21_files/figure-latex/sabic_plot-1.pdf}
+\caption{(\#fig:sabic\_plot)Plot of SABIC for varying numbers of factors.}
+\end{figure}
+
+Now let's see what happens when we apply this model to real data from the Eisenberg et al.~dataset, which contains measurements of all of the eight variables that were simulated in the above example. The model with three factors also has the lowest SABIC for these real data.
+
+\begin{figure}
+\centering
+\includegraphics{StatsThinking21_files/figure-latex/fa_diagram_sro-1.pdf}
+\caption{(\#fig:fa\_diagram\_sro)Path diagram for the three-factor model on the Eisenberg et al.~data.}
+\end{figure}
+
+Plotting the path diagram (Figure @ref(fig:fa\_diagram\_sro)) we see that the real data demonstrate a factor structure that is very similar to what we saw with the simulated data. This should not be surprising, since the simulated data were generated based on knowledge of these different tasks, but it's comforting to know that human behavior is systematic enough that we can reliably identify these kinds of relationships. The main difference is that the correlation between the working memory factor (MR3) and the fluid reasoning factor (MR1) is even higher than it was in the simulated data. This result is scientifically useful because it shows us that while working memory and fluid reasoning are closely related, there is utility in separately modeling them.
+
+\hypertarget{learning-objectives-15}{%
+\section{Learning objectives}\label{learning-objectives-15}}
+
+Having read this chapter, you should be able to:
+
+\begin{itemize}
+\tightlist
+\item
+  Describe the distinction between supervised and unsupervised learning.
+\item
+  Employ visualization techniques including heatmaps to visualize the structure of multivariate data.
+\item
+  Understand the concept of clustering and how it can be used to identify structure in data.
+\item
+  Understand the concept of dimensionality reduction.
+\item
+  Describe how principal component analysis and factor analysis can be used to perform dimensionality reduction.
+\end{itemize}
+
+\hypertarget{suggested-readings-11}{%
+\section{Suggested readings}\label{suggested-readings-11}}
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{The Geometry of Multivariate Statistics}, by Thomas Wickens
+\item
+  \emph{No Bullshit Guide to Linear Algebra}, by Ivan Savov
+\end{itemize}
 
 \hypertarget{practical-example}{%
 \chapter{Practical statistical modeling}\label{practical-example}}
@@ -5002,7 +5368,7 @@ Let's say that we are interested in a research project on how children choose wh
 \hypertarget{how-science-sometimes-actually-works}{%
 \section{How science (sometimes) actually works}\label{how-science-sometimes-actually-works}}
 
-Brian Wansink is well known for his books on ``Mindless Eating,'' and his fee for corporate speaking engagements was at one point in the tens of thousands of dollars. In 2017, a set of researchers began to scrutinize some of his published research, starting with a set of papers about how much pizza people ate at a buffet. The researchers asked Wansink to share the data from the studies but he refused, so they dug into his published papers and found a large number of inconsistencies and statistical problems in the papers. The publicity around this analysis led a number of others to dig into Wansink's past, including obtaining emails between Wansink and his collaborators. As \href{https://www.buzzfeednews.com/article/stephaniemlee/brian-wansink-cornell-p-hacking}{reported by Stephanie Lee at Buzzfeed}, these emails showed just how far Wansink's actual research practices were from the naive model:
+Brian Wansink is well known for his books on ``Mindless Eating'', and his fee for corporate speaking engagements was at one point in the tens of thousands of dollars. In 2017, a set of researchers began to scrutinize some of his published research, starting with a set of papers about how much pizza people ate at a buffet. The researchers asked Wansink to share the data from the studies but he refused, so they dug into his published papers and found a large number of inconsistencies and statistical problems in the papers. The publicity around this analysis led a number of others to dig into Wansink's past, including obtaining emails between Wansink and his collaborators. As \href{https://www.buzzfeednews.com/article/stephaniemlee/brian-wansink-cornell-p-hacking}{reported by Stephanie Lee at Buzzfeed}, these emails showed just how far Wansink's actual research practices were from the naive model:
 
 \begin{quote}
 \ldots back in September 2008, when Payne was looking over the data soon after it had been collected, he found no strong apples-and-Elmo link --- at least not yet. \ldots{}
@@ -5074,7 +5440,7 @@ An amusing example of this was seen in a paper by Jonathan Schoenfeld and John I
 \hypertarget{the-winners-curse}{%
 \subsection{The winner's curse}\label{the-winners-curse}}
 
-Another kind of error can also occur when statistical power is low: Our estimates of the effect size will be inflated. This phenomenon often goes by the term ``winner's curse,'' which comes from economics, where it refers to the fact that for certain types of auctions (where the value is the same for everyone, like a jar of quarters, and the bids are private), the winner is guaranteed to pay more than the good is worth. In science, the winner's curse refers to the fact that the effect size estimated from a significant result (i.e.~a winner) is almost always an overestimate of the true effect size.
+Another kind of error can also occur when statistical power is low: Our estimates of the effect size will be inflated. This phenomenon often goes by the term ``winner's curse'', which comes from economics, where it refers to the fact that for certain types of auctions (where the value is the same for everyone, like a jar of quarters, and the bids are private), the winner is guaranteed to pay more than the good is worth. In science, the winner's curse refers to the fact that the effect size estimated from a significant result (i.e.~a winner) is almost always an overestimate of the true effect size.
 
 We can simulate this in order to see how the estimated effect size for significant results is related to the actual underlying effect size. Let's generate data for which there is a true effect size of d = 0.2, and estimate the effect size for those results where there is a significant effect detected. The left panel of Figure \ref{fig:CurseSim} shows that when power is low, the estimated effect size for significant results can be highly inflated compared to the actual effect size.
 
@@ -5087,7 +5453,7 @@ We can look at a single simulation to see why this is the case. In the right pan
 \hypertarget{questionable-research-practices}{%
 \section{Questionable research practices}\label{questionable-research-practices}}
 
-A popular book entitled ``The Compleat Academic: A Career Guide,'' published by the American Psychological Association (\protect\hyperlink{ref-darl:zann:roed:2004}{Darley, Zanna, and Roediger 2004}), aims to provide aspiring researchers with guidance on how to build a career. In a chapter by well-known social psychologist Daryl Bem titled ``Writing the Empirical Journal Article,'' Bem provides some suggestions about how to write a research paper. Unfortunately, the practices that he suggests are deeply problematic, and have come to be known as \emph{questionable research practices} (QRPs).
+A popular book entitled ``The Compleat Academic: A Career Guide'', published by the American Psychological Association (\protect\hyperlink{ref-darl:zann:roed:2004}{Darley, Zanna, and Roediger 2004}), aims to provide aspiring researchers with guidance on how to build a career. In a chapter by well-known social psychologist Daryl Bem titled ``Writing the Empirical Journal Article'', Bem provides some suggestions about how to write a research paper. Unfortunately, the practices that he suggests are deeply problematic, and have come to be known as \emph{questionable research practices} (QRPs).
 
 \begin{quote}
 \textbf{Which article should you write?} There are two possible articles you can write: (1) the article you planned to write when you designed your study or (2) the article that makes the most sense now that you have seen the results. They are rarely the same, and the correct answer is (2).
@@ -5099,7 +5465,7 @@ What Bem suggests here is known as \emph{HARKing} (Hypothesizing After the Resul
 \textbf{Analyzing data} Examine them from every angle. Analyze the sexes separately. Make up new composite indices. If a datum suggests a new hypothesis, try to find further evidence for it elsewhere in the data. If you see dim traces of interesting patterns, try to reorganize the data to bring them into bolder relief. If there are participants you don't like, or trials, observers, or interviewers who gave you anomalous results,drop them (temporarily). Go on a fishing expedition for something --- anything --- interesting. No, this is not immoral.
 \end{quote}
 
-What Bem suggests here is known as \emph{p-hacking}, which refers to trying many different analyses until one finds a significant result. Bem is correct that if one were to report every analysis done on the data then this approach would not be ``immoral.'' However, it is rare to see a paper discuss all of the analyses that were performed on a dataset; rather, papers often only present the analyses that \emph{worked} - which usually means that they found a statistically significant result. There are many different ways that one might p-hack:
+What Bem suggests here is known as \emph{p-hacking}, which refers to trying many different analyses until one finds a significant result. Bem is correct that if one were to report every analysis done on the data then this approach would not be ``immoral''. However, it is rare to see a paper discuss all of the analyses that were performed on a dataset; rather, papers often only present the analyses that \emph{worked} - which usually means that they found a statistically significant result. There are many different ways that one might p-hack:
 
 \begin{itemize}
 \tightlist
@@ -5115,7 +5481,7 @@ What Bem suggests here is known as \emph{p-hacking}, which refers to trying many
   Transform the data to get p\textless.05
 \end{itemize}
 
-A well-known paper by \protect\hyperlink{ref-simm:nels:simo:2011}{Simmons, Nelson, and Simonsohn} (\protect\hyperlink{ref-simm:nels:simo:2011}{2011}) showed that the use of these kinds of p-hacking strategies could greatly increase the actual false positive rate, resulting in a high number of false positive results.
+A well-known paper by Simmons, Nelson, and Simonsohn (\protect\hyperlink{ref-simm:nels:simo:2011}{2011}) showed that the use of these kinds of p-hacking strategies could greatly increase the actual false positive rate, resulting in a high number of false positive results.
 
 \hypertarget{esp-or-qrp}{%
 \subsection{ESP or QRP?}\label{esp-or-qrp}}
@@ -5154,12 +5520,12 @@ In the years since the reproducibility crisis arose, there has been a robust mov
 
 One of the ideas that has gained the greatest traction is \emph{pre-registration}, in which one submits a detailed description of a study (including all data analyses) to a trusted repository (such as the \href{http://osf.io}{Open Science Framework} or \href{http://aspredicted.org}{AsPredicted.org}). By specifying one's plans in detail prior to analyzing the data, pre-registration provides greater faith that the analyses do not suffer from p-hacking or other questionable research practices.
 
-The effects of pre-registration in clinical trials in medicine have been striking. In 2000, the National Heart, Lung, and Blood Institute (NHLBI) began requiring all clinical trials to be pre-registered using the system at \href{http://clinicaltrials.gov}{ClinicalTrials.gov}. This provides a natural experiment to observe the effects of study pre-registration. When \protect\hyperlink{ref-kapl:irvi:2015}{Kaplan and Irvin} (\protect\hyperlink{ref-kapl:irvi:2015}{2015}) examined clinical trial outcomes over time, they found that the number of positive outcomes in clinical trials was greatly reduced after 2000 compared to before. While there are many possible causes, it seems likely that prior to study registration researchers were able to change their methods or hypotheses in order to find a positive result, which became more difficult after registration was required.
+The effects of pre-registration in clinical trials in medicine have been striking. In 2000, the National Heart, Lung, and Blood Institute (NHLBI) began requiring all clinical trials to be pre-registered using the system at \href{http://clinicaltrials.gov}{ClinicalTrials.gov}. This provides a natural experiment to observe the effects of study pre-registration. When Kaplan and Irvin (\protect\hyperlink{ref-kapl:irvi:2015}{2015}) examined clinical trial outcomes over time, they found that the number of positive outcomes in clinical trials was greatly reduced after 2000 compared to before. While there are many possible causes, it seems likely that prior to study registration researchers were able to change their methods or hypotheses in order to find a positive result, which became more difficult after registration was required.
 
 \hypertarget{reproducible-practices}{%
 \subsection{Reproducible practices}\label{reproducible-practices}}
 
-The paper by \protect\hyperlink{ref-simm:nels:simo:2011}{Simmons, Nelson, and Simonsohn} (\protect\hyperlink{ref-simm:nels:simo:2011}{2011}) laid out a set of suggested practices for making research more reproducible, all of which should become standard for researchers:
+The paper by Simmons, Nelson, and Simonsohn (\protect\hyperlink{ref-simm:nels:simo:2011}{2011}) laid out a set of suggested practices for making research more reproducible, all of which should become standard for researchers:
 
 \begin{quote}
 \begin{itemize}
@@ -5202,8 +5568,8 @@ There are many ways to share both code and data. A common way to share code is v
 
 It is every scientist's responsibility to improve their research practices in order to increase the reproducibility of their research. It is essential to remember that the goal of research is not to find a significant result; rather, it is to ask and answer questions about nature in the most truthful way possible. Most of our hypotheses will be wrong, and we should be comfortable with that, so that when we find one that's right, we will be even more confident in its truth.
 
-\hypertarget{learning-objectives-15}{%
-\section{Learning objectives}\label{learning-objectives-15}}
+\hypertarget{learning-objectives-16}{%
+\section{Learning objectives}\label{learning-objectives-16}}
 
 \begin{itemize}
 \tightlist
@@ -5215,8 +5581,8 @@ It is every scientist's responsibility to improve their research practices in or
   Describe the concept of pre-registration and how it can help protect against questionable research practices
 \end{itemize}
 
-\hypertarget{suggested-readings-11}{%
-\section{Suggested Readings}\label{suggested-readings-11}}
+\hypertarget{suggested-readings-12}{%
+\section{Suggested Readings}\label{suggested-readings-12}}
 
 \begin{itemize}
 \tightlist

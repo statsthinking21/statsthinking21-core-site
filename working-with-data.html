@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 Working with data | Statistical Thinking for the 21st Century</title>
   <meta name="description" content="A book about statistics." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 Working with data | Statistical Thinking for the 21st Century" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="A book about statistics." />
   <meta name="github-repo" content="poldrack/psych10-book" />
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="introduction.html"/>
 <link rel="next" href="summarizing-data.html"/>
-<script src="book_assets/header-attrs-2.11/header-attrs.js"></script>
 <script src="book_assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="book_assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="book_assets/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="book_assets/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="book_assets/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="book_assets/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="book_assets/anchor-sections-1.1.0/anchor-sections.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129414074-1"></script>
 <script>
@@ -251,7 +250,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="5.2.1" data-path="fitting-models.html"><a href="fitting-models.html#improving-our-model"><i class="fa fa-check"></i><b>5.2.1</b> Improving our model</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="fitting-models.html"><a href="fitting-models.html#what-makes-a-model-good"><i class="fa fa-check"></i><b>5.3</b> What makes a model “good?”</a></li>
+<li class="chapter" data-level="5.3" data-path="fitting-models.html"><a href="fitting-models.html#what-makes-a-model-good"><i class="fa fa-check"></i><b>5.3</b> What makes a model “good”?</a></li>
 <li class="chapter" data-level="5.4" data-path="fitting-models.html"><a href="fitting-models.html#overfitting"><i class="fa fa-check"></i><b>5.4</b> Can a model be too good?</a></li>
 <li class="chapter" data-level="5.5" data-path="fitting-models.html"><a href="fitting-models.html#summarizing-data-using-the-mean"><i class="fa fa-check"></i><b>5.5</b> Summarizing data using the mean</a>
 <ul>
@@ -482,44 +481,66 @@ div.csl-indent {
 <li class="chapter" data-level="15.8.1" data-path="comparing-means.html"><a href="comparing-means.html#the-paired-t-test-as-a-linear-model"><i class="fa fa-check"></i><b>15.8.1</b> The paired t-test as a linear model</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="practical-example.html"><a href="practical-example.html"><i class="fa fa-check"></i><b>16</b> Practical statistical modeling</a>
+<li class="chapter" data-level="16" data-path="multivariate.html"><a href="multivariate.html"><i class="fa fa-check"></i><b>16</b> Multivariate statistics</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="practical-example.html"><a href="practical-example.html#the-process-of-statistical-modeling"><i class="fa fa-check"></i><b>16.1</b> The process of statistical modeling</a>
+<li class="chapter" data-level="16.1" data-path="multivariate.html"><a href="multivariate.html#multivariate-data-an-example"><i class="fa fa-check"></i><b>16.1</b> Multivariate data: An example</a></li>
+<li class="chapter" data-level="16.2" data-path="multivariate.html"><a href="multivariate.html#visualizing-multivariate-data"><i class="fa fa-check"></i><b>16.2</b> Visualizing multivariate data</a>
 <ul>
-<li class="chapter" data-level="16.1.1" data-path="practical-example.html"><a href="practical-example.html#specify-your-question-of-interest"><i class="fa fa-check"></i><b>16.1.1</b> 1: Specify your question of interest</a></li>
-<li class="chapter" data-level="16.1.2" data-path="practical-example.html"><a href="practical-example.html#identify-or-collect-the-appropriate-data"><i class="fa fa-check"></i><b>16.1.2</b> 2: Identify or collect the appropriate data</a></li>
-<li class="chapter" data-level="16.1.3" data-path="practical-example.html"><a href="practical-example.html#prepare-the-data-for-analysis"><i class="fa fa-check"></i><b>16.1.3</b> 3: Prepare the data for analysis</a></li>
-<li class="chapter" data-level="16.1.4" data-path="practical-example.html"><a href="practical-example.html#determine-the-appropriate-model"><i class="fa fa-check"></i><b>16.1.4</b> 4. Determine the appropriate model</a></li>
-<li class="chapter" data-level="16.1.5" data-path="practical-example.html"><a href="practical-example.html#fit-the-model-to-the-data"><i class="fa fa-check"></i><b>16.1.5</b> 5. Fit the model to the data</a></li>
-<li class="chapter" data-level="16.1.6" data-path="practical-example.html"><a href="practical-example.html#criticize-the-model-to-make-sure-it-fits-properly"><i class="fa fa-check"></i><b>16.1.6</b> 6. Criticize the model to make sure it fits properly</a></li>
-<li class="chapter" data-level="16.1.7" data-path="practical-example.html"><a href="practical-example.html#test-hypothesis-and-quantify-effect-size"><i class="fa fa-check"></i><b>16.1.7</b> 7. Test hypothesis and quantify effect size</a></li>
-<li class="chapter" data-level="16.1.8" data-path="practical-example.html"><a href="practical-example.html#what-about-possible-confounds"><i class="fa fa-check"></i><b>16.1.8</b> What about possible confounds?</a></li>
+<li class="chapter" data-level="16.2.1" data-path="multivariate.html"><a href="multivariate.html#scatterplot-of-matrices"><i class="fa fa-check"></i><b>16.2.1</b> Scatterplot of matrices</a></li>
+<li class="chapter" data-level="16.2.2" data-path="multivariate.html"><a href="multivariate.html#heatmap"><i class="fa fa-check"></i><b>16.2.2</b> Heatmap</a></li>
 </ul></li>
-<li class="chapter" data-level="16.2" data-path="practical-example.html"><a href="practical-example.html#getting-help"><i class="fa fa-check"></i><b>16.2</b> Getting help</a></li>
-</ul></li>
-<li class="chapter" data-level="17" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html"><i class="fa fa-check"></i><b>17</b> Doing reproducible research</a>
+<li class="chapter" data-level="16.3" data-path="multivariate.html"><a href="multivariate.html#clustering"><i class="fa fa-check"></i><b>16.3</b> Clustering</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#how-we-think-science-should-work"><i class="fa fa-check"></i><b>17.1</b> How we think science should work</a></li>
-<li class="chapter" data-level="17.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#how-science-sometimes-actually-works"><i class="fa fa-check"></i><b>17.2</b> How science (sometimes) actually works</a></li>
-<li class="chapter" data-level="17.3" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#the-reproducibility-crisis-in-science"><i class="fa fa-check"></i><b>17.3</b> The reproducibility crisis in science</a>
-<ul>
-<li class="chapter" data-level="17.3.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#positive-predictive-value-and-statistical-significance"><i class="fa fa-check"></i><b>17.3.1</b> Positive predictive value and statistical significance</a></li>
-<li class="chapter" data-level="17.3.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#the-winners-curse"><i class="fa fa-check"></i><b>17.3.2</b> The winner’s curse</a></li>
+<li class="chapter" data-level="16.3.1" data-path="multivariate.html"><a href="multivariate.html#k-means-clustering"><i class="fa fa-check"></i><b>16.3.1</b> K-means clustering</a></li>
+<li class="chapter" data-level="16.3.2" data-path="multivariate.html"><a href="multivariate.html#hierarchical-clustering"><i class="fa fa-check"></i><b>16.3.2</b> Hierarchical clustering</a></li>
 </ul></li>
-<li class="chapter" data-level="17.4" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#questionable-research-practices"><i class="fa fa-check"></i><b>17.4</b> Questionable research practices</a>
+<li class="chapter" data-level="16.4" data-path="multivariate.html"><a href="multivariate.html#dimensionality-reduction"><i class="fa fa-check"></i><b>16.4</b> Dimensionality reduction</a>
 <ul>
-<li class="chapter" data-level="17.4.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#esp-or-qrp"><i class="fa fa-check"></i><b>17.4.1</b> ESP or QRP?</a></li>
+<li class="chapter" data-level="16.4.1" data-path="multivariate.html"><a href="multivariate.html#principal-component-analysis"><i class="fa fa-check"></i><b>16.4.1</b> Principal component analysis</a></li>
+<li class="chapter" data-level="16.4.2" data-path="multivariate.html"><a href="multivariate.html#factor-analysis"><i class="fa fa-check"></i><b>16.4.2</b> Factor analysis</a></li>
+<li class="chapter" data-level="16.4.3" data-path="multivariate.html"><a href="multivariate.html#determining-the-number-of-factors"><i class="fa fa-check"></i><b>16.4.3</b> Determining the number of factors</a></li>
 </ul></li>
-<li class="chapter" data-level="17.5" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#doing-reproducible-research-1"><i class="fa fa-check"></i><b>17.5</b> Doing reproducible research</a>
+<li class="chapter" data-level="16.5" data-path="multivariate.html"><a href="multivariate.html#learning-objectives-15"><i class="fa fa-check"></i><b>16.5</b> Learning objectives</a></li>
+<li class="chapter" data-level="16.6" data-path="multivariate.html"><a href="multivariate.html#suggested-readings-11"><i class="fa fa-check"></i><b>16.6</b> Suggested readings</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="practical-example.html"><a href="practical-example.html"><i class="fa fa-check"></i><b>17</b> Practical statistical modeling</a>
 <ul>
-<li class="chapter" data-level="17.5.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#pre-registration"><i class="fa fa-check"></i><b>17.5.1</b> Pre-registration</a></li>
-<li class="chapter" data-level="17.5.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#reproducible-practices"><i class="fa fa-check"></i><b>17.5.2</b> Reproducible practices</a></li>
-<li class="chapter" data-level="17.5.3" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#replication"><i class="fa fa-check"></i><b>17.5.3</b> Replication</a></li>
+<li class="chapter" data-level="17.1" data-path="practical-example.html"><a href="practical-example.html#the-process-of-statistical-modeling"><i class="fa fa-check"></i><b>17.1</b> The process of statistical modeling</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="practical-example.html"><a href="practical-example.html#specify-your-question-of-interest"><i class="fa fa-check"></i><b>17.1.1</b> 1: Specify your question of interest</a></li>
+<li class="chapter" data-level="17.1.2" data-path="practical-example.html"><a href="practical-example.html#identify-or-collect-the-appropriate-data"><i class="fa fa-check"></i><b>17.1.2</b> 2: Identify or collect the appropriate data</a></li>
+<li class="chapter" data-level="17.1.3" data-path="practical-example.html"><a href="practical-example.html#prepare-the-data-for-analysis"><i class="fa fa-check"></i><b>17.1.3</b> 3: Prepare the data for analysis</a></li>
+<li class="chapter" data-level="17.1.4" data-path="practical-example.html"><a href="practical-example.html#determine-the-appropriate-model"><i class="fa fa-check"></i><b>17.1.4</b> 4. Determine the appropriate model</a></li>
+<li class="chapter" data-level="17.1.5" data-path="practical-example.html"><a href="practical-example.html#fit-the-model-to-the-data"><i class="fa fa-check"></i><b>17.1.5</b> 5. Fit the model to the data</a></li>
+<li class="chapter" data-level="17.1.6" data-path="practical-example.html"><a href="practical-example.html#criticize-the-model-to-make-sure-it-fits-properly"><i class="fa fa-check"></i><b>17.1.6</b> 6. Criticize the model to make sure it fits properly</a></li>
+<li class="chapter" data-level="17.1.7" data-path="practical-example.html"><a href="practical-example.html#test-hypothesis-and-quantify-effect-size"><i class="fa fa-check"></i><b>17.1.7</b> 7. Test hypothesis and quantify effect size</a></li>
+<li class="chapter" data-level="17.1.8" data-path="practical-example.html"><a href="practical-example.html#what-about-possible-confounds"><i class="fa fa-check"></i><b>17.1.8</b> What about possible confounds?</a></li>
 </ul></li>
-<li class="chapter" data-level="17.6" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#doing-reproducible-data-analysis"><i class="fa fa-check"></i><b>17.6</b> Doing reproducible data analysis</a></li>
-<li class="chapter" data-level="17.7" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#conclusion-doing-better-science"><i class="fa fa-check"></i><b>17.7</b> Conclusion: Doing better science</a></li>
-<li class="chapter" data-level="17.8" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#learning-objectives-15"><i class="fa fa-check"></i><b>17.8</b> Learning objectives</a></li>
-<li class="chapter" data-level="17.9" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#suggested-readings-11"><i class="fa fa-check"></i><b>17.9</b> Suggested Readings</a></li>
+<li class="chapter" data-level="17.2" data-path="practical-example.html"><a href="practical-example.html#getting-help"><i class="fa fa-check"></i><b>17.2</b> Getting help</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html"><i class="fa fa-check"></i><b>18</b> Doing reproducible research</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#how-we-think-science-should-work"><i class="fa fa-check"></i><b>18.1</b> How we think science should work</a></li>
+<li class="chapter" data-level="18.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#how-science-sometimes-actually-works"><i class="fa fa-check"></i><b>18.2</b> How science (sometimes) actually works</a></li>
+<li class="chapter" data-level="18.3" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#the-reproducibility-crisis-in-science"><i class="fa fa-check"></i><b>18.3</b> The reproducibility crisis in science</a>
+<ul>
+<li class="chapter" data-level="18.3.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#positive-predictive-value-and-statistical-significance"><i class="fa fa-check"></i><b>18.3.1</b> Positive predictive value and statistical significance</a></li>
+<li class="chapter" data-level="18.3.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#the-winners-curse"><i class="fa fa-check"></i><b>18.3.2</b> The winner’s curse</a></li>
+</ul></li>
+<li class="chapter" data-level="18.4" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#questionable-research-practices"><i class="fa fa-check"></i><b>18.4</b> Questionable research practices</a>
+<ul>
+<li class="chapter" data-level="18.4.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#esp-or-qrp"><i class="fa fa-check"></i><b>18.4.1</b> ESP or QRP?</a></li>
+</ul></li>
+<li class="chapter" data-level="18.5" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#doing-reproducible-research-1"><i class="fa fa-check"></i><b>18.5</b> Doing reproducible research</a>
+<ul>
+<li class="chapter" data-level="18.5.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#pre-registration"><i class="fa fa-check"></i><b>18.5.1</b> Pre-registration</a></li>
+<li class="chapter" data-level="18.5.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#reproducible-practices"><i class="fa fa-check"></i><b>18.5.2</b> Reproducible practices</a></li>
+<li class="chapter" data-level="18.5.3" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#replication"><i class="fa fa-check"></i><b>18.5.3</b> Replication</a></li>
+</ul></li>
+<li class="chapter" data-level="18.6" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#doing-reproducible-data-analysis"><i class="fa fa-check"></i><b>18.6</b> Doing reproducible data analysis</a></li>
+<li class="chapter" data-level="18.7" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#conclusion-doing-better-science"><i class="fa fa-check"></i><b>18.7</b> Conclusion: Doing better science</a></li>
+<li class="chapter" data-level="18.8" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#learning-objectives-16"><i class="fa fa-check"></i><b>18.8</b> Learning objectives</a></li>
+<li class="chapter" data-level="18.9" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#suggested-readings-12"><i class="fa fa-check"></i><b>18.9</b> Suggested Readings</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
@@ -539,20 +560,24 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="working-with-data" class="section level1" number="2">
-<h1><span class="header-section-number">Chapter 2</span> Working with data</h1>
-<div id="what-are-data" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> What are data?</h2>
-<p>The first important point about data is that data <em>are</em> – meaning that the word “data” is plural (though some people disagree with me on this). You might also wonder how to pronounce “data” – I say “day-tah,” but I know many people who say “dah-tah,” and I have been able to remain friends with them in spite of this. Now, if I heard them say “the data is” then that would be a bigger issue…</p>
-<div id="qualitative-data" class="section level3" number="2.1.1">
-<h3><span class="header-section-number">2.1.1</span> Qualitative data</h3>
-<p>Data are composed of <em>variables</em>, where a variable reflects a unique measurement or quantity. Some variables are <em>qualitative</em>, meaning that they describe a quality rather than a numeric quantity. For example, in my stats course I generally give an introductory survey, both to obtain data to use in class and to learn more about the students. One of the questions that I ask is “What is your favorite food?” to which some of the answers have been: blueberries, chocolate, tamales, pasta, pizza, and mango. Those data are not intrinsically numerical; we could assign numbers to each one (1=blueberries, 2=chocolate, etc), but we would just be using the numbers as labels rather than as real numbers. This also constrains what we should do with those numbers; for example, it wouldn’t make sense to compute the average of those numbers. However, we will often code qualitative data using numbers in order to make them easier to work with, as you will see later.</p>
+<div id="working-with-data" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Working with data<a href="working-with-data.html#working-with-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="what-are-data" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> What are data?<a href="working-with-data.html#what-are-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The first important point about data is that data <em>are</em> – meaning that the word “data” is plural (though some people disagree with me on this). You might also wonder how to pronounce “data” – I say “day-tah”, but I know many people who say “dah-tah”, and I have been able to remain friends with them in spite of this. Now, if I heard them say “the data is” then that would be a bigger issue…</p>
+<div id="qualitative-data" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Qualitative data<a href="working-with-data.html#qualitative-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Data are composed of <em>variables</em>, where a variable reflects a unique measurement or quantity. Some variables are <em>qualitative</em>, meaning that they describe a quality rather than a numeric quantity. For example, in my stats course I generally give an introductory survey, both to obtain data to use in class and to learn more about the students. One of the questions that I ask is “What is your favorite food?”, to which some of the answers have been: blueberries, chocolate, tamales, pasta, pizza, and mango. Those data are not intrinsically numerical; we could assign numbers to each one (1=blueberries, 2=chocolate, etc), but we would just be using the numbers as labels rather than as real numbers. This also constrains what we should do with those numbers; for example, it wouldn’t make sense to compute the average of those numbers. However, we will often code qualitative data using numbers in order to make them easier to work with, as you will see later.</p>
 </div>
-<div id="quantitative-data" class="section level3" number="2.1.2">
-<h3><span class="header-section-number">2.1.2</span> Quantitative data</h3>
+<div id="quantitative-data" class="section level3 hasAnchor" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Quantitative data<a href="working-with-data.html#quantitative-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>More commonly in statistics we will work with <em>quantitative</em> data, meaning data that are numerical. For example, here Table <a href="working-with-data.html#tab:WhyTakingClass">2.1</a> shows the results from another question that I ask in my introductory class, which is “Why are you taking this class?”</p>
 <table>
 <caption><span id="tab:WhyTakingClass">Table 2.1: </span>Counts of the prevalence of different responses to the question “Why are you taking this class?”</caption>
+<colgroup>
+<col width="73%" />
+<col width="26%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Why are you taking this class?</th>
@@ -579,30 +604,30 @@ div.csl-indent {
 </tbody>
 </table>
 <p>Note that the students’ answers were qualitative, but we generated a quantitative summary of them by counting how many students gave each response.</p>
-<div id="types-of-numbers" class="section level4" number="2.1.2.1">
-<h4><span class="header-section-number">2.1.2.1</span> Types of numbers</h4>
+<div id="types-of-numbers" class="section level4 hasAnchor" number="2.1.2.1">
+<h4><span class="header-section-number">2.1.2.1</span> Types of numbers<a href="working-with-data.html#types-of-numbers" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>There are several different types of numbers that we work with in statistics. It’s important to understand these differences, in part because statistical analysis languages (such as R) often distinguish between them.</p>
-<p><strong>Binary numbers</strong>. The simplest are binary numbers – that is, zero or one. We will often use binary numbers to represent whether something is true or false, or present or absent. For example, I might ask 10 people if they have ever experienced a migraine headache, recording their answers as “Yes” or “No.” It’s often useful to instead use <em>logical</em> values, which take the value of either <code>TRUE</code> or <code>FALSE</code>. This can be especially useful when we start using programming languages like R to analyze our data, since these languages already understand the concepts of TRUE and FALSE. In fact, most programming languages treat truth values and binary numbers equivalently. The number 1 is equal to the logical value <code>TRUE</code>, and the number zero is equal to the logical value <code>FALSE</code>.</p>
+<p><strong>Binary numbers</strong>. The simplest are binary numbers – that is, zero or one. We will often use binary numbers to represent whether something is true or false, or present or absent. For example, I might ask 10 people if they have ever experienced a migraine headache, recording their answers as “Yes” or “No”. It’s often useful to instead use <em>logical</em> values, which take the value of either <code>TRUE</code> or <code>FALSE</code>. This can be especially useful when we start using programming languages like R to analyze our data, since these languages already understand the concepts of TRUE and FALSE. In fact, most programming languages treat truth values and binary numbers equivalently. The number 1 is equal to the logical value <code>TRUE</code>, and the number zero is equal to the logical value <code>FALSE</code>.</p>
 <p><strong>Integers</strong>. Integers are whole numbers with no fractional or decimal part. We most commonly encounter integers when we count things, but they also often occur in psychological measurement. For example, in my introductory survey I administer a set of questions about attitudes towards statistics (such as “Statistics seems very mysterious to me.”), on which the students respond with a number between 1 (“Disagree strongly”) and 7 (“Agree strongly”).</p>
 <p><strong>Real numbers</strong>. Most commonly in statistics we work with real numbers, which have a fractional/decimal part. For example, we might measure someone’s weight, which can be measured to an arbitrary level of precision, from kilograms down to micrograms.</p>
 </div>
 </div>
 </div>
-<div id="discrete-versus-continuous-measurements" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Discrete versus continuous measurements</h2>
+<div id="discrete-versus-continuous-measurements" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Discrete versus continuous measurements<a href="working-with-data.html#discrete-versus-continuous-measurements" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A <em>discrete</em> measurement is one that takes one of a finite set of particular values. These could be qualitative values (for example, different breeds of dogs) or numerical values (for example, how many friends one has on Facebook). Importantly, there is no middle ground between the measurements; it doesn’t make sense to say that one has 33.7 friends.</p>
 <p>A <em>continuous</em> measurement is one that is defined in terms of a real number. It could fall anywhere in a particular range of values, though usually our measurement tools will limit the precision with which we can measure it; for example, a floor scale might measure weight to the nearest kg, even though weight could in theory be measured with much more precision.</p>
 <p>It is common in statistics courses to go into more detail about different “scales” of measurement, which are discussed in more detail in the Appendix to this chapter. The most important takeaway from this is that some kinds of statistics don’t make sense on some kinds of data. For example, imagine that we were to collect postal Zip Code data from a number of individuals. Those numbers are represented as integers, but they don’t actually refer to a numeric scale; each zip code basically serves as a label for a different region. For this reason, it wouldn’t make sense to talk about the average zip code, for example.</p>
 </div>
-<div id="what-makes-a-good-measurement" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> What makes a good measurement?</h2>
+<div id="what-makes-a-good-measurement" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> What makes a good measurement?<a href="working-with-data.html#what-makes-a-good-measurement" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In many fields such as psychology, the thing that we are measuring is not a physical feature, but instead is an unobservable theoretical concept, which we usually refer to as a <em>construct</em>. For example, let’s say that I want to test how well you understand the distinction between the different types of numbers described above. I could give you a pop quiz that would ask you several questions about these concepts and count how many you got right. This test might or might not be a good measurement of the construct of your actual knowledge – for example, if I were to write the test in a confusing way or use language that you don’t understand, then the test might suggest you don’t understand the concepts when really you do. On the other hand, if I give a multiple choice test with very obvious wrong answers, then you might be able to perform well on the test even if you don’t actually understand the material.</p>
 <p>It is usually impossible to measure a construct without some amount of error. In the example above, you might know the answer, but you might mis-read the question and get it wrong. In other cases, there is error intrinsic to the thing being measured, such as when we measure how long it takes a person to respond on a simple reaction time test, which will vary from trial to trial for many reasons. We generally want our measurement error to be as low as possible, which we can achieve either by improving the quality of the measurement (for example, using a better time to measure reaction time), or by averaging over a larger number of indvidiual measurements.</p>
 <p>Sometimes there is a standard against which other measurements can be tested, which we might refer to as a “gold standard” – for example, measurement of sleep can be done using many different devices (such as devices that measure movement in bed), but they are generally considered inferior to the gold standard of polysomnography (which uses measurement of brain waves to quantify the amount of time a person spends in each stage of sleep). Often the gold standard is more difficult or expensive to perform, and the cheaper method is used even though it might have greater error.</p>
 <p>When we think about what makes a good measurement, we usually distinguish two different aspects of a good measurement: it should be <em>reliable</em>, and it should be <em>valid</em>.</p>
-<div id="reliability" class="section level3" number="2.3.1">
-<h3><span class="header-section-number">2.3.1</span> Reliability</h3>
-<p>Reliability refers to the consistency of our measurements. One common form of reliability, known as “test-retest reliability,” measures how well the measurements agree if the same measurement is performed twice. For example, I might give you a questionnaire about your attitude towards statistics today, repeat this same questionnaire tomorrow, and compare your answers on the two days; we would hope that they would be very similar to one another, unless something happened in between the two tests that should have changed your view of statistics (like reading this book!).</p>
+<div id="reliability" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Reliability<a href="working-with-data.html#reliability" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Reliability refers to the consistency of our measurements. One common form of reliability, known as “test-retest reliability”, measures how well the measurements agree if the same measurement is performed twice. For example, I might give you a questionnaire about your attitude towards statistics today, repeat this same questionnaire tomorrow, and compare your answers on the two days; we would hope that they would be very similar to one another, unless something happened in between the two tests that should have changed your view of statistics (like reading this book!).</p>
 <p>Another way to assess reliability comes in cases where the data include subjective judgments. For example, let’s say that a researcher wants to determine whether a treatment changes how well an autistic child interacts with other children, which is measured by having experts watch the child and rate their interactions with the other children. In this case we would like to make sure that the answers don’t depend on the individual rater — that is, we would like for there to be high <em>inter-rater reliability</em>. This can be assessed by having more than one rater perform the rating, and then comparing their ratings to make sure that they agree well with one another.</p>
 <p>Reliability is important if we want to compare one measurement to another, because the relationship between two different variables can’t be any stronger than the relationship between either of the variables and itself (i.e., its reliability). This means that an unreliable measure can never have a strong statistical relationship with any other measure. For this reason, researchers developing a new measurement (such as a new survey) will often go to great lengths to establish and improve its reliability.</p>
 <div class="figure"><span style="display:block;" id="fig:ReliabilityValidity"></span>
@@ -612,32 +637,32 @@ Figure 2.1: A figure demonstrating the distinction between reliability and valid
 </p>
 </div>
 </div>
-<div id="validity" class="section level3" number="2.3.2">
-<h3><span class="header-section-number">2.3.2</span> Validity</h3>
+<div id="validity" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Validity<a href="working-with-data.html#validity" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Reliability is important, but on its own it’s not enough: After all, I could create a perfectly reliable measurement on a personality test by re-coding every answer using the same number, regardless of how the person actually answers. We want our measurements to also be <em>valid</em> — that is, we want to make sure that we are actually measuring the construct that we think we are measuring (Figure <a href="working-with-data.html#fig:ReliabilityValidity">2.1</a>). There are many different types of validity that are commonly discussed; we will focus on three of them.</p>
 <p><em>Face validity</em>. Does the measurement make sense on its face? If I were to tell you that I was going to measure a person’s blood pressure by looking at the color of their tongue, you would probably think that this was not a valid measure on its face. On the other hand, using a blood pressure cuff would have face validity. This is usually a first reality check before we dive into more complicated aspects of validity.</p>
 <p><em>Construct validity</em>. Is the measurement related to other measurements in an appropriate way? This is often subdivided into two aspects. <em>Convergent validity</em> means that the measurement should be closely related to other measures that are thought to reflect the same construct. Let’s say that I am interested in measuring how extroverted a person is using either a questionnaire or an interview. Convergent validity would be demonstrated if both of these different measurements are closely related to one another. On the other hand, measurements thought to reflect different constructs should be unrelated, known as <em>divergent validity</em>. If my theory of personality says that extraversion and conscientiousness are two distinct constructs, then I should also see that my measurements of extraversion are <em>unrelated</em> to measurements of conscientiousness.</p>
 <p><em>Predictive validity</em>. If our measurements are truly valid, then they should also be predictive of other outcomes. For example, let’s say that we think that the psychological trait of sensation seeking (the desire for new experiences) is related to risk taking in the real world. To test for predictive validity of a measurement of sensation seeking, we would test how well scores on the test predict scores on a different survey that measures real-world risk taking.</p>
 </div>
 </div>
-<div id="learning-objectives-1" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> Learning Objectives</h2>
+<div id="learning-objectives-1" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Learning Objectives<a href="working-with-data.html#learning-objectives-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Having read this chapter, you should be able to:</p>
 <ul>
 <li>Distinguish between different types of variables (quantitative/qualitative, binary/integer/real, discrete/continuous) and give examples of each of these kinds of variables</li>
 <li>Distinguish between the concepts of reliability and validity and apply each concept to a particular dataset</li>
 </ul>
 </div>
-<div id="suggested-readings-1" class="section level2" number="2.5">
-<h2><span class="header-section-number">2.5</span> Suggested readings</h2>
+<div id="suggested-readings-1" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Suggested readings<a href="working-with-data.html#suggested-readings-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><a href="http://www.personality-project.org/r/book/"><em>An Introduction to Psychometric Theory with Applications in R</em></a> - A free online textbook on psychological measurement</li>
 </ul>
 </div>
-<div id="appendix" class="section level2" number="2.6">
-<h2><span class="header-section-number">2.6</span> Appendix</h2>
-<div id="scales-of-measurement" class="section level3" number="2.6.1">
-<h3><span class="header-section-number">2.6.1</span> Scales of measurement</h3>
+<div id="appendix" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Appendix<a href="working-with-data.html#appendix" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="scales-of-measurement" class="section level3 hasAnchor" number="2.6.1">
+<h3><span class="header-section-number">2.6.1</span> Scales of measurement<a href="working-with-data.html#scales-of-measurement" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>All variables must take on at least two different possible values (otherwise they would be a <em>constant</em> rather than a variable), but different values of the variable can relate to each other in different ways, which we refer to as <em>scales of measurement</em>. There are four ways in which the different values of a variable can differ.</p>
 <ul>
 <li><em>Identity</em>: Each value of the variable has a unique meaning.<br />
@@ -647,7 +672,7 @@ Figure 2.1: A figure demonstrating the distinction between reliability and valid
 <li><em>Absolute zero</em>: The scale has a true meaningful zero point. For example, for many measurements of physical quantities such as height or weight, this is the complete absence of the thing being measured.</li>
 </ul>
 <p>There are four different scales of measurement that go along with these different ways that values of a variable can differ.</p>
-<p><em>Nominal scale</em>. A nominal variable satisfies the criterion of identity, such that each value of the variable represents something different, but the numbers simply serve as qualitative labels as discussed above. For example, we might ask people for their political party affiliation, and then code those as numbers: 1 = “Republican,” 2 = “Democrat,” 3 = “Libertarian,” and so on. However, the different numbers do not have any ordered relationship with one another.</p>
+<p><em>Nominal scale</em>. A nominal variable satisfies the criterion of identity, such that each value of the variable represents something different, but the numbers simply serve as qualitative labels as discussed above. For example, we might ask people for their political party affiliation, and then code those as numbers: 1 = “Republican”, 2 = “Democrat”, 3 = “Libertarian”, and so on. However, the different numbers do not have any ordered relationship with one another.</p>
 <p><em>Ordinal scale</em>. An ordinal variable satisfies the criteria of identity and magnitude, such that the values can be ordered in terms of their magnitude. For example, we might ask a person with chronic pain to complete a form every day assessing how bad their pain is, using a 1-7 numeric scale. Note that while the person is presumably feeling more pain on a day when they report a 6 versus a day when they report a 3, it wouldn’t make sense to say that their pain is twice as bad on the former versus the latter day; the ordering gives us information about relative magnitude, but the differences between values are not necessarily equal in magnitude.</p>
 <p><em>Interval scale</em>. An interval scale has all of the features of an ordinal scale, but in addition the intervals between units on the measurement scale can be treated as equal. A standard example is physical temperature measured in Celsius or Fahrenheit; the physical difference between 10 and 20 degrees is the same as the physical difference between 90 and 100 degrees, but each scale can also take on negative values.</p>
 <p><em>Ratio scale</em>. A ratio scale variable has all four of the features outlined above: identity, magnitude, equal intervals, and absolute zero. The difference between a ratio scale variable and an interval scale variable is that the ratio scale variable has a true zero point. Examples of ratio scale variables include physical height and weight, along with temperature measured in Kelvin.</p>

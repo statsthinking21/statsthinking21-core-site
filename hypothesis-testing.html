@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 9 Hypothesis testing | Statistical Thinking for the 21st Century</title>
   <meta name="description" content="A book about statistics." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 9 Hypothesis testing | Statistical Thinking for the 21st Century" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="A book about statistics." />
   <meta name="github-repo" content="poldrack/psych10-book" />
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="resampling-and-simulation.html"/>
 <link rel="next" href="ci-effect-size-power.html"/>
-<script src="book_assets/header-attrs-2.11/header-attrs.js"></script>
 <script src="book_assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="book_assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="book_assets/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="book_assets/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="book_assets/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="book_assets/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="book_assets/anchor-sections-1.1.0/anchor-sections.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129414074-1"></script>
 <script>
@@ -251,7 +250,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="5.2.1" data-path="fitting-models.html"><a href="fitting-models.html#improving-our-model"><i class="fa fa-check"></i><b>5.2.1</b> Improving our model</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="fitting-models.html"><a href="fitting-models.html#what-makes-a-model-good"><i class="fa fa-check"></i><b>5.3</b> What makes a model “good?”</a></li>
+<li class="chapter" data-level="5.3" data-path="fitting-models.html"><a href="fitting-models.html#what-makes-a-model-good"><i class="fa fa-check"></i><b>5.3</b> What makes a model “good”?</a></li>
 <li class="chapter" data-level="5.4" data-path="fitting-models.html"><a href="fitting-models.html#overfitting"><i class="fa fa-check"></i><b>5.4</b> Can a model be too good?</a></li>
 <li class="chapter" data-level="5.5" data-path="fitting-models.html"><a href="fitting-models.html#summarizing-data-using-the-mean"><i class="fa fa-check"></i><b>5.5</b> Summarizing data using the mean</a>
 <ul>
@@ -482,44 +481,66 @@ div.csl-indent {
 <li class="chapter" data-level="15.8.1" data-path="comparing-means.html"><a href="comparing-means.html#the-paired-t-test-as-a-linear-model"><i class="fa fa-check"></i><b>15.8.1</b> The paired t-test as a linear model</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="practical-example.html"><a href="practical-example.html"><i class="fa fa-check"></i><b>16</b> Practical statistical modeling</a>
+<li class="chapter" data-level="16" data-path="multivariate.html"><a href="multivariate.html"><i class="fa fa-check"></i><b>16</b> Multivariate statistics</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="practical-example.html"><a href="practical-example.html#the-process-of-statistical-modeling"><i class="fa fa-check"></i><b>16.1</b> The process of statistical modeling</a>
+<li class="chapter" data-level="16.1" data-path="multivariate.html"><a href="multivariate.html#multivariate-data-an-example"><i class="fa fa-check"></i><b>16.1</b> Multivariate data: An example</a></li>
+<li class="chapter" data-level="16.2" data-path="multivariate.html"><a href="multivariate.html#visualizing-multivariate-data"><i class="fa fa-check"></i><b>16.2</b> Visualizing multivariate data</a>
 <ul>
-<li class="chapter" data-level="16.1.1" data-path="practical-example.html"><a href="practical-example.html#specify-your-question-of-interest"><i class="fa fa-check"></i><b>16.1.1</b> 1: Specify your question of interest</a></li>
-<li class="chapter" data-level="16.1.2" data-path="practical-example.html"><a href="practical-example.html#identify-or-collect-the-appropriate-data"><i class="fa fa-check"></i><b>16.1.2</b> 2: Identify or collect the appropriate data</a></li>
-<li class="chapter" data-level="16.1.3" data-path="practical-example.html"><a href="practical-example.html#prepare-the-data-for-analysis"><i class="fa fa-check"></i><b>16.1.3</b> 3: Prepare the data for analysis</a></li>
-<li class="chapter" data-level="16.1.4" data-path="practical-example.html"><a href="practical-example.html#determine-the-appropriate-model"><i class="fa fa-check"></i><b>16.1.4</b> 4. Determine the appropriate model</a></li>
-<li class="chapter" data-level="16.1.5" data-path="practical-example.html"><a href="practical-example.html#fit-the-model-to-the-data"><i class="fa fa-check"></i><b>16.1.5</b> 5. Fit the model to the data</a></li>
-<li class="chapter" data-level="16.1.6" data-path="practical-example.html"><a href="practical-example.html#criticize-the-model-to-make-sure-it-fits-properly"><i class="fa fa-check"></i><b>16.1.6</b> 6. Criticize the model to make sure it fits properly</a></li>
-<li class="chapter" data-level="16.1.7" data-path="practical-example.html"><a href="practical-example.html#test-hypothesis-and-quantify-effect-size"><i class="fa fa-check"></i><b>16.1.7</b> 7. Test hypothesis and quantify effect size</a></li>
-<li class="chapter" data-level="16.1.8" data-path="practical-example.html"><a href="practical-example.html#what-about-possible-confounds"><i class="fa fa-check"></i><b>16.1.8</b> What about possible confounds?</a></li>
+<li class="chapter" data-level="16.2.1" data-path="multivariate.html"><a href="multivariate.html#scatterplot-of-matrices"><i class="fa fa-check"></i><b>16.2.1</b> Scatterplot of matrices</a></li>
+<li class="chapter" data-level="16.2.2" data-path="multivariate.html"><a href="multivariate.html#heatmap"><i class="fa fa-check"></i><b>16.2.2</b> Heatmap</a></li>
 </ul></li>
-<li class="chapter" data-level="16.2" data-path="practical-example.html"><a href="practical-example.html#getting-help"><i class="fa fa-check"></i><b>16.2</b> Getting help</a></li>
-</ul></li>
-<li class="chapter" data-level="17" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html"><i class="fa fa-check"></i><b>17</b> Doing reproducible research</a>
+<li class="chapter" data-level="16.3" data-path="multivariate.html"><a href="multivariate.html#clustering"><i class="fa fa-check"></i><b>16.3</b> Clustering</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#how-we-think-science-should-work"><i class="fa fa-check"></i><b>17.1</b> How we think science should work</a></li>
-<li class="chapter" data-level="17.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#how-science-sometimes-actually-works"><i class="fa fa-check"></i><b>17.2</b> How science (sometimes) actually works</a></li>
-<li class="chapter" data-level="17.3" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#the-reproducibility-crisis-in-science"><i class="fa fa-check"></i><b>17.3</b> The reproducibility crisis in science</a>
-<ul>
-<li class="chapter" data-level="17.3.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#positive-predictive-value-and-statistical-significance"><i class="fa fa-check"></i><b>17.3.1</b> Positive predictive value and statistical significance</a></li>
-<li class="chapter" data-level="17.3.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#the-winners-curse"><i class="fa fa-check"></i><b>17.3.2</b> The winner’s curse</a></li>
+<li class="chapter" data-level="16.3.1" data-path="multivariate.html"><a href="multivariate.html#k-means-clustering"><i class="fa fa-check"></i><b>16.3.1</b> K-means clustering</a></li>
+<li class="chapter" data-level="16.3.2" data-path="multivariate.html"><a href="multivariate.html#hierarchical-clustering"><i class="fa fa-check"></i><b>16.3.2</b> Hierarchical clustering</a></li>
 </ul></li>
-<li class="chapter" data-level="17.4" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#questionable-research-practices"><i class="fa fa-check"></i><b>17.4</b> Questionable research practices</a>
+<li class="chapter" data-level="16.4" data-path="multivariate.html"><a href="multivariate.html#dimensionality-reduction"><i class="fa fa-check"></i><b>16.4</b> Dimensionality reduction</a>
 <ul>
-<li class="chapter" data-level="17.4.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#esp-or-qrp"><i class="fa fa-check"></i><b>17.4.1</b> ESP or QRP?</a></li>
+<li class="chapter" data-level="16.4.1" data-path="multivariate.html"><a href="multivariate.html#principal-component-analysis"><i class="fa fa-check"></i><b>16.4.1</b> Principal component analysis</a></li>
+<li class="chapter" data-level="16.4.2" data-path="multivariate.html"><a href="multivariate.html#factor-analysis"><i class="fa fa-check"></i><b>16.4.2</b> Factor analysis</a></li>
+<li class="chapter" data-level="16.4.3" data-path="multivariate.html"><a href="multivariate.html#determining-the-number-of-factors"><i class="fa fa-check"></i><b>16.4.3</b> Determining the number of factors</a></li>
 </ul></li>
-<li class="chapter" data-level="17.5" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#doing-reproducible-research-1"><i class="fa fa-check"></i><b>17.5</b> Doing reproducible research</a>
+<li class="chapter" data-level="16.5" data-path="multivariate.html"><a href="multivariate.html#learning-objectives-15"><i class="fa fa-check"></i><b>16.5</b> Learning objectives</a></li>
+<li class="chapter" data-level="16.6" data-path="multivariate.html"><a href="multivariate.html#suggested-readings-11"><i class="fa fa-check"></i><b>16.6</b> Suggested readings</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="practical-example.html"><a href="practical-example.html"><i class="fa fa-check"></i><b>17</b> Practical statistical modeling</a>
 <ul>
-<li class="chapter" data-level="17.5.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#pre-registration"><i class="fa fa-check"></i><b>17.5.1</b> Pre-registration</a></li>
-<li class="chapter" data-level="17.5.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#reproducible-practices"><i class="fa fa-check"></i><b>17.5.2</b> Reproducible practices</a></li>
-<li class="chapter" data-level="17.5.3" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#replication"><i class="fa fa-check"></i><b>17.5.3</b> Replication</a></li>
+<li class="chapter" data-level="17.1" data-path="practical-example.html"><a href="practical-example.html#the-process-of-statistical-modeling"><i class="fa fa-check"></i><b>17.1</b> The process of statistical modeling</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="practical-example.html"><a href="practical-example.html#specify-your-question-of-interest"><i class="fa fa-check"></i><b>17.1.1</b> 1: Specify your question of interest</a></li>
+<li class="chapter" data-level="17.1.2" data-path="practical-example.html"><a href="practical-example.html#identify-or-collect-the-appropriate-data"><i class="fa fa-check"></i><b>17.1.2</b> 2: Identify or collect the appropriate data</a></li>
+<li class="chapter" data-level="17.1.3" data-path="practical-example.html"><a href="practical-example.html#prepare-the-data-for-analysis"><i class="fa fa-check"></i><b>17.1.3</b> 3: Prepare the data for analysis</a></li>
+<li class="chapter" data-level="17.1.4" data-path="practical-example.html"><a href="practical-example.html#determine-the-appropriate-model"><i class="fa fa-check"></i><b>17.1.4</b> 4. Determine the appropriate model</a></li>
+<li class="chapter" data-level="17.1.5" data-path="practical-example.html"><a href="practical-example.html#fit-the-model-to-the-data"><i class="fa fa-check"></i><b>17.1.5</b> 5. Fit the model to the data</a></li>
+<li class="chapter" data-level="17.1.6" data-path="practical-example.html"><a href="practical-example.html#criticize-the-model-to-make-sure-it-fits-properly"><i class="fa fa-check"></i><b>17.1.6</b> 6. Criticize the model to make sure it fits properly</a></li>
+<li class="chapter" data-level="17.1.7" data-path="practical-example.html"><a href="practical-example.html#test-hypothesis-and-quantify-effect-size"><i class="fa fa-check"></i><b>17.1.7</b> 7. Test hypothesis and quantify effect size</a></li>
+<li class="chapter" data-level="17.1.8" data-path="practical-example.html"><a href="practical-example.html#what-about-possible-confounds"><i class="fa fa-check"></i><b>17.1.8</b> What about possible confounds?</a></li>
 </ul></li>
-<li class="chapter" data-level="17.6" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#doing-reproducible-data-analysis"><i class="fa fa-check"></i><b>17.6</b> Doing reproducible data analysis</a></li>
-<li class="chapter" data-level="17.7" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#conclusion-doing-better-science"><i class="fa fa-check"></i><b>17.7</b> Conclusion: Doing better science</a></li>
-<li class="chapter" data-level="17.8" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#learning-objectives-15"><i class="fa fa-check"></i><b>17.8</b> Learning objectives</a></li>
-<li class="chapter" data-level="17.9" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#suggested-readings-11"><i class="fa fa-check"></i><b>17.9</b> Suggested Readings</a></li>
+<li class="chapter" data-level="17.2" data-path="practical-example.html"><a href="practical-example.html#getting-help"><i class="fa fa-check"></i><b>17.2</b> Getting help</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html"><i class="fa fa-check"></i><b>18</b> Doing reproducible research</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#how-we-think-science-should-work"><i class="fa fa-check"></i><b>18.1</b> How we think science should work</a></li>
+<li class="chapter" data-level="18.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#how-science-sometimes-actually-works"><i class="fa fa-check"></i><b>18.2</b> How science (sometimes) actually works</a></li>
+<li class="chapter" data-level="18.3" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#the-reproducibility-crisis-in-science"><i class="fa fa-check"></i><b>18.3</b> The reproducibility crisis in science</a>
+<ul>
+<li class="chapter" data-level="18.3.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#positive-predictive-value-and-statistical-significance"><i class="fa fa-check"></i><b>18.3.1</b> Positive predictive value and statistical significance</a></li>
+<li class="chapter" data-level="18.3.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#the-winners-curse"><i class="fa fa-check"></i><b>18.3.2</b> The winner’s curse</a></li>
+</ul></li>
+<li class="chapter" data-level="18.4" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#questionable-research-practices"><i class="fa fa-check"></i><b>18.4</b> Questionable research practices</a>
+<ul>
+<li class="chapter" data-level="18.4.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#esp-or-qrp"><i class="fa fa-check"></i><b>18.4.1</b> ESP or QRP?</a></li>
+</ul></li>
+<li class="chapter" data-level="18.5" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#doing-reproducible-research-1"><i class="fa fa-check"></i><b>18.5</b> Doing reproducible research</a>
+<ul>
+<li class="chapter" data-level="18.5.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#pre-registration"><i class="fa fa-check"></i><b>18.5.1</b> Pre-registration</a></li>
+<li class="chapter" data-level="18.5.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#reproducible-practices"><i class="fa fa-check"></i><b>18.5.2</b> Reproducible practices</a></li>
+<li class="chapter" data-level="18.5.3" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#replication"><i class="fa fa-check"></i><b>18.5.3</b> Replication</a></li>
+</ul></li>
+<li class="chapter" data-level="18.6" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#doing-reproducible-data-analysis"><i class="fa fa-check"></i><b>18.6</b> Doing reproducible data analysis</a></li>
+<li class="chapter" data-level="18.7" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#conclusion-doing-better-science"><i class="fa fa-check"></i><b>18.7</b> Conclusion: Doing better science</a></li>
+<li class="chapter" data-level="18.8" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#learning-objectives-16"><i class="fa fa-check"></i><b>18.8</b> Learning objectives</a></li>
+<li class="chapter" data-level="18.9" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#suggested-readings-12"><i class="fa fa-check"></i><b>18.9</b> Suggested Readings</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
@@ -539,8 +560,8 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="hypothesis-testing" class="section level1" number="9">
-<h1><span class="header-section-number">Chapter 9</span> Hypothesis testing</h1>
+<div id="hypothesis-testing" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Chapter 9</span> Hypothesis testing<a href="hypothesis-testing.html#hypothesis-testing" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>In the first chapter we discussed the three major goals of statistics:</p>
 <ul>
 <li>Describe</li>
@@ -548,25 +569,25 @@ div.csl-indent {
 <li>Predict</li>
 </ul>
 <p>In this chapter we will introduce the ideas behind the use of statistics to make decisions – in particular, decisions about whether a particular hypothesis is supported by the data.</p>
-<div id="null-hypothesis-statistical-testing-nhst" class="section level2" number="9.1">
-<h2><span class="header-section-number">9.1</span> Null Hypothesis Statistical Testing (NHST)</h2>
-<p>The specific type of hypothesis testing that we will discuss is known (for reasons that will become clear) as <em>null hypothesis statistical testing</em> (NHST). If you pick up almost any scientific or biomedical research publication, you will see NHST being used to test hypotheses, and in their introductory psychology textbook, Gerrig &amp; Zimbardo (2002) referred to NHST as the “backbone of psychological research.” Thus, learning how to use and interpret the results from hypothesis testing is essential to understand the results from many fields of research.</p>
-<p>It is also important for you to know, however, that NHST is deeply flawed, and that many statisticians and researchers (including myself) think that it has been the cause of serious problems in science, which we will discuss in Chapter <a href="doing-reproducible-research.html#doing-reproducible-research">17</a>. For more than 50 years, there have been calls to abandon NHST in favor of other approaches (like those that we will discuss in the following chapters):</p>
+<div id="null-hypothesis-statistical-testing-nhst" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Null Hypothesis Statistical Testing (NHST)<a href="hypothesis-testing.html#null-hypothesis-statistical-testing-nhst" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The specific type of hypothesis testing that we will discuss is known (for reasons that will become clear) as <em>null hypothesis statistical testing</em> (NHST). If you pick up almost any scientific or biomedical research publication, you will see NHST being used to test hypotheses, and in their introductory psychology textbook, Gerrig &amp; Zimbardo (2002) referred to NHST as the “backbone of psychological research”. Thus, learning how to use and interpret the results from hypothesis testing is essential to understand the results from many fields of research.</p>
+<p>It is also important for you to know, however, that NHST is deeply flawed, and that many statisticians and researchers (including myself) think that it has been the cause of serious problems in science, which we will discuss in Chapter <a href="doing-reproducible-research.html#doing-reproducible-research">18</a>. For more than 50 years, there have been calls to abandon NHST in favor of other approaches (like those that we will discuss in the following chapters):</p>
 <ul>
 <li>“The test of statistical significance in psychological research may be taken as an instance of a kind of essential mindlessness in the conduct of research” (Bakan, 1966)</li>
 <li>Hypothesis testing is “a wrongheaded view about what constitutes scientific progress” (Luce, 1988)</li>
 </ul>
 <p>NHST is also widely misunderstood, largely because it violates our intuitions about how statistical hypothesis testing should work. Let’s look at an example to see this.</p>
 </div>
-<div id="null-hypothesis-statistical-testing-an-example" class="section level2" number="9.2">
-<h2><span class="header-section-number">9.2</span> Null hypothesis statistical testing: An example</h2>
+<div id="null-hypothesis-statistical-testing-an-example" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> Null hypothesis statistical testing: An example<a href="hypothesis-testing.html#null-hypothesis-statistical-testing-an-example" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There is great interest in the use of body-worn cameras by police officers, which are thought to reduce the use of force and improve officer behavior. However, in order to establish this we need experimental evidence, and it has become increasingly common for governments to use randomized controlled trials to test such ideas. A randomized controlled trial of the effectiveness of body-worn cameras was performed by the Washington, DC government and DC Metropolitan Police Department in 2015/2016. Officers were randomly assigned to wear a body-worn camera or not, and their behavior was then tracked over time to determine whether the cameras resulted in less use of force and fewer civilian complaints about officer behavior.</p>
 <p>Before we get to the results, let’s ask how you would think the statistical analysis might work. Let’s say we want to specifically test the hypothesis of whether the use of force is decreased by the wearing of cameras. The randomized controlled trial provides us with the data to test the hypothesis – namely, the rates of use of force by officers assigned to either the camera or control groups. The next obvious step is to look at the data and determine whether they provide convincing evidence for or against this hypothesis. That is: What is the likelihood that body-worn cameras reduce the use of force, given the data and everything else we know?</p>
 <p>It turns out that this is <em>not</em> how null hypothesis testing works. Instead, we first take our hypothesis of interest (i.e. that body-worn cameras reduce use of force), and flip it on its head, creating a <em>null hypothesis</em> – in this case, the null hypothesis would be that cameras do not reduce use of force. Importantly, we then assume that the null hypothesis is true. We then look at the data, and determine how likely the data would be if the null hypothesis were true. If the the data are sufficiently unlikely under the null hypothesis that we can reject the null in favor of the <em>alternative hypothesis</em> which is our hypothesis of interest. If there is not sufficient evidence to reject the null, then we say that we retain (or “fail to reject”) the null, sticking with our initial assumption that the null is true.</p>
-<p>Understanding some of the concepts of NHST, particularly the notorious “p-value,” is invariably challenging the first time one encounters them, because they are so counter-intuitive. As we will see later, there are other approaches that provide a much more intuitive way to address hypothesis testing (but have their own complexities). However, before we get to those, it’s important for you to have a deep understanding of how hypothesis testing works, because it’s clearly not going to go away any time soon.</p>
+<p>Understanding some of the concepts of NHST, particularly the notorious “p-value”, is invariably challenging the first time one encounters them, because they are so counter-intuitive. As we will see later, there are other approaches that provide a much more intuitive way to address hypothesis testing (but have their own complexities). However, before we get to those, it’s important for you to have a deep understanding of how hypothesis testing works, because it’s clearly not going to go away any time soon.</p>
 </div>
-<div id="the-process-of-null-hypothesis-testing" class="section level2" number="9.3">
-<h2><span class="header-section-number">9.3</span> The process of null hypothesis testing</h2>
+<div id="the-process-of-null-hypothesis-testing" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> The process of null hypothesis testing<a href="hypothesis-testing.html#the-process-of-null-hypothesis-testing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We can break the process of null hypothesis testing down into a number of steps:</p>
 <ol style="list-style-type: decimal">
 <li>Formulate a hypothesis that embodies our prediction (<em>before seeing the data</em>)</li>
@@ -580,12 +601,12 @@ div.csl-indent {
 <p><span class="math display">\[
 BMI = \frac{weight(kg)}{height(m)^2}
 \]</span></p>
-<div id="step-1-formulate-a-hypothesis-of-interest" class="section level3" number="9.3.1">
-<h3><span class="header-section-number">9.3.1</span> Step 1: Formulate a hypothesis of interest</h3>
+<div id="step-1-formulate-a-hypothesis-of-interest" class="section level3 hasAnchor" number="9.3.1">
+<h3><span class="header-section-number">9.3.1</span> Step 1: Formulate a hypothesis of interest<a href="hypothesis-testing.html#step-1-formulate-a-hypothesis-of-interest" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We hypothesize that BMI is greater for people who do not engage in physical activity, compared to those who do.</p>
 </div>
-<div id="step-2-specify-the-null-and-alternative-hypotheses" class="section level3" number="9.3.2">
-<h3><span class="header-section-number">9.3.2</span> Step 2: Specify the null and alternative hypotheses</h3>
+<div id="step-2-specify-the-null-and-alternative-hypotheses" class="section level3 hasAnchor" number="9.3.2">
+<h3><span class="header-section-number">9.3.2</span> Step 2: Specify the null and alternative hypotheses<a href="hypothesis-testing.html#step-2-specify-the-null-and-alternative-hypotheses" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>For step 2, we need to specify our null hypothesis (which we call <span class="math inline">\(H_0\)</span>) and our alternative hypothesis (which we call <span class="math inline">\(H_A\)</span>). <span class="math inline">\(H_0\)</span> is the baseline against which we test our hypothesis of interest: that is, what would we expect the data to look like if there was no effect? The null hypothesis always involves some kind of equality (=, <span class="math inline">\(\le\)</span>, or <span class="math inline">\(\ge\)</span>). <span class="math inline">\(H_A\)</span> describes what we expect if there actually is an effect. The alternative hypothesis always involves some kind of inequality (<span class="math inline">\(\ne\)</span>, &gt;, or &lt;). Importantly, null hypothesis testing operates under the assumption that the null hypothesis is true unless the evidence shows otherwise.</p>
 <p>We also have to decide whether we want to test a <em>directional</em> or <em>non-directional</em> hypotheses. A non-directional hypothesis simply predicts that there will be a difference, without predicting which direction it will go. For the BMI/activity example, a non-directional null hypothesis would be:</p>
 <p><span class="math inline">\(H0: BMI_{active} = BMI_{inactive}\)</span></p>
@@ -597,8 +618,8 @@ BMI = \frac{weight(kg)}{height(m)^2}
 <p><span class="math inline">\(HA: BMI_{active} &lt; BMI_{inactive}\)</span></p>
 <p>As we will see later, testing a non-directional hypothesis is more conservative, so this is generally to be preferred unless there is a strong <em>a priori</em> reason to hypothesize an effect in a particular direction. Hypotheses, including whether they are directional or not, should always be specified prior to looking at the data!</p>
 </div>
-<div id="step-3-collect-some-data" class="section level3" number="9.3.3">
-<h3><span class="header-section-number">9.3.3</span> Step 3: Collect some data</h3>
+<div id="step-3-collect-some-data" class="section level3 hasAnchor" number="9.3.3">
+<h3><span class="header-section-number">9.3.3</span> Step 3: Collect some data<a href="hypothesis-testing.html#step-3-collect-some-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In this case, we will sample 250 individuals from the NHANES dataset. Figure <a href="hypothesis-testing.html#fig:bmiSample">9.1</a> shows an example of such a sample, with BMI shown separately for active and inactive individuals, and Table <a href="hypothesis-testing.html#tab:summaryTable">9.1</a> shows summary statistics for each group.</p>
 <table>
 <caption><span id="tab:summaryTable">Table 9.1: </span>Summary of BMI data for active versus inactive individuals</caption>
@@ -632,17 +653,17 @@ Figure 9.1: Box plot of BMI data from a sample of adults from the NHANES dataset
 </p>
 </div>
 </div>
-<div id="step-4-fit-a-model-to-the-data-and-compute-a-test-statistic" class="section level3" number="9.3.4">
-<h3><span class="header-section-number">9.3.4</span> Step 4: Fit a model to the data and compute a test statistic</h3>
+<div id="step-4-fit-a-model-to-the-data-and-compute-a-test-statistic" class="section level3 hasAnchor" number="9.3.4">
+<h3><span class="header-section-number">9.3.4</span> Step 4: Fit a model to the data and compute a test statistic<a href="hypothesis-testing.html#step-4-fit-a-model-to-the-data-and-compute-a-test-statistic" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We next want to use the data to compute a statistic that will ultimately let us decide whether the null hypothesis is rejected or not. To do this, the model needs to quantify the amount of evidence in favor of the alternative hypothesis, relative to the variability in the data. Thus we can think of the test statistic as providing a measure of the size of the effect compared to the variability in the data. In general, this test statistic will have a probability distribution associated with it, because that allows us to determine how likely our observed value of the statistic is under the null hypothesis.</p>
-<p>For the BMI example, we need a test statistic that allows us to test for a difference between two means, since the hypotheses are stated in terms of mean BMI for each group. One statistic that is often used to compare two means is the <em>t</em> statistic, first developed by the statistician William Sealy Gossett, who worked for the Guiness Brewery in Dublin and wrote under the pen name “Student” - hence, it is often called “Student’s <em>t</em> statistic.” The <em>t</em> statistic is appropriate for comparing the means of two groups when the sample sizes are relatively small and the population standard deviation is unknown. The <em>t</em> statistic for comparison of two independent groups is computed as:</p>
+<p>For the BMI example, we need a test statistic that allows us to test for a difference between two means, since the hypotheses are stated in terms of mean BMI for each group. One statistic that is often used to compare two means is the <em>t</em> statistic, first developed by the statistician William Sealy Gossett, who worked for the Guiness Brewery in Dublin and wrote under the pen name “Student” - hence, it is often called “Student’s <em>t</em> statistic”. The <em>t</em> statistic is appropriate for comparing the means of two groups when the sample sizes are relatively small and the population standard deviation is unknown. The <em>t</em> statistic for comparison of two independent groups is computed as:</p>
 <p><span class="math display">\[
 t = \frac{\bar{X_1} - \bar{X_2}}{\sqrt{\frac{S_1^2}{n_1} + \frac{S_2^2}{n_2}}}
 \]</span></p>
 <p>where <span class="math inline">\(\bar{X}_1\)</span> and <span class="math inline">\(\bar{X}_2\)</span> are the means of the two groups, <span class="math inline">\(S^2_1\)</span> and <span class="math inline">\(S^2_2\)</span> are the estimated variances of the groups, and <span class="math inline">\(n_1\)</span> and <span class="math inline">\(n_2\)</span> are the sizes of the two groups. Because the variance of a difference between two independent variables is the sum of the variances of each individual variable (<span class="math inline">\(var(A - B) = var(A) + var(B)\)</span>), we add the variances for each group divided by their sample sizes in order to compute the standard error of the difference. Thus, one can view the the <em>t</em> statistic as a way of quantifying how large the difference between groups is in relation to the sampling variability of the difference between means.</p>
-<p>The <em>t</em> statistic is distributed according to a probability distribution known as a <em>t</em> distribution. The <em>t</em> distribution looks quite similar to a normal distribution, but it differs depending on the number of degrees of freedom. When the degrees of freedom are large (say 1000), then the <em>t</em> distribution looks essentially like the normal distribution, but when they are small then the <em>t</em> distribution has longer tails than the normal (see Figure <a href="hypothesis-testing.html#fig:tVersusNormal">9.2</a>). In the simplest case, where the groups are the same size and have equal variance, the degrees of freedom for the <em>t</em> test is the number of observations minus 2, since we have computed two means and thus given up two degrees of freedom. In this case it’s pretty clear from the box plot that the inactive group is more variable than then active group, and the numbers in each group differ, so we need to use a slightly more complex formula for the degrees of freedom, which is often referred to as a “Welch t-test.” The formula is:</p>
+<p>The <em>t</em> statistic is distributed according to a probability distribution known as a <em>t</em> distribution. The <em>t</em> distribution looks quite similar to a normal distribution, but it differs depending on the number of degrees of freedom. When the degrees of freedom are large (say 1000), then the <em>t</em> distribution looks essentially like the normal distribution, but when they are small then the <em>t</em> distribution has longer tails than the normal (see Figure <a href="hypothesis-testing.html#fig:tVersusNormal">9.2</a>). In the simplest case, where the groups are the same size and have equal variance, the degrees of freedom for the <em>t</em> test is the number of observations minus 2, since we have computed two means and thus given up two degrees of freedom. In this case it’s pretty clear from the box plot that the inactive group is more variable than then active group, and the numbers in each group differ, so we need to use a slightly more complex formula for the degrees of freedom, which is often referred to as a “Welch t-test”. The formula is:</p>
 <p><span class="math display">\[
- \mathrm{d.f.} = \frac{\left(\frac{S_1^2}{n_1} + \frac{S_2^2}{n_2}\right)^2}{\frac{\left(S_1^2/n_1\right)^2}{n_1-1} + \frac{\left(S_2^2/n_2\right)^2}{n_2-1}}
+\mathrm{d.f.} = \frac{\left(\frac{S_1^2}{n_1} + \frac{S_2^2}{n_2}\right)^2}{\frac{\left(S_1^2/n_1\right)^2}{n_1-1} + \frac{\left(S_2^2/n_2\right)^2}{n_2-1}}
 \]</span>
 This will be equal to <span class="math inline">\(n_1 + n_2 - 2\)</span> when the variances and sample sizes are equal, and otherwise will be smaller, in effect imposing a penalty on the test for differences in sample size or variance. For this example, that comes out to 241.12 which is slightly below the value of 248 that one would get by subtracting 2 from the sample size.</p>
 <div class="figure"><span style="display:block;" id="fig:tVersusNormal"></span>
@@ -652,12 +673,12 @@ Figure 9.2: Each panel shows the t distribution (in blue dashed line) overlaid o
 </p>
 </div>
 </div>
-<div id="step-5-determine-the-probability-of-the-observed-result-under-the-null-hypothesis" class="section level3" number="9.3.5">
-<h3><span class="header-section-number">9.3.5</span> Step 5: Determine the probability of the observed result under the null hypothesis</h3>
-<p>This is the step where NHST starts to violate our intuition. Rather than determining the likelihood that the null hypothesis is true given the data, we instead determine the likelihood under the null hypothesis of observing a statistic at least as extreme as one that we have observed — because we started out by assuming that the null hypothesis is true! To do this, we need to know the expected probability distribution for the statistic under the null hypothesis, so that we can ask how likely the result would be under that distribution. Note that when I say “how likely the result would be,” what I really mean is “how likely the observed result or one more extreme would be.” There are (at least) two reasons that we need to add this caveat. The first is that when we are talking about continuous values, the probability of any particular value is zero (as you might remember if you’ve taken a calculus class). More importantly, we are trying to determine how weird our result would be if the null hypothesis were true, and any result that is more extreme will be even more weird, so we want to count all of those weirder possibilities when we compute the probability of our result under the null hypothesis.</p>
+<div id="step-5-determine-the-probability-of-the-observed-result-under-the-null-hypothesis" class="section level3 hasAnchor" number="9.3.5">
+<h3><span class="header-section-number">9.3.5</span> Step 5: Determine the probability of the observed result under the null hypothesis<a href="hypothesis-testing.html#step-5-determine-the-probability-of-the-observed-result-under-the-null-hypothesis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This is the step where NHST starts to violate our intuition. Rather than determining the likelihood that the null hypothesis is true given the data, we instead determine the likelihood under the null hypothesis of observing a statistic at least as extreme as one that we have observed — because we started out by assuming that the null hypothesis is true! To do this, we need to know the expected probability distribution for the statistic under the null hypothesis, so that we can ask how likely the result would be under that distribution. Note that when I say “how likely the result would be”, what I really mean is “how likely the observed result or one more extreme would be”. There are (at least) two reasons that we need to add this caveat. The first is that when we are talking about continuous values, the probability of any particular value is zero (as you might remember if you’ve taken a calculus class). More importantly, we are trying to determine how weird our result would be if the null hypothesis were true, and any result that is more extreme will be even more weird, so we want to count all of those weirder possibilities when we compute the probability of our result under the null hypothesis.</p>
 <p>We can obtain this “null distribution” either using a theoretical distribution (like the <em>t</em> distribution), or using randomization. Before we move to our BMI example, let’s start with some simpler examples.</p>
-<div id="pvalues-very-simple" class="section level4" number="9.3.5.1">
-<h4><span class="header-section-number">9.3.5.1</span> P-values: A very simple example</h4>
+<div id="pvalues-very-simple" class="section level4 hasAnchor" number="9.3.5.1">
+<h4><span class="header-section-number">9.3.5.1</span> P-values: A very simple example<a href="hypothesis-testing.html#pvalues-very-simple" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Let’s say that we wish to determine whether a particular coin is biased towards landing heads. To collect data, we flip the coin 100 times, and let’s say we count 70 heads. In this example, <span class="math inline">\(H_0: P(heads) \le 0.5\)</span> and <span class="math inline">\(H_A: P(heads) &gt; 0.5\)</span>, and our test statistic is simply the number of heads that we counted. The question that we then want to ask is: How likely is it that we would observe 70 or more heads in 100 coin flips if the true probability of heads is 0.5? We can imagine that this might happen very occasionally just by chance, but doesn’t seem very likely. To quantify this probability, we can use the <em>binomial distribution</em>:</p>
 <p><span class="math display">\[
 P(X \le k) = \sum_{i=0}^k \binom{N}{k} p^i (1-p)^{(n-i)}
@@ -676,19 +697,19 @@ Figure 9.3: Distribution of numbers of heads (out of 100 flips) across 100,000 s
 This computation shows us that the likelihood of getting 70 or more heads if the coin is indeed fair is very small.</p>
 <p>Now, what if we didn’t have a standard function to tell us the probability of that number of heads? We could instead determine it by simulation – we repeatedly flip a coin 100 times using a true probability of 0.5, and then compute the distribution of the number of heads across those simulation runs. Figure <a href="hypothesis-testing.html#fig:coinFlips">9.3</a> shows the result from this simulation. Here we can see that the probability computed via simulation (0.000030) is very close to the theoretical probability (0.000039).</p>
 </div>
-<div id="pvalues-tdist" class="section level4" number="9.3.5.2">
-<h4><span class="header-section-number">9.3.5.2</span> Computing p-values using the <em>t</em> distribution</h4>
+<div id="pvalues-tdist" class="section level4 hasAnchor" number="9.3.5.2">
+<h4><span class="header-section-number">9.3.5.2</span> Computing p-values using the <em>t</em> distribution<a href="hypothesis-testing.html#pvalues-tdist" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Now let’s compute a p-value for our BMI example using the <em>t</em> distribution. First we compute the <em>t</em> statistic using the values from our sample that we calculated above, where we find that t = 3.86. The question that we then want to ask is: What is the likelihood that we would find a <em>t</em> statistic of this size, if the true difference between groups is zero or less (i.e. the directional null hypothesis)?</p>
 <p>We can use the <em>t</em> distribution to determine this probability. Above we noted that the appropriate degrees of freedom (after correcting for differences in variance and sample size) was t = 241.12. We can use a function from our statistical software to determine the probability of finding a value of the <em>t</em> statistic greater than or equal to our observed value. We find that p(t &gt; 3.86, df = 241.12) = 0.000072, which tells us that our observed <em>t</em> statistic value of 3.86 is relatively unlikely if the null hypothesis really is true.</p>
 <p>In this case, we used a directional hypothesis, so we only had to look at one end of the null distribution. If we wanted to test a non-directional hypothesis, then we would need to be able to identify how unexpected the size of the effect is, regardless of its direction. In the context of the t-test, this means that we need to know how likely it is that the statistic would be as extreme in either the positive or negative direction. To do this, we multiply the observed <em>t</em> value by -1, since the <em>t</em> distribution is centered around zero, and then add together the two tail probabilities to get a <em>two-tailed</em> p-value: p(t &gt; 3.86 or t&lt; -3.86, df = 241.12) = 0.000145. Here we see that the p value for the two-tailed test is twice as large as that for the one-tailed test, which reflects the fact that an extreme value is less surprising since it could have occurred in either direction.</p>
-<p>How do you choose whether to use a one-tailed versus a two-tailed test? The two-tailed test is always going to be more conservative, so it’s always a good bet to use that one, unless you had a very strong prior reason for using a one-tailed test. In that case, you should have written down the hypothesis before you ever looked at the data. In Chapter <a href="doing-reproducible-research.html#doing-reproducible-research">17</a> we will discuss the idea of pre-registration of hypotheses, which formalizes the idea of writing down your hypotheses before you ever see the actual data. You should <em>never</em> make a decision about how to perform a hypothesis test once you have looked at the data, as this can introduce serious bias into the results.</p>
+<p>How do you choose whether to use a one-tailed versus a two-tailed test? The two-tailed test is always going to be more conservative, so it’s always a good bet to use that one, unless you had a very strong prior reason for using a one-tailed test. In that case, you should have written down the hypothesis before you ever looked at the data. In Chapter <a href="doing-reproducible-research.html#doing-reproducible-research">18</a> we will discuss the idea of pre-registration of hypotheses, which formalizes the idea of writing down your hypotheses before you ever see the actual data. You should <em>never</em> make a decision about how to perform a hypothesis test once you have looked at the data, as this can introduce serious bias into the results.</p>
 </div>
-<div id="computing-p-values-using-randomization" class="section level4" number="9.3.5.3">
-<h4><span class="header-section-number">9.3.5.3</span> Computing p-values using randomization</h4>
+<div id="computing-p-values-using-randomization" class="section level4 hasAnchor" number="9.3.5.3">
+<h4><span class="header-section-number">9.3.5.3</span> Computing p-values using randomization<a href="hypothesis-testing.html#computing-p-values-using-randomization" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>So far we have seen how we can use the t-distribution to compute the probability of the data under the null hypothesis, but we can also do this using simulation. The basic idea is that we generate simulated data like those that we would expect under the null hypothesis, and then ask how extreme the observed data are in comparison to those simulated data. The key question is: How can we generate data for which the null hypothesis is true? The general answer is that we can randomly rearrange the data in a particular way that makes the data look like they would if the null was really true. This is similar to the idea of bootstrapping, in the sense that it uses our own data to come up with an answer, but it does it in a different way.</p>
 </div>
-<div id="randomization-a-simple-example" class="section level4" number="9.3.5.4">
-<h4><span class="header-section-number">9.3.5.4</span> Randomization: a simple example</h4>
+<div id="randomization-a-simple-example" class="section level4 hasAnchor" number="9.3.5.4">
+<h4><span class="header-section-number">9.3.5.4</span> Randomization: a simple example<a href="hypothesis-testing.html#randomization-a-simple-example" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Let’s start with a simple example. Let’s say that we want to compare the mean squatting ability of football players with cross-country runners, with <span class="math inline">\(H_0: \mu_{FB} \le \mu_{XC}\)</span> and <span class="math inline">\(H_A: \mu_{FB} &gt; \mu_{XC}\)</span>. We measure the maximum squatting ability of 5 football players and 5 cross-country runners (which we will generate randomly, assuming that <span class="math inline">\(\mu_{FB} = 300\)</span>, <span class="math inline">\(\mu_{XC} = 140\)</span>, and <span class="math inline">\(\sigma = 30\)</span>). The data are shown in Table <a href="hypothesis-testing.html#tab:squatPlot">9.2</a>.</p>
 <table>
 <caption><span id="tab:squatPlot">Table 9.2: </span>Squatting data for the two groups</caption>
@@ -779,8 +800,8 @@ Figure 9.5: Histogram of t-values for the difference in means between the footba
 </p>
 </div>
 <p>After scrambling the data, we see that the two groups are now much more similar, and in fact the cross-country group now has a slightly higher mean. Now let’s do that 10000 times and store the <em>t</em> statistic for each iteration; if you are doing this on your own computer, it will take a moment to complete. Figure <a href="hypothesis-testing.html#fig:shuffleHist">9.5</a> shows the histogram of the <em>t</em> values across all of the random shuffles. As expected under the null hypothesis, this distribution is centered at zero (the mean of the distribution is 0.007). From the figure we can also see that the distribution of <em>t</em> values after shuffling roughly follows the theoretical <em>t</em> distribution under the null hypothesis (with mean=0), showing that randomization worked to generate null data. We can compute the p-value from the randomized data by measuring how many of the shuffled values are at least as extreme as the observed value: p(t &gt; 8.01, df = 8) using randomization = 0.00410. This p-value is very similar to the p-value that we obtained using the <em>t</em> distribution, and both are quite extreme, suggesting that the observed data are very unlikely to have arisen if the null hypothesis is true - and in this case we <em>know</em> that it’s not true, because we generated the data.</p>
-<div id="randomization-bmiactivity-example" class="section level5" number="9.3.5.4.1">
-<h5><span class="header-section-number">9.3.5.4.1</span> Randomization: BMI/activity example</h5>
+<div id="randomization-bmiactivity-example" class="section level5 hasAnchor" number="9.3.5.4.1">
+<h5><span class="header-section-number">9.3.5.4.1</span> Randomization: BMI/activity example<a href="hypothesis-testing.html#randomization-bmiactivity-example" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Now let’s use randomization to compute the p-value for the BMI/activity example. In this case, we will randomly shuffle the <code>PhysActive</code> variable and compute the difference between groups after each shuffle, and then compare our observed <em>t</em> statistic to the distribution of <em>t</em> statistics from the shuffled datasets. Figure <a href="hypothesis-testing.html#fig:simDiff">9.6</a> shows the distribution of <em>t</em> values from the shuffled samples, and we can also compute the probability of finding a value as large or larger than the observed value. The p-value obtained from randomization (0.000000) is very similar to the one obtained using the <em>t</em> distribution (0.000075). The advantage of the randomization test is that it doesn’t require that we assume that the data from each of the groups are normally distributed, though the t-test is generally quite robust to violations of that assumption. In addition, the randomization test can allow us to compute p-values for statistics when we don’t have a theoretical distribution like we do for the t-test.</p>
 <div class="figure"><span style="display:block;" id="fig:simDiff"></span>
 <img src="StatsThinking21_files/figure-html/simDiff-1.png" alt="Histogram of t statistics after shuffling of group labels, with the observed value of the t statistic shown in the vertical line, and values at least as extreme as the observed value shown in lighter gray" width="384" height="50%" />
@@ -792,8 +813,8 @@ Figure 9.6: Histogram of t statistics after shuffling of group labels, with the 
 </div>
 </div>
 </div>
-<div id="step-6-assess-the-statistical-significance-of-the-result" class="section level3" number="9.3.6">
-<h3><span class="header-section-number">9.3.6</span> Step 6: Assess the “statistical significance” of the result</h3>
+<div id="step-6-assess-the-statistical-significance-of-the-result" class="section level3 hasAnchor" number="9.3.6">
+<h3><span class="header-section-number">9.3.6</span> Step 6: Assess the “statistical significance” of the result<a href="hypothesis-testing.html#step-6-assess-the-statistical-significance-of-the-result" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The next step is to determine whether the p-value that results from the previous step is small enough that we are willing to reject the null hypothesis and conclude instead that the alternative is true. How much evidence do we require? This is one of the most controversial questions in statistics, in part because it requires a subjective judgment – there is no “correct” answer.</p>
 <p>Historically, the most common answer to this question has been that we should reject the null hypothesis if the p-value is less than 0.05. This comes from the writings of Ronald Fisher, who has been referred to as “the single most important figure in 20th century statistics” <span class="citation">(<a href="#ref-efron1998" role="doc-biblioref">Efron 1998</a>)</span>:</p>
 <blockquote>
@@ -804,9 +825,9 @@ Figure 9.6: Histogram of t statistics after shuffling of group labels, with the 
 <p>“no scientific worker has a fixed level of significance at which from year to year, and in all circumstances, he rejects hypotheses; he rather gives his mind to each particular case in the light of his evidence and his ideas” <span class="citation">(<a href="#ref-fish:1956" role="doc-biblioref">Ronald Aylmer Fisher 1956</a>)</span></p>
 </blockquote>
 <p>Instead, it is likely that p &lt; .05 became a ritual due to the reliance upon tables of p-values that were used before computing made it easy to compute p values for arbitrary values of a statistic. All of the tables had an entry for 0.05, making it easy to determine whether one’s statistic exceeded the value needed to reach that level of significance.</p>
-<p>The choice of statistical thresholds remains deeply controversial, and recently (Benjamin et al., 2018) it has been proposed that the default threshold be changed from .05 to .005, making it substantially more stringent and thus more difficult to reject the null hypothesis. In large part this move is due to growing concerns that the evidence obtained from a significant result at <span class="math inline">\(p &lt; .05\)</span> is relatively weak; we will return to this in our later discussion of reproducibility in Chapter <a href="doing-reproducible-research.html#doing-reproducible-research">17</a>.</p>
-<div id="hypothesis-testing-as-decision-making-the-neyman-pearson-approach" class="section level4" number="9.3.6.1">
-<h4><span class="header-section-number">9.3.6.1</span> Hypothesis testing as decision-making: The Neyman-Pearson approach</h4>
+<p>The choice of statistical thresholds remains deeply controversial, and recently (Benjamin et al., 2018) it has been proposed that the default threshold be changed from .05 to .005, making it substantially more stringent and thus more difficult to reject the null hypothesis. In large part this move is due to growing concerns that the evidence obtained from a significant result at <span class="math inline">\(p &lt; .05\)</span> is relatively weak; we will return to this in our later discussion of reproducibility in Chapter <a href="doing-reproducible-research.html#doing-reproducible-research">18</a>.</p>
+<div id="hypothesis-testing-as-decision-making-the-neyman-pearson-approach" class="section level4 hasAnchor" number="9.3.6.1">
+<h4><span class="header-section-number">9.3.6.1</span> Hypothesis testing as decision-making: The Neyman-Pearson approach<a href="hypothesis-testing.html#hypothesis-testing-as-decision-making-the-neyman-pearson-approach" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Whereas Fisher thought that the p-value could provide evidence regarding a specific hypothesis, the statisticians Jerzy Neyman and Egon Pearson disagreed vehemently. Instead, they proposed that we think of hypothesis testing in terms of its error rate in the long run:</p>
 <blockquote>
 <p>“no test based upon a theory of probability can by itself provide any valuable evidence of the truth or falsehood of a hypothesis. But we may look at the purpose of tests from another viewpoint. Without hoping to know whether each separate hypothesis is true or false, we may search for rules to govern our behaviour with regard to them, in following which we insure that, in the long run of experience, we shall not often be wrong” <span class="citation">(<a href="#ref-Neyman289" role="doc-biblioref">J. Neyman and Pearson 1933</a>)</span></p>
@@ -830,23 +851,23 @@ Figure 9.6: Histogram of t statistics after shuffling of group labels, with the 
 <p>That is, if we set <span class="math inline">\(\alpha\)</span> to .05, then in the long run we should make a Type I error 5% of the time. Whereas it’s common to set <span class="math inline">\(\alpha\)</span> as .05, the standard value for an acceptable level of <span class="math inline">\(\beta\)</span> is .2 - that is, we are willing to accept that 20% of the time we will fail to detect a true effect when it truly exists. We will return to this later when we discuss statistical power in Section <a href="ci-effect-size-power.html#statistical-power">10.3</a>, which is the complement of Type II error.</p>
 </div>
 </div>
-<div id="what-does-a-significant-result-mean" class="section level3" number="9.3.7">
-<h3><span class="header-section-number">9.3.7</span> What does a significant result mean?</h3>
+<div id="what-does-a-significant-result-mean" class="section level3 hasAnchor" number="9.3.7">
+<h3><span class="header-section-number">9.3.7</span> What does a significant result mean?<a href="hypothesis-testing.html#what-does-a-significant-result-mean" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There is a great deal of confusion about what p-values actually mean (Gigerenzer, 2004). Let’s say that we do an experiment comparing the means between conditions, and we find a difference with a p-value of .01. There are a number of possible interpretations that one might entertain.</p>
-<div id="does-it-mean-that-the-probability-of-the-null-hypothesis-being-true-is-.01" class="section level4" number="9.3.7.1">
-<h4><span class="header-section-number">9.3.7.1</span> Does it mean that the probability of the null hypothesis being true is .01?</h4>
+<div id="does-it-mean-that-the-probability-of-the-null-hypothesis-being-true-is-.01" class="section level4 hasAnchor" number="9.3.7.1">
+<h4><span class="header-section-number">9.3.7.1</span> Does it mean that the probability of the null hypothesis being true is .01?<a href="hypothesis-testing.html#does-it-mean-that-the-probability-of-the-null-hypothesis-being-true-is-.01" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>No. Remember that in null hypothesis testing, the p-value is the probability of the data given the null hypothesis (<span class="math inline">\(P(data|H_0)\)</span>). It does not warrant conclusions about the probability of the null hypothesis given the data (<span class="math inline">\(P(H_0|data)\)</span>). We will return to this question when we discuss Bayesian inference in a later chapter, as Bayes theorem lets us invert the conditional probability in a way that allows us to determine the probability of the hypothesis given the data.</p>
 </div>
-<div id="does-it-mean-that-the-probability-that-you-are-making-the-wrong-decision-is-.01" class="section level4" number="9.3.7.2">
-<h4><span class="header-section-number">9.3.7.2</span> Does it mean that the probability that you are making the wrong decision is .01?</h4>
+<div id="does-it-mean-that-the-probability-that-you-are-making-the-wrong-decision-is-.01" class="section level4 hasAnchor" number="9.3.7.2">
+<h4><span class="header-section-number">9.3.7.2</span> Does it mean that the probability that you are making the wrong decision is .01?<a href="hypothesis-testing.html#does-it-mean-that-the-probability-that-you-are-making-the-wrong-decision-is-.01" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>No. This would be <span class="math inline">\(P(H_0|data)\)</span>, but remember as above that p-values are probabilities of data under <span class="math inline">\(H_0\)</span>, not probabilities of hypotheses.</p>
 </div>
-<div id="does-it-mean-that-if-you-ran-the-study-again-you-would-obtain-the-same-result-99-of-the-time" class="section level4" number="9.3.7.3">
-<h4><span class="header-section-number">9.3.7.3</span> Does it mean that if you ran the study again, you would obtain the same result 99% of the time?</h4>
+<div id="does-it-mean-that-if-you-ran-the-study-again-you-would-obtain-the-same-result-99-of-the-time" class="section level4 hasAnchor" number="9.3.7.3">
+<h4><span class="header-section-number">9.3.7.3</span> Does it mean that if you ran the study again, you would obtain the same result 99% of the time?<a href="hypothesis-testing.html#does-it-mean-that-if-you-ran-the-study-again-you-would-obtain-the-same-result-99-of-the-time" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>No. The p-value is a statement about the likelihood of a particular dataset under the null; it does not allow us to make inferences about the likelihood of future events such as replication.</p>
 </div>
-<div id="does-it-mean-that-you-have-found-a-practically-important-effect" class="section level4" number="9.3.7.4">
-<h4><span class="header-section-number">9.3.7.4</span> Does it mean that you have found a practically important effect?</h4>
+<div id="does-it-mean-that-you-have-found-a-practically-important-effect" class="section level4 hasAnchor" number="9.3.7.4">
+<h4><span class="header-section-number">9.3.7.4</span> Does it mean that you have found a practically important effect?<a href="hypothesis-testing.html#does-it-mean-that-you-have-found-a-practically-important-effect" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>No. There is an essential distinction between <em>statistical significance</em> and <em>practical significance</em>. As an example, let’s say that we performed a randomized controlled trial to examine the effect of a particular diet on body weight, and we find a statistically significant effect at p&lt;.05. What this doesn’t tell us is how much weight was actually lost, which we refer to as the <em>effect size</em> (to be discussed in more detail in Chapter <a href="ci-effect-size-power.html#ci-effect-size-power">10</a>). If we think about a study of weight loss, then we probably don’t think that the loss of one ounce (i.e. the weight of a few potato chips) is practically significant. Let’s look at our ability to detect a significant difference of 1 ounce as the sample size increases.</p>
 <p>Figure <a href="hypothesis-testing.html#fig:sigResults">9.7</a> shows how the proportion of significant results increases as the sample size increases, such that with a very large sample size (about 262,000 total subjects), we will find a significant result in more than 90% of studies when there is a 1 ounce difference in weight loss between the diets. While these are statistically significant, most physicians would not consider a weight loss of one ounce to be practically or clinically significant. We will explore this relationship in more detail when we return to the concept of <em>statistical power</em> in Section <a href="ci-effect-size-power.html#statistical-power">10.3</a>, but it should already be clear from this example that statistical significance is not necessarily indicative of practical significance.</p>
 <div class="figure"><span style="display:block;" id="fig:sigResults"></span>
@@ -858,8 +879,8 @@ Figure 9.7: The proportion of signifcant results for a very small change (1 ounc
 </div>
 </div>
 </div>
-<div id="nhst-in-a-modern-context-multiple-testing" class="section level2" number="9.4">
-<h2><span class="header-section-number">9.4</span> NHST in a modern context: Multiple testing</h2>
+<div id="nhst-in-a-modern-context-multiple-testing" class="section level2 hasAnchor" number="9.4">
+<h2><span class="header-section-number">9.4</span> NHST in a modern context: Multiple testing<a href="hypothesis-testing.html#nhst-in-a-modern-context-multiple-testing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>So far we have discussed examples where we are interested in testing a single statistical hypothesis, and this is consistent with traditional science which often measured only a few variables at a time. However, in modern science we can often measure millions of variables per individual. For example, in genetic studies that quantify the entire genome, there may be many millions of measures per individual, and in the brain imaging research that my group does, we often collect data from more than 100,000 locations in the brain at once. When standard hypothesis testing is applied in these contexts, bad things can happen unless we take appropriate care.</p>
 <p>Let’s look at an example to see how this might work. There is great interest in understanding the genetic factors that can predispose individuals to major mental illnesses such as schizophrenia, because we know that about 80% of the variation between individuals in the presence of schizophrenia is due to genetic differences. The Human Genome Project and the ensuing revolution in genome science has provided tools to examine the many ways in which humans differ from one another in their genomes. One approach that has been used in recent years is known as a <em>genome-wide association study</em> (GWAS), in which the genome of each individual is characterized at one million or more places to determine which letters of the genetic code they have at each location, focusing on locations where humans tend to differ frequently. After these have been determined, the researchers perform a statistical test at each location in the genome to determine whether people diagnosed with schizoprenia are more or less likely to have one specific version of the genetic sequence at that location.</p>
 <p>Let’s imagine what would happen if the researchers simply asked whether the test was significant at p&lt;.05 at each location, when in fact there is no true effect at any of the locations. To do this, we generate a large number of simulated <em>t</em> values from a null distribution, and ask how many of them are significant at p&lt;.05. Let’s do this many times, and each time count up how many of the tests come out as significant (see Figure <a href="hypothesis-testing.html#fig:nullSim">9.8</a>).</p>
@@ -872,8 +893,8 @@ Figure 9.8: Left: A histogram of the number of significant results in each set o
 <p>This shows that about 5% of all of the tests were significant in each run, meaning that if we were to use p &lt; .05 as our threshold for statistical significance, then even if there were no truly significant relationships present, we would still “find” about 500 genes that were seemingly significant in each study (the expected number of significant results is simply <span class="math inline">\(n * \alpha\)</span>). That is because while we controlled for the error per test, we didn’t control the error rate across our entire <em>family</em> of tests (known as the <em>familywise error</em>), which is what we really want to control if we are going to be looking at the results from a large number of tests. Using p&lt;.05, our familywise error rate in the above example is one – that is, we are pretty much guaranteed to make at least one error in any particular study.</p>
 <p>A simple way to control for the familywise error is to divide the alpha level by the number of tests; this is known as the <em>Bonferroni</em> correction, named after the Italian statistician Carlo Bonferroni. Using the data from our example above, we see in Figure <a href="hypothesis-testing.html#fig:nullSim">9.8</a> that only about 5 percent of studies show any significant results using the corrected alpha level of 0.000005 instead of the nominal level of .05. We have effectively controlled the familywise error, such that the probability of making <em>any</em> errors in our study is controlled at right around .05.</p>
 </div>
-<div id="learning-objectives-8" class="section level2" number="9.5">
-<h2><span class="header-section-number">9.5</span> Learning objectives</h2>
+<div id="learning-objectives-8" class="section level2 hasAnchor" number="9.5">
+<h2><span class="header-section-number">9.5</span> Learning objectives<a href="hypothesis-testing.html#learning-objectives-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Identify the components of a hypothesis test, including the parameter of interest, the null and alternative hypotheses, and the test statistic.</li>
 <li>Describe the proper interpretations of a p-value as well as common misinterpretations</li>
@@ -883,15 +904,15 @@ Figure 9.8: Left: A histogram of the number of significant results in each set o
 <li>Describe the main criticisms of null hypothesis statistical testing</li>
 </ul>
 </div>
-<div id="suggested-readings-6" class="section level2" number="9.6">
-<h2><span class="header-section-number">9.6</span> Suggested readings</h2>
+<div id="suggested-readings-6" class="section level2 hasAnchor" number="9.6">
+<h2><span class="header-section-number">9.6</span> Suggested readings<a href="hypothesis-testing.html#suggested-readings-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><a href="https://library.mpib-berlin.mpg.de/ft/gg/GG_Mindless_2004.pdf">Mindless Statistics, by Gerd Gigerenzer</a></li>
 </ul>
 
 </div>
 </div>
-<h3>References</h3>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-efron1998" class="csl-entry">
 Efron, Bradley. 1998. <span>“R. A. Fisher in the 21st Century (Invited Paper Presented at the 1996 r. A. Fisher Lecture).”</span> <em>Statist. Sci.</em> 13 (2): 95–122. <a href="https://doi.org/10.1214/ss/1028905930">https://doi.org/10.1214/ss/1028905930</a>.

@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 13 Modeling continuous relationships | Statistical Thinking for the 21st Century</title>
   <meta name="description" content="A book about statistics." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 13 Modeling continuous relationships | Statistical Thinking for the 21st Century" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="A book about statistics." />
   <meta name="github-repo" content="poldrack/psych10-book" />
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="modeling-categorical-relationships.html"/>
 <link rel="next" href="the-general-linear-model.html"/>
-<script src="book_assets/header-attrs-2.11/header-attrs.js"></script>
 <script src="book_assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="book_assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="book_assets/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="book_assets/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="book_assets/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="book_assets/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="book_assets/anchor-sections-1.1.0/anchor-sections.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129414074-1"></script>
 <script>
@@ -251,7 +250,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="5.2.1" data-path="fitting-models.html"><a href="fitting-models.html#improving-our-model"><i class="fa fa-check"></i><b>5.2.1</b> Improving our model</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="fitting-models.html"><a href="fitting-models.html#what-makes-a-model-good"><i class="fa fa-check"></i><b>5.3</b> What makes a model “good?”</a></li>
+<li class="chapter" data-level="5.3" data-path="fitting-models.html"><a href="fitting-models.html#what-makes-a-model-good"><i class="fa fa-check"></i><b>5.3</b> What makes a model “good”?</a></li>
 <li class="chapter" data-level="5.4" data-path="fitting-models.html"><a href="fitting-models.html#overfitting"><i class="fa fa-check"></i><b>5.4</b> Can a model be too good?</a></li>
 <li class="chapter" data-level="5.5" data-path="fitting-models.html"><a href="fitting-models.html#summarizing-data-using-the-mean"><i class="fa fa-check"></i><b>5.5</b> Summarizing data using the mean</a>
 <ul>
@@ -482,44 +481,66 @@ div.csl-indent {
 <li class="chapter" data-level="15.8.1" data-path="comparing-means.html"><a href="comparing-means.html#the-paired-t-test-as-a-linear-model"><i class="fa fa-check"></i><b>15.8.1</b> The paired t-test as a linear model</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="practical-example.html"><a href="practical-example.html"><i class="fa fa-check"></i><b>16</b> Practical statistical modeling</a>
+<li class="chapter" data-level="16" data-path="multivariate.html"><a href="multivariate.html"><i class="fa fa-check"></i><b>16</b> Multivariate statistics</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="practical-example.html"><a href="practical-example.html#the-process-of-statistical-modeling"><i class="fa fa-check"></i><b>16.1</b> The process of statistical modeling</a>
+<li class="chapter" data-level="16.1" data-path="multivariate.html"><a href="multivariate.html#multivariate-data-an-example"><i class="fa fa-check"></i><b>16.1</b> Multivariate data: An example</a></li>
+<li class="chapter" data-level="16.2" data-path="multivariate.html"><a href="multivariate.html#visualizing-multivariate-data"><i class="fa fa-check"></i><b>16.2</b> Visualizing multivariate data</a>
 <ul>
-<li class="chapter" data-level="16.1.1" data-path="practical-example.html"><a href="practical-example.html#specify-your-question-of-interest"><i class="fa fa-check"></i><b>16.1.1</b> 1: Specify your question of interest</a></li>
-<li class="chapter" data-level="16.1.2" data-path="practical-example.html"><a href="practical-example.html#identify-or-collect-the-appropriate-data"><i class="fa fa-check"></i><b>16.1.2</b> 2: Identify or collect the appropriate data</a></li>
-<li class="chapter" data-level="16.1.3" data-path="practical-example.html"><a href="practical-example.html#prepare-the-data-for-analysis"><i class="fa fa-check"></i><b>16.1.3</b> 3: Prepare the data for analysis</a></li>
-<li class="chapter" data-level="16.1.4" data-path="practical-example.html"><a href="practical-example.html#determine-the-appropriate-model"><i class="fa fa-check"></i><b>16.1.4</b> 4. Determine the appropriate model</a></li>
-<li class="chapter" data-level="16.1.5" data-path="practical-example.html"><a href="practical-example.html#fit-the-model-to-the-data"><i class="fa fa-check"></i><b>16.1.5</b> 5. Fit the model to the data</a></li>
-<li class="chapter" data-level="16.1.6" data-path="practical-example.html"><a href="practical-example.html#criticize-the-model-to-make-sure-it-fits-properly"><i class="fa fa-check"></i><b>16.1.6</b> 6. Criticize the model to make sure it fits properly</a></li>
-<li class="chapter" data-level="16.1.7" data-path="practical-example.html"><a href="practical-example.html#test-hypothesis-and-quantify-effect-size"><i class="fa fa-check"></i><b>16.1.7</b> 7. Test hypothesis and quantify effect size</a></li>
-<li class="chapter" data-level="16.1.8" data-path="practical-example.html"><a href="practical-example.html#what-about-possible-confounds"><i class="fa fa-check"></i><b>16.1.8</b> What about possible confounds?</a></li>
+<li class="chapter" data-level="16.2.1" data-path="multivariate.html"><a href="multivariate.html#scatterplot-of-matrices"><i class="fa fa-check"></i><b>16.2.1</b> Scatterplot of matrices</a></li>
+<li class="chapter" data-level="16.2.2" data-path="multivariate.html"><a href="multivariate.html#heatmap"><i class="fa fa-check"></i><b>16.2.2</b> Heatmap</a></li>
 </ul></li>
-<li class="chapter" data-level="16.2" data-path="practical-example.html"><a href="practical-example.html#getting-help"><i class="fa fa-check"></i><b>16.2</b> Getting help</a></li>
-</ul></li>
-<li class="chapter" data-level="17" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html"><i class="fa fa-check"></i><b>17</b> Doing reproducible research</a>
+<li class="chapter" data-level="16.3" data-path="multivariate.html"><a href="multivariate.html#clustering"><i class="fa fa-check"></i><b>16.3</b> Clustering</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#how-we-think-science-should-work"><i class="fa fa-check"></i><b>17.1</b> How we think science should work</a></li>
-<li class="chapter" data-level="17.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#how-science-sometimes-actually-works"><i class="fa fa-check"></i><b>17.2</b> How science (sometimes) actually works</a></li>
-<li class="chapter" data-level="17.3" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#the-reproducibility-crisis-in-science"><i class="fa fa-check"></i><b>17.3</b> The reproducibility crisis in science</a>
-<ul>
-<li class="chapter" data-level="17.3.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#positive-predictive-value-and-statistical-significance"><i class="fa fa-check"></i><b>17.3.1</b> Positive predictive value and statistical significance</a></li>
-<li class="chapter" data-level="17.3.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#the-winners-curse"><i class="fa fa-check"></i><b>17.3.2</b> The winner’s curse</a></li>
+<li class="chapter" data-level="16.3.1" data-path="multivariate.html"><a href="multivariate.html#k-means-clustering"><i class="fa fa-check"></i><b>16.3.1</b> K-means clustering</a></li>
+<li class="chapter" data-level="16.3.2" data-path="multivariate.html"><a href="multivariate.html#hierarchical-clustering"><i class="fa fa-check"></i><b>16.3.2</b> Hierarchical clustering</a></li>
 </ul></li>
-<li class="chapter" data-level="17.4" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#questionable-research-practices"><i class="fa fa-check"></i><b>17.4</b> Questionable research practices</a>
+<li class="chapter" data-level="16.4" data-path="multivariate.html"><a href="multivariate.html#dimensionality-reduction"><i class="fa fa-check"></i><b>16.4</b> Dimensionality reduction</a>
 <ul>
-<li class="chapter" data-level="17.4.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#esp-or-qrp"><i class="fa fa-check"></i><b>17.4.1</b> ESP or QRP?</a></li>
+<li class="chapter" data-level="16.4.1" data-path="multivariate.html"><a href="multivariate.html#principal-component-analysis"><i class="fa fa-check"></i><b>16.4.1</b> Principal component analysis</a></li>
+<li class="chapter" data-level="16.4.2" data-path="multivariate.html"><a href="multivariate.html#factor-analysis"><i class="fa fa-check"></i><b>16.4.2</b> Factor analysis</a></li>
+<li class="chapter" data-level="16.4.3" data-path="multivariate.html"><a href="multivariate.html#determining-the-number-of-factors"><i class="fa fa-check"></i><b>16.4.3</b> Determining the number of factors</a></li>
 </ul></li>
-<li class="chapter" data-level="17.5" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#doing-reproducible-research-1"><i class="fa fa-check"></i><b>17.5</b> Doing reproducible research</a>
+<li class="chapter" data-level="16.5" data-path="multivariate.html"><a href="multivariate.html#learning-objectives-15"><i class="fa fa-check"></i><b>16.5</b> Learning objectives</a></li>
+<li class="chapter" data-level="16.6" data-path="multivariate.html"><a href="multivariate.html#suggested-readings-11"><i class="fa fa-check"></i><b>16.6</b> Suggested readings</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="practical-example.html"><a href="practical-example.html"><i class="fa fa-check"></i><b>17</b> Practical statistical modeling</a>
 <ul>
-<li class="chapter" data-level="17.5.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#pre-registration"><i class="fa fa-check"></i><b>17.5.1</b> Pre-registration</a></li>
-<li class="chapter" data-level="17.5.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#reproducible-practices"><i class="fa fa-check"></i><b>17.5.2</b> Reproducible practices</a></li>
-<li class="chapter" data-level="17.5.3" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#replication"><i class="fa fa-check"></i><b>17.5.3</b> Replication</a></li>
+<li class="chapter" data-level="17.1" data-path="practical-example.html"><a href="practical-example.html#the-process-of-statistical-modeling"><i class="fa fa-check"></i><b>17.1</b> The process of statistical modeling</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="practical-example.html"><a href="practical-example.html#specify-your-question-of-interest"><i class="fa fa-check"></i><b>17.1.1</b> 1: Specify your question of interest</a></li>
+<li class="chapter" data-level="17.1.2" data-path="practical-example.html"><a href="practical-example.html#identify-or-collect-the-appropriate-data"><i class="fa fa-check"></i><b>17.1.2</b> 2: Identify or collect the appropriate data</a></li>
+<li class="chapter" data-level="17.1.3" data-path="practical-example.html"><a href="practical-example.html#prepare-the-data-for-analysis"><i class="fa fa-check"></i><b>17.1.3</b> 3: Prepare the data for analysis</a></li>
+<li class="chapter" data-level="17.1.4" data-path="practical-example.html"><a href="practical-example.html#determine-the-appropriate-model"><i class="fa fa-check"></i><b>17.1.4</b> 4. Determine the appropriate model</a></li>
+<li class="chapter" data-level="17.1.5" data-path="practical-example.html"><a href="practical-example.html#fit-the-model-to-the-data"><i class="fa fa-check"></i><b>17.1.5</b> 5. Fit the model to the data</a></li>
+<li class="chapter" data-level="17.1.6" data-path="practical-example.html"><a href="practical-example.html#criticize-the-model-to-make-sure-it-fits-properly"><i class="fa fa-check"></i><b>17.1.6</b> 6. Criticize the model to make sure it fits properly</a></li>
+<li class="chapter" data-level="17.1.7" data-path="practical-example.html"><a href="practical-example.html#test-hypothesis-and-quantify-effect-size"><i class="fa fa-check"></i><b>17.1.7</b> 7. Test hypothesis and quantify effect size</a></li>
+<li class="chapter" data-level="17.1.8" data-path="practical-example.html"><a href="practical-example.html#what-about-possible-confounds"><i class="fa fa-check"></i><b>17.1.8</b> What about possible confounds?</a></li>
 </ul></li>
-<li class="chapter" data-level="17.6" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#doing-reproducible-data-analysis"><i class="fa fa-check"></i><b>17.6</b> Doing reproducible data analysis</a></li>
-<li class="chapter" data-level="17.7" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#conclusion-doing-better-science"><i class="fa fa-check"></i><b>17.7</b> Conclusion: Doing better science</a></li>
-<li class="chapter" data-level="17.8" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#learning-objectives-15"><i class="fa fa-check"></i><b>17.8</b> Learning objectives</a></li>
-<li class="chapter" data-level="17.9" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#suggested-readings-11"><i class="fa fa-check"></i><b>17.9</b> Suggested Readings</a></li>
+<li class="chapter" data-level="17.2" data-path="practical-example.html"><a href="practical-example.html#getting-help"><i class="fa fa-check"></i><b>17.2</b> Getting help</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html"><i class="fa fa-check"></i><b>18</b> Doing reproducible research</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#how-we-think-science-should-work"><i class="fa fa-check"></i><b>18.1</b> How we think science should work</a></li>
+<li class="chapter" data-level="18.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#how-science-sometimes-actually-works"><i class="fa fa-check"></i><b>18.2</b> How science (sometimes) actually works</a></li>
+<li class="chapter" data-level="18.3" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#the-reproducibility-crisis-in-science"><i class="fa fa-check"></i><b>18.3</b> The reproducibility crisis in science</a>
+<ul>
+<li class="chapter" data-level="18.3.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#positive-predictive-value-and-statistical-significance"><i class="fa fa-check"></i><b>18.3.1</b> Positive predictive value and statistical significance</a></li>
+<li class="chapter" data-level="18.3.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#the-winners-curse"><i class="fa fa-check"></i><b>18.3.2</b> The winner’s curse</a></li>
+</ul></li>
+<li class="chapter" data-level="18.4" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#questionable-research-practices"><i class="fa fa-check"></i><b>18.4</b> Questionable research practices</a>
+<ul>
+<li class="chapter" data-level="18.4.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#esp-or-qrp"><i class="fa fa-check"></i><b>18.4.1</b> ESP or QRP?</a></li>
+</ul></li>
+<li class="chapter" data-level="18.5" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#doing-reproducible-research-1"><i class="fa fa-check"></i><b>18.5</b> Doing reproducible research</a>
+<ul>
+<li class="chapter" data-level="18.5.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#pre-registration"><i class="fa fa-check"></i><b>18.5.1</b> Pre-registration</a></li>
+<li class="chapter" data-level="18.5.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#reproducible-practices"><i class="fa fa-check"></i><b>18.5.2</b> Reproducible practices</a></li>
+<li class="chapter" data-level="18.5.3" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#replication"><i class="fa fa-check"></i><b>18.5.3</b> Replication</a></li>
+</ul></li>
+<li class="chapter" data-level="18.6" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#doing-reproducible-data-analysis"><i class="fa fa-check"></i><b>18.6</b> Doing reproducible data analysis</a></li>
+<li class="chapter" data-level="18.7" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#conclusion-doing-better-science"><i class="fa fa-check"></i><b>18.7</b> Conclusion: Doing better science</a></li>
+<li class="chapter" data-level="18.8" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#learning-objectives-16"><i class="fa fa-check"></i><b>18.8</b> Learning objectives</a></li>
+<li class="chapter" data-level="18.9" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#suggested-readings-12"><i class="fa fa-check"></i><b>18.9</b> Suggested Readings</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
@@ -539,19 +560,19 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="modeling-continuous-relationships" class="section level1" number="13">
-<h1><span class="header-section-number">Chapter 13</span> Modeling continuous relationships</h1>
+<div id="modeling-continuous-relationships" class="section level1 hasAnchor" number="13">
+<h1><span class="header-section-number">Chapter 13</span> Modeling continuous relationships<a href="modeling-continuous-relationships.html#modeling-continuous-relationships" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Most people are familiar with the concept of <em>correlation</em>, and in this chapter we will provide a more formal understanding for this commonly used and misunderstood concept.</p>
-<div id="an-example-hate-crimes-and-income-inequality" class="section level2" number="13.1">
-<h2><span class="header-section-number">13.1</span> An example: Hate crimes and income inequality</h2>
+<div id="an-example-hate-crimes-and-income-inequality" class="section level2 hasAnchor" number="13.1">
+<h2><span class="header-section-number">13.1</span> An example: Hate crimes and income inequality<a href="modeling-continuous-relationships.html#an-example-hate-crimes-and-income-inequality" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In 2017, the web site Fivethirtyeight.com published a story titled <a href="https://fivethirtyeight.com/features/higher-rates-of-hate-crimes-are-tied-to-income-inequality/"><em>Higher Rates Of Hate Crimes Are Tied To Income Inequality</em></a> which discussed the relationship between the prevalence of hate crimes and income inequality in the wake of the 2016 Presidential election. The story reported an analysis of hate crime data from the FBI and the Southern Poverty Law Center, on the basis of which they report:</p>
 <blockquote>
-<p>“we found that income inequality was the most significant determinant of population-adjusted hate crimes and hate incidents across the United States.”</p>
+<p>“we found that income inequality was the most significant determinant of population-adjusted hate crimes and hate incidents across the United States”.</p>
 </blockquote>
 <p>The data for this analysis are available as part the <code>fivethirtyeight</code> package for the R statistical software, which makes it easy for us to access them. The analysis reported in the story focused on the relationship between income inequality (defined by a quantity called the <em>Gini index</em> — see Appendix for more details) and the prevalence of hate crimes in each state.</p>
 </div>
-<div id="is-income-inequality-related-to-hate-crimes" class="section level2" number="13.2">
-<h2><span class="header-section-number">13.2</span> Is income inequality related to hate crimes?</h2>
+<div id="is-income-inequality-related-to-hate-crimes" class="section level2 hasAnchor" number="13.2">
+<h2><span class="header-section-number">13.2</span> Is income inequality related to hate crimes?<a href="modeling-continuous-relationships.html#is-income-inequality-related-to-hate-crimes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="figure"><span style="display:block;" id="fig:hateCrimeGini"></span>
 <img src="StatsThinking21_files/figure-html/hateCrimeGini-1.png" alt="Plot of rates of hate crimes vs. Gini index." width="75%" />
 <p class="caption">
@@ -561,8 +582,8 @@ Figure 13.1: Plot of rates of hate crimes vs. Gini index.
 <p>The relationship between income inequality and rates of hate crimes is shown in Figure <a href="modeling-continuous-relationships.html#fig:hateCrimeGini">13.1</a>.
 Looking at the data, it seems that there may be a positive relationship between the two variables. How can we quantify that relationship?</p>
 </div>
-<div id="covariance-and-correlation" class="section level2" number="13.3">
-<h2><span class="header-section-number">13.3</span> Covariance and correlation</h2>
+<div id="covariance-and-correlation" class="section level2 hasAnchor" number="13.3">
+<h2><span class="header-section-number">13.3</span> Covariance and correlation<a href="modeling-continuous-relationships.html#covariance-and-correlation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>One way to quantify the relationship between two variables is the <em>covariance</em>. Remember that variance for a single variable is computed as the average squared difference between each data point and the mean:</p>
 <p><span class="math display">\[
 s^2 = \frac{\sum_{i=1}^n (x_i - \bar{x})^2}{N - 1}
@@ -688,8 +709,8 @@ crossproduct
 r = \frac{covariance}{s_xs_y} = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{(N - 1)s_x s_y}
 \]</span>
 In this case, the value is 0.89. The correlation coefficient is useful because it varies between -1 and 1 regardless of the nature of the data - in fact, we already discussed the correlation coefficient earlier in our discussion of effect sizes. As we saw in that previous chapter, a correlation of 1 indicates a perfect linear relationship, a correlation of -1 indicates a perfect negative relationship, and a correlation of zero indicates no linear relationship.</p>
-<div id="hypothesis-testing-for-correlations" class="section level3" number="13.3.1">
-<h3><span class="header-section-number">13.3.1</span> Hypothesis testing for correlations</h3>
+<div id="hypothesis-testing-for-correlations" class="section level3 hasAnchor" number="13.3.1">
+<h3><span class="header-section-number">13.3.1</span> Hypothesis testing for correlations<a href="modeling-continuous-relationships.html#hypothesis-testing-for-correlations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The correlation value of 0.42 between hate crimes and income inequality seems to indicate a reasonably strong relationship between the two, but we can also imagine that this could occur by chance even if there is no relationship. We can test the null hypothesis that the correlation is zero, using a simple equation that lets us convert a correlation value into a <em>t</em> statistic:</p>
 <p><span class="math display">\[
 \textit{t}_r =  \frac{r\sqrt{N-2}}{\sqrt{1-r^2}}
@@ -716,8 +737,8 @@ Figure 13.2: Histogram of correlation values under the null hypothesis, obtained
 </div>
 <p>We could also use Bayesian inference to estimate the correlation; see the Appendix for more on this.</p>
 </div>
-<div id="robust-correlations" class="section level3" number="13.3.2">
-<h3><span class="header-section-number">13.3.2</span> Robust correlations</h3>
+<div id="robust-correlations" class="section level3 hasAnchor" number="13.3.2">
+<h3><span class="header-section-number">13.3.2</span> Robust correlations<a href="modeling-continuous-relationships.html#robust-correlations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You may have noticed something a bit odd in Figure <a href="modeling-continuous-relationships.html#fig:hateCrimeGini">13.1</a> – one of the datapoints (the one for the District of Columbia) seemed to be quite separate from the others. We refer to this as an <em>outlier</em>, and the standard correlation coefficient is very sensitive to outliers. For example, in Figure <a href="modeling-continuous-relationships.html#fig:outlierCorr">13.3</a> we can see how a single outlying data point can cause a very high positive correlation value, even when the actual relationship between the other data points is perfectly negative.</p>
 <div class="figure"><span style="display:block;" id="fig:outlierCorr"></span>
 <img src="StatsThinking21_files/figure-html/outlierCorr-1.png" alt="An simulated example of the effects of outliers on correlation.  Without the outlier the remainder of the datapoints have a perfect negative correlation, but the single outlier changes the correlation value to highly positive." width="384" height="50%" />
@@ -739,14 +760,14 @@ Figure 13.3: An simulated example of the effects of outliers on correlation. Wit
 <p>Now we see that the correlation is no longer significant (and in fact is very near zero), suggesting that the claims of the FiveThirtyEight blog post may have been incorrect due to the effect of the outlier.</p>
 </div>
 </div>
-<div id="correlation-and-causation" class="section level2" number="13.4">
-<h2><span class="header-section-number">13.4</span> Correlation and causation</h2>
+<div id="correlation-and-causation" class="section level2 hasAnchor" number="13.4">
+<h2><span class="header-section-number">13.4</span> Correlation and causation<a href="modeling-continuous-relationships.html#correlation-and-causation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>When we say that one thing <em>causes</em> another, what do we mean? There is a long history in philosophy of discussion about the meaning of causality, but in statistics one way that we commonly think of causation is in terms of experimental control. That is, if we think that factor X causes factor Y, then manipulating the value of X should also change the value of Y.</p>
 <p>In medicine, there is a set of ideas known as <a href="https://en.wikipedia.org/wiki/Koch%27s_postulates"><em>Koch’s postulates</em></a> which have historically been used to determine whether a particular organism causes a disease. The basic idea is that the organism should be present in people with the disease, and not present in those without it – thus, a treatment that eliminates the organism should also eliminate the disease. Further, infecting someone with the organism should cause them to contract the disease. An example of this was seen in the work of Dr. Barry Marshall, who had a hypothesis that stomach ulcers were caused by a bacterium (<em>Helicobacter pylori</em>). To demonstrate this, he infected himself with the bacterium, and soon thereafter developed severe inflammation in his stomach. He then treated himself with an antibiotic, and his stomach soon recovered. He later won the Nobel Prize in Medicine for this work.</p>
 <p>Often we would like to test causal hypotheses but we can’t actually do an experiment, either because it’s impossible (“What is the relationship between human carbon emissions and the earth’s climate?”) or unethical (“What are the effects of severe abuse on child brain development?”). However, we can still collect data that might be relevant to those questions. For example, we can potentially collect data from children who have been abused as well as those who have not, and we can then ask whether their brain development differs.</p>
 <p>Let’s say that we did such an analysis, and we found that abused children had poorer brain development than non-abused children. Would this demonstrate that abuse <em>causes</em> poorer brain development? No. Whenever we observe a statistical association between two variables, it is certainly possible that one of those two variables causes the other. However, it is also possible that both of the variables are being influenced by a third variable; in this example, it could be that child abuse is associated with family stress, which could also cause poorer brain development through less intellectual engagement, food stress, or many other possible avenues. The point is that a correlation between two variables generally tells us that something is <em>probably</em> causing somethign else, but it doesn’t tell us what is causing what.</p>
-<div id="causal-graphs" class="section level3" number="13.4.1">
-<h3><span class="header-section-number">13.4.1</span> Causal graphs</h3>
+<div id="causal-graphs" class="section level3 hasAnchor" number="13.4.1">
+<h3><span class="header-section-number">13.4.1</span> Causal graphs<a href="modeling-continuous-relationships.html#causal-graphs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>One useful way to describe causal relations between variables is through a <em>causal graph</em>, which shows variables as circles and causal relations between them as arrows. For example, Figure <a href="modeling-continuous-relationships.html#fig:simpleCausalGraph">13.4</a> shows the causal relationships between study time and two variables that we think should be affected by it: exam grades and exam finishing times.</p>
 <p>However, in reality the effects on finishing time and grades are not due directly to the amount of time spent studying, but rather to the amount of knowledge that the student gains by studying. We would usually say that knowledge is a <em>latent</em> variable – that is, we can’t measure it directly but we can see it reflected in variables that we can measure (like grades and finishing times). Figure <a href="modeling-continuous-relationships.html#fig:latentCausalGraph">13.5</a> shows this.</p>
 <div class="figure"><span style="display:block;" id="fig:simpleCausalGraph"></span>
@@ -766,8 +787,8 @@ Figure 13.5: A graph showing the same causal relationships as above, but now als
 <p>Within statistics and machine learning, there is a very active research community that is currently studying the question of when and how we can infer causal relationships from non-experimental data. However, these methods often require strong assumptions, and must generally be used with great caution.</p>
 </div>
 </div>
-<div id="learning-objectives-12" class="section level2" number="13.5">
-<h2><span class="header-section-number">13.5</span> Learning objectives</h2>
+<div id="learning-objectives-12" class="section level2 hasAnchor" number="13.5">
+<h2><span class="header-section-number">13.5</span> Learning objectives<a href="modeling-continuous-relationships.html#learning-objectives-12" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>After reading this chapter, you should be able to:</p>
 <ul>
 <li>Describe the concept of the correlation coefficient and its interpretation</li>
@@ -776,19 +797,19 @@ Figure 13.5: A graph showing the same causal relationships as above, but now als
 <li>Describe the potential causal influences that can give rise to an observed correlation.</li>
 </ul>
 </div>
-<div id="suggested-readings-9" class="section level2" number="13.6">
-<h2><span class="header-section-number">13.6</span> Suggested readings</h2>
+<div id="suggested-readings-9" class="section level2 hasAnchor" number="13.6">
+<h2><span class="header-section-number">13.6</span> Suggested readings<a href="modeling-continuous-relationships.html#suggested-readings-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><a href="http://bayes.cs.ucla.edu/WHY/">The Book of Why</a> by Judea Pearl - an excellent introduction to the ideas behind causal inference.</li>
 </ul>
 </div>
-<div id="appendix-4" class="section level2" number="13.7">
-<h2><span class="header-section-number">13.7</span> Appendix:</h2>
-<div id="quantifying-inequality-the-gini-index" class="section level3" number="13.7.1">
-<h3><span class="header-section-number">13.7.1</span> Quantifying inequality: The Gini index</h3>
+<div id="appendix-4" class="section level2 hasAnchor" number="13.7">
+<h2><span class="header-section-number">13.7</span> Appendix:<a href="modeling-continuous-relationships.html#appendix-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="quantifying-inequality-the-gini-index" class="section level3 hasAnchor" number="13.7.1">
+<h3><span class="header-section-number">13.7.1</span> Quantifying inequality: The Gini index<a href="modeling-continuous-relationships.html#quantifying-inequality-the-gini-index" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Before we look at the analysis reported in the story, it’s first useful to understand how the Gini index is used to quantify inequality. The Gini index is usually defined in terms of a curve that describes the relation between income and the proportion of the population that has income at or less than that level, known as a <em>Lorenz curve</em>. However, another way to think of it is more intuitive: It is the relative mean absolute difference between incomes, divided by two (from <a href="https://en.wikipedia.org/wiki/Gini_coefficient" class="uri">https://en.wikipedia.org/wiki/Gini_coefficient</a>):</p>
 <p><span class="math display">\[
-G = \frac{\displaystyle{\sum_{i=1}^n \sum_{j=1}^n \left| x_i - x_j \right|}}{\displaystyle{2n\sum_{i=1}^n x_i}} 
+G = \frac{\displaystyle{\sum_{i=1}^n \sum_{j=1}^n \left| x_i - x_j \right|}}{\displaystyle{2n\sum_{i=1}^n x_i}}
 \]</span></p>
 <div class="figure"><span style="display:block;" id="fig:gini0"></span>
 <img src="StatsThinking21_files/figure-html/gini0-1.png" alt="Lorenz curves for A) perfect equality, B) normally distributed income, and C) high inequality (equal income except for one very wealthy individual)." width="80%" />
@@ -798,8 +819,8 @@ Figure 13.6: Lorenz curves for A) perfect equality, B) normally distributed inco
 </div>
 <p>Figure <a href="modeling-continuous-relationships.html#fig:gini0">13.6</a> shows the Lorenz curves for several different income distributions. The top left panel (A) shows an example with 10 people where everyone has exactly the same income. The length of the intervals between points are equal, indicating each person earns an identical share of the total income in the population. The top right panel (B) shows an example where income is normally distributed. The bottom left panel shows an example with high inequality; everyone has equal income ($40,000) except for one person, who has income of $40,000,000. According to the US Census, the United States had a Gini index of 0.469 in 2010, falling roughly half way between our normally distributed and maximally inequal examples.</p>
 </div>
-<div id="bayesian-correlation-analysis" class="section level3" number="13.7.2">
-<h3><span class="header-section-number">13.7.2</span> Bayesian correlation analysis</h3>
+<div id="bayesian-correlation-analysis" class="section level3 hasAnchor" number="13.7.2">
+<h3><span class="header-section-number">13.7.2</span> Bayesian correlation analysis<a href="modeling-continuous-relationships.html#bayesian-correlation-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We can also analyze the FiveThirtyEight data using Bayesian analysis, which has two advantages. First, it provides us with a posterior probability – in this case, the probability that the correlation value exceeds zero. Second, the Bayesian estimate combines the observed evidence with a <em>prior</em>, which has the effect of <em>regularizing</em> the correlation estimate, effectively pulling it towards zero. Here we can compute it using <em>BayesFactor</em> package in R.</p>
 <pre><code>## Bayes factor analysis
 ## --------------
@@ -813,7 +834,7 @@ Figure 13.6: Lorenz curves for A) perfect equality, B) normally distributed inco
 ## 
 ## Parameter | Median |       95% CI |     pd |          ROPE | % in ROPE |    BF |         Prior
 ## ----------------------------------------------------------------------------------------------
-## rho       |   0.38 | [0.16, 0.60] | 99.88% | [-0.05, 0.05] |        0% | 20.85 | Beta (3 +- 3)</code></pre>
+## rho       |   0.38 | [0.13, 0.58] | 99.88% | [-0.05, 0.05] |        0% | 20.85 | Beta (3 +- 3)</code></pre>
 <p>Notice that the correlation estimated using the Bayesian method (0.38) is slightly smaller than the one estimated using the standard correlation coefficient (0.42), which is due to the fact that the estimate is based on a combination of the evidence and the prior, which effectively shrinks the estimate toward zero. However, notice that the Bayesian analysis is not robust to the outlier, and it still says that there is fairly strong evidence that the correlation is greater than zero (with a Bayes factor of more than 20).</p>
 
 </div>

@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 Data Visualization | Statistical Thinking for the 21st Century</title>
   <meta name="description" content="A book about statistics." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 Data Visualization | Statistical Thinking for the 21st Century" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="A book about statistics." />
   <meta name="github-repo" content="poldrack/psych10-book" />
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="summarizing-data.html"/>
 <link rel="next" href="fitting-models.html"/>
-<script src="book_assets/header-attrs-2.11/header-attrs.js"></script>
 <script src="book_assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="book_assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="book_assets/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="book_assets/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="book_assets/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="book_assets/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="book_assets/anchor-sections-1.1.0/anchor-sections.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129414074-1"></script>
 <script>
@@ -251,7 +250,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="5.2.1" data-path="fitting-models.html"><a href="fitting-models.html#improving-our-model"><i class="fa fa-check"></i><b>5.2.1</b> Improving our model</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="fitting-models.html"><a href="fitting-models.html#what-makes-a-model-good"><i class="fa fa-check"></i><b>5.3</b> What makes a model “good?”</a></li>
+<li class="chapter" data-level="5.3" data-path="fitting-models.html"><a href="fitting-models.html#what-makes-a-model-good"><i class="fa fa-check"></i><b>5.3</b> What makes a model “good”?</a></li>
 <li class="chapter" data-level="5.4" data-path="fitting-models.html"><a href="fitting-models.html#overfitting"><i class="fa fa-check"></i><b>5.4</b> Can a model be too good?</a></li>
 <li class="chapter" data-level="5.5" data-path="fitting-models.html"><a href="fitting-models.html#summarizing-data-using-the-mean"><i class="fa fa-check"></i><b>5.5</b> Summarizing data using the mean</a>
 <ul>
@@ -482,44 +481,66 @@ div.csl-indent {
 <li class="chapter" data-level="15.8.1" data-path="comparing-means.html"><a href="comparing-means.html#the-paired-t-test-as-a-linear-model"><i class="fa fa-check"></i><b>15.8.1</b> The paired t-test as a linear model</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="practical-example.html"><a href="practical-example.html"><i class="fa fa-check"></i><b>16</b> Practical statistical modeling</a>
+<li class="chapter" data-level="16" data-path="multivariate.html"><a href="multivariate.html"><i class="fa fa-check"></i><b>16</b> Multivariate statistics</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="practical-example.html"><a href="practical-example.html#the-process-of-statistical-modeling"><i class="fa fa-check"></i><b>16.1</b> The process of statistical modeling</a>
+<li class="chapter" data-level="16.1" data-path="multivariate.html"><a href="multivariate.html#multivariate-data-an-example"><i class="fa fa-check"></i><b>16.1</b> Multivariate data: An example</a></li>
+<li class="chapter" data-level="16.2" data-path="multivariate.html"><a href="multivariate.html#visualizing-multivariate-data"><i class="fa fa-check"></i><b>16.2</b> Visualizing multivariate data</a>
 <ul>
-<li class="chapter" data-level="16.1.1" data-path="practical-example.html"><a href="practical-example.html#specify-your-question-of-interest"><i class="fa fa-check"></i><b>16.1.1</b> 1: Specify your question of interest</a></li>
-<li class="chapter" data-level="16.1.2" data-path="practical-example.html"><a href="practical-example.html#identify-or-collect-the-appropriate-data"><i class="fa fa-check"></i><b>16.1.2</b> 2: Identify or collect the appropriate data</a></li>
-<li class="chapter" data-level="16.1.3" data-path="practical-example.html"><a href="practical-example.html#prepare-the-data-for-analysis"><i class="fa fa-check"></i><b>16.1.3</b> 3: Prepare the data for analysis</a></li>
-<li class="chapter" data-level="16.1.4" data-path="practical-example.html"><a href="practical-example.html#determine-the-appropriate-model"><i class="fa fa-check"></i><b>16.1.4</b> 4. Determine the appropriate model</a></li>
-<li class="chapter" data-level="16.1.5" data-path="practical-example.html"><a href="practical-example.html#fit-the-model-to-the-data"><i class="fa fa-check"></i><b>16.1.5</b> 5. Fit the model to the data</a></li>
-<li class="chapter" data-level="16.1.6" data-path="practical-example.html"><a href="practical-example.html#criticize-the-model-to-make-sure-it-fits-properly"><i class="fa fa-check"></i><b>16.1.6</b> 6. Criticize the model to make sure it fits properly</a></li>
-<li class="chapter" data-level="16.1.7" data-path="practical-example.html"><a href="practical-example.html#test-hypothesis-and-quantify-effect-size"><i class="fa fa-check"></i><b>16.1.7</b> 7. Test hypothesis and quantify effect size</a></li>
-<li class="chapter" data-level="16.1.8" data-path="practical-example.html"><a href="practical-example.html#what-about-possible-confounds"><i class="fa fa-check"></i><b>16.1.8</b> What about possible confounds?</a></li>
+<li class="chapter" data-level="16.2.1" data-path="multivariate.html"><a href="multivariate.html#scatterplot-of-matrices"><i class="fa fa-check"></i><b>16.2.1</b> Scatterplot of matrices</a></li>
+<li class="chapter" data-level="16.2.2" data-path="multivariate.html"><a href="multivariate.html#heatmap"><i class="fa fa-check"></i><b>16.2.2</b> Heatmap</a></li>
 </ul></li>
-<li class="chapter" data-level="16.2" data-path="practical-example.html"><a href="practical-example.html#getting-help"><i class="fa fa-check"></i><b>16.2</b> Getting help</a></li>
-</ul></li>
-<li class="chapter" data-level="17" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html"><i class="fa fa-check"></i><b>17</b> Doing reproducible research</a>
+<li class="chapter" data-level="16.3" data-path="multivariate.html"><a href="multivariate.html#clustering"><i class="fa fa-check"></i><b>16.3</b> Clustering</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#how-we-think-science-should-work"><i class="fa fa-check"></i><b>17.1</b> How we think science should work</a></li>
-<li class="chapter" data-level="17.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#how-science-sometimes-actually-works"><i class="fa fa-check"></i><b>17.2</b> How science (sometimes) actually works</a></li>
-<li class="chapter" data-level="17.3" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#the-reproducibility-crisis-in-science"><i class="fa fa-check"></i><b>17.3</b> The reproducibility crisis in science</a>
-<ul>
-<li class="chapter" data-level="17.3.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#positive-predictive-value-and-statistical-significance"><i class="fa fa-check"></i><b>17.3.1</b> Positive predictive value and statistical significance</a></li>
-<li class="chapter" data-level="17.3.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#the-winners-curse"><i class="fa fa-check"></i><b>17.3.2</b> The winner’s curse</a></li>
+<li class="chapter" data-level="16.3.1" data-path="multivariate.html"><a href="multivariate.html#k-means-clustering"><i class="fa fa-check"></i><b>16.3.1</b> K-means clustering</a></li>
+<li class="chapter" data-level="16.3.2" data-path="multivariate.html"><a href="multivariate.html#hierarchical-clustering"><i class="fa fa-check"></i><b>16.3.2</b> Hierarchical clustering</a></li>
 </ul></li>
-<li class="chapter" data-level="17.4" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#questionable-research-practices"><i class="fa fa-check"></i><b>17.4</b> Questionable research practices</a>
+<li class="chapter" data-level="16.4" data-path="multivariate.html"><a href="multivariate.html#dimensionality-reduction"><i class="fa fa-check"></i><b>16.4</b> Dimensionality reduction</a>
 <ul>
-<li class="chapter" data-level="17.4.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#esp-or-qrp"><i class="fa fa-check"></i><b>17.4.1</b> ESP or QRP?</a></li>
+<li class="chapter" data-level="16.4.1" data-path="multivariate.html"><a href="multivariate.html#principal-component-analysis"><i class="fa fa-check"></i><b>16.4.1</b> Principal component analysis</a></li>
+<li class="chapter" data-level="16.4.2" data-path="multivariate.html"><a href="multivariate.html#factor-analysis"><i class="fa fa-check"></i><b>16.4.2</b> Factor analysis</a></li>
+<li class="chapter" data-level="16.4.3" data-path="multivariate.html"><a href="multivariate.html#determining-the-number-of-factors"><i class="fa fa-check"></i><b>16.4.3</b> Determining the number of factors</a></li>
 </ul></li>
-<li class="chapter" data-level="17.5" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#doing-reproducible-research-1"><i class="fa fa-check"></i><b>17.5</b> Doing reproducible research</a>
+<li class="chapter" data-level="16.5" data-path="multivariate.html"><a href="multivariate.html#learning-objectives-15"><i class="fa fa-check"></i><b>16.5</b> Learning objectives</a></li>
+<li class="chapter" data-level="16.6" data-path="multivariate.html"><a href="multivariate.html#suggested-readings-11"><i class="fa fa-check"></i><b>16.6</b> Suggested readings</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="practical-example.html"><a href="practical-example.html"><i class="fa fa-check"></i><b>17</b> Practical statistical modeling</a>
 <ul>
-<li class="chapter" data-level="17.5.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#pre-registration"><i class="fa fa-check"></i><b>17.5.1</b> Pre-registration</a></li>
-<li class="chapter" data-level="17.5.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#reproducible-practices"><i class="fa fa-check"></i><b>17.5.2</b> Reproducible practices</a></li>
-<li class="chapter" data-level="17.5.3" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#replication"><i class="fa fa-check"></i><b>17.5.3</b> Replication</a></li>
+<li class="chapter" data-level="17.1" data-path="practical-example.html"><a href="practical-example.html#the-process-of-statistical-modeling"><i class="fa fa-check"></i><b>17.1</b> The process of statistical modeling</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="practical-example.html"><a href="practical-example.html#specify-your-question-of-interest"><i class="fa fa-check"></i><b>17.1.1</b> 1: Specify your question of interest</a></li>
+<li class="chapter" data-level="17.1.2" data-path="practical-example.html"><a href="practical-example.html#identify-or-collect-the-appropriate-data"><i class="fa fa-check"></i><b>17.1.2</b> 2: Identify or collect the appropriate data</a></li>
+<li class="chapter" data-level="17.1.3" data-path="practical-example.html"><a href="practical-example.html#prepare-the-data-for-analysis"><i class="fa fa-check"></i><b>17.1.3</b> 3: Prepare the data for analysis</a></li>
+<li class="chapter" data-level="17.1.4" data-path="practical-example.html"><a href="practical-example.html#determine-the-appropriate-model"><i class="fa fa-check"></i><b>17.1.4</b> 4. Determine the appropriate model</a></li>
+<li class="chapter" data-level="17.1.5" data-path="practical-example.html"><a href="practical-example.html#fit-the-model-to-the-data"><i class="fa fa-check"></i><b>17.1.5</b> 5. Fit the model to the data</a></li>
+<li class="chapter" data-level="17.1.6" data-path="practical-example.html"><a href="practical-example.html#criticize-the-model-to-make-sure-it-fits-properly"><i class="fa fa-check"></i><b>17.1.6</b> 6. Criticize the model to make sure it fits properly</a></li>
+<li class="chapter" data-level="17.1.7" data-path="practical-example.html"><a href="practical-example.html#test-hypothesis-and-quantify-effect-size"><i class="fa fa-check"></i><b>17.1.7</b> 7. Test hypothesis and quantify effect size</a></li>
+<li class="chapter" data-level="17.1.8" data-path="practical-example.html"><a href="practical-example.html#what-about-possible-confounds"><i class="fa fa-check"></i><b>17.1.8</b> What about possible confounds?</a></li>
 </ul></li>
-<li class="chapter" data-level="17.6" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#doing-reproducible-data-analysis"><i class="fa fa-check"></i><b>17.6</b> Doing reproducible data analysis</a></li>
-<li class="chapter" data-level="17.7" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#conclusion-doing-better-science"><i class="fa fa-check"></i><b>17.7</b> Conclusion: Doing better science</a></li>
-<li class="chapter" data-level="17.8" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#learning-objectives-15"><i class="fa fa-check"></i><b>17.8</b> Learning objectives</a></li>
-<li class="chapter" data-level="17.9" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#suggested-readings-11"><i class="fa fa-check"></i><b>17.9</b> Suggested Readings</a></li>
+<li class="chapter" data-level="17.2" data-path="practical-example.html"><a href="practical-example.html#getting-help"><i class="fa fa-check"></i><b>17.2</b> Getting help</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html"><i class="fa fa-check"></i><b>18</b> Doing reproducible research</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#how-we-think-science-should-work"><i class="fa fa-check"></i><b>18.1</b> How we think science should work</a></li>
+<li class="chapter" data-level="18.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#how-science-sometimes-actually-works"><i class="fa fa-check"></i><b>18.2</b> How science (sometimes) actually works</a></li>
+<li class="chapter" data-level="18.3" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#the-reproducibility-crisis-in-science"><i class="fa fa-check"></i><b>18.3</b> The reproducibility crisis in science</a>
+<ul>
+<li class="chapter" data-level="18.3.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#positive-predictive-value-and-statistical-significance"><i class="fa fa-check"></i><b>18.3.1</b> Positive predictive value and statistical significance</a></li>
+<li class="chapter" data-level="18.3.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#the-winners-curse"><i class="fa fa-check"></i><b>18.3.2</b> The winner’s curse</a></li>
+</ul></li>
+<li class="chapter" data-level="18.4" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#questionable-research-practices"><i class="fa fa-check"></i><b>18.4</b> Questionable research practices</a>
+<ul>
+<li class="chapter" data-level="18.4.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#esp-or-qrp"><i class="fa fa-check"></i><b>18.4.1</b> ESP or QRP?</a></li>
+</ul></li>
+<li class="chapter" data-level="18.5" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#doing-reproducible-research-1"><i class="fa fa-check"></i><b>18.5</b> Doing reproducible research</a>
+<ul>
+<li class="chapter" data-level="18.5.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#pre-registration"><i class="fa fa-check"></i><b>18.5.1</b> Pre-registration</a></li>
+<li class="chapter" data-level="18.5.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#reproducible-practices"><i class="fa fa-check"></i><b>18.5.2</b> Reproducible practices</a></li>
+<li class="chapter" data-level="18.5.3" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#replication"><i class="fa fa-check"></i><b>18.5.3</b> Replication</a></li>
+</ul></li>
+<li class="chapter" data-level="18.6" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#doing-reproducible-data-analysis"><i class="fa fa-check"></i><b>18.6</b> Doing reproducible data analysis</a></li>
+<li class="chapter" data-level="18.7" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#conclusion-doing-better-science"><i class="fa fa-check"></i><b>18.7</b> Conclusion: Doing better science</a></li>
+<li class="chapter" data-level="18.8" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#learning-objectives-16"><i class="fa fa-check"></i><b>18.8</b> Learning objectives</a></li>
+<li class="chapter" data-level="18.9" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#suggested-readings-12"><i class="fa fa-check"></i><b>18.9</b> Suggested Readings</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
@@ -539,8 +560,8 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-visualization" class="section level1" number="4">
-<h1><span class="header-section-number">Chapter 4</span> Data Visualization</h1>
+<div id="data-visualization" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Data Visualization<a href="data-visualization.html#data-visualization" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>On January 28, 1986, the Space Shuttle Challenger exploded 73 seconds after takeoff, killing all 7 of the astronauts on board. As when any such disaster occurs, there was an official investigation into the cause of the accident, which found that an O-ring connecting two sections of the solid rocket booster leaked, resulting in failure of the joint and explosion of the large liquid fuel tank (see figure <a href="data-visualization.html#fig:srbLeak">4.1</a>).</p>
 <div class="figure"><span style="display:block;" id="fig:srbLeak"></span>
 <img src="images/Booster_Rocket_Breach_-_GPN-2000-001425.jpg" alt="An image of the solid rocket booster leaking fuel, seconds before the explosion. The small flame visible on the side of the rocket is the site of the O-ring failure. By NASA (Great Images in NASA Description) [Public domain], via Wikimedia Commons" width="180" height="20%" />
@@ -556,8 +577,8 @@ Figure 4.1: An image of the solid rocket booster leaking fuel, seconds before th
 Figure 4.2: A replotting of Tufte’s damage index data. The line shows the trend in the data, and the shaded patch shows the projected temperatures for the morning of the launch.
 </p>
 </div>
-<div id="anatomy-of-a-plot" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Anatomy of a plot</h2>
+<div id="anatomy-of-a-plot" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Anatomy of a plot<a href="data-visualization.html#anatomy-of-a-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The goal of plotting data is to present a summary of a dataset in a two-dimensional (or occasionally three-dimensional) presentation. We refer to the dimensions as <em>axes</em> – the horizontal axis is called the <em>X-axis</em> and the vertical axis is called the <em>Y-axis</em>. We can arrange the data along the axes in a way that highlights the data values. These values may be either continuous or categorical.</p>
 <p>There are many different types of plots that we can use, which have different advantages and disadvantages. Let’s say that we are interested in characterizing the difference in height between men and women in the NHANES dataset. Figure <a href="data-visualization.html#fig:plotHeight">4.3</a> shows four different ways to plot these data.</p>
 <ol style="list-style-type: decimal">
@@ -578,11 +599,11 @@ Figure 4.3: Four different ways of plotting the difference in height between men
 </p>
 </div>
 </div>
-<div id="principles-of-good-visualization" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> Principles of good visualization</h2>
+<div id="principles-of-good-visualization" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Principles of good visualization<a href="data-visualization.html#principles-of-good-visualization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Many books have been written on effective visualization of data. There are some principles that most of these authors agree on, while others are more contentious. Here we summarize some of the major principles; if you want to learn more, then some good resources are listed in the <em>Suggested Readings</em> section at the end of this chapter.</p>
-<div id="show-the-data-and-make-them-stand-out" class="section level3" number="4.2.1">
-<h3><span class="header-section-number">4.2.1</span> Show the data and make them stand out</h3>
+<div id="show-the-data-and-make-them-stand-out" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Show the data and make them stand out<a href="data-visualization.html#show-the-data-and-make-them-stand-out" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s say that I performed a study that examined the relationship between dental health and time spent flossing, and I would like to visualize my data. Figure <a href="data-visualization.html#fig:dentalFigs">4.4</a> shows four possible presentations of these data.</p>
 <ol style="list-style-type: decimal">
 <li>In panel A, we don’t actually show the data, just a line expressing the relationship between the data. This is clearly not optimal, because we can’t actually see what the underlying data look like.</li>
@@ -602,8 +623,8 @@ Figure 4.4: Four different possible presentations of data for the dental health 
 </p>
 </div>
 </div>
-<div id="maximize-the-dataink-ratio" class="section level3" number="4.2.2">
-<h3><span class="header-section-number">4.2.2</span> Maximize the data/ink ratio</h3>
+<div id="maximize-the-dataink-ratio" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Maximize the data/ink ratio<a href="data-visualization.html#maximize-the-dataink-ratio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Edward Tufte has proposed an idea called the data/ink ratio:</p>
 <p><span class="math display">\[
 data/ink\ ratio = \frac{amount\, of\, ink\, used\, on\, data}{total\, amount\, of\, ink}
@@ -616,8 +637,8 @@ Figure 4.5: An example of the same data plotted with two different data/ink rati
 </p>
 </div>
 </div>
-<div id="avoid-chartjunk" class="section level3" number="4.2.3">
-<h3><span class="header-section-number">4.2.3</span> Avoid chartjunk</h3>
+<div id="avoid-chartjunk" class="section level3 hasAnchor" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> Avoid chartjunk<a href="data-visualization.html#avoid-chartjunk" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>It’s especially common to see presentations of data in the popular media that are adorned with lots of visual elements that are thematically related to the content but unrelated to the actual data. This is known as <em>chartjunk</em>, and should be avoided at all costs.</p>
 <p>One good way to avoid chartjunk is to avoid using popular spreadsheet programs to plot one’s data. For example, the chart in Figure <a href="data-visualization.html#fig:chartJunk">4.6</a> (created using Microsoft Excel) plots the relative popularity of different religions in the United States. There are at least three things wrong with this figure:</p>
 <ul>
@@ -632,8 +653,8 @@ Figure 4.6: An example of chart junk.
 </p>
 </div>
 </div>
-<div id="avoid-distorting-the-data" class="section level3" number="4.2.4">
-<h3><span class="header-section-number">4.2.4</span> Avoid distorting the data</h3>
+<div id="avoid-distorting-the-data" class="section level3 hasAnchor" number="4.2.4">
+<h3><span class="header-section-number">4.2.4</span> Avoid distorting the data<a href="data-visualization.html#avoid-distorting-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>It’s often possible to use visualization to distort the message of a dataset. A very common one is use of different axis scaling to either exaggerate or hide a pattern of data. For example, let’s say that we are interested in seeing whether rates of violent crime have changed in the US. In Figure <a href="data-visualization.html#fig:crimePlotAxes">4.7</a>, we can see these data plotted in ways that either make it look like crime has remained constant, or that it has plummeted. The same data can tell two very different stories!</p>
 <div class="figure"><span style="display:block;" id="fig:crimePlotAxes"></span>
 <img src="StatsThinking21_files/figure-html/crimePlotAxes-1.png" alt="Crime data from 1990 to 2014 plotted over time.  Panels A and B show the same data, but with different ranges of values along the Y axis. Data obtained from https://www.ucrdatatool.gov/Search/Crime/State/RunCrimeStatebyState.cfm" width="768" height="50%" />
@@ -641,7 +662,7 @@ Figure 4.6: An example of chart junk.
 Figure 4.7: Crime data from 1990 to 2014 plotted over time. Panels A and B show the same data, but with different ranges of values along the Y axis. Data obtained from <a href="https://www.ucrdatatool.gov/Search/Crime/State/RunCrimeStatebyState.cfm" class="uri">https://www.ucrdatatool.gov/Search/Crime/State/RunCrimeStatebyState.cfm</a>
 </p>
 </div>
-<p>One of the major controversies in statistical data visualization is how to choose the Y axis, and in particular whether it should always include zero. In his famous book “How to lie with statistics,” Darrell Huff argued strongly that one should always include the zero point in the Y axis. On the other hand, Edward Tufte has argued against this:</p>
+<p>One of the major controversies in statistical data visualization is how to choose the Y axis, and in particular whether it should always include zero. In his famous book “How to lie with statistics”, Darrell Huff argued strongly that one should always include the zero point in the Y axis. On the other hand, Edward Tufte has argued against this:</p>
 <blockquote>
 <p>“In general, in a time-series, use a baseline that shows the data not the zero point; don’t spend a lot of empty vertical space trying to reach down to the zero point at the cost of hiding what is going on in the data line itself.” (from <a href="https://qz.com/418083/its-ok-not-to-start-your-y-axis-at-zero/" class="uri">https://qz.com/418083/its-ok-not-to-start-your-y-axis-at-zero/</a>)</p>
 </blockquote>
@@ -662,11 +683,11 @@ Figure 4.9: Two bar charts with associated lie factors.
 </div>
 </div>
 </div>
-<div id="accommodating-human-limitations" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Accommodating human limitations</h2>
+<div id="accommodating-human-limitations" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Accommodating human limitations<a href="data-visualization.html#accommodating-human-limitations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Humans have both perceptual and cognitive limitations that can make some visualizations very difficult to understand. It’s always important to keep these in mind when building a visualization.</p>
-<div id="perceptual-limitations" class="section level3" number="4.3.1">
-<h3><span class="header-section-number">4.3.1</span> Perceptual limitations</h3>
+<div id="perceptual-limitations" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Perceptual limitations<a href="data-visualization.html#perceptual-limitations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>One important perceptual limitation that many people (including myself) suffer from is color blindness. This can make it very difficult to perceive the information in a figure (like the one in Figure <a href="data-visualization.html#fig:badColors">4.10</a>) where there is only color contrast between the elements but no brightness contrast. It is always helpful to use graph elements that differ substantially in brightness and/or texture, in addition to color. There are also <a href="http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/#a-colorblind-friendly-palette">“colorblind-friendly” palettes</a> available for use with many visualization tools.</p>
 <div class="figure"><span style="display:block;" id="fig:badColors"></span>
 <img src="StatsThinking21_files/figure-html/badColors-1.png" alt="Example of a bad figure that relies solely on color contrast." width="768" height="50%" />
@@ -692,8 +713,8 @@ Figure 4.12: A clearer presentation of the religious affiliation data (obtained 
 <p>This plot allows the viewer to make comparisons based on the the length of the bars along a common scale (the y-axis). Humans tend to be more accurate when decoding differences based on these perceptual elements than based on area or color.</p>
 </div>
 </div>
-<div id="correcting-for-other-factors" class="section level2" number="4.4">
-<h2><span class="header-section-number">4.4</span> Correcting for other factors</h2>
+<div id="correcting-for-other-factors" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Correcting for other factors<a href="data-visualization.html#correcting-for-other-factors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Often we are interested in plotting data where the variable of interest is affected by other factors than the one we are interested in. For example, let’s say that we want to understand how the price of gasoline has changed over time. Figure <a href="data-visualization.html#fig:gasPrices">4.13</a> shows historical gas price data, plotted either with or without adjustment for inflation. Whereas the unadjusted data show a huge increase, the adjusted data show that this is mostly just reflective of inflation. Other examples where one needs to adjust data for other factors include population size and data collected across different seasons.</p>
 <div class="figure"><span style="display:block;" id="fig:gasPrices"></span>
 <img src="StatsThinking21_files/figure-html/gasPrices-1.png" alt="The price of gasoline in the US from 1930 to 2013 (obtained from http://www.thepeoplehistory.com/70yearsofpricechange.html) with or without correction for inflation (based on Consumer Price Index)." width="384" height="50%" />
@@ -702,8 +723,8 @@ Figure 4.13: The price of gasoline in the US from 1930 to 2013 (obtained from <a
 </p>
 </div>
 </div>
-<div id="learning-objectives-3" class="section level2" number="4.5">
-<h2><span class="header-section-number">4.5</span> Learning objectives</h2>
+<div id="learning-objectives-3" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Learning objectives<a href="data-visualization.html#learning-objectives-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Having read this chapter, you should be able to:</p>
 <ul>
 <li>Describe the principles that distinguish between good and bad graphs, and use them to identify good versus bad graphs.</li>
@@ -711,8 +732,8 @@ Figure 4.13: The price of gasoline in the US from 1930 to 2013 (obtained from <a
 <li>Promise to never create a pie chart. <em>Ever</em>.</li>
 </ul>
 </div>
-<div id="suggested-readings-and-videos" class="section level2" number="4.6">
-<h2><span class="header-section-number">4.6</span> Suggested readings and videos</h2>
+<div id="suggested-readings-and-videos" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> Suggested readings and videos<a href="data-visualization.html#suggested-readings-and-videos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><a href="https://serialmentor.com/dataviz/"><em>Fundamentals of Data Visualization</em></a>, by Claus Wilke</li>
 <li><em>Visual Explanations</em>, by Edward Tufte</li>

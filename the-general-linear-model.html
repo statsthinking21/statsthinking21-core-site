@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 14 The General Linear Model | Statistical Thinking for the 21st Century</title>
   <meta name="description" content="A book about statistics." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 14 The General Linear Model | Statistical Thinking for the 21st Century" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="A book about statistics." />
   <meta name="github-repo" content="poldrack/psych10-book" />
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="modeling-continuous-relationships.html"/>
 <link rel="next" href="comparing-means.html"/>
-<script src="book_assets/header-attrs-2.11/header-attrs.js"></script>
 <script src="book_assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="book_assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="book_assets/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="book_assets/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="book_assets/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="book_assets/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="book_assets/anchor-sections-1.1.0/anchor-sections.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129414074-1"></script>
 <script>
@@ -251,7 +250,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="5.2.1" data-path="fitting-models.html"><a href="fitting-models.html#improving-our-model"><i class="fa fa-check"></i><b>5.2.1</b> Improving our model</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="fitting-models.html"><a href="fitting-models.html#what-makes-a-model-good"><i class="fa fa-check"></i><b>5.3</b> What makes a model “good?”</a></li>
+<li class="chapter" data-level="5.3" data-path="fitting-models.html"><a href="fitting-models.html#what-makes-a-model-good"><i class="fa fa-check"></i><b>5.3</b> What makes a model “good”?</a></li>
 <li class="chapter" data-level="5.4" data-path="fitting-models.html"><a href="fitting-models.html#overfitting"><i class="fa fa-check"></i><b>5.4</b> Can a model be too good?</a></li>
 <li class="chapter" data-level="5.5" data-path="fitting-models.html"><a href="fitting-models.html#summarizing-data-using-the-mean"><i class="fa fa-check"></i><b>5.5</b> Summarizing data using the mean</a>
 <ul>
@@ -482,44 +481,66 @@ div.csl-indent {
 <li class="chapter" data-level="15.8.1" data-path="comparing-means.html"><a href="comparing-means.html#the-paired-t-test-as-a-linear-model"><i class="fa fa-check"></i><b>15.8.1</b> The paired t-test as a linear model</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="practical-example.html"><a href="practical-example.html"><i class="fa fa-check"></i><b>16</b> Practical statistical modeling</a>
+<li class="chapter" data-level="16" data-path="multivariate.html"><a href="multivariate.html"><i class="fa fa-check"></i><b>16</b> Multivariate statistics</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="practical-example.html"><a href="practical-example.html#the-process-of-statistical-modeling"><i class="fa fa-check"></i><b>16.1</b> The process of statistical modeling</a>
+<li class="chapter" data-level="16.1" data-path="multivariate.html"><a href="multivariate.html#multivariate-data-an-example"><i class="fa fa-check"></i><b>16.1</b> Multivariate data: An example</a></li>
+<li class="chapter" data-level="16.2" data-path="multivariate.html"><a href="multivariate.html#visualizing-multivariate-data"><i class="fa fa-check"></i><b>16.2</b> Visualizing multivariate data</a>
 <ul>
-<li class="chapter" data-level="16.1.1" data-path="practical-example.html"><a href="practical-example.html#specify-your-question-of-interest"><i class="fa fa-check"></i><b>16.1.1</b> 1: Specify your question of interest</a></li>
-<li class="chapter" data-level="16.1.2" data-path="practical-example.html"><a href="practical-example.html#identify-or-collect-the-appropriate-data"><i class="fa fa-check"></i><b>16.1.2</b> 2: Identify or collect the appropriate data</a></li>
-<li class="chapter" data-level="16.1.3" data-path="practical-example.html"><a href="practical-example.html#prepare-the-data-for-analysis"><i class="fa fa-check"></i><b>16.1.3</b> 3: Prepare the data for analysis</a></li>
-<li class="chapter" data-level="16.1.4" data-path="practical-example.html"><a href="practical-example.html#determine-the-appropriate-model"><i class="fa fa-check"></i><b>16.1.4</b> 4. Determine the appropriate model</a></li>
-<li class="chapter" data-level="16.1.5" data-path="practical-example.html"><a href="practical-example.html#fit-the-model-to-the-data"><i class="fa fa-check"></i><b>16.1.5</b> 5. Fit the model to the data</a></li>
-<li class="chapter" data-level="16.1.6" data-path="practical-example.html"><a href="practical-example.html#criticize-the-model-to-make-sure-it-fits-properly"><i class="fa fa-check"></i><b>16.1.6</b> 6. Criticize the model to make sure it fits properly</a></li>
-<li class="chapter" data-level="16.1.7" data-path="practical-example.html"><a href="practical-example.html#test-hypothesis-and-quantify-effect-size"><i class="fa fa-check"></i><b>16.1.7</b> 7. Test hypothesis and quantify effect size</a></li>
-<li class="chapter" data-level="16.1.8" data-path="practical-example.html"><a href="practical-example.html#what-about-possible-confounds"><i class="fa fa-check"></i><b>16.1.8</b> What about possible confounds?</a></li>
+<li class="chapter" data-level="16.2.1" data-path="multivariate.html"><a href="multivariate.html#scatterplot-of-matrices"><i class="fa fa-check"></i><b>16.2.1</b> Scatterplot of matrices</a></li>
+<li class="chapter" data-level="16.2.2" data-path="multivariate.html"><a href="multivariate.html#heatmap"><i class="fa fa-check"></i><b>16.2.2</b> Heatmap</a></li>
 </ul></li>
-<li class="chapter" data-level="16.2" data-path="practical-example.html"><a href="practical-example.html#getting-help"><i class="fa fa-check"></i><b>16.2</b> Getting help</a></li>
-</ul></li>
-<li class="chapter" data-level="17" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html"><i class="fa fa-check"></i><b>17</b> Doing reproducible research</a>
+<li class="chapter" data-level="16.3" data-path="multivariate.html"><a href="multivariate.html#clustering"><i class="fa fa-check"></i><b>16.3</b> Clustering</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#how-we-think-science-should-work"><i class="fa fa-check"></i><b>17.1</b> How we think science should work</a></li>
-<li class="chapter" data-level="17.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#how-science-sometimes-actually-works"><i class="fa fa-check"></i><b>17.2</b> How science (sometimes) actually works</a></li>
-<li class="chapter" data-level="17.3" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#the-reproducibility-crisis-in-science"><i class="fa fa-check"></i><b>17.3</b> The reproducibility crisis in science</a>
-<ul>
-<li class="chapter" data-level="17.3.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#positive-predictive-value-and-statistical-significance"><i class="fa fa-check"></i><b>17.3.1</b> Positive predictive value and statistical significance</a></li>
-<li class="chapter" data-level="17.3.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#the-winners-curse"><i class="fa fa-check"></i><b>17.3.2</b> The winner’s curse</a></li>
+<li class="chapter" data-level="16.3.1" data-path="multivariate.html"><a href="multivariate.html#k-means-clustering"><i class="fa fa-check"></i><b>16.3.1</b> K-means clustering</a></li>
+<li class="chapter" data-level="16.3.2" data-path="multivariate.html"><a href="multivariate.html#hierarchical-clustering"><i class="fa fa-check"></i><b>16.3.2</b> Hierarchical clustering</a></li>
 </ul></li>
-<li class="chapter" data-level="17.4" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#questionable-research-practices"><i class="fa fa-check"></i><b>17.4</b> Questionable research practices</a>
+<li class="chapter" data-level="16.4" data-path="multivariate.html"><a href="multivariate.html#dimensionality-reduction"><i class="fa fa-check"></i><b>16.4</b> Dimensionality reduction</a>
 <ul>
-<li class="chapter" data-level="17.4.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#esp-or-qrp"><i class="fa fa-check"></i><b>17.4.1</b> ESP or QRP?</a></li>
+<li class="chapter" data-level="16.4.1" data-path="multivariate.html"><a href="multivariate.html#principal-component-analysis"><i class="fa fa-check"></i><b>16.4.1</b> Principal component analysis</a></li>
+<li class="chapter" data-level="16.4.2" data-path="multivariate.html"><a href="multivariate.html#factor-analysis"><i class="fa fa-check"></i><b>16.4.2</b> Factor analysis</a></li>
+<li class="chapter" data-level="16.4.3" data-path="multivariate.html"><a href="multivariate.html#determining-the-number-of-factors"><i class="fa fa-check"></i><b>16.4.3</b> Determining the number of factors</a></li>
 </ul></li>
-<li class="chapter" data-level="17.5" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#doing-reproducible-research-1"><i class="fa fa-check"></i><b>17.5</b> Doing reproducible research</a>
+<li class="chapter" data-level="16.5" data-path="multivariate.html"><a href="multivariate.html#learning-objectives-15"><i class="fa fa-check"></i><b>16.5</b> Learning objectives</a></li>
+<li class="chapter" data-level="16.6" data-path="multivariate.html"><a href="multivariate.html#suggested-readings-11"><i class="fa fa-check"></i><b>16.6</b> Suggested readings</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="practical-example.html"><a href="practical-example.html"><i class="fa fa-check"></i><b>17</b> Practical statistical modeling</a>
 <ul>
-<li class="chapter" data-level="17.5.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#pre-registration"><i class="fa fa-check"></i><b>17.5.1</b> Pre-registration</a></li>
-<li class="chapter" data-level="17.5.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#reproducible-practices"><i class="fa fa-check"></i><b>17.5.2</b> Reproducible practices</a></li>
-<li class="chapter" data-level="17.5.3" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#replication"><i class="fa fa-check"></i><b>17.5.3</b> Replication</a></li>
+<li class="chapter" data-level="17.1" data-path="practical-example.html"><a href="practical-example.html#the-process-of-statistical-modeling"><i class="fa fa-check"></i><b>17.1</b> The process of statistical modeling</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="practical-example.html"><a href="practical-example.html#specify-your-question-of-interest"><i class="fa fa-check"></i><b>17.1.1</b> 1: Specify your question of interest</a></li>
+<li class="chapter" data-level="17.1.2" data-path="practical-example.html"><a href="practical-example.html#identify-or-collect-the-appropriate-data"><i class="fa fa-check"></i><b>17.1.2</b> 2: Identify or collect the appropriate data</a></li>
+<li class="chapter" data-level="17.1.3" data-path="practical-example.html"><a href="practical-example.html#prepare-the-data-for-analysis"><i class="fa fa-check"></i><b>17.1.3</b> 3: Prepare the data for analysis</a></li>
+<li class="chapter" data-level="17.1.4" data-path="practical-example.html"><a href="practical-example.html#determine-the-appropriate-model"><i class="fa fa-check"></i><b>17.1.4</b> 4. Determine the appropriate model</a></li>
+<li class="chapter" data-level="17.1.5" data-path="practical-example.html"><a href="practical-example.html#fit-the-model-to-the-data"><i class="fa fa-check"></i><b>17.1.5</b> 5. Fit the model to the data</a></li>
+<li class="chapter" data-level="17.1.6" data-path="practical-example.html"><a href="practical-example.html#criticize-the-model-to-make-sure-it-fits-properly"><i class="fa fa-check"></i><b>17.1.6</b> 6. Criticize the model to make sure it fits properly</a></li>
+<li class="chapter" data-level="17.1.7" data-path="practical-example.html"><a href="practical-example.html#test-hypothesis-and-quantify-effect-size"><i class="fa fa-check"></i><b>17.1.7</b> 7. Test hypothesis and quantify effect size</a></li>
+<li class="chapter" data-level="17.1.8" data-path="practical-example.html"><a href="practical-example.html#what-about-possible-confounds"><i class="fa fa-check"></i><b>17.1.8</b> What about possible confounds?</a></li>
 </ul></li>
-<li class="chapter" data-level="17.6" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#doing-reproducible-data-analysis"><i class="fa fa-check"></i><b>17.6</b> Doing reproducible data analysis</a></li>
-<li class="chapter" data-level="17.7" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#conclusion-doing-better-science"><i class="fa fa-check"></i><b>17.7</b> Conclusion: Doing better science</a></li>
-<li class="chapter" data-level="17.8" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#learning-objectives-15"><i class="fa fa-check"></i><b>17.8</b> Learning objectives</a></li>
-<li class="chapter" data-level="17.9" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#suggested-readings-11"><i class="fa fa-check"></i><b>17.9</b> Suggested Readings</a></li>
+<li class="chapter" data-level="17.2" data-path="practical-example.html"><a href="practical-example.html#getting-help"><i class="fa fa-check"></i><b>17.2</b> Getting help</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html"><i class="fa fa-check"></i><b>18</b> Doing reproducible research</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#how-we-think-science-should-work"><i class="fa fa-check"></i><b>18.1</b> How we think science should work</a></li>
+<li class="chapter" data-level="18.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#how-science-sometimes-actually-works"><i class="fa fa-check"></i><b>18.2</b> How science (sometimes) actually works</a></li>
+<li class="chapter" data-level="18.3" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#the-reproducibility-crisis-in-science"><i class="fa fa-check"></i><b>18.3</b> The reproducibility crisis in science</a>
+<ul>
+<li class="chapter" data-level="18.3.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#positive-predictive-value-and-statistical-significance"><i class="fa fa-check"></i><b>18.3.1</b> Positive predictive value and statistical significance</a></li>
+<li class="chapter" data-level="18.3.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#the-winners-curse"><i class="fa fa-check"></i><b>18.3.2</b> The winner’s curse</a></li>
+</ul></li>
+<li class="chapter" data-level="18.4" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#questionable-research-practices"><i class="fa fa-check"></i><b>18.4</b> Questionable research practices</a>
+<ul>
+<li class="chapter" data-level="18.4.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#esp-or-qrp"><i class="fa fa-check"></i><b>18.4.1</b> ESP or QRP?</a></li>
+</ul></li>
+<li class="chapter" data-level="18.5" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#doing-reproducible-research-1"><i class="fa fa-check"></i><b>18.5</b> Doing reproducible research</a>
+<ul>
+<li class="chapter" data-level="18.5.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#pre-registration"><i class="fa fa-check"></i><b>18.5.1</b> Pre-registration</a></li>
+<li class="chapter" data-level="18.5.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#reproducible-practices"><i class="fa fa-check"></i><b>18.5.2</b> Reproducible practices</a></li>
+<li class="chapter" data-level="18.5.3" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#replication"><i class="fa fa-check"></i><b>18.5.3</b> Replication</a></li>
+</ul></li>
+<li class="chapter" data-level="18.6" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#doing-reproducible-data-analysis"><i class="fa fa-check"></i><b>18.6</b> Doing reproducible data analysis</a></li>
+<li class="chapter" data-level="18.7" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#conclusion-doing-better-science"><i class="fa fa-check"></i><b>18.7</b> Conclusion: Doing better science</a></li>
+<li class="chapter" data-level="18.8" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#learning-objectives-16"><i class="fa fa-check"></i><b>18.8</b> Learning objectives</a></li>
+<li class="chapter" data-level="18.9" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#suggested-readings-12"><i class="fa fa-check"></i><b>18.9</b> Suggested Readings</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
@@ -539,8 +560,8 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="the-general-linear-model" class="section level1" number="14">
-<h1><span class="header-section-number">Chapter 14</span> The General Linear Model</h1>
+<div id="the-general-linear-model" class="section level1 hasAnchor" number="14">
+<h1><span class="header-section-number">Chapter 14</span> The General Linear Model<a href="the-general-linear-model.html#the-general-linear-model" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Remember that early in the book we described the basic model of statistics:</p>
 <p><span class="math display">\[
 data = model + error
@@ -578,8 +599,8 @@ Figure 14.1: Relation between study time and grades
 ##  cor 
 ## 0.63</code></pre>
 <p>The correlation is quite high, but notice that the confidence interval around the estimate is very wide, spanning nearly the entire range from zero to one, which is due in part to the small sample size.</p>
-<div id="linear-regression" class="section level2" number="14.1">
-<h2><span class="header-section-number">14.1</span> Linear regression</h2>
+<div id="linear-regression" class="section level2 hasAnchor" number="14.1">
+<h2><span class="header-section-number">14.1</span> Linear regression<a href="the-general-linear-model.html#linear-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We can use the general linear model to describe the relation between two variables and to decide whether that relationship is statistically significant; in addition, the model allows us to predict the value of the dependent variable given some new value(s) of the independent variable(s). Most importantly, the general linear model will allow us to build models that incorporate multiple independent variables, whereas the correlation coefficient can only describe the relationship between two individual variables.</p>
 <p>The specific version of the GLM that we use for this is referred to as as <em>linear regression</em>. The term <em>regression</em> was coined by Francis Galton, who had noted that when he compared parents and their children on some feature (such as height), the children of extreme parents (i.e. the very tall or very short parents) generally fell closer to the mean than did their parents. This is an extremely important point that we return to below.</p>
 <p>The simplest version of the linear regression model (with a single independent variable) can be expressed as follows:</p>
@@ -588,7 +609,7 @@ y = x * \beta_x + \beta_0 + \epsilon
 \]</span>
 The <span class="math inline">\(\beta_x\)</span> value tells us how much we would expect y to change given a one-unit change in <span class="math inline">\(x\)</span>. The intercept <span class="math inline">\(\beta_0\)</span> is an overall offset, which tells us what value we would expect y to have when <span class="math inline">\(x=0\)</span>; you may remember from our early modeling discussion that this is important to model the overall magnitude of the data, even if <span class="math inline">\(x\)</span> never actually attains a value of zero. The error term <span class="math inline">\(\epsilon\)</span> refers to whatever is left over once the model has been fit; we often refer to these as the <em>residuals</em> from the model. If we want to know how to predict y (which we call <span class="math inline">\(\hat{y}\)</span>) after we estimate the <span class="math inline">\(\beta\)</span> values, then we can drop the error term:</p>
 <p><span class="math display">\[
-\hat{y} = x * \hat{\beta_x} + \hat{\beta_0} 
+\hat{y} = x * \hat{\beta_x} + \hat{\beta_0}
 \]</span>
 Note that this is simply the equation for a line, where <span class="math inline">\(\hat{\beta_x}\)</span> is our estimate of the slope and <span class="math inline">\(\hat{\beta_0}\)</span> is the intercept. Figure <a href="the-general-linear-model.html#fig:LinearRegression">14.2</a> shows an example of this model applied to the study time data.</p>
 <div class="figure"><span style="display:block;" id="fig:LinearRegression"></span>
@@ -598,8 +619,8 @@ Figure 14.2: The linear regression solution for the study time data is shown in 
 </p>
 </div>
 <p>We will not go into the details of how the best fitting slope and intercept are actually estimated from the data; if you are interested, details are available in the Appendix.</p>
-<div id="regression-to-the-mean" class="section level3" number="14.1.1">
-<h3><span class="header-section-number">14.1.1</span> Regression to the mean</h3>
+<div id="regression-to-the-mean" class="section level3 hasAnchor" number="14.1.1">
+<h3><span class="header-section-number">14.1.1</span> Regression to the mean<a href="the-general-linear-model.html#regression-to-the-mean" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The concept of <em>regression to the mean</em> was one of Galton’s essential contributions to science, and it remains a critical point to understand when we interpret the results of experimental data analyses. Let’s say that we want to study the effects of a reading intervention on the performance of poor readers. To test our hypothesis, we might go into a school and recruit those individuals in the bottom 25% of the distribution on some reading test, administer the intervention, and then examine their performance on the test after the intervention. Let’s say that the intervention actually has no effect, such that reading scores for each individual are simply independent samples from a normal distribution. Results from a computer simulation of this hypothetic experiment are presented in Table <a href="the-general-linear-model.html#tab:readingTable">14.1</a>.</p>
 <table>
 <caption>
@@ -635,8 +656,8 @@ Test 2
 </table>
 <p>If we look at the difference between the mean test performance at the first and second test, it appears that the intervention has helped these students substantially, as their scores have gone up by more than ten points on the test! However, we know that in fact the students didn’t improve at all, since in both cases the scores were simply selected from a random normal distribution. What has happened is that some students scored badly on the first test simply due to random chance. If we select just those subjects on the basis of their first test scores, they are guaranteed to move back towards the mean of the entire group on the second test, even if there is no effect of training. This is the reason that we always need an untreated <em>control group</em> in order to interpret any changes in performance due to an intervention; otherwise we are likely to be tricked by regression to the mean. In addition, the participants need to be randomly assigned to the control or treatment group, so that there won’t be any systematic differences between the groups (on average).</p>
 </div>
-<div id="the-relation-between-correlation-and-regression" class="section level3" number="14.1.2">
-<h3><span class="header-section-number">14.1.2</span> The relation between correlation and regression</h3>
+<div id="the-relation-between-correlation-and-regression" class="section level3 hasAnchor" number="14.1.2">
+<h3><span class="header-section-number">14.1.2</span> The relation between correlation and regression<a href="the-general-linear-model.html#the-relation-between-correlation-and-regression" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There is a close relationship between correlation coefficients and regression coefficients. Remember that Pearson’s correlation coefficient is computed as the ratio of the covariance and the product of the standard deviations of x and y:</p>
 <p><span class="math display">\[
 \hat{r} = \frac{covariance_{xy}}{s_x * s_y}
@@ -654,8 +675,8 @@ covariance_{xy} = \hat{r} * s_x * s_y
 \]</span>
 That is, the regression slope is equal to the correlation value multiplied by the ratio of standard deviations of y and x. One thing this tells us is that when the standard deviations of x and y are the same (e.g. when the data have been converted to Z scores), then the correlation estimate is equal to the regression slope estimate.</p>
 </div>
-<div id="standard-errors-for-regression-models" class="section level3" number="14.1.3">
-<h3><span class="header-section-number">14.1.3</span> Standard errors for regression models</h3>
+<div id="standard-errors-for-regression-models" class="section level3 hasAnchor" number="14.1.3">
+<h3><span class="header-section-number">14.1.3</span> Standard errors for regression models<a href="the-general-linear-model.html#standard-errors-for-regression-models" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>If we want to make inferences about the regression parameter estimates, then we also need an estimate of their variability. To compute this, we first need to compute the <em>residual variance</em> or <em>error variance</em> for the model – that is, how much variability in the dependent variable is not explained by the model. We can compute the model residuals as follows:</p>
 <p><span class="math display">\[
 residual = y - \hat{y} = y - (x*\hat{\beta_x} + \hat{\beta_0})
@@ -677,8 +698,8 @@ SE_{model} = \sqrt{MS_{error}}
 SE_{\hat{\beta}_x} = \frac{SE_{model}}{\sqrt{{\sum{(x_i - \bar{x})^2}}}}
 \]</span></p>
 </div>
-<div id="statistical-tests-for-regression-parameters" class="section level3" number="14.1.4">
-<h3><span class="header-section-number">14.1.4</span> Statistical tests for regression parameters</h3>
+<div id="statistical-tests-for-regression-parameters" class="section level3 hasAnchor" number="14.1.4">
+<h3><span class="header-section-number">14.1.4</span> Statistical tests for regression parameters<a href="the-general-linear-model.html#statistical-tests-for-regression-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Once we have the parameter estimates and their standard errors, we can compute a <em>t</em> statistic to tell us the likelihood of the observed parameter estimates compared to some expected value under the null hypothesis. In this case we will test against the null hypothesis of no effect (i.e. <span class="math inline">\(\beta=0\)</span>):</p>
 <p><span class="math display">\[
 \begin{array}{c}
@@ -708,14 +729,15 @@ t_{N - p} = \frac{\hat{\beta} }{SE_{\hat{\beta}}}
 ## F-statistic: 4.05 on 1 and 6 DF,  p-value: 0.0907</code></pre>
 <p>In this case we see that the intercept is significantly different from zero (which is not very interesting) and that the effect of studyTime on grades is marginally significant (p = .09) – the same p-value as the correlation test that we performed earlier.</p>
 </div>
-<div id="quantifying-goodness-of-fit-of-the-model" class="section level3" number="14.1.5">
-<h3><span class="header-section-number">14.1.5</span> Quantifying goodness of fit of the model</h3>
+<div id="quantifying-goodness-of-fit-of-the-model" class="section level3 hasAnchor" number="14.1.5">
+<h3><span class="header-section-number">14.1.5</span> Quantifying goodness of fit of the model<a href="the-general-linear-model.html#quantifying-goodness-of-fit-of-the-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Sometimes it’s useful to quantify how well the model fits the data overall, and one way to do this is to ask how much of the variability in the data is accounted for by the model. This is quantified using a value called <span class="math inline">\(R^2\)</span> (also known as the <em>coefficient of determination</em>). If there is only one x variable, then this is easy to compute by simply squaring the correlation coefficient:</p>
 <p><span class="math display">\[
 R^2 = r^2
 \]</span>
 In the case of our study time example, <span class="math inline">\(R^2\)</span> = 0.4, which means that we have accounted for about 40% of the variance in grades.</p>
 <p>More generally we can think of <span class="math inline">\(R^2\)</span> as a measure of the fraction of variance in the data that is accounted for by the model, which can be computed by breaking the variance into multiple components:</p>
+<p><strong>THIS IS CONFUSING, CHANGE TO RESIDUAL RATHER THAN ERROR</strong></p>
 <p><span class="math display">\[
 SS_{total} = SS_{model} + SS_{error}
 \]</span>
@@ -726,8 +748,8 @@ R^2 = \frac{SS_{model}}{SS_{total}} = 1 - \frac{SS_{error}}{SS_{total}}
 <p>A small value of <span class="math inline">\(R^2\)</span> tells us that even if the model fit is statistically significant, it may only explain a small amount of information in the data.</p>
 </div>
 </div>
-<div id="fitting-more-complex-models" class="section level2" number="14.2">
-<h2><span class="header-section-number">14.2</span> Fitting more complex models</h2>
+<div id="fitting-more-complex-models" class="section level2 hasAnchor" number="14.2">
+<h2><span class="header-section-number">14.2</span> Fitting more complex models<a href="the-general-linear-model.html#fitting-more-complex-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Often we would like to understand the effects of multiple variables on some particular outcome, and how they relate to one another. In the context of our study time example, let’s say that we discovered that some of the students had previously taken a course on the topic. If we plot their grades (see Figure <a href="the-general-linear-model.html#fig:LinearRegressionByPriorClass">14.3</a>), we can see that those who had a prior course perform much better than those who had not, given the same amount of study time. We would like to build a statistical model that takes this into account, which we can do by extending the model that we built above:</p>
 <p><span class="math display">\[
 \hat{y} = \hat{\beta_1}*studyTime + \hat{\beta_2}*priorClass + \hat{\beta_0}
@@ -759,8 +781,8 @@ Figure 14.3: The relation between study time and grade including prior experienc
 </p>
 </div>
 </div>
-<div id="interactions-between-variables" class="section level2" number="14.3">
-<h2><span class="header-section-number">14.3</span> Interactions between variables</h2>
+<div id="interactions-between-variables" class="section level2 hasAnchor" number="14.3">
+<h2><span class="header-section-number">14.3</span> Interactions between variables<a href="the-general-linear-model.html#interactions-between-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In the previous model, we assumed that the effect of study time on grade (i.e., the regression slope) was the same for both groups. However, in some cases we might imagine that the effect of one variable might differ depending on the value of another variable, which we refer to as an <em>interaction</em> between variables.</p>
 <p>Let’s use a new example that asks the question: What is the effect of caffeine on public speaking? First let’s generate some data and plot them.
 Looking at panel A of Figure <a href="the-general-linear-model.html#fig:CaffeineAnxietyInteraction">14.4</a>, there doesn’t seem to be a relationship, and we can confirm that by performing linear regression on the data:</p>
@@ -841,14 +863,14 @@ Figure 14.4: A: The relationship between caffeine and public speaking. B: The re
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>This tells us that there is good evidence to prefer the model with the interaction over the one without an interaction. Model comparison is relatively simple in this case because the two models are <em>nested</em> – one of the models is a simplified version of the other model, such that all of the variables in the simpler model are contained in the more complex model. Model comparison with non-nested models can get much more complicated.</p>
 </div>
-<div id="beyond-linear-predictors-and-outcomes" class="section level2" number="14.4">
-<h2><span class="header-section-number">14.4</span> Beyond linear predictors and outcomes</h2>
+<div id="beyond-linear-predictors-and-outcomes" class="section level2 hasAnchor" number="14.4">
+<h2><span class="header-section-number">14.4</span> Beyond linear predictors and outcomes<a href="the-general-linear-model.html#beyond-linear-predictors-and-outcomes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>It is important to note that despite the fact that it is called the general <em>linear</em> model, we can actually use the same machinery to model effects that don’t follow a straight line (such as curves). The “linear” in the general linear model doesn’t refer to the shape of the response, but instead refers to the fact that model is linear in its parameters — that is, the predictors in the model only get multiplied the parameters, rather than a nonlinear relationship like being raised to a power of the parameter. It’s also common to analyze data where the outcomes are binary rather than continuous, as we saw in the chapter on categorical outcomes. There are ways to adapt the general linear model (known as <em>generalized linear models</em>) that allow this kind of analysis. We will explore these models later in the book.</p>
 </div>
-<div id="model-criticism" class="section level2" number="14.5">
-<h2><span class="header-section-number">14.5</span> Criticizing our model and checking assumptions</h2>
+<div id="model-criticism" class="section level2 hasAnchor" number="14.5">
+<h2><span class="header-section-number">14.5</span> Criticizing our model and checking assumptions<a href="the-general-linear-model.html#model-criticism" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The saying “garbage in, garbage out” is as true of statistics as anywhere else. In the case of statistical models, we have to make sure that our model is properly specified and that our data are appropriate for the model.</p>
-<p>When we say that the model is “properly specified,” we mean that we have included the appropriate set of independent variables in the model. We have already seen examples of misspecified models, in Figure <a href="fitting-models.html#fig:childHeightLine">5.3</a>. Remember that we saw several cases where the model failed to properly account for the data, such as failing to include an intercept. When building a model, we need to ensure that it includes all of the appropriate variables.</p>
+<p>When we say that the model is “properly specified”, we mean that we have included the appropriate set of independent variables in the model. We have already seen examples of misspecified models, in Figure <a href="fitting-models.html#fig:childHeightLine">5.3</a>. Remember that we saw several cases where the model failed to properly account for the data, such as failing to include an intercept. When building a model, we need to ensure that it includes all of the appropriate variables.</p>
 <p>We also need to worry about whether our model satisfies the assumptions of our statistical methods. One of the most important assumptions that we make when using the general linear model is that the residuals (that is, the difference between the model’s predictions and the actual data) are normally distributed. This can fail for many reasons, either because the model was not properly specified or because the data that we are modeling are inappropriate.</p>
 <p>We can use something called a <em>Q-Q</em> (quantile-quantile) plot to see whether our residuals are normally distributed. You have already encountered <em>quantiles</em> — they are the value that cuts off a particular proportion of a cumulative distribution. The Q-Q plot presents the quantiles of two distributions against one another; in this case, we will present the quantiles of the actual data against the quantiles of a normal distribution fit to the same data. Figure <a href="the-general-linear-model.html#fig:qqplots">14.5</a> shows examples of two such Q-Q plots. The left panel shows a Q-Q plot for data from a normal distribution, while the right panel shows a Q-Q plot from non-normal data. The data points in the right panel diverge substantially from the line, reflecting the fact that they are not normally distributed.</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="the-general-linear-model.html#cb25-1" aria-hidden="true" tabindex="-1"></a>qq_df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">norm=</span><span class="fu">rnorm</span>(<span class="dv">100</span>),</span>
@@ -873,9 +895,9 @@ Figure 14.5: Q-Q plotsof normal (left) and non-normal (right) data. The line sho
 </div>
 <p>Model diagnostics will be explored in more detail in a later chapter.</p>
 </div>
-<div id="what-does-predict-really-mean" class="section level2" number="14.6">
-<h2><span class="header-section-number">14.6</span> What does “predict” really mean?</h2>
-<p>When we talk about “prediction” in daily life, we are generally referring to the ability to estimate the value of some variable in advance of seeing the data. However, the term is often used in the context of linear regression to refer to the fitting of a model to the data; the estimated values (<span class="math inline">\(\hat{y}\)</span>) are sometimes referred to as “predictions” and the independent variables are referred to as “predictors.” This has an unfortunate connotation, as it implies that our model should also be able to predict the values of new data points in the future. In reality, the fit of a model to the dataset used to obtain the parameters will nearly always be better than the fit of the model to a new dataset <span class="citation">(<a href="#ref-copa:1983" role="doc-biblioref">Copas 1983</a>)</span>.</p>
+<div id="what-does-predict-really-mean" class="section level2 hasAnchor" number="14.6">
+<h2><span class="header-section-number">14.6</span> What does “predict” really mean?<a href="the-general-linear-model.html#what-does-predict-really-mean" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>When we talk about “prediction” in daily life, we are generally referring to the ability to estimate the value of some variable in advance of seeing the data. However, the term is often used in the context of linear regression to refer to the fitting of a model to the data; the estimated values (<span class="math inline">\(\hat{y}\)</span>) are sometimes referred to as “predictions” and the independent variables are referred to as “predictors”. This has an unfortunate connotation, as it implies that our model should also be able to predict the values of new data points in the future. In reality, the fit of a model to the dataset used to obtain the parameters will nearly always be better than the fit of the model to a new dataset <span class="citation">(<a href="#ref-copa:1983" role="doc-biblioref">Copas 1983</a>)</span>.</p>
 <p>As an example, let’s take a sample of 48 children from NHANES and fit a regression model for weight that includes several regressors (age, height, hours spent watching TV and using the computer, and household income) along with their interactions.</p>
 <table>
 <caption>
@@ -921,8 +943,8 @@ Shuffled data
 </table>
 <p>Here we see that whereas the model fit on the original data showed a very good fit (only off by a few kg per individual), the same model does a much worse job of predicting the weight values for new children sampled from the same population (off by more than 25 kg per individual). This happens because the model that we specified is quite complex, since it includes not just each of the individual variables, but also all possible combinations of them (i.e. their <em>interactions</em>), resulting in a model with 32 parameters. Since this is almost as many coefficients as there are data points (i.e., the heights of 48 children), the model <em>overfits</em> the data, just like the complex polynomial curve in our initial example of overfitting in Section <a href="fitting-models.html#overfitting">5.4</a>.</p>
 <p>Another way to see the effects of overfitting is to look at what happens if we randomly shuffle the values of the weight variable (shown in the second row of the table). Randomly shuffling the value should make it impossible to predict weight from the other variables, because they should have no systematic relationship. The results in the table show that even when there is no true relationship to be modeled (because shuffling should have obliterated the relationship), the complex model still shows a very low error in its predictions on the fitted data, because it fits the noise in the specific dataset. However, when that model is applied to a new dataset, we see that the error is much larger, as it should be.</p>
-<div id="cross-validation" class="section level3" number="14.6.1">
-<h3><span class="header-section-number">14.6.1</span> Cross-validation</h3>
+<div id="cross-validation" class="section level3 hasAnchor" number="14.6.1">
+<h3><span class="header-section-number">14.6.1</span> Cross-validation<a href="the-general-linear-model.html#cross-validation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>One method that has been developed to help address the problem of overfitting is known as <em>cross-validation</em>. This technique is commonly used within the field of machine learning, which is focused on building models that will generalize well to new data, even when we don’t have a new dataset to test the model. The idea behind cross-validation is that we fit our model repeatedly, each time leaving out a subset of the data, and then test the ability of the model to predict the values in each held-out subset.</p>
 <div class="figure"><span style="display:block;" id="fig:crossvalidation"></span>
 <img src="images/crossvalidation.png" alt="A schematic of the  cross-validation procedure." width="1646" height="30%" />
@@ -980,8 +1002,8 @@ Cross-validation
 </ul>
 </div>
 </div>
-<div id="learning-objectives-13" class="section level2" number="14.7">
-<h2><span class="header-section-number">14.7</span> Learning objectives</h2>
+<div id="learning-objectives-13" class="section level2 hasAnchor" number="14.7">
+<h2><span class="header-section-number">14.7</span> Learning objectives<a href="the-general-linear-model.html#learning-objectives-13" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Having read this chapter, you should be able to:</p>
 <ul>
 <li>Describe the concept of linear regression and apply it to a dataset</li>
@@ -989,16 +1011,16 @@ Cross-validation
 <li>Describe how cross-validation can allow us to estimate the predictive performance of a model on new data</li>
 </ul>
 </div>
-<div id="suggested-readings-10" class="section level2" number="14.8">
-<h2><span class="header-section-number">14.8</span> Suggested readings</h2>
+<div id="suggested-readings-10" class="section level2 hasAnchor" number="14.8">
+<h2><span class="header-section-number">14.8</span> Suggested readings<a href="the-general-linear-model.html#suggested-readings-10" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><a href="https://web.stanford.edu/~hastie/Papers/ESLII.pdf">The Elements of Statistical Learning: Data Mining, Inference, and Prediction (2nd Edition)</a> - The “bible” of machine learning methods, available freely online.</li>
 </ul>
 </div>
-<div id="appendix-5" class="section level2" number="14.9">
-<h2><span class="header-section-number">14.9</span> Appendix</h2>
-<div id="estimating-linear-regression-parameters" class="section level3" number="14.9.1">
-<h3><span class="header-section-number">14.9.1</span> Estimating linear regression parameters</h3>
+<div id="appendix-5" class="section level2 hasAnchor" number="14.9">
+<h2><span class="header-section-number">14.9</span> Appendix<a href="the-general-linear-model.html#appendix-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="estimating-linear-regression-parameters" class="section level3 hasAnchor" number="14.9.1">
+<h3><span class="header-section-number">14.9.1</span> Estimating linear regression parameters<a href="the-general-linear-model.html#estimating-linear-regression-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We generally estimate the parameters of a linear model from data using <em>linear algebra</em>, which is the form of algebra that is applied to vectors and matrices. If you aren’t familiar with linear algebra, don’t worry – you won’t actually need to use it here, as R will do all the work for us. However, a brief excursion in linear algebra can provide some insight into how the model parameters are estimated in practice.</p>
 <p>First, let’s introduce the idea of vectors and matrices; you’ve already encountered them in the context of R, but we will review them here. A matrix is a set of numbers that are arranged in a square or rectangle, such that there are one or more <em>dimensions</em> across which the matrix varies. It is customary to place different observation units (such as people) in the rows, and different variables in the columns. Let’s take our study time data from above. We could arrange these numbers in a matrix, which would have eight rows (one for each student) and two columns (one for study time, and one for grade). If you are thinking “that sounds like a data frame in R” you are exactly right! In fact, a data frame is a specialized version of a matrix, and we can convert a data frame to a matrix using the <code>as.matrix()</code> function.</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="the-general-linear-model.html#cb26-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span></span>
@@ -1063,7 +1085,7 @@ Figure 14.7: A depiction of the linear model for the study time data in terms of
 </div>
 </div>
 </div>
-<h3>References</h3>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-copa:1983" class="csl-entry">
 Copas, J. B. 1983. <span>“Regression, Prediction and Shrinkage (with Discussion).”</span> <em>Journal of the Royal Statistical Society, Series B: Methodological</em> 45: 311–54.

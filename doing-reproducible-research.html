@@ -4,19 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 17 Doing reproducible research | Statistical Thinking for the 21st Century</title>
+  <title>Chapter 18 Doing reproducible research | Statistical Thinking for the 21st Century</title>
   <meta name="description" content="A book about statistics." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 17 Doing reproducible research | Statistical Thinking for the 21st Century" />
+  <meta property="og:title" content="Chapter 18 Doing reproducible research | Statistical Thinking for the 21st Century" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="A book about statistics." />
   <meta name="github-repo" content="poldrack/psych10-book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 17 Doing reproducible research | Statistical Thinking for the 21st Century" />
+  <meta name="twitter:title" content="Chapter 18 Doing reproducible research | Statistical Thinking for the 21st Century" />
   
   <meta name="twitter:description" content="A book about statistics." />
   
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="practical-example.html"/>
 <link rel="next" href="references.html"/>
-<script src="book_assets/header-attrs-2.11/header-attrs.js"></script>
 <script src="book_assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="book_assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="book_assets/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="book_assets/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="book_assets/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="book_assets/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="book_assets/anchor-sections-1.1.0/anchor-sections.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129414074-1"></script>
 <script>
@@ -251,7 +250,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="5.2.1" data-path="fitting-models.html"><a href="fitting-models.html#improving-our-model"><i class="fa fa-check"></i><b>5.2.1</b> Improving our model</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="fitting-models.html"><a href="fitting-models.html#what-makes-a-model-good"><i class="fa fa-check"></i><b>5.3</b> What makes a model “good?”</a></li>
+<li class="chapter" data-level="5.3" data-path="fitting-models.html"><a href="fitting-models.html#what-makes-a-model-good"><i class="fa fa-check"></i><b>5.3</b> What makes a model “good”?</a></li>
 <li class="chapter" data-level="5.4" data-path="fitting-models.html"><a href="fitting-models.html#overfitting"><i class="fa fa-check"></i><b>5.4</b> Can a model be too good?</a></li>
 <li class="chapter" data-level="5.5" data-path="fitting-models.html"><a href="fitting-models.html#summarizing-data-using-the-mean"><i class="fa fa-check"></i><b>5.5</b> Summarizing data using the mean</a>
 <ul>
@@ -482,44 +481,66 @@ div.csl-indent {
 <li class="chapter" data-level="15.8.1" data-path="comparing-means.html"><a href="comparing-means.html#the-paired-t-test-as-a-linear-model"><i class="fa fa-check"></i><b>15.8.1</b> The paired t-test as a linear model</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="practical-example.html"><a href="practical-example.html"><i class="fa fa-check"></i><b>16</b> Practical statistical modeling</a>
+<li class="chapter" data-level="16" data-path="multivariate.html"><a href="multivariate.html"><i class="fa fa-check"></i><b>16</b> Multivariate statistics</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="practical-example.html"><a href="practical-example.html#the-process-of-statistical-modeling"><i class="fa fa-check"></i><b>16.1</b> The process of statistical modeling</a>
+<li class="chapter" data-level="16.1" data-path="multivariate.html"><a href="multivariate.html#multivariate-data-an-example"><i class="fa fa-check"></i><b>16.1</b> Multivariate data: An example</a></li>
+<li class="chapter" data-level="16.2" data-path="multivariate.html"><a href="multivariate.html#visualizing-multivariate-data"><i class="fa fa-check"></i><b>16.2</b> Visualizing multivariate data</a>
 <ul>
-<li class="chapter" data-level="16.1.1" data-path="practical-example.html"><a href="practical-example.html#specify-your-question-of-interest"><i class="fa fa-check"></i><b>16.1.1</b> 1: Specify your question of interest</a></li>
-<li class="chapter" data-level="16.1.2" data-path="practical-example.html"><a href="practical-example.html#identify-or-collect-the-appropriate-data"><i class="fa fa-check"></i><b>16.1.2</b> 2: Identify or collect the appropriate data</a></li>
-<li class="chapter" data-level="16.1.3" data-path="practical-example.html"><a href="practical-example.html#prepare-the-data-for-analysis"><i class="fa fa-check"></i><b>16.1.3</b> 3: Prepare the data for analysis</a></li>
-<li class="chapter" data-level="16.1.4" data-path="practical-example.html"><a href="practical-example.html#determine-the-appropriate-model"><i class="fa fa-check"></i><b>16.1.4</b> 4. Determine the appropriate model</a></li>
-<li class="chapter" data-level="16.1.5" data-path="practical-example.html"><a href="practical-example.html#fit-the-model-to-the-data"><i class="fa fa-check"></i><b>16.1.5</b> 5. Fit the model to the data</a></li>
-<li class="chapter" data-level="16.1.6" data-path="practical-example.html"><a href="practical-example.html#criticize-the-model-to-make-sure-it-fits-properly"><i class="fa fa-check"></i><b>16.1.6</b> 6. Criticize the model to make sure it fits properly</a></li>
-<li class="chapter" data-level="16.1.7" data-path="practical-example.html"><a href="practical-example.html#test-hypothesis-and-quantify-effect-size"><i class="fa fa-check"></i><b>16.1.7</b> 7. Test hypothesis and quantify effect size</a></li>
-<li class="chapter" data-level="16.1.8" data-path="practical-example.html"><a href="practical-example.html#what-about-possible-confounds"><i class="fa fa-check"></i><b>16.1.8</b> What about possible confounds?</a></li>
+<li class="chapter" data-level="16.2.1" data-path="multivariate.html"><a href="multivariate.html#scatterplot-of-matrices"><i class="fa fa-check"></i><b>16.2.1</b> Scatterplot of matrices</a></li>
+<li class="chapter" data-level="16.2.2" data-path="multivariate.html"><a href="multivariate.html#heatmap"><i class="fa fa-check"></i><b>16.2.2</b> Heatmap</a></li>
 </ul></li>
-<li class="chapter" data-level="16.2" data-path="practical-example.html"><a href="practical-example.html#getting-help"><i class="fa fa-check"></i><b>16.2</b> Getting help</a></li>
-</ul></li>
-<li class="chapter" data-level="17" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html"><i class="fa fa-check"></i><b>17</b> Doing reproducible research</a>
+<li class="chapter" data-level="16.3" data-path="multivariate.html"><a href="multivariate.html#clustering"><i class="fa fa-check"></i><b>16.3</b> Clustering</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#how-we-think-science-should-work"><i class="fa fa-check"></i><b>17.1</b> How we think science should work</a></li>
-<li class="chapter" data-level="17.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#how-science-sometimes-actually-works"><i class="fa fa-check"></i><b>17.2</b> How science (sometimes) actually works</a></li>
-<li class="chapter" data-level="17.3" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#the-reproducibility-crisis-in-science"><i class="fa fa-check"></i><b>17.3</b> The reproducibility crisis in science</a>
-<ul>
-<li class="chapter" data-level="17.3.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#positive-predictive-value-and-statistical-significance"><i class="fa fa-check"></i><b>17.3.1</b> Positive predictive value and statistical significance</a></li>
-<li class="chapter" data-level="17.3.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#the-winners-curse"><i class="fa fa-check"></i><b>17.3.2</b> The winner’s curse</a></li>
+<li class="chapter" data-level="16.3.1" data-path="multivariate.html"><a href="multivariate.html#k-means-clustering"><i class="fa fa-check"></i><b>16.3.1</b> K-means clustering</a></li>
+<li class="chapter" data-level="16.3.2" data-path="multivariate.html"><a href="multivariate.html#hierarchical-clustering"><i class="fa fa-check"></i><b>16.3.2</b> Hierarchical clustering</a></li>
 </ul></li>
-<li class="chapter" data-level="17.4" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#questionable-research-practices"><i class="fa fa-check"></i><b>17.4</b> Questionable research practices</a>
+<li class="chapter" data-level="16.4" data-path="multivariate.html"><a href="multivariate.html#dimensionality-reduction"><i class="fa fa-check"></i><b>16.4</b> Dimensionality reduction</a>
 <ul>
-<li class="chapter" data-level="17.4.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#esp-or-qrp"><i class="fa fa-check"></i><b>17.4.1</b> ESP or QRP?</a></li>
+<li class="chapter" data-level="16.4.1" data-path="multivariate.html"><a href="multivariate.html#principal-component-analysis"><i class="fa fa-check"></i><b>16.4.1</b> Principal component analysis</a></li>
+<li class="chapter" data-level="16.4.2" data-path="multivariate.html"><a href="multivariate.html#factor-analysis"><i class="fa fa-check"></i><b>16.4.2</b> Factor analysis</a></li>
+<li class="chapter" data-level="16.4.3" data-path="multivariate.html"><a href="multivariate.html#determining-the-number-of-factors"><i class="fa fa-check"></i><b>16.4.3</b> Determining the number of factors</a></li>
 </ul></li>
-<li class="chapter" data-level="17.5" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#doing-reproducible-research-1"><i class="fa fa-check"></i><b>17.5</b> Doing reproducible research</a>
+<li class="chapter" data-level="16.5" data-path="multivariate.html"><a href="multivariate.html#learning-objectives-15"><i class="fa fa-check"></i><b>16.5</b> Learning objectives</a></li>
+<li class="chapter" data-level="16.6" data-path="multivariate.html"><a href="multivariate.html#suggested-readings-11"><i class="fa fa-check"></i><b>16.6</b> Suggested readings</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="practical-example.html"><a href="practical-example.html"><i class="fa fa-check"></i><b>17</b> Practical statistical modeling</a>
 <ul>
-<li class="chapter" data-level="17.5.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#pre-registration"><i class="fa fa-check"></i><b>17.5.1</b> Pre-registration</a></li>
-<li class="chapter" data-level="17.5.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#reproducible-practices"><i class="fa fa-check"></i><b>17.5.2</b> Reproducible practices</a></li>
-<li class="chapter" data-level="17.5.3" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#replication"><i class="fa fa-check"></i><b>17.5.3</b> Replication</a></li>
+<li class="chapter" data-level="17.1" data-path="practical-example.html"><a href="practical-example.html#the-process-of-statistical-modeling"><i class="fa fa-check"></i><b>17.1</b> The process of statistical modeling</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="practical-example.html"><a href="practical-example.html#specify-your-question-of-interest"><i class="fa fa-check"></i><b>17.1.1</b> 1: Specify your question of interest</a></li>
+<li class="chapter" data-level="17.1.2" data-path="practical-example.html"><a href="practical-example.html#identify-or-collect-the-appropriate-data"><i class="fa fa-check"></i><b>17.1.2</b> 2: Identify or collect the appropriate data</a></li>
+<li class="chapter" data-level="17.1.3" data-path="practical-example.html"><a href="practical-example.html#prepare-the-data-for-analysis"><i class="fa fa-check"></i><b>17.1.3</b> 3: Prepare the data for analysis</a></li>
+<li class="chapter" data-level="17.1.4" data-path="practical-example.html"><a href="practical-example.html#determine-the-appropriate-model"><i class="fa fa-check"></i><b>17.1.4</b> 4. Determine the appropriate model</a></li>
+<li class="chapter" data-level="17.1.5" data-path="practical-example.html"><a href="practical-example.html#fit-the-model-to-the-data"><i class="fa fa-check"></i><b>17.1.5</b> 5. Fit the model to the data</a></li>
+<li class="chapter" data-level="17.1.6" data-path="practical-example.html"><a href="practical-example.html#criticize-the-model-to-make-sure-it-fits-properly"><i class="fa fa-check"></i><b>17.1.6</b> 6. Criticize the model to make sure it fits properly</a></li>
+<li class="chapter" data-level="17.1.7" data-path="practical-example.html"><a href="practical-example.html#test-hypothesis-and-quantify-effect-size"><i class="fa fa-check"></i><b>17.1.7</b> 7. Test hypothesis and quantify effect size</a></li>
+<li class="chapter" data-level="17.1.8" data-path="practical-example.html"><a href="practical-example.html#what-about-possible-confounds"><i class="fa fa-check"></i><b>17.1.8</b> What about possible confounds?</a></li>
 </ul></li>
-<li class="chapter" data-level="17.6" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#doing-reproducible-data-analysis"><i class="fa fa-check"></i><b>17.6</b> Doing reproducible data analysis</a></li>
-<li class="chapter" data-level="17.7" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#conclusion-doing-better-science"><i class="fa fa-check"></i><b>17.7</b> Conclusion: Doing better science</a></li>
-<li class="chapter" data-level="17.8" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#learning-objectives-15"><i class="fa fa-check"></i><b>17.8</b> Learning objectives</a></li>
-<li class="chapter" data-level="17.9" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#suggested-readings-11"><i class="fa fa-check"></i><b>17.9</b> Suggested Readings</a></li>
+<li class="chapter" data-level="17.2" data-path="practical-example.html"><a href="practical-example.html#getting-help"><i class="fa fa-check"></i><b>17.2</b> Getting help</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html"><i class="fa fa-check"></i><b>18</b> Doing reproducible research</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#how-we-think-science-should-work"><i class="fa fa-check"></i><b>18.1</b> How we think science should work</a></li>
+<li class="chapter" data-level="18.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#how-science-sometimes-actually-works"><i class="fa fa-check"></i><b>18.2</b> How science (sometimes) actually works</a></li>
+<li class="chapter" data-level="18.3" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#the-reproducibility-crisis-in-science"><i class="fa fa-check"></i><b>18.3</b> The reproducibility crisis in science</a>
+<ul>
+<li class="chapter" data-level="18.3.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#positive-predictive-value-and-statistical-significance"><i class="fa fa-check"></i><b>18.3.1</b> Positive predictive value and statistical significance</a></li>
+<li class="chapter" data-level="18.3.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#the-winners-curse"><i class="fa fa-check"></i><b>18.3.2</b> The winner’s curse</a></li>
+</ul></li>
+<li class="chapter" data-level="18.4" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#questionable-research-practices"><i class="fa fa-check"></i><b>18.4</b> Questionable research practices</a>
+<ul>
+<li class="chapter" data-level="18.4.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#esp-or-qrp"><i class="fa fa-check"></i><b>18.4.1</b> ESP or QRP?</a></li>
+</ul></li>
+<li class="chapter" data-level="18.5" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#doing-reproducible-research-1"><i class="fa fa-check"></i><b>18.5</b> Doing reproducible research</a>
+<ul>
+<li class="chapter" data-level="18.5.1" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#pre-registration"><i class="fa fa-check"></i><b>18.5.1</b> Pre-registration</a></li>
+<li class="chapter" data-level="18.5.2" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#reproducible-practices"><i class="fa fa-check"></i><b>18.5.2</b> Reproducible practices</a></li>
+<li class="chapter" data-level="18.5.3" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#replication"><i class="fa fa-check"></i><b>18.5.3</b> Replication</a></li>
+</ul></li>
+<li class="chapter" data-level="18.6" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#doing-reproducible-data-analysis"><i class="fa fa-check"></i><b>18.6</b> Doing reproducible data analysis</a></li>
+<li class="chapter" data-level="18.7" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#conclusion-doing-better-science"><i class="fa fa-check"></i><b>18.7</b> Conclusion: Doing better science</a></li>
+<li class="chapter" data-level="18.8" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#learning-objectives-16"><i class="fa fa-check"></i><b>18.8</b> Learning objectives</a></li>
+<li class="chapter" data-level="18.9" data-path="doing-reproducible-research.html"><a href="doing-reproducible-research.html#suggested-readings-12"><i class="fa fa-check"></i><b>18.9</b> Suggested Readings</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
@@ -539,11 +560,11 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="doing-reproducible-research" class="section level1" number="17">
-<h1><span class="header-section-number">Chapter 17</span> Doing reproducible research</h1>
+<div id="doing-reproducible-research" class="section level1 hasAnchor" number="18">
+<h1><span class="header-section-number">Chapter 18</span> Doing reproducible research<a href="doing-reproducible-research.html#doing-reproducible-research" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Most people think that science is a reliable way to answer questions about the world. When our physician prescribes a treatment we trust that it has been shown to be effective through research, and we have similar faith that the airplanes that we fly in aren’t going to fall from the sky. However, since 2005 there has been an increasing concern that science may not always work as well as we have long thought that it does. In this chapter we will discuss these concerns about reproducibility of scientific research, and outline the steps that one can take to make sure that our statistical results are as reproducible as possible.</p>
-<div id="how-we-think-science-should-work" class="section level2" number="17.1">
-<h2><span class="header-section-number">17.1</span> How we think science should work</h2>
+<div id="how-we-think-science-should-work" class="section level2 hasAnchor" number="18.1">
+<h2><span class="header-section-number">18.1</span> How we think science should work<a href="doing-reproducible-research.html#how-we-think-science-should-work" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Let’s say that we are interested in a research project on how children choose what to eat. This is a question that was asked in a study by the well-known eating researcher Brian Wansink and his colleagues in 2012. The standard (and, as we will see, somewhat naive) view goes something like this:</p>
 <ul>
 <li>You start with a hypothesis
@@ -564,9 +585,9 @@ div.csl-indent {
 </ul></li>
 </ul>
 </div>
-<div id="how-science-sometimes-actually-works" class="section level2" number="17.2">
-<h2><span class="header-section-number">17.2</span> How science (sometimes) actually works</h2>
-<p>Brian Wansink is well known for his books on “Mindless Eating,” and his fee for corporate speaking engagements was at one point in the tens of thousands of dollars. In 2017, a set of researchers began to scrutinize some of his published research, starting with a set of papers about how much pizza people ate at a buffet. The researchers asked Wansink to share the data from the studies but he refused, so they dug into his published papers and found a large number of inconsistencies and statistical problems in the papers. The publicity around this analysis led a number of others to dig into Wansink’s past, including obtaining emails between Wansink and his collaborators. As <a href="https://www.buzzfeednews.com/article/stephaniemlee/brian-wansink-cornell-p-hacking">reported by Stephanie Lee at Buzzfeed</a>, these emails showed just how far Wansink’s actual research practices were from the naive model:</p>
+<div id="how-science-sometimes-actually-works" class="section level2 hasAnchor" number="18.2">
+<h2><span class="header-section-number">18.2</span> How science (sometimes) actually works<a href="doing-reproducible-research.html#how-science-sometimes-actually-works" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Brian Wansink is well known for his books on “Mindless Eating”, and his fee for corporate speaking engagements was at one point in the tens of thousands of dollars. In 2017, a set of researchers began to scrutinize some of his published research, starting with a set of papers about how much pizza people ate at a buffet. The researchers asked Wansink to share the data from the studies but he refused, so they dug into his published papers and found a large number of inconsistencies and statistical problems in the papers. The publicity around this analysis led a number of others to dig into Wansink’s past, including obtaining emails between Wansink and his collaborators. As <a href="https://www.buzzfeednews.com/article/stephaniemlee/brian-wansink-cornell-p-hacking">reported by Stephanie Lee at Buzzfeed</a>, these emails showed just how far Wansink’s actual research practices were from the naive model:</p>
 <blockquote>
 <p>…back in September 2008, when Payne was looking over the data soon after it had been collected, he found no strong apples-and-Elmo link — at least not yet. …
 “I have attached some initial results of the kid study to this message for your report,” Payne wrote to his collaborators. “Do not despair. It looks like stickers on fruit may work (with a bit more wizardry).” …
@@ -576,12 +597,12 @@ Later in 2012, the study appeared in the prestigious JAMA Pediatrics, the 0.06
 </blockquote>
 <p>This kind of behavior finally caught up with Wansink; <a href="https://www.vox.com/science-and-health/2018/9/19/17879102/brian-wansink-cornell-food-brand-lab-retractions-jama">fifteen of his research studies have been retracted</a> and in 2018 he resigned from his faculty position at Cornell University.</p>
 </div>
-<div id="the-reproducibility-crisis-in-science" class="section level2" number="17.3">
-<h2><span class="header-section-number">17.3</span> The reproducibility crisis in science</h2>
+<div id="the-reproducibility-crisis-in-science" class="section level2 hasAnchor" number="18.3">
+<h2><span class="header-section-number">18.3</span> The reproducibility crisis in science<a href="doing-reproducible-research.html#the-reproducibility-crisis-in-science" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>While we think that the kind of frauduent behavior seen in Wansink’s case is relatively rare, it has become increasingly clear that problems with reproducibility are much more widespread in science than previously thought. This became particularly evident in 2015, when a large group of researchers published a study in the journal <em>Science</em> titled “Estimating the reproducibility of psychological science”<span class="citation">(<a href="#ref-open:2015" role="doc-biblioref">Open Science Collaboration 2015</a>)</span>. In this paper, the researchers took 100 published studies in psychology and attempted to reproduce the results originally reported in the papers. Their findings were shocking: Whereas 97% of the original papers had reported statistically significant findings, only 37% of these effects were statistically significant in the replication study. Although these problems in psychology have received a great deal of attention, they seem to be present in nearly every area of science, from cancer biology <span class="citation">(<a href="#ref-erri:iorn:gunn:2014" role="doc-biblioref">Errington et al. 2014</a>)</span> and chemistry <span class="citation">(<a href="#ref-bake:2017" role="doc-biblioref">Baker 2017</a>)</span> to economics <span class="citation">(<a href="#ref-NBERw22989" role="doc-biblioref">Christensen and Miguel 2016</a>)</span> and the social sciences <span class="citation">(<a href="#ref-Camerer2018EvaluatingTR" role="doc-biblioref">Camerer et al. 2018</a>)</span>.</p>
 <p>The reproducibility crisis that emerged after 2010 was actually predicted by John Ioannidis, a physician from Stanford who wrote a paper in 2005 titled “Why most published research findings are false”<span class="citation">(<a href="#ref-ioan:2005" role="doc-biblioref">Ioannidis 2005</a>)</span>. In this article, Ioannidis argued that the use of null hypothesis statistical testing in the context of modern science will necessarily lead to high levels of false results.</p>
-<div id="positive-predictive-value-and-statistical-significance" class="section level3" number="17.3.1">
-<h3><span class="header-section-number">17.3.1</span> Positive predictive value and statistical significance</h3>
+<div id="positive-predictive-value-and-statistical-significance" class="section level3 hasAnchor" number="18.3.1">
+<h3><span class="header-section-number">18.3.1</span> Positive predictive value and statistical significance<a href="doing-reproducible-research.html#positive-predictive-value-and-statistical-significance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Ioannidis’ analysis focused on a concept known as the <em>positive predictive value</em>, which is defined as the proportion of positive results (which generally translates to “statistically significant findings”) that are true:</p>
 <p><span class="math display">\[
 PPV = \frac{p(true\ positive\ result)}{p(true\ positive\ result) + p(false\ positive\ result)}
@@ -608,32 +629,32 @@ This means that if we find a positive result in a study where the hypothesis is 
 PPV = \frac{0.1 * (1 - 0.2)}{0.1 * (1 - 0.2) + (1 - 0.1) * 0.05} = 0.307
 \]</span></p>
 <p>This means that in a field where most of the hypotheses are likely to be wrong (that is, an interesting scientific field where researchers are testing risky hypotheses), even when we find a positive result it is more likely to be false than true! In fact, this is just another example of the base rate effect that we discussed in the context of hypothesis testing – when an outcome is unlikely, then it’s almost certain that most positive outcomes will be false positives.</p>
-<p>We can simulate this to show how PPV relates to statistical power, as a function of the prior probability of the hypothesis being true (see Figure <a href="doing-reproducible-research.html#fig:PPVsim">17.1</a>)</p>
+<p>We can simulate this to show how PPV relates to statistical power, as a function of the prior probability of the hypothesis being true (see Figure <a href="doing-reproducible-research.html#fig:PPVsim">18.1</a>)</p>
 <div class="figure"><span style="display:block;" id="fig:PPVsim"></span>
 <img src="StatsThinking21_files/figure-html/PPVsim-1.png" alt="A simulation of posterior predictive value as a function of statistical power (plotted on the x axis) and prior probability of the hypothesis being true (plotted as separate lines)." width="576" height="50%" />
 <p class="caption">
-Figure 17.1: A simulation of posterior predictive value as a function of statistical power (plotted on the x axis) and prior probability of the hypothesis being true (plotted as separate lines).
+Figure 18.1: A simulation of posterior predictive value as a function of statistical power (plotted on the x axis) and prior probability of the hypothesis being true (plotted as separate lines).
 </p>
 </div>
 <p>Unfortunately, statistical power remains low in many areas of science <span class="citation">(<a href="#ref-smal:mcel:2016" role="doc-biblioref">Smaldino and McElreath 2016</a>)</span>, suggesting that many published research findings are false.</p>
 <p>An amusing example of this was seen in a paper by Jonathan Schoenfeld and John Ioannidis, titled “Is everything we eat associated with cancer? A systematic cookbook review”<span class="citation">(<a href="#ref-scho:ioan:2013" role="doc-biblioref">Schoenfeld and Ioannidis 2013</a>)</span>. They examined a large number of papers that had assessed the relation between different foods and cancer risk, and found that 80% of ingredients had been associated with either increased or decreased cancer risk. In most of these cases, the statistical evidence was weak, and when the results were combined across studies, the result was null.</p>
 </div>
-<div id="the-winners-curse" class="section level3" number="17.3.2">
-<h3><span class="header-section-number">17.3.2</span> The winner’s curse</h3>
-<p>Another kind of error can also occur when statistical power is low: Our estimates of the effect size will be inflated. This phenomenon often goes by the term “winner’s curse,” which comes from economics, where it refers to the fact that for certain types of auctions (where the value is the same for everyone, like a jar of quarters, and the bids are private), the winner is guaranteed to pay more than the good is worth. In science, the winner’s curse refers to the fact that the effect size estimated from a significant result (i.e. a winner) is almost always an overestimate of the true effect size.</p>
-<p>We can simulate this in order to see how the estimated effect size for significant results is related to the actual underlying effect size. Let’s generate data for which there is a true effect size of d = 0.2, and estimate the effect size for those results where there is a significant effect detected. The left panel of Figure <a href="doing-reproducible-research.html#fig:CurseSim">17.2</a> shows that when power is low, the estimated effect size for significant results can be highly inflated compared to the actual effect size.</p>
+<div id="the-winners-curse" class="section level3 hasAnchor" number="18.3.2">
+<h3><span class="header-section-number">18.3.2</span> The winner’s curse<a href="doing-reproducible-research.html#the-winners-curse" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Another kind of error can also occur when statistical power is low: Our estimates of the effect size will be inflated. This phenomenon often goes by the term “winner’s curse”, which comes from economics, where it refers to the fact that for certain types of auctions (where the value is the same for everyone, like a jar of quarters, and the bids are private), the winner is guaranteed to pay more than the good is worth. In science, the winner’s curse refers to the fact that the effect size estimated from a significant result (i.e. a winner) is almost always an overestimate of the true effect size.</p>
+<p>We can simulate this in order to see how the estimated effect size for significant results is related to the actual underlying effect size. Let’s generate data for which there is a true effect size of d = 0.2, and estimate the effect size for those results where there is a significant effect detected. The left panel of Figure <a href="doing-reproducible-research.html#fig:CurseSim">18.2</a> shows that when power is low, the estimated effect size for significant results can be highly inflated compared to the actual effect size.</p>
 <div class="figure"><span style="display:block;" id="fig:CurseSim"></span>
 <img src="StatsThinking21_files/figure-html/CurseSim-1.png" alt="Left: A simulation of the winner's curse as a function of statistical power (x axis). The solid line shows the estimated effect size, and the dotted line shows the actual effect size. Right: A histogram showing effect size estimates for a number of samples from a dataset, with significant results shown in blue and non-significant results in red. " width="768" height="50%" />
 <p class="caption">
-Figure 17.2: Left: A simulation of the winner’s curse as a function of statistical power (x axis). The solid line shows the estimated effect size, and the dotted line shows the actual effect size. Right: A histogram showing effect size estimates for a number of samples from a dataset, with significant results shown in blue and non-significant results in red.
+Figure 18.2: Left: A simulation of the winner’s curse as a function of statistical power (x axis). The solid line shows the estimated effect size, and the dotted line shows the actual effect size. Right: A histogram showing effect size estimates for a number of samples from a dataset, with significant results shown in blue and non-significant results in red.
 </p>
 </div>
-<p>We can look at a single simulation to see why this is the case. In the right panel of Figure <a href="doing-reproducible-research.html#fig:CurseSim">17.2</a>, you can see a histogram of the estimated effect sizes for 1000 samples, separated by whether the test was statistically significant. It should be clear from the figure that if we estimate the effect size only based on significant results, then our estimate will be inflated; only when most results are significant (i.e. power is high and the effect is relatively large) will our estimate come near the actual effect size.</p>
+<p>We can look at a single simulation to see why this is the case. In the right panel of Figure <a href="doing-reproducible-research.html#fig:CurseSim">18.2</a>, you can see a histogram of the estimated effect sizes for 1000 samples, separated by whether the test was statistically significant. It should be clear from the figure that if we estimate the effect size only based on significant results, then our estimate will be inflated; only when most results are significant (i.e. power is high and the effect is relatively large) will our estimate come near the actual effect size.</p>
 </div>
 </div>
-<div id="questionable-research-practices" class="section level2" number="17.4">
-<h2><span class="header-section-number">17.4</span> Questionable research practices</h2>
-<p>A popular book entitled “The Compleat Academic: A Career Guide,” published by the American Psychological Association <span class="citation">(<a href="#ref-darl:zann:roed:2004" role="doc-biblioref">Darley, Zanna, and Roediger 2004</a>)</span>, aims to provide aspiring researchers with guidance on how to build a career. In a chapter by well-known social psychologist Daryl Bem titled “Writing the Empirical Journal Article,” Bem provides some suggestions about how to write a research paper. Unfortunately, the practices that he suggests are deeply problematic, and have come to be known as <em>questionable research practices</em> (QRPs).</p>
+<div id="questionable-research-practices" class="section level2 hasAnchor" number="18.4">
+<h2><span class="header-section-number">18.4</span> Questionable research practices<a href="doing-reproducible-research.html#questionable-research-practices" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A popular book entitled “The Compleat Academic: A Career Guide”, published by the American Psychological Association <span class="citation">(<a href="#ref-darl:zann:roed:2004" role="doc-biblioref">Darley, Zanna, and Roediger 2004</a>)</span>, aims to provide aspiring researchers with guidance on how to build a career. In a chapter by well-known social psychologist Daryl Bem titled “Writing the Empirical Journal Article”, Bem provides some suggestions about how to write a research paper. Unfortunately, the practices that he suggests are deeply problematic, and have come to be known as <em>questionable research practices</em> (QRPs).</p>
 <blockquote>
 <p><strong>Which article should you write?</strong> There are two possible articles you can write: (1) the article you planned to write when you designed your study or (2) the article that makes the most sense now that you have seen the results. They are rarely the same, and the correct answer is (2).</p>
 </blockquote>
@@ -641,7 +662,7 @@ Figure 17.2: Left: A simulation of the winner’s curse as a function of statist
 <blockquote>
 <p><strong>Analyzing data</strong> Examine them from every angle. Analyze the sexes separately. Make up new composite indices. If a datum suggests a new hypothesis, try to find further evidence for it elsewhere in the data. If you see dim traces of interesting patterns, try to reorganize the data to bring them into bolder relief. If there are participants you don’t like, or trials, observers, or interviewers who gave you anomalous results,drop them (temporarily). Go on a fishing expedition for something — anything — interesting. No, this is not immoral.</p>
 </blockquote>
-<p>What Bem suggests here is known as <em>p-hacking</em>, which refers to trying many different analyses until one finds a significant result. Bem is correct that if one were to report every analysis done on the data then this approach would not be “immoral.” However, it is rare to see a paper discuss all of the analyses that were performed on a dataset; rather, papers often only present the analyses that <em>worked</em> - which usually means that they found a statistically significant result. There are many different ways that one might p-hack:</p>
+<p>What Bem suggests here is known as <em>p-hacking</em>, which refers to trying many different analyses until one finds a significant result. Bem is correct that if one were to report every analysis done on the data then this approach would not be “immoral”. However, it is rare to see a paper discuss all of the analyses that were performed on a dataset; rather, papers often only present the analyses that <em>worked</em> - which usually means that they found a statistically significant result. There are many different ways that one might p-hack:</p>
 <ul>
 <li>Analyze data after every subject, and stop collecting data once p&lt;.05</li>
 <li>Analyze many different variables, but only report those with p&lt;.05</li>
@@ -649,9 +670,9 @@ Figure 17.2: Left: A simulation of the winner’s curse as a function of statist
 <li>Exclude participants to get p&lt;.05</li>
 <li>Transform the data to get p&lt;.05</li>
 </ul>
-<p>A well-known paper by <span class="citation"><a href="#ref-simm:nels:simo:2011" role="doc-biblioref">Simmons, Nelson, and Simonsohn</a> (<a href="#ref-simm:nels:simo:2011" role="doc-biblioref">2011</a>)</span> showed that the use of these kinds of p-hacking strategies could greatly increase the actual false positive rate, resulting in a high number of false positive results.</p>
-<div id="esp-or-qrp" class="section level3" number="17.4.1">
-<h3><span class="header-section-number">17.4.1</span> ESP or QRP?</h3>
+<p>A well-known paper by <span class="citation">Simmons, Nelson, and Simonsohn (<a href="#ref-simm:nels:simo:2011" role="doc-biblioref">2011</a>)</span> showed that the use of these kinds of p-hacking strategies could greatly increase the actual false positive rate, resulting in a high number of false positive results.</p>
+<div id="esp-or-qrp" class="section level3 hasAnchor" number="18.4.1">
+<h3><span class="header-section-number">18.4.1</span> ESP or QRP?<a href="doing-reproducible-research.html#esp-or-qrp" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In 2011, that same Daryl Bem published an article <span class="citation">(<a href="#ref-bem:2011" role="doc-biblioref">Bem 2011</a>)</span> that claimed to have found scientific evidence for extrasensory perception. The article states:</p>
 <blockquote>
 <p>This article reports 9 experiments, involving more than 1,000 participants, that test for retroactive influence by “time-reversing” well-established psychological effects so that the individual’s responses are obtained before the putatively causal stimulus events occur. …The mean effect size (d) in psi performance across all 9 experiments was 0.22, and all but one of the experiments yielded statistically significant results.</p>
@@ -667,17 +688,17 @@ Figure 17.2: Left: A simulation of the winner’s curse as a function of statist
 </ul>
 </div>
 </div>
-<div id="doing-reproducible-research-1" class="section level2" number="17.5">
-<h2><span class="header-section-number">17.5</span> Doing reproducible research</h2>
+<div id="doing-reproducible-research-1" class="section level2 hasAnchor" number="18.5">
+<h2><span class="header-section-number">18.5</span> Doing reproducible research<a href="doing-reproducible-research.html#doing-reproducible-research-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In the years since the reproducibility crisis arose, there has been a robust movement to develop tools to help protect the reproducibility of scientific research.</p>
-<div id="pre-registration" class="section level3" number="17.5.1">
-<h3><span class="header-section-number">17.5.1</span> Pre-registration</h3>
+<div id="pre-registration" class="section level3 hasAnchor" number="18.5.1">
+<h3><span class="header-section-number">18.5.1</span> Pre-registration<a href="doing-reproducible-research.html#pre-registration" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>One of the ideas that has gained the greatest traction is <em>pre-registration</em>, in which one submits a detailed description of a study (including all data analyses) to a trusted repository (such as the <a href="http://osf.io">Open Science Framework</a> or <a href="http://aspredicted.org">AsPredicted.org</a>). By specifying one’s plans in detail prior to analyzing the data, pre-registration provides greater faith that the analyses do not suffer from p-hacking or other questionable research practices.</p>
-<p>The effects of pre-registration in clinical trials in medicine have been striking. In 2000, the National Heart, Lung, and Blood Institute (NHLBI) began requiring all clinical trials to be pre-registered using the system at <a href="http://clinicaltrials.gov">ClinicalTrials.gov</a>. This provides a natural experiment to observe the effects of study pre-registration. When <span class="citation"><a href="#ref-kapl:irvi:2015" role="doc-biblioref">Kaplan and Irvin</a> (<a href="#ref-kapl:irvi:2015" role="doc-biblioref">2015</a>)</span> examined clinical trial outcomes over time, they found that the number of positive outcomes in clinical trials was greatly reduced after 2000 compared to before. While there are many possible causes, it seems likely that prior to study registration researchers were able to change their methods or hypotheses in order to find a positive result, which became more difficult after registration was required.</p>
+<p>The effects of pre-registration in clinical trials in medicine have been striking. In 2000, the National Heart, Lung, and Blood Institute (NHLBI) began requiring all clinical trials to be pre-registered using the system at <a href="http://clinicaltrials.gov">ClinicalTrials.gov</a>. This provides a natural experiment to observe the effects of study pre-registration. When <span class="citation">Kaplan and Irvin (<a href="#ref-kapl:irvi:2015" role="doc-biblioref">2015</a>)</span> examined clinical trial outcomes over time, they found that the number of positive outcomes in clinical trials was greatly reduced after 2000 compared to before. While there are many possible causes, it seems likely that prior to study registration researchers were able to change their methods or hypotheses in order to find a positive result, which became more difficult after registration was required.</p>
 </div>
-<div id="reproducible-practices" class="section level3" number="17.5.2">
-<h3><span class="header-section-number">17.5.2</span> Reproducible practices</h3>
-<p>The paper by <span class="citation"><a href="#ref-simm:nels:simo:2011" role="doc-biblioref">Simmons, Nelson, and Simonsohn</a> (<a href="#ref-simm:nels:simo:2011" role="doc-biblioref">2011</a>)</span> laid out a set of suggested practices for making research more reproducible, all of which should become standard for researchers:</p>
+<div id="reproducible-practices" class="section level3 hasAnchor" number="18.5.2">
+<h3><span class="header-section-number">18.5.2</span> Reproducible practices<a href="doing-reproducible-research.html#reproducible-practices" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The paper by <span class="citation">Simmons, Nelson, and Simonsohn (<a href="#ref-simm:nels:simo:2011" role="doc-biblioref">2011</a>)</span> laid out a set of suggested practices for making research more reproducible, all of which should become standard for researchers:</p>
 <blockquote>
 <ul>
 <li>Authors must decide the rule for terminating data collection before data collection begins and report this rule in the article.</li>
@@ -689,33 +710,33 @@ Figure 17.2: Left: A simulation of the winner’s curse as a function of statist
 </ul>
 </blockquote>
 </div>
-<div id="replication" class="section level3" number="17.5.3">
-<h3><span class="header-section-number">17.5.3</span> Replication</h3>
+<div id="replication" class="section level3 hasAnchor" number="18.5.3">
+<h3><span class="header-section-number">18.5.3</span> Replication<a href="doing-reproducible-research.html#replication" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>One of the hallmarks of science is the idea of <em>replication</em> – that is, other researchers should be able to perform the same study and obtain the same result. Unfortunately, as we saw in the outcome of the Replication Project discussed earlier, many findings are not replicable. The best way to ensure replicability of one’s research is to first replicate it on your own; for some studies this just won’t be possible, but whenever it is possible one should make sure that one’s finding holds up in a new sample. That new sample should be sufficiently powered to find the effect size of interest; in many cases, this will actually require a larger sample than the original.</p>
 <p>It’s important to keep a couple of things in mind with regard to replication. First, the fact that a replication attempt fails does not necessarily mean that the original finding was false; remember that with the standard level of 80% power, there is still a one in five chance that the result will be nonsignificant, even if there is a true effect. For this reason, we generally want to see multiple replications of any important finding before we decide whether or not to believe it. Unfortunately, many fields including psychology have failed to follow this advice in the past, leading to “textbook” findings that turn out to be likely false. With regard to Daryl Bem’s studies of ESP, a large replication attempt involving 7 studies failed to replicate his findings <span class="citation">(<a href="#ref-gala:lebo:nels:2012" role="doc-biblioref">Galak et al. 2012</a>)</span>.</p>
 <p>Second, remember that the p-value doesn’t provide us with a measure of the likelihood of a finding to replicate. As we discussed previously, the p-value is a statement about the likelihood of one’s data under a specific null hypothesis; it doesn’t tell us anything about the probability that the finding is actually true (as we learned in the chapter on Bayesian analysis). In order to know the likelihood of replication we need to know the probability that the finding is true, which we generally don’t know.</p>
 </div>
 </div>
-<div id="doing-reproducible-data-analysis" class="section level2" number="17.6">
-<h2><span class="header-section-number">17.6</span> Doing reproducible data analysis</h2>
+<div id="doing-reproducible-data-analysis" class="section level2 hasAnchor" number="18.6">
+<h2><span class="header-section-number">18.6</span> Doing reproducible data analysis<a href="doing-reproducible-research.html#doing-reproducible-data-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>So far we have focused on the ability to replicate other researchers’ findings in new experiments, but another important aspect of reproducibility is to be able to reproduce someone’s analyses on their own data, which we refer to a <em>computational reproducibility.</em> This requires that researchers share both their data and their analysis code, so that other researchers can both try to reproduce the result as well as potentially test different analysis methods on the same data. There is an increasing move in psychology towards open sharing of code and data; for example, the journal <em>Psychological Science</em> now provides “badges” to papers that share research materials, data, and code, as well as for pre-registration.</p>
 <p>The ability to reproduce analyses is one reason that we strongly advocate for the use of scripted analyses (such as those using R) rather than using a “point-and-click” software package. It’s also a reason that we advocate the use of free and open-source software (like R) as opposed to commercial software packages, which would require others to buy the software in order to reproduce any analyses.</p>
 <p>There are many ways to share both code and data. A common way to share code is via web sites that support <em>version control</em> for software, such as <a href="http://github.com">Github</a>. Small datasets can also be shared via these same sites; larger datasets can be shared through data sharing portals such as <a href="https://zenodo.org/">Zenodo</a>, or through specialized portals for specific types of data (such as <a href="http://openneuro.org">OpenNeuro</a> for neuroimaging data).</p>
 </div>
-<div id="conclusion-doing-better-science" class="section level2" number="17.7">
-<h2><span class="header-section-number">17.7</span> Conclusion: Doing better science</h2>
+<div id="conclusion-doing-better-science" class="section level2 hasAnchor" number="18.7">
+<h2><span class="header-section-number">18.7</span> Conclusion: Doing better science<a href="doing-reproducible-research.html#conclusion-doing-better-science" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>It is every scientist’s responsibility to improve their research practices in order to increase the reproducibility of their research. It is essential to remember that the goal of research is not to find a significant result; rather, it is to ask and answer questions about nature in the most truthful way possible. Most of our hypotheses will be wrong, and we should be comfortable with that, so that when we find one that’s right, we will be even more confident in its truth.</p>
 </div>
-<div id="learning-objectives-15" class="section level2" number="17.8">
-<h2><span class="header-section-number">17.8</span> Learning objectives</h2>
+<div id="learning-objectives-16" class="section level2 hasAnchor" number="18.8">
+<h2><span class="header-section-number">18.8</span> Learning objectives<a href="doing-reproducible-research.html#learning-objectives-16" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Describe the concept of P-hacking and its effects on scientific practice</li>
 <li>Describe the concept of positive predictive value and its relation to statistical power</li>
 <li>Describe the concept of pre-registration and how it can help protect against questionable research practices</li>
 </ul>
 </div>
-<div id="suggested-readings-11" class="section level2" number="17.9">
-<h2><span class="header-section-number">17.9</span> Suggested Readings</h2>
+<div id="suggested-readings-12" class="section level2 hasAnchor" number="18.9">
+<h2><span class="header-section-number">18.9</span> Suggested Readings<a href="doing-reproducible-research.html#suggested-readings-12" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><a href="https://www.amazon.com/dp/B01K3WN72C">Rigor Mortis: How Sloppy Science Creates Worthless Cures, Crushes Hope, and Wastes Billions, by Richard Harris</a></li>
 <li><a href="https://www.coursera.org/learn/statistical-inferences">Improving your statistical inferences</a> - an online course on how to do better statistical analysis, including many of the points raised in this chapter.</li>
@@ -723,7 +744,7 @@ Figure 17.2: Left: A simulation of the winner’s curse as a function of statist
 
 </div>
 </div>
-<h3>References</h3>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-bake:2017" class="csl-entry">
 Baker, Monya. 2017. <span>“Reproducibility: Check Your Chemistry.”</span> <em>Nature</em> 548 (7668): 485–88. <a href="https://doi.org/10.1038/548485a">https://doi.org/10.1038/548485a</a>.
@@ -808,7 +829,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/statsthinking21/statsthinking21-core/edit/master/17-DoingReproducibleResearch.Rmd",
+"link": "https://github.com/statsthinking21/statsthinking21-core/edit/master/18-DoingReproducibleResearch.Rmd",
 "text": "Edit"
 },
 "history": {
