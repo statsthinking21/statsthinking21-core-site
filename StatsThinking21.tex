@@ -153,7 +153,7 @@
 
 \title{Statistical Thinking for the 21st Century}
 \author{Copyright 2019 Russell A. Poldrack}
-\date{Draft: 2022-06-28}
+\date{Draft: 2022-07-06}
 
 \begin{document}
 \maketitle
@@ -4853,8 +4853,8 @@ Applying K-means clustering to the latitude/longitude data (Figure \ref{fig:kmea
 
 Although in this example we know the actual clusters (that is, the continents of the world), in general we don't actually know the ground truth for unsupervised learning problems, so we simply have to trust that the clustering method has found useful structure in the data. However, one important point about K-means clustering, and iterative procedures in general, is that they are not guaranteed to give the same answer each time they are run. The use of random numbers to determine the starting points means that the starting points can differ each time, and depending on the data this can sometimes lead to different solutions being found. For this example, K-means clustering will sometimes find a single cluster encompassing both North and South America, and sometimes find two clusters (as it did for the specific choice of random seed used here). Whenever using a method that involves an iterative solution, it is important to rerun the method a number of times using different random seeds, to make sure that the answers don't diverge too greatly between runs. If they do, then one should avoid making strong conclusions based on the unstable results. In fact, it's probably a good idea to avoid strong conclusions on the basis of clustering results more generally; they are primarily useful for getting intuition about the structure that might be present in a dataset.
 
-\includegraphics{StatsThinking21_files/figure-latex/kmeans_sro-1.pdf}
-We can apply K-means clustering to the self-control variables in order to determine which variables are most closely related to one another. For K=2, the K-means algorithm consistently picks out one cluster containing the SSRT variables and one containing the impulsivity variables. With higher values of K, the results are less consistent; for example, with K=3 the algorithm sometimes identifies a third cluster containing only the UPPS sensation seeking variable, whereas in other cases it splits the SSRT variables into two separate clusters (as seen in Figure @ref(fig:kmeans\_sro)). The stability of the clusters with K=2 suggests that this is probably the most robust clustering for these data, but these results also highlight the importance of running the algorithm multiple times to determine whether any particular clustering result is stable.
+\includegraphics{StatsThinking21_files/figure-latex/kmeansSro-1.pdf}
+We can apply K-means clustering to the self-control variables in order to determine which variables are most closely related to one another. For K=2, the K-means algorithm consistently picks out one cluster containing the SSRT variables and one containing the impulsivity variables. With higher values of K, the results are less consistent; for example, with K=3 the algorithm sometimes identifies a third cluster containing only the UPPS sensation seeking variable, whereas in other cases it splits the SSRT variables into two separate clusters (as seen in Figure \ref{fig:kmeansSro}). The stability of the clusters with K=2 suggests that this is probably the most robust clustering for these data, but these results also highlight the importance of running the algorithm multiple times to determine whether any particular clustering result is stable.
 
 \hypertarget{hierarchical-clustering}{%
 \subsection{Hierarchical clustering}\label{hierarchical-clustering}}
@@ -4887,12 +4887,12 @@ The idea behind principal component analysis is to find a lower-dimensional desc
 
 We will start with a simple example with just two variables in order to give an intuition for how it works. First we generate some synthetic data for variables X and Y, with a correlation of 0.7 between the two variables. The goal of principal component analysis is to find a linear combination of the observed variables in the dataset that will explain the maximum amount of variance; the idea here is that the variance in the data is a combination of signal and noise, and we want to find the strongest common signal between the variables. The first principal component is the combination that explains the maximum variance. The second component is the the one that explains the maximum remaining variance, while also being uncorrelated with the first component. With more variables we can continue this process to obtain as many components as there are variables (assuming that there are more observations than there are variables), though in practice we usually hope to find a small number of components that can explain a large portion of the variance.
 
-In the case of our two-dimensional example, we can compute the principal components and plot them over the data (Figure @ref(fig:pca\_plot)). What we see is that the first principal component (shown in green) follows the direction of the greatest variance. This line is similar, though not identical, to the linear regression line; while the linear regression solution minimizes the distance between each data point and the regression line at the same X value (i.e.~the vertical distance), the principal component minimizes the Euclidean distance between the data points and the line representing the component (i.e.~the distance perpendicular to the component). The second component points in a direction that is perpendicular to the first component (which is equivalent to being uncorrelated).
+In the case of our two-dimensional example, we can compute the principal components and plot them over the data (Figure \ref{fig:pcaPlot}). What we see is that the first principal component (shown in green) follows the direction of the greatest variance. This line is similar, though not identical, to the linear regression line; while the linear regression solution minimizes the distance between each data point and the regression line at the same X value (i.e.~the vertical distance), the principal component minimizes the Euclidean distance between the data points and the line representing the component (i.e.~the distance perpendicular to the component). The second component points in a direction that is perpendicular to the first component (which is equivalent to being uncorrelated).
 
 \begin{figure}
 \centering
-\includegraphics{StatsThinking21_files/figure-latex/pca_plot-1.pdf}
-\caption{(\#fig:pca\_plot)A plot of synthetic data, with the first principal component plotted in green and the second in red.}
+\includegraphics{StatsThinking21_files/figure-latex/pcaPlot-1.pdf}
+\caption{\label{fig:pcaPlot}A plot of synthetic data, with the first principal component plotted in green and the second in red.}
 \end{figure}
 
 It's common to use PCA to reduce the dimensionality of a more complex dataset. For example, let's say that we would like to know whether performance on all four of the stop signal task variables in the earlier dataset are related to the five impulsivity survey variables. We can perform PCA on each of those datasets separately, and examine how much of the variance in the data is accounted for by the first principal component, which will serve as our summary of the data.
@@ -4929,11 +4929,11 @@ We could also perform PCA on all of these variables at once. Looking at the plot
 
 \begin{figure}
 \centering
-\includegraphics{StatsThinking21_files/figure-latex/pca_var_plot-1.pdf}
-\caption{(\#fig:pca\_var\_plot)Plot of variable loadings in PCA solution including all self-control variables. Each variable is shown in terms of its loadings on each of the two components; reflected in the two rows respectively.}
+\includegraphics{StatsThinking21_files/figure-latex/pcaVarPlot-1.pdf}
+\caption{\label{fig:pcaVarPlot}Plot of variable loadings in PCA solution including all self-control variables. Each variable is shown in terms of its loadings on each of the two components; reflected in the two rows respectively.}
 \end{figure}
 
-Doing this for the impulsivity dataset (Figure @ref(fig:pca\_var\_plot)), we see that the first component (in the first row of the figure) has nonzero loadings for most of the UPPS variables, and nearly zero loadings for each of the SSRT variables, whereas the opposite is true of the second principal component, which loads primarily on the SSRT variables. This tells us that the first principal component captured mostly variance related to the impulsivity measures, while the second component captured mostly variance related to the response inhibition measures. You might notice that the loadings are actually negative for most of these variables; the sign of the loadings is arbitrary, so we should make sure to look at large positive and negative loadings.
+Doing this for the impulsivity dataset (Figure \ref{fig:pcaVarPlot}), we see that the first component (in the first row of the figure) has nonzero loadings for most of the UPPS variables, and nearly zero loadings for each of the SSRT variables, whereas the opposite is true of the second principal component, which loads primarily on the SSRT variables. This tells us that the first principal component captured mostly variance related to the impulsivity measures, while the second component captured mostly variance related to the response inhibition measures. You might notice that the loadings are actually negative for most of these variables; the sign of the loadings is arbitrary, so we should make sure to look at large positive and negative loadings.
 
 \hypertarget{factor-analysis}{%
 \subsection{Factor analysis}\label{factor-analysis}}
@@ -4996,12 +4996,12 @@ Let's apply an exploratory factor analysis to our synthetic data. As with cluste
 
 One question that we would like to ask is how well our model actually fits the data. There is no single way to answer this question; rather, researchers have developed a number of different methods that provide some insight into how well the model fits the data. For example, one commonly used criterion is based on the \emph{root mean square error of approximation} (RMSEA) statistic, which quantifies how far the predicted covariances are from the actual covariances; a value of RMSEA less than 0.08 is often considered to reflect an adequately fitting model. In the example here, the RMSEA value is 0.026, which suggests a model that fits quite well.
 
-We can also examine the parameter estimates in order to see whether the model has appropriately identified the structure in the data. It's common to plot this as a graph, with arrows from the latent variables (represented as ellipses) pointing to the observed variables (represented as rectangles), where an arrow represents a substantial loading of the observed variable on the latent variable; this kind of graph is often referred to as a \emph{path diagram} since it reflects the paths relating the variables. This is shown in Figure @ref(fig:v{]}fa\_diagram). In this case the EFA procedure correctly identified the structure present in the data, both in terms of which observed variables are related to each of the latent variables, and in terms of the correlations between latent variables.
+We can also examine the parameter estimates in order to see whether the model has appropriately identified the structure in the data. It's common to plot this as a graph, with arrows from the latent variables (represented as ellipses) pointing to the observed variables (represented as rectangles), where an arrow represents a substantial loading of the observed variable on the latent variable; this kind of graph is often referred to as a \emph{path diagram} since it reflects the paths relating the variables. This is shown in Figure \ref{fig:faDiagram}. In this case the EFA procedure correctly identified the structure present in the data, both in terms of which observed variables are related to each of the latent variables, and in terms of the correlations between latent variables.
 
 \begin{figure}
 \centering
-\includegraphics{StatsThinking21_files/figure-latex/fa_diagram-1.pdf}
-\caption{(\#fig:fa\_diagram)Path diagram for the exploratory factor analysis model.}
+\includegraphics{StatsThinking21_files/figure-latex/faDiagram-1.pdf}
+\caption{\label{fig:faDiagram}Path diagram for the exploratory factor analysis model.}
 \end{figure}
 
 \hypertarget{determining-the-number-of-factors}{%
@@ -5009,23 +5009,23 @@ We can also examine the parameter estimates in order to see whether the model ha
 
 One of the main challenges in applying EFA is to determine the number of factors. A common way to do this is to examine the fit of the model while varying the number of factors, and then selecting the model that gives the best fit. This is not foolproof, and there are multiple ways to quantify the fit of the model that can sometimes give different answers.
 
-One might think that we could simply look at how well the model fits and pick the number of factors with the best fit, but this won't work, because a more complex model will always fit the data better (as we saw in our earlier discussion of overfitting). For this reason, we need to use a metric of model fit that penalizes for the number of parameters in the model. For the purposes of this example we will select one of the common methods for quantifying model fit, which is known as the \emph{sample-size adjusted Bayesian information criterion} (or \emph{SABIC}). This measure quantifies how well the model fits the data, while also taking into account the number of parameters in the model (which in this case is related to the number of factors) as well as the sample size. While the absolute value of the SABIC is not interpretable, when using the same data and same kind of model we can compare models using SABIC to determine which is most appropriate for the data. One important thing to know about SABIC and other measures like it (known as \emph{information criteria}) is that lower values represent better fit of the model, so in this case we want to find the number of factors with the lowest SABIC. In Figure @ref(fig:sabic\_plot) we see that the model with the lowest SABIC has three factors, which shows that this approach was able to accurately determine the number of factors used to generate the data.
+One might think that we could simply look at how well the model fits and pick the number of factors with the best fit, but this won't work, because a more complex model will always fit the data better (as we saw in our earlier discussion of overfitting). For this reason, we need to use a metric of model fit that penalizes for the number of parameters in the model. For the purposes of this example we will select one of the common methods for quantifying model fit, which is known as the \emph{sample-size adjusted Bayesian information criterion} (or \emph{SABIC}). This measure quantifies how well the model fits the data, while also taking into account the number of parameters in the model (which in this case is related to the number of factors) as well as the sample size. While the absolute value of the SABIC is not interpretable, when using the same data and same kind of model we can compare models using SABIC to determine which is most appropriate for the data. One important thing to know about SABIC and other measures like it (known as \emph{information criteria}) is that lower values represent better fit of the model, so in this case we want to find the number of factors with the lowest SABIC. In Figure \ref{fig:sabicPlot} we see that the model with the lowest SABIC has three factors, which shows that this approach was able to accurately determine the number of factors used to generate the data.
 
 \begin{figure}
 \centering
-\includegraphics{StatsThinking21_files/figure-latex/sabic_plot-1.pdf}
-\caption{(\#fig:sabic\_plot)Plot of SABIC for varying numbers of factors.}
+\includegraphics{StatsThinking21_files/figure-latex/sabicPlot-1.pdf}
+\caption{\label{fig:sabicPlot}Plot of SABIC for varying numbers of factors.}
 \end{figure}
 
 Now let's see what happens when we apply this model to real data from the Eisenberg et al.~dataset, which contains measurements of all of the eight variables that were simulated in the above example. The model with three factors also has the lowest SABIC for these real data.
 
 \begin{figure}
 \centering
-\includegraphics{StatsThinking21_files/figure-latex/fa_diagram_sro-1.pdf}
-\caption{(\#fig:fa\_diagram\_sro)Path diagram for the three-factor model on the Eisenberg et al.~data.}
+\includegraphics{StatsThinking21_files/figure-latex/faDiagramSro-1.pdf}
+\caption{\label{fig:faDiagramSro}Path diagram for the three-factor model on the Eisenberg et al.~data.}
 \end{figure}
 
-Plotting the path diagram (Figure @ref(fig:fa\_diagram\_sro)) we see that the real data demonstrate a factor structure that is very similar to what we saw with the simulated data. This should not be surprising, since the simulated data were generated based on knowledge of these different tasks, but it's comforting to know that human behavior is systematic enough that we can reliably identify these kinds of relationships. The main difference is that the correlation between the working memory factor (MR3) and the fluid reasoning factor (MR1) is even higher than it was in the simulated data. This result is scientifically useful because it shows us that while working memory and fluid reasoning are closely related, there is utility in separately modeling them.
+Plotting the path diagram (Figure \ref{fig:faDiagramSro}) we see that the real data demonstrate a factor structure that is very similar to what we saw with the simulated data. This should not be surprising, since the simulated data were generated based on knowledge of these different tasks, but it's comforting to know that human behavior is systematic enough that we can reliably identify these kinds of relationships. The main difference is that the correlation between the working memory factor (MR3) and the fluid reasoning factor (MR1) is even higher than it was in the simulated data. This result is scientifically useful because it shows us that while working memory and fluid reasoning are closely related, there is utility in separately modeling them.
 
 \hypertarget{learning-objectives-15}{%
 \section{Learning objectives}\label{learning-objectives-15}}

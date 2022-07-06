@@ -117,8 +117,14 @@ fig:hmap
 fig:parcelheatmap
 fig:eucdist
 fig:kmeans
+fig:kmeansSro
 fig:dendro
+fig:pcaPlot
 fig:VAF
+fig:pcaVarPlot
+fig:faDiagram
+fig:sabicPlot
+fig:faDiagramSro
 fig:AtoZBMIChangeDensity
 fig:residualPlot
 fig:diagnosticQQPlot
